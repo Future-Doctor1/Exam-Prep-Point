@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="png" href="favicon.png">
+<!-- ===== SEO META TAGS ===== -->
+<title>Physics Unit 2 Notes: Vectors &amp; Equilibrium </title>
+<meta name="description" content="Complete Entry Test Physics Unit 2 guide to Vectors &amp; Equilibrium — vector addition, resolution, rectangular components, scalar &amp; vector product, torque, and conditions of equilibrium — with high-yield points, exam tips, and a free 60-MCQ live test.">
+<meta name="keywords" content="Vectors and Equilibrium notes, Physics Unit 2, MDCAT Physics, ECAT Physics, resolution of vectors, rectangular components, scalar product, vector product, torque, equilibrium conditions, DHW Academy, entrance exam physics, Physics MCQs">
+<meta name="author" content="DHW Academy">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dhwacademy.example.com/physics-unit-2-vectors-equilibrium">
+
+<!-- ===== OPEN GRAPH / SOCIAL ===== -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Physics Unit 2 Notes: Vectors &amp; Equilibrium (Complete Guide)">
+<meta property="og:description" content="Everything you need on Physics Unit 2 — vectors, rectangular components, scalar &amp; vector product, torque, and equilibrium — plus a free 60-MCQ live test.">
+<meta property="og:site_name" content="DHW Academy">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Physics Unit 2: Vectors &amp; Equilibrium">
+<meta name="twitter:description" content="High-yield Physics notes on Vectors &amp; Equilibrium with a free practice test.">
+
+<!-- ===== FAQ STRUCTURED DATA (SEO rich results) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What topics are covered in Physics Unit 2, Vectors and Equilibrium?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unit 2 covers scalars and vectors, the rectangular coordinate system, vector addition and subtraction, resolution into rectangular components, the scalar (dot) and vector (cross) products, torque, and the two conditions of equilibrium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between the scalar product and vector product of two vectors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The scalar (dot) product of two vectors gives a scalar quantity equal to AB cosθ, while the vector (cross) product gives a vector quantity equal to AB sinθ in a direction perpendicular to both vectors, found using the right-hand rule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the two conditions of equilibrium?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first condition of equilibrium requires the vector sum of all forces acting on a body to be zero, ensuring translational equilibrium. The second condition requires the vector sum of all torques about any axis to be zero, ensuring rotational equilibrium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can a vector not have more than three rectangular components?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Space has only three mutually perpendicular directions, so a vector can have at most three mutually independent rectangular components, one along each of the x, y, and z axes."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#16233f; --paper:#eef1f6; --paper-2:#ffffff; --line:#c9d3e2;
+    --navy:#132a52; --navy-2:#1d3f73; --amber:#c1441e; --coral:#8a2e1c; --slide:#dde7f6;
+    --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    line-height:1.65;
+  }
+  header{
+    background:var(--navy); color:#eef1f6; padding:34px 20px;
+    border-bottom:5px solid var(--amber);
+  }
+  header .inner{ max-width:820px; margin:0 auto; }
+  .brand-label{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#a9bcd6; margin-bottom:10px;}
+  h1{ margin:0 0 10px; font-size:32px; font-weight:400; line-height:1.25; }
+  h1 em{ font-style:italic; color:#f3d9ad; }
+  .dek{ font-size:16px; color:#d7dfec; max-width:640px; }
+  .byline{ font-family:var(--mono); font-size:11px; color:#a9bcd6; margin-top:16px; letter-spacing:.05em; }
+
+  main{ max-width:820px; margin:0 auto; padding:34px 20px 80px; }
+
+  .toc{
+    background:var(--paper-2); border:1px solid var(--line); border-left:4px solid var(--navy);
+    border-radius:3px; padding:20px 24px; margin-bottom:36px;
+  }
+  .toc-title{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--navy-2); margin-bottom:10px;}
+  .toc ol{ margin:0; padding-left:20px; }
+  .toc li{ margin-bottom:6px; }
+  .toc a{ color:var(--navy-2); text-decoration:none; border-bottom:1px dotted var(--navy-2); }
+  .toc a:hover{ color:var(--navy); }
+
+  h2{
+    font-size:24px; color:var(--navy); margin:44px 0 14px;
+    padding-bottom:8px; border-bottom:2px solid var(--slide);
+  }
+  h3{ font-size:18px; color:var(--navy-2); margin:26px 0 10px; }
+  p{ margin:0 0 16px; font-size:16.5px; }
+  ul, ol{ margin:0 0 16px; padding-left:22px; }
+  li{ margin-bottom:6px; font-size:16.5px; }
+
+  a{ color:var(--navy-2); }
+  a.ext::after{ content:" ↗"; font-size:12px; }
+
+  .callout{
+    background:var(--slide); border:1px solid #b9c9e6; border-radius:3px;
+    padding:16px 20px; margin:20px 0; font-size:15.5px;
+  }
+  .callout b{ color:var(--navy); }
+
+  table{ width:100%; border-collapse:collapse; margin:18px 0 22px; font-size:15px; }
+  th, td{ border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  th{ background:var(--slide); font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--navy-2);}
+  tr:nth-child(even) td{ background:#f6f8fb; }
+
+  .cta{
+    background:var(--navy); color:#eef1f6; border-radius:4px; padding:26px 28px;
+    margin:40px 0; text-align:center;
+  }
+  .cta h3{ color:#f3d9ad; margin-top:0; font-size:20px; }
+  .cta a.btn{
+    display:inline-block; margin-top:12px; padding:11px 22px; background:var(--amber);
+    color:#fff; text-decoration:none; border-radius:2px; font-family:var(--mono);
+    font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .cta a.btn:hover{ background:#a4381a; }
+
+  .faq-item{ margin-bottom:18px; }
+  .faq-q{ font-weight:bold; color:var(--navy); margin-bottom:4px; }
+
+  .sources{ font-size:14px; color:#5c6a80; }
+  .sources li{ font-size:14px; margin-bottom:4px; }
+
+  footer{
+    text-align:center; font-family:var(--mono); font-size:11px; color:#7b879a; padding:24px;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="brand-label">· Entry Test Study Guides</div>
+    <h1>Physics Unit 2: <em>Vectors &amp; Equilibrium</em> — Complete Guide</h1>
+    <p class="dek">Scalars vs. vectors, resolution into rectangular components, the scalar and vector products, torque, and the two conditions of equilibrium — explained the way entrance tests actually ask them, with common trap questions and a free 60-MCQ live test.</p>
+    <div class="byline">Exam Prep Point · UPDATED FOR ENTRY TEST 2026 · ~9 MIN READ</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="toc">
+    <div class="toc-title">On this page</div>
+    <ol>
+      <li><a href="#why-unit-2">Why Vectors &amp; Equilibrium Is a High-Yield Chapter</a></li>
+      <li><a href="#scalars-vectors">Scalars, Vectors &amp; the Coordinate System</a></li>
+      <li><a href="#addition">Addition, Subtraction &amp; Multiplication of Vectors</a></li>
+      <li><a href="#resolution">Resolution into Rectangular Components</a></li>
+      <li><a href="#scalar-product">Scalar (Dot) Product</a></li>
+      <li><a href="#vector-product">Vector (Cross) Product</a></li>
+      <li><a href="#torque">Torque</a></li>
+      <li><a href="#equilibrium">Equilibrium &amp; Its Conditions</a></li>
+      <li><a href="#mistakes">Common Mistakes in This Chapter</a></li>
+      <li><a href="#practice">Free Practice: 60-MCQ Live Test</a></li>
+      <li><a href="#faq">FAQs</a></li>
+    </ol>
+  </div>
+
+  <p>Unit 2 of Entry Test Physics — <strong>Vectors &amp; Equilibrium</strong> — is the foundation on which mechanics, dynamics, and later chapters on work, energy, and rotational motion are all built. It is also one of the most reliably tested chapters across MDCAT, ECAT, and DHW Academy topic-wise papers, since it combines conceptual definitions with short, calculation-based MCQs that reward precision.</p>
+
+  <h2 id="why-unit-2">Why Vectors &amp; Equilibrium Is a High-Yield Chapter</h2>
+  <p>This chapter typically contributes several direct MCQs to every entry-test-style paper, and its ideas resurface indirectly in questions on work, torque, circular motion, and statics later in the syllabus. Examiners favor it because it rewards exact distinctions — scalar vs. vector, resolution vs. composition, dot product vs. cross product, translational vs. rotational equilibrium — which are simple to test and easy to mix up under time pressure. For related foundational reading on how vector concepts apply across physics, see our <a href="#practice">Unit 2 practice test</a> below once you've reviewed the notes.</p>
+
+  <div class="callout"><b>Exam tip:</b> A large share of Unit 2 MCQs are "which quadrant" or "what angle" questions built from Rx and Ry signs, or short numeric questions on maximum/minimum resultant. Master the quadrant rules and the special cases (θ = 0°, 90°, 180°) first — they alone unlock a big share of the marks.</p></div>
+
+  <h2 id="scalars-vectors">1. Scalars, Vectors &amp; the Coordinate System</h2>
+  <p>A physical quantity fully described by magnitude alone is a <strong>scalar</strong> (time, mass, work, speed), while a quantity that needs both magnitude and direction is a <strong>vector</strong> (force, velocity, displacement, torque). Note the classic trap: time and electric current have a sense of direction in casual speech, but they are still scalars because they do not obey the laws of vector addition.</p>
+  <ul>
+    <li><strong>Modulus of a vector</strong> — its magnitude only, written |A⃗|; two vectors can have equal modulus but still not be equal if their directions differ.</li>
+    <li><strong>Unit vector</strong> — a vector of magnitude one in a given direction, Â = A⃗ / A, used to specify direction without magnitude.</li>
+    <li><strong>Position vector</strong> — describes a point's location relative to the origin; in space, r⃗ = aî + bĵ + ck̂.</li>
+    <li><strong>Rectangular coordinate system</strong> — a 2D plane needs only one angle to fix a vector's direction, while 3D space needs three angles (α, β, γ) with the axes.</li>
+  </ul>
+  <p>For a broader refresher on vector notation before working through Unit 2 problems, the <a class="ext" href="https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/a/what-are-vectors" target="_blank" rel="noopener">Khan Academy introduction to vectors</a> is a useful outside reference.</p>
+
+  <h2 id="addition">2. Addition, Subtraction &amp; Multiplication of Vectors</h2>
+  <p>Vectors are added graphically by the <strong>head-to-tail rule</strong>: the tail of the second vector is placed on the head of the first, and the resultant is drawn from the tail of the first to the head of the last. Addition is commutative (A⃗ + B⃗ = B⃗ + A⃗), but subtraction is not, since A⃗ − B⃗ = A⃗ + (−B⃗) reverses the direction of only one vector.</p>
+  <table>
+    <tr><th>Case</th><th>Angle θ</th><th>Resultant R</th></tr>
+    <tr><td>Parallel vectors</td><td>0°</td><td>R = A + B (maximum)</td></tr>
+    <tr><td>Anti-parallel vectors</td><td>180°</td><td>R = A − B (minimum)</td></tr>
+    <tr><td>Perpendicular vectors</td><td>90°</td><td>R = √(A² + B²)</td></tr>
+  </table>
+  <p>By the parallelogram law, the general resultant of two vectors is R = √(A² + B² + 2AB cosθ). A frequently tested rule: the resultant of two vectors of unequal magnitude can never be zero, and the minimum number of equal vectors whose resultant can be zero is two for collinear vectors, three for coplanar vectors, and four for non-coplanar vectors.</p>
+
+  <h2 id="resolution">3. Resolution into Rectangular Components</h2>
+  <p>Resolution is the reverse of composition — splitting one vector into two or more mutually perpendicular components. In a plane, a vector has a maximum of two rectangular components; in space, a maximum of three. If a vector A⃗ makes angle θ with the x-axis, its rectangular components are:</p>
+  <p style="font-family:var(--mono); font-size:15px;">Aₓ = A cosθ &nbsp;&nbsp; Aᵧ = A sinθ</p>
+  <p>and conversely, the magnitude and direction can be recovered from the components using A = √(Aₓ² + Aᵧ²) and θ = tan⁻¹(Aᵧ / Aₓ). Watch the axis convention carefully: if the angle is instead measured from the <em>y-axis</em>, the sine and cosine components swap places — a detail examiners exploit often. For any number of coplanar vectors, the resultant is found by adding all x-components and all y-components separately before recombining them.</p>
+
+  <h2 id="scalar-product">4. Scalar (Dot) Product</h2>
+  <p>When the product of two vectors yields a scalar quantity, it is called the scalar or dot product: A⃗ • B⃗ = AB cosθ. Physically, it equals the magnitude of one vector multiplied by the component of the second vector along the direction of the first.</p>
+  <ul>
+    <li>Dot product is <strong>commutative</strong>: A⃗ • B⃗ = B⃗ • A⃗.</li>
+    <li>For perpendicular vectors (θ = 90°): A⃗ • B⃗ = 0, and î•ĵ = ĵ•k̂ = k̂•î = 0.</li>
+    <li>For parallel vectors (θ = 0°): A⃗ • B⃗ = AB, the positive maximum value; for anti-parallel vectors it is −AB, the negative maximum.</li>
+    <li>The self-dot-product of a vector equals the square of its magnitude: A⃗ • A⃗ = A².</li>
+  </ul>
+  <p>Everyday examples of scalar products that show up in numericals include work (W = F⃗ • d⃗), power (P = F⃗ • v⃗), and electric flux (φ = E⃗ • A⃗).</p>
+
+  <h2 id="vector-product">5. Vector (Cross) Product</h2>
+  <p>When the product of two vectors yields a vector quantity, it is the vector or cross product: A⃗ × B⃗ = AB sinθ n̂, where n̂ is the unit vector perpendicular to the plane of A⃗ and B⃗, found using the <strong>right-hand rule</strong>.</p>
+  <ul>
+    <li>Cross product is <strong>non-commutative</strong>: B⃗ × A⃗ = −(A⃗ × B⃗).</li>
+    <li>Maximum magnitude occurs for perpendicular vectors (θ = 90°): A⃗ × B⃗ = AB n̂.</li>
+    <li>For parallel or anti-parallel vectors (θ = 0° or 180°), the cross product is a null vector; the self-cross-product of any vector, A⃗ × A⃗, is always a null vector.</li>
+    <li>|A⃗ × B⃗| equals the area of the parallelogram formed by the two vectors as adjacent sides — a common numerical trick.</li>
+  </ul>
+  <p>Physical examples include torque (τ⃗ = r⃗ × F⃗), the magnetic force on a moving charge (F⃗ = q(v⃗ × B⃗)), and angular momentum (L⃗ = r⃗ × p⃗). For a rigorous walkthrough of vector products beyond entry-test scope, see the <a class="ext" href="http://hyperphysics.phy-astr.gsu.edu/hbase/vect.html" target="_blank" rel="noopener">HyperPhysics page on vector operations</a>.</p>
+
+  <h2 id="torque">6. Torque</h2>
+  <p>Torque is the rotational analogue of force — the turning effect of a force applied to a body capable of rotation: τ⃗ = r⃗ × F⃗, with SI unit newton-metre (Nm). Its magnitude is τ = rF sinθ, where θ is the angle between the position vector (moment arm) and the applied force.</p>
+  <ul>
+    <li>If r⃗ and F⃗ are parallel or anti-parallel (θ = 0°, 180°), torque is minimum (zero).</li>
+    <li>If r⃗ and F⃗ are perpendicular (θ = 90°), torque is maximum, τ = rF.</li>
+    <li>A <strong>couple</strong> is formed when two equal but opposite forces act on a body without sharing the same line of action; couple = (force)(perpendicular distance between the forces).</li>
+  </ul>
+
+  <div class="callout"><b>High-yield fact:</b> Torque is to angular motion what force is to linear motion — τ = Iα mirrors F = ma exactly. If a body is at rest or rotating with uniform angular velocity, net torque is zero, just as net force is zero for uniform linear velocity.</div>
+
+  <h2 id="equilibrium">7. Equilibrium &amp; Its Conditions</h2>
+  <p>A body at rest or moving with uniform velocity is in a state of <strong>equilibrium</strong>. Static equilibrium means a = 0 and v = 0 (a book on a table); dynamic equilibrium means a = 0 but v ≠ 0 (a car moving at constant velocity, or a body spinning at constant angular velocity).</p>
+  <table>
+    <tr><th>Condition</th><th>Requirement</th><th>Result</th></tr>
+    <tr><td>1st condition (forces)</td><td>ΣF⃗ = 0, i.e., ΣFₓ = 0 and ΣFᵧ = 0</td><td>Translational equilibrium — zero linear acceleration</td></tr>
+    <tr><td>2nd condition (torques)</td><td>Στ⃗ = 0 — sum of clockwise torques equals sum of anticlockwise torques</td><td>Rotational equilibrium — zero angular acceleration</td></tr>
+  </table>
+  <p>A body is in <strong>complete equilibrium</strong> only when both conditions hold simultaneously. The three states of equilibrium — stable (a marble at the bottom of a bowl), unstable (a marble balanced at the top of a dome), and neutral (a marble on a flat table) — describe how a body responds after a slight disturbance, and are a favorite conceptual MCQ topic.</p>
+
+  <h2 id="mistakes">Common Mistakes in This Chapter</h2>
+  <ol>
+    <li>Assuming a quantity with both magnitude and a stated direction must be a vector — time and electric current are counterexamples because they fail vector addition.</li>
+    <li>Swapping sinθ and cosθ when the given angle is measured from the y-axis instead of the x-axis.</li>
+    <li>Forgetting that vector subtraction is non-commutative, unlike addition.</li>
+    <li>Confusing the scalar product's cosθ with the vector product's sinθ, especially when both appear in the same numerical.</li>
+    <li>Treating equilibrium as requiring a body to be at rest — dynamic equilibrium (uniform velocity or uniform angular velocity) is still equilibrium.</li>
+  </ol>
+
+  <div class="cta" id="practice">
+    <h3>Test Yourself: Unit 2 Live MCQ Test</h3>
+    <p>Put these concepts to the test with a free, timed 60-MCQ live test covering scalars &amp; vectors, resolution, rectangular components, scalar &amp; vector products, torque, and equilibrium — compiled in the same format DHW Academy uses for its daily tests.</p>
+    <a class="btn" href="Phsics-Unit2-vectors_equilibrium_live_test.html">Start the Unit 2 Live Test →</a>
+  </div>
+
+  <h2 id="faq">Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-q">What topics are covered in Physics Unit 2, Vectors and Equilibrium?</div>
+    <p>Unit 2 covers scalars and vectors, the rectangular coordinate system, vector addition and subtraction, resolution into rectangular components, the scalar (dot) and vector (cross) products, torque, and the two conditions of equilibrium.</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What is the difference between the scalar product and vector product of two vectors?</div>
+    <p>The scalar (dot) product of two vectors gives a scalar quantity equal to AB cosθ, while the vector (cross) product gives a vector quantity equal to AB sinθ in a direction perpendicular to both vectors, found using the right-hand rule.</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What are the two conditions of equilibrium?</div>
+    <p>The first condition requires the vector sum of all forces acting on a body to be zero, ensuring translational equilibrium. The second condition requires the vector sum of all torques about any axis to be zero, ensuring rotational equilibrium.</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Why can a vector not have more than three rectangular components?</div>
+    <p>Space has only three mutually perpendicular directions, so a vector can have at most three mutually independent rectangular components, one along each of the x, y, and z axes.</p>
+  </div>
+
+  <h3>Related Reading</h3>
+  <ul class="sources">
+    <li><a class="ext" href="https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/a/what-are-vectors" target="_blank" rel="noopener">Khan Academy — Introduction to Vectors</a></li>
+    <li><a class="ext" href="http://hyperphysics.phy-astr.gsu.edu/hbase/vect.html" target="_blank" rel="noopener">HyperPhysics — Vector Operations Reference</a></li>
+    <li><a href="Phsics-Unit2-vectors_equilibrium_live_test.html">Exam Prep Point— Unit 2 Live Test (60 MCQs)</a></li>
+    <li><a href="Biology_Unit2_Article.html">Exam Prep POint — Biology Unit 2: Biological Molecules &amp; Enzymes</a></li>
+    <li><a class="ext" href="https://whatsapp.com/channel/0029VakVciPC1FuAfaj7iH1e" target="_blank" rel="noopener">Follow Exam Prep Point on WhatsApp for daily entry-test material</a></li>
+  </ul>
+
+</main>
+
+<footer>Exam Prep Point · Entrance Exam Guidance  · Notes compiled for entry-test preparation</footer>
+
+</body>
+</html>

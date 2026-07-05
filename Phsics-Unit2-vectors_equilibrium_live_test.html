@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="png" href="favicon.png">
+<title>Vectors &amp; Equilibrium — Live Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c2434;
+    --ink-2:#0f2e42;
+    --panel:#123449;
+    --panel-2:#0e2c3f;
+    --grid-line: rgba(140,190,210,0.08);
+    --paper:#f3ecd9;
+    --paper-2:#e9e0c8;
+    --paper-line: rgba(20,40,55,0.12);
+    --amber:#e2a53d;
+    --cyan:#6fd3d9;
+    --cyan-dim:#4c9aa1;
+    --ok:#5cb787;
+    --bad:#dd6f60;
+    --text-dark:#1c2b33;
+    --text-mute:#5b6f78;
+    --white:#f6f3ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .app{
+    font-family:'IBM Plex Mono', monospace;
+    background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0/32px 32px,
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0/32px 32px,
+      radial-gradient(ellipse at 20% -10%, #163d55 0%, var(--ink) 55%),
+      var(--ink);
+    color:var(--white);
+    min-height:100vh;
+    padding:28px 20px 60px;
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  /* ---------- Header ---------- */
+  .head{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+    padding-bottom:16px; margin-bottom:22px; flex-wrap:wrap; gap:14px;
+  }
+  .head .brand{display:flex; align-items:center; gap:14px;}
+  .compass{width:44px;height:44px;flex:none;}
+  .brand h1{
+    font-family:'Newsreader', serif; font-weight:600; font-style:italic;
+    font-size:26px; margin:0; letter-spacing:.2px; color:var(--white);
+  }
+  .brand .tag{
+    font-size:10.5px; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--cyan); margin-top:3px;
+  }
+  .meta-strip{
+    display:flex; gap:22px; font-size:11px; letter-spacing:1px;
+    text-transform:uppercase; color:rgba(246,243,234,0.65);
+  }
+  .meta-strip b{color:var(--amber); font-size:13px; letter-spacing:0;}
+
+  /* ---------- Start screen ---------- */
+  .start-card{
+    background:var(--panel); border:1px solid rgba(255,255,255,0.1);
+    border-radius:4px; padding:40px clamp(20px,5vw,56px); position:relative;
+    overflow:hidden;
+  }
+  .start-card::before{
+    content:""; position:absolute; inset:0;
+    background: repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 14px);
+    pointer-events:none;
+  }
+  .start-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center;}
+  @media (max-width:780px){ .start-grid{grid-template-columns:1fr;} }
+  .start-card h2{
+    font-family:'Newsreader', serif; font-weight:600; font-size:34px; line-height:1.15;
+    margin:0 0 14px; color:var(--white);
+  }
+  .start-card p{color:rgba(246,243,234,0.75); line-height:1.7; font-size:14px; max-width:46ch;}
+  .stat-row{display:flex; gap:0; margin:26px 0; border-top:1px solid rgba(255,255,255,0.14); border-bottom:1px solid rgba(255,255,255,0.14);}
+  .stat{flex:1; padding:16px 10px; border-right:1px solid rgba(255,255,255,0.14);}
+  .stat:last-child{border-right:none;}
+  .stat .n{font-family:'Newsreader', serif; font-size:30px; color:var(--amber); font-weight:600;}
+  .stat .l{font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(246,243,234,0.6); margin-top:4px;}
+  .rules{list-style:none; margin:0 0 28px; padding:0; font-size:12.5px; color:rgba(246,243,234,0.72); line-height:2;}
+  .rules li{padding-left:20px; position:relative;}
+  .rules li::before{content:"—"; position:absolute; left:0; color:var(--cyan);}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:1px;
+    text-transform:uppercase; font-size:12.5px; border:none; cursor:pointer;
+    padding:15px 30px; border-radius:2px; transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--amber); color:#241505; box-shadow:0 3px 0 #9c6c1e;}
+  .btn-primary:hover{box-shadow:0 4px 0 #9c6c1e; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; border:1px solid rgba(255,255,255,0.35); color:var(--white);}
+  .btn-ghost:hover{border-color:var(--cyan); color:var(--cyan);}
+  .protractor-svg{width:100%; max-width:280px; display:block; margin:0 auto;}
+
+  /* ---------- Test screen ---------- */
+  .test-layout{display:grid; grid-template-columns:1fr 260px; gap:22px; align-items:start;}
+  @media (max-width:880px){ .test-layout{grid-template-columns:1fr;} }
+
+  .topbar{
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--panel-2); border:1px solid rgba(255,255,255,0.1);
+    padding:12px 18px; border-radius:4px; margin-bottom:16px; grid-column:1/-1;
+    flex-wrap:wrap; gap:10px;
+  }
+  .progress-outer{flex:1; min-width:160px; margin:0 18px;}
+  .progress-label{font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(246,243,234,0.55); margin-bottom:6px;}
+  .progress-bar{height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;}
+  .progress-fill{height:100%; background:linear-gradient(90deg, var(--cyan-dim), var(--cyan)); width:0%; transition:width .25s ease;}
+  .timer{
+    font-family:'Newsreader', serif; font-size:22px; font-weight:600; color:var(--amber);
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+  }
+  .timer .dot{width:8px;height:8px;border-radius:50%;background:var(--ok); box-shadow:0 0 0 3px rgba(92,183,135,0.25);}
+  .timer.low .dot{background:var(--bad); box-shadow:0 0 0 3px rgba(221,111,96,0.25);}
+  .timer.low{color:var(--bad);}
+
+  .qcard{
+    background:var(--paper); color:var(--text-dark); border-radius:4px;
+    padding:34px clamp(20px,4vw,44px); position:relative; min-height:420px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+    background-image: linear-gradient(var(--paper-line) 1px, transparent 1px);
+    background-size: 100% 34px;
+  }
+  .qcard-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .qnum{font-family:'Newsreader', serif; font-style:italic; font-size:15px; color:var(--text-mute); letter-spacing:.5px;}
+  .qmark{font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--cyan-dim); font-weight:600;}
+  .qtext{
+    font-family:'Newsreader', serif; font-size:22px; line-height:1.5; font-weight:500;
+    margin:14px 0 26px; color:var(--text-dark); max-width:66ch;
+  }
+  .diagram-box{
+    background:#0f2e42; border-radius:4px; padding:18px; margin:0 0 26px; max-width:420px;
+  }
+  .diagram-box svg{width:100%; height:auto; display:block;}
+
+  .options{display:flex; flex-direction:column; gap:12px;}
+  .opt{
+    display:flex; align-items:center; gap:14px;
+    border:1.5px solid rgba(28,43,51,0.25); border-radius:3px;
+    padding:13px 16px; cursor:pointer; background:rgba(255,255,255,0.35);
+    transition: border-color .12s ease, background .12s ease;
+    font-size:15px;
+  }
+  .opt:hover{border-color:var(--cyan-dim); background:rgba(111,211,217,0.12);}
+  .opt.selected{border-color:var(--amber); background:rgba(226,165,61,0.18);}
+  .opt .letter{
+    width:26px; height:26px; border-radius:50%; border:1.5px solid currentColor;
+    display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;
+    flex:none; color:var(--text-mute);
+  }
+  .opt.selected .letter{color:#8a5c0f; border-color:#8a5c0f;}
+
+  .qnav{display:flex; justify-content:space-between; align-items:center; margin-top:28px;}
+  .qnav .side{display:flex; gap:10px;}
+
+  .side-panel{
+    background:var(--panel-2); border:1px solid rgba(255,255,255,0.1);
+    border-radius:4px; padding:18px; position:sticky; top:20px;
+  }
+  .side-title{font-size:10.5px; text-transform:uppercase; letter-spacing:1.8px; color:rgba(246,243,234,0.55); margin-bottom:12px;}
+  .grid-nums{display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin-bottom:18px;}
+  .gn{
+    aspect-ratio:1; border-radius:3px; border:1px solid rgba(255,255,255,0.15);
+    background:transparent; color:rgba(246,243,234,0.65); font-size:11px; cursor:pointer;
+    font-family:'IBM Plex Mono', monospace; display:flex; align-items:center; justify-content:center;
+  }
+  .gn.answered{background:rgba(111,211,217,0.18); border-color:var(--cyan-dim); color:var(--cyan);}
+  .gn.current{border-color:var(--amber); color:var(--amber); box-shadow:0 0 0 2px rgba(226,165,61,0.3);}
+  .legend{display:flex; flex-direction:column; gap:6px; font-size:10.5px; color:rgba(246,243,234,0.6); margin-bottom:18px;}
+  .legend span{display:inline-flex; align-items:center; gap:8px;}
+  .sw{width:10px;height:10px;border-radius:2px; display:inline-block;}
+
+  /* ---------- Results ---------- */
+  .results{background:var(--panel); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:clamp(20px,4vw,48px);}
+  .score-hero{display:flex; align-items:center; gap:34px; flex-wrap:wrap; border-bottom:1px solid rgba(255,255,255,0.14); padding-bottom:26px; margin-bottom:26px;}
+  .score-ring{
+    width:150px; height:150px; border-radius:50%; flex:none;
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .score-ring svg{position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg);}
+  .score-ring .num{font-family:'Newsreader', serif; font-size:36px; font-weight:600; color:var(--white); position:relative; z-index:1;}
+  .score-ring .den{font-size:12px; color:rgba(246,243,234,0.5); position:relative; z-index:1;}
+  .score-copy h2{font-family:'Newsreader', serif; font-size:28px; margin:0 0 8px;}
+  .score-copy p{color:rgba(246,243,234,0.7); font-size:13.5px; max-width:48ch; line-height:1.6;}
+  .breakdown{display:flex; gap:26px; margin-top:16px; flex-wrap:wrap;}
+  .bd-item{font-size:12px; color:rgba(246,243,234,0.6);}
+  .bd-item b{display:block; font-family:'Newsreader', serif; font-size:20px; color:var(--white); font-weight:600;}
+
+  .review-list{display:flex; flex-direction:column; gap:14px;}
+  .review-item{background:var(--paper); border-radius:4px; padding:18px 22px; color:var(--text-dark);}
+  .review-item .rtop{display:flex; justify-content:space-between; gap:12px; align-items:baseline; margin-bottom:6px;}
+  .review-item .rnum{font-family:'Newsreader', serif; font-style:italic; font-size:13px; color:var(--text-mute);}
+  .tag{font-size:10px; letter-spacing:1px; text-transform:uppercase; font-weight:700; padding:2px 8px; border-radius:10px;}
+  .tag.ok{background:rgba(92,183,135,0.18); color:#2e7752;}
+  .tag.bad{background:rgba(221,111,96,0.18); color:#b64738;}
+  .tag.skip{background:rgba(91,111,120,0.18); color:#5b6f78;}
+  .review-item .rq{font-family:'Newsreader', serif; font-size:16.5px; margin:0 0 10px;}
+  .rows{display:flex; flex-direction:column; gap:4px; font-size:13px;}
+  .rows .ans{color:var(--text-mute);}
+  .rows .ans b{color:#2e7752;}
+  .rows .yours b{color:#b64738;}
+
+  .hidden{display:none !important;}
+  footer.note{text-align:center; font-size:11px; color:rgba(246,243,234,0.4); margin-top:26px; letter-spacing:.5px;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="wrap">
+
+    <div class="head">
+      <div class="brand">
+        <svg class="compass" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="20" stroke="#e2a53d" stroke-width="1.4"/>
+          <circle cx="22" cy="22" r="2" fill="#e2a53d"/>
+          <line x1="22" y1="4" x2="22" y2="10" stroke="#6fd3d9" stroke-width="1.4"/>
+          <line x1="22" y1="34" x2="22" y2="40" stroke="#6fd3d9" stroke-width="1.4"/>
+          <line x1="4" y1="22" x2="10" y2="22" stroke="#6fd3d9" stroke-width="1.4"/>
+          <line x1="34" y1="22" x2="40" y2="22" stroke="#6fd3d9" stroke-width="1.4"/>
+          <path d="M22 22 L32 12" stroke="#f6f3ea" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h1>Vectors &amp; Equilibrium</h1>
+          <div class="tag">Live Test · Unit 02</div>
+        </div>
+      </div>
+      <div class="meta-strip">
+        <div>Questions<br><b>60</b></div>
+        <div>Marks<br><b>60</b></div>
+        <div>Duration<br><b>60 min</b></div>
+      </div>
+    </div>
+
+    <!-- START SCREEN -->
+    <div id="startScreen" class="start-card">
+      <div class="start-grid">
+        <div>
+          <h2>One mark. One vector.<br>No partial credit.</h2>
+          <p>A 60-question sitting covering scalars &amp; vectors, resolution into rectangular components, the scalar and vector products, torque, and the conditions of equilibrium. Each question carries one mark — there's no negative marking.</p>
+          <ul class="rules">
+            <li>Timer starts the moment you press start, and runs for 60:00.</li>
+            <li>Use the numbered panel on the right to jump between questions.</li>
+            <li>Unanswered questions are marked skipped when you submit.</li>
+            <li>You can change an answer any time before submitting.</li>
+          </ul>
+          <button class="btn btn-primary" onclick="startTest()">Start Test →</button>
+        </div>
+        <svg class="protractor-svg" viewBox="0 0 260 200" fill="none">
+          <path d="M20 160 A110 110 0 0 1 240 160" stroke="#6fd3d9" stroke-width="1.2" opacity="0.6"/>
+          <line x1="130" y1="160" x2="130" y2="40" stroke="#e2a53d" stroke-width="1.4"/>
+          <line x1="130" y1="160" x2="215" y2="95" stroke="#f6f3ea" stroke-width="2"/>
+          <path d="M130 130 A30 30 0 0 1 158 108" stroke="#e2a53d" stroke-width="1.2" fill="none"/>
+          <text x="164" y="112" fill="#e2a53d" font-size="12" font-family="IBM Plex Mono, monospace">θ</text>
+          <circle cx="130" cy="160" r="2.5" fill="#f6f3ea"/>
+          <text x="26" y="178" fill="rgba(246,243,234,0.5)" font-size="10" font-family="IBM Plex Mono, monospace">0°</text>
+          <text x="225" y="178" fill="rgba(246,243,234,0.5)" font-size="10" font-family="IBM Plex Mono, monospace">180°</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- TEST SCREEN -->
+    <div id="testScreen" class="hidden">
+      <div class="test-layout">
+        <div class="topbar">
+          <div class="timer" id="timerDisplay"><span class="dot"></span><span id="timerText">60:00</span></div>
+          <div class="progress-outer">
+            <div class="progress-label"><span id="answeredCount">0</span> of 60 answered</div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          </div>
+          <button class="btn btn-primary" style="padding:11px 20px;" onclick="confirmSubmit()">Submit Test</button>
+        </div>
+
+        <div class="qcard">
+          <div class="qcard-head">
+            <span class="qnum">Question <span id="qIndex">1</span> / 60</span>
+            <span class="qmark">1 Mark</span>
+          </div>
+          <div class="qtext" id="qText"></div>
+          <div id="diagramSlot"></div>
+          <div class="options" id="optionsSlot"></div>
+
+          <div class="qnav">
+            <button class="btn btn-ghost" id="prevBtn" onclick="goPrev()">← Previous</button>
+            <div class="side">
+              <button class="btn btn-ghost" onclick="clearAnswer()">Clear Response</button>
+              <button class="btn btn-primary" id="nextBtn" onclick="goNext()">Next →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <div class="side-title">Question Palette</div>
+          <div class="grid-nums" id="paletteGrid"></div>
+          <div class="legend">
+            <span><i class="sw" style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);"></i>Not visited</span>
+            <span><i class="sw" style="background:rgba(111,211,217,0.35); border:1px solid #6fd3d9;"></i>Answered</span>
+            <span><i class="sw" style="background:transparent; border:1px solid #e2a53d;"></i>Current</span>
+          </div>
+          <button class="btn btn-primary" style="width:100%;" onclick="confirmSubmit()">Submit Test</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="resultsScreen" class="hidden results">
+      <div class="score-hero">
+        <div class="score-ring">
+          <svg viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="66" stroke="rgba(255,255,255,0.12)" stroke-width="10" fill="none"/>
+            <circle id="scoreArc" cx="75" cy="75" r="66" stroke="#e2a53d" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="414" stroke-dashoffset="414"/>
+          </svg>
+          <div style="text-align:center;">
+            <div class="num" id="scoreNum">0</div>
+            <div class="den">out of 60</div>
+          </div>
+        </div>
+        <div class="score-copy">
+          <h2 id="scoreHeadline">Result</h2>
+          <p id="scoreSub"></p>
+          <div class="breakdown">
+            <div class="bd-item"><b id="bdCorrect">0</b>Correct</div>
+            <div class="bd-item"><b id="bdWrong">0</b>Incorrect</div>
+            <div class="bd-item"><b id="bdSkip">0</b>Skipped</div>
+            <div class="bd-item"><b id="bdTime">0:00</b>Time used</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-list" id="reviewList"></div>
+    </div>
+
+    <footer class="note">Vectors &amp; Equilibrium — 60 questions, 1 mark each · for self-assessment practice</footer>
+  </div>
+</div>
+
+<script>
+// ---------------- Question bank ----------------
+const QUESTIONS = [
+{t:"Which one is the scalar quantity?", o:["Velocity","Mass","Torque","Momentum"], a:1},
+{t:"Which of the following is a vector quantity?", o:["Energy","Speed","Work","Velocity"], a:3},
+{t:"A vector in space has _____ rectangular components.", o:["One","Two","Three","All of the above"], a:2},
+{t:"The vectors of same magnitude and in the same direction are called:", o:["Equal vectors","Parallel vectors","Null vectors","None of these"], a:0},
+{t:"When a vector is multiplied by a negative number, its direction:", o:["Does not change","Changes by 270°","Changes by 180°","None"], a:2},
+{t:"Which pair of the following forces can give a resultant of 2 N?", o:["1 N and 1 N","2 N and 4 N","1 N and 3 N","All of the above"], a:3},
+{t:"The resultant of two forces will be minimum when they are:", o:["Parallel","Anti-parallel","Perpendicular","None of these"], a:1},
+{t:"A vector is correctly given by:", o:["A = A / Â", "A = Â / A", "A = A·Â", "A = √(A·Â)"], a:2},
+{t:"The minimum number of equal forces whose vector sum can be zero is:", o:["3","4","2","1"], a:2},
+{t:"If the sides of a closed polygon represent vectors arranged head to tail, their sum will be:", o:["Zero","Less than zero","More than zero","All of these"], a:0},
+{t:"The reverse process of vector addition is called:", o:["Resolution of a vector","Multiplication of a vector","Negative of a vector","Subtraction of vectors"], a:0},
+{t:"If vectors A and B are anti-parallel to each other, then their resultant vector is:", o:["A + B","2A","2B","A − B"], a:3},
+{t:"When two vectors A and B of magnitude 'a' and 'b' are added, the magnitude of the resultant is always:", o:["Greater than (a + b)","Less than (a + b)","Not greater than (a + b)","Equal to (a + b)"], a:2},
+{t:"If two vectors A and B are parallel, which relation is true?", o:["A = B (as vectors)","A = B (magnitudes only, always)","Â = B̂","All of these"], a:2},
+{t:"The magnitude of the vector product of two vectors c and d cannot be:", o:["Equal to zero","Less than |c||d|","Greater than |c||d|","Equal to |c||d|"], a:2},
+{t:"The expression (1/√2) î + (1/√2) ĵ is a:", o:["Null vector","Vector of magnitude √2","Unit vector","Scalar"], a:2},
+{t:"The unit vector along î + ĵ is:", o:["k̂","î + ĵ","(î + ĵ)/2","(î + ĵ)/√2"], a:3},
+{t:"If A = B, which of the following is NOT correct?", o:["A + B = Â + B̂","AB̂ = BÂ","|A| = |B|","Â = B̂"], a:0},
+{t:"The unit vector parallel to the resultant of A = 4î − 3ĵ and B = 8î + 8ĵ is:", o:["(24î + 5ĵ)/13","(12î + 5ĵ)/13","(6î + 5ĵ)/13","None of these"], a:1},
+{t:"If the sum of two vectors is a unit vector, the magnitude of their difference is:", o:["√2","√3","1/√2","√5"], a:1},
+{t:"The y-component of a 10 N force making an angle of 60° with the y-axis is:", o:["5 N","10 N","8.66 N","3 N"], a:0},
+{t:"The position vector of a point (3, 5, 4) with respect to point (1, 0, −1) is:", o:["r = 3î + 5ĵ + 4k̂","r = î + 0ĵ − 1k̂","r = 2î − 5ĵ − 5k̂","r = 2î + 5ĵ + 5k̂"], a:3},
+{t:"If a vector A is along the y-axis, its x-component will be:", o:["A cosθ","A sinθ","A tanθ","Zero"], a:3},
+{t:"If a vector A makes an angle of 0° with the x-axis, its y-component is:", o:["A cosθ","A sinθ","A tanθ","Zero"], a:3},
+{t:"The angle made by the vector 3î + 2ĵ with the x-axis is:", o:["20°","60°","90°","None of these"], a:3},
+{t:"The component of the vector 5î + 4ĵ along the z-axis is:", o:["4","5","9","Zero"], a:3},
+{t:"The position vector of point (3, 0, 4) in the xz-plane, w.r.t. origin, is:", o:["r = 3î + 4ĵ","r = 3ĵ + 4k̂","r = 3î + 4k̂","r = 4î + 3k̂"], a:2},
+{t:"The component of the vector 3î + 5ĵ + 4k̂ along the y-axis is:", o:["3","5","12","4"], a:1},
+{t:"A vector makes angle θ with the x-axis such that its x-component = 10 N and y-component = 10 N. The value of θ is:", o:["90°","60°","45°","Both (a) and (b)"], a:2},
+{t:"The magnitude of the vector A = Aₓî + A_yĵ is:", o:["√(Aₓ² + A_y²)","√(Aₓ² − A_y²)","Aₓ + A_y","Aₓ² + A_y²"], a:0},
+{t:"One of the rectangular components of a force is 10 N, making an angle of 60° with the force itself. The force is:", o:["7 N","20 N","14 N","17 N"], a:1},
+{t:"The projection of the vector 3î + 4k̂ on the y-axis is:", o:["5","4","3","Zero"], a:3},
+{t:"Vector A makes equal angles with the x, y and z axes. Its components in terms of |A| are:", o:["A/√3","A/√2","√3 A","√3/A"], a:0},
+{t:"The angle made by the vector A = î + ĵ with the x-axis is:", o:["30°","45°","60°","90°"], a:1},
+{t:"A 5 N force acts on a particle along a direction making an angle of 60° with the vertical. Its vertical component is:", o:["10 N","5 N","3 N","2.5 N"], a:3},
+{t:"The resultant of two vectors A and B is perpendicular to A, and its magnitude equals half the magnitude of B. The angle between A and B is:", o:["120°","135°","150°","None of these"], a:2},
+{t:"If both Rₓ and R_y are positive, the resultant lies in the:", o:["1st quadrant","2nd quadrant","3rd quadrant","4th quadrant"], a:0},
+{t:"If Rₓ is negative and R_y is positive, the resultant lies in the:", o:["1st quadrant","2nd quadrant","3rd quadrant","4th quadrant"], a:1},
+{t:"If both Rₓ and R_y are positive, the direction of the resultant is given by:", o:["θ = φ","θ = 180 + φ","θ = 180 − φ","θ = 360 − φ"], a:0},
+{t:"The vector A = 3î − 5ĵ lies in the:", o:["1st quadrant","2nd quadrant","3rd quadrant","4th quadrant"], a:3},
+{t:"The resultant of two forces 3 N and 4 N, acting at 90° to each other, is:", o:["1 N","7 N","5 N","None of these"], a:2},
+{t:"The resultant of two forces 3 N and 4 N, acting at zero degrees to each other, is:", o:["1 N","7 N","5 N","None of these"], a:1},
+{t:"Two forces of magnitude 3 N and 4 N act at an angle of 60° to each other. The magnitude of the resultant is:", o:["5","7","√37","1"], a:2},
+{t:"Two forces of magnitude 5 N and 10 N act on a body. The maximum possible value of their resultant is:", o:["5 N","10 N","7.5 N","15 N"], a:3},
+{t:"The resultant of two vectors a and b is given by √(a² + b² + √2·ab·cosθ). The angle θ between them is:", o:["30°","45°","60°","0°"], a:1},
+{t:"The magnitude of the resultant of (A + B) and (A − B), for two equal-magnitude perpendicular vectors, is:", o:["A","2A","2B","√(A² + B²)"], a:1},
+{t:"A person walks 10 km north and then 20 km east. The magnitude of the displacement from the initial point is:", o:["22.36 km","2 km","5 km","20 km"], a:0},
+{t:"If the dot product of two non-zero vectors is zero, then the vectors are:", o:["Perpendicular","Parallel","Both (a) and (b)","None"], a:0},
+{t:"k̂ • î is equal to:", o:["ĵ","Null vector","Zero","All of these"], a:2},
+{t:"Which of the following is an example of a scalar product?", o:["Work","Electric flux","Power","All of these"], a:3},
+{t:"The projection of vector A on vector B is:", o:["A • B","Â • B","A • B̂","Â • B̂"], a:2},
+{t:"If A = 5î + 7ĵ − 3k̂ and B = 2î + 2ĵ − ak̂ are perpendicular vectors, the value of 'a' is:", o:["−2","8","−7","−8"], a:3},
+{t:"The vector perpendicular to 3î − 4ĵ is:", o:["4î + 3ĵ","4î − 3ĵ","2î + 0k̂","All of the above"], a:0},
+{t:"Three vectors A, B and C satisfy A • B = 0 and A • C = 0. The vector A is parallel to:", o:["B","C","B • C = 0","B × C"], a:3},
+{t:"The resultant of two vectors of magnitude 4 and 6 is found to be 10. The value of their dot product is:", o:["10","−10","24","−24"], a:2},
+{t:"If C = A × B, which of the following statements is true?", o:["C ⊥ A","C ⊥ B","Both (a) and (b)","None of these"], a:2},
+{t:"If B = 3î + 2k̂ and C = 2î + 4ĵ, then B × C is:", o:["−8î + 4ĵ + 12k̂","8î + 4ĵ − 12k̂","6î + 8ĵ + 12k̂","None of these"], a:0},
+{t:"Two equal and opposite 4 N forces act on the ends of a rod, separated by a perpendicular distance of 2 m, forming a couple as shown. What is the net torque acting on the rod?", o:["6 N·m","8 N·m","12 N·m","18 N·m"], a:1, diagram:true},
+{t:"The 1st condition of equilibrium is satisfied when:", o:["ΣF = 0","Στ = 0","Both (a) and (b)","None of these"], a:0},
+{t:"A boy of weight 500 N sits 2.0 m from the pivot of a see-saw. A force F is applied 4.0 m from the pivot on the other side to balance it. What is F?", o:["250 N","750 N","1000 N","3000 N"], a:0},
+];
+
+const TOTAL = QUESTIONS.length; // 60
+const DURATION = 60*60; // seconds
+let current = 0;
+let answers = new Array(TOTAL).fill(null);
+let visited = new Array(TOTAL).fill(false);
+let timeLeft = DURATION;
+let timerHandle = null;
+let submitted = false;
+
+const rodDiagramSVG = `
+<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+  <line x1="160" y1="30" x2="160" y2="150" stroke="#f6f3ea" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="160" cy="30" r="4" fill="#f6f3ea"/>
+  <circle cx="160" cy="150" r="4" fill="#f6f3ea"/>
+  <line x1="160" y1="30" x2="240" y2="30" stroke="#e2a53d" stroke-width="3" marker-end="url(#arrowAmber)"/>
+  <text x="248" y="34" fill="#e2a53d" font-size="15" font-family="IBM Plex Mono, monospace">4 N</text>
+  <line x1="160" y1="150" x2="80" y2="150" stroke="#6fd3d9" stroke-width="3" marker-end="url(#arrowCyan)"/>
+  <text x="18" y="154" fill="#6fd3d9" font-size="15" font-family="IBM Plex Mono, monospace">4 N</text>
+  <line x1="120" y1="30" x2="120" y2="150" stroke="rgba(246,243,234,0.35)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="112" y1="34" x2="128" y2="34" stroke="rgba(246,243,234,0.5)" stroke-width="1"/>
+  <line x1="112" y1="146" x2="128" y2="146" stroke="rgba(246,243,234,0.5)" stroke-width="1"/>
+  <text x="70" y="94" fill="rgba(246,243,234,0.75)" font-size="14" font-family="IBM Plex Mono, monospace">2 m</text>
+  <defs>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e2a53d"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#6fd3d9"/>
+    </marker>
+  </defs>
+</svg>`;
+
+function startTest(){
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('testScreen').classList.remove('hidden');
+  buildPalette();
+  renderQuestion();
+  timerHandle = setInterval(tick, 1000);
+}
+
+function tick(){
+  timeLeft--;
+  if(timeLeft <= 0){
+    timeLeft = 0;
+    updateTimerDisplay();
+    clearInterval(timerHandle);
+    finishTest();
+    return;
+  }
+  updateTimerDisplay();
+}
+
+function updateTimerDisplay(){
+  const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
+  const s = (timeLeft%60).toString().padStart(2,'0');
+  document.getElementById('timerText').textContent = m+":"+s;
+  const el = document.getElementById('timerDisplay');
+  if(timeLeft <= 300) el.classList.add('low'); else el.classList.remove('low');
+}
+
+function buildPalette(){
+  const grid = document.getElementById('paletteGrid');
+  grid.innerHTML = '';
+  for(let i=0;i<TOTAL;i++){
+    const b = document.createElement('button');
+    b.className = 'gn';
+    b.textContent = i+1;
+    b.onclick = ()=>{ current = i; renderQuestion(); };
+    grid.appendChild(b);
+  }
+}
+
+function refreshPalette(){
+  const nodes = document.querySelectorAll('.gn');
+  nodes.forEach((n,i)=>{
+    n.classList.toggle('answered', answers[i] !== null);
+    n.classList.toggle('current', i === current);
+  });
+  document.getElementById('answeredCount').textContent = answers.filter(a=>a!==null).length;
+  document.getElementById('progressFill').style.width = (answers.filter(a=>a!==null).length/TOTAL*100)+'%';
+}
+
+function renderQuestion(){
+  visited[current] = true;
+  const q = QUESTIONS[current];
+  document.getElementById('qIndex').textContent = current+1;
+  document.getElementById('qText').textContent = q.t;
+
+  const diagSlot = document.getElementById('diagramSlot');
+  diagSlot.innerHTML = q.diagram ? `<div class="diagram-box">${rodDiagramSVG}</div>` : '';
+
+  const optSlot = document.getElementById('optionsSlot');
+  optSlot.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.o.forEach((opt, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'opt' + (answers[current]===idx ? ' selected' : '');
+    div.innerHTML = `<span class="letter">${letters[idx]}</span><span>${opt}</span>`;
+    div.onclick = ()=>{
+      answers[current] = idx;
+      renderQuestion();
+      refreshPalette();
+    };
+    optSlot.appendChild(div);
+  });
+
+  document.getElementById('prevBtn').style.visibility = current===0 ? 'hidden' : 'visible';
+  document.getElementById('nextBtn').textContent = current===TOTAL-1 ? 'Finish' : 'Next →';
+  refreshPalette();
+}
+
+function clearAnswer(){
+  answers[current] = null;
+  renderQuestion();
+  refreshPalette();
+}
+
+function goPrev(){ if(current>0){ current--; renderQuestion(); } }
+function goNext(){
+  if(current<TOTAL-1){ current++; renderQuestion(); }
+  else { confirmSubmit(); }
+}
+
+function confirmSubmit(){
+  const unanswered = answers.filter(a=>a===null).length;
+  const msg = unanswered>0
+    ? `You have ${unanswered} unanswered question(s). Submit the test anyway?`
+    : `Submit the test now?`;
+  if(confirm(msg)){
+    clearInterval(timerHandle);
+    finishTest();
+  }
+}
+
+function finishTest(){
+  submitted = true;
+  document.getElementById('testScreen').classList.add('hidden');
+  document.getElementById('resultsScreen').classList.remove('hidden');
+
+  let correct=0, wrong=0, skip=0;
+  QUESTIONS.forEach((q,i)=>{
+    if(answers[i]===null) skip++;
+    else if(answers[i]===q.a) correct++;
+    else wrong++;
+  });
+
+  document.getElementById('scoreNum').textContent = correct;
+  document.getElementById('bdCorrect').textContent = correct;
+  document.getElementById('bdWrong').textContent = wrong;
+  document.getElementById('bdSkip').textContent = skip;
+  const used = DURATION - timeLeft;
+  document.getElementById('bdTime').textContent = Math.floor(used/60)+":"+(used%60).toString().padStart(2,'0');
+
+  const pct = correct/TOTAL;
+  const circumference = 2*Math.PI*66;
+  document.getElementById('scoreArc').setAttribute('stroke-dashoffset', circumference*(1-pct));
+
+  let headline, sub;
+  if(pct>=0.85){ headline="Excellent command of the chapter."; sub="You're moving fluently between vector algebra, components, and equilibrium conditions."; }
+  else if(pct>=0.65){ headline="Solid, with a few gaps to close."; sub="Revisit the review below — most misses cluster around one or two ideas."; }
+  else if(pct>=0.4){ headline="The foundations need another pass."; sub="Work back through rectangular components and the dot/cross product rules before retesting."; }
+  else { headline="Time to go back to the chapter."; sub="Start again from vector representation and addition — the rest builds on it."; }
+  document.getElementById('scoreHeadline').textContent = headline;
+  document.getElementById('scoreSub').textContent = sub;
+
+  const letters = ['A','B','C','D'];
+  const list = document.getElementById('reviewList');
+  list.innerHTML = '';
+  QUESTIONS.forEach((q,i)=>{
+    const userIdx = answers[i];
+    const isSkip = userIdx===null;
+    const isCorrect = userIdx===q.a;
+    const tagClass = isSkip ? 'skip' : (isCorrect ? 'ok' : 'bad');
+    const tagText = isSkip ? 'Skipped' : (isCorrect ? 'Correct' : 'Incorrect');
+    const div = document.createElement('div');
+    div.className = 'review-item';
+    div.innerHTML = `
+      <div class="rtop">
+        <span class="rnum">Question ${i+1}</span>
+        <span class="tag ${tagClass}">${tagText}</span>
+      </div>
+      <div class="rq">${q.t}</div>
+      ${q.diagram ? `<div class="diagram-box" style="max-width:340px;margin-bottom:14px;">${rodDiagramSVG}</div>` : ''}
+      <div class="rows">
+        <div class="ans">Correct answer: <b>${letters[q.a]}. ${q.o[q.a]}</b></div>
+        ${!isSkip && !isCorrect ? `<div class="rows yours">Your answer: <b>${letters[userIdx]}. ${q.o[userIdx]}</b></div>` : ''}
+      </div>
+    `;
+    list.appendChild(div);
+  });
+
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+updateTimerDisplay();
+</script>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="png" href="favicon.png">
+<title>MDCAT 2026 Full-Length Mock Test — 180 MCQs | Exam Prep Point</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA; --paper-line:#D7CFC0; --ink:#25201A; --ink-soft:#6B6157;
+    --gold:#A9762C; --forest:#3D5A45; --coral:#9B3B2E; --card:#FFFDF9; --shadow:rgba(37,32,26,.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/26px 26px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/26px 26px,
+      var(--paper);
+    color:var(--ink); font-family:'IBM Plex Sans',sans-serif; min-height:100vh; padding:22px 14px 60px;
+  }
+  .wrap{max-width:1040px; margin:0 auto;}
+  header{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    border-bottom:2.5px solid var(--ink); padding-bottom:14px; margin-bottom:20px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--coral); font-weight:600; margin-bottom:4px;}
+  h1{font-family:'Newsreader',serif; font-weight:600; font-style:italic; font-size:clamp(24px,3.6vw,34px); margin:0; line-height:1.1;}
+  .meta{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:6px;}
+  .timer-block{text-align:right; font-family:'IBM Plex Mono',monospace;}
+  .timer-label{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+  #timer{font-size:28px; font-weight:600; border:2px solid var(--ink); border-radius:6px; padding:2px 12px; background:var(--card);}
+  #timer.low{color:var(--coral); border-color:var(--coral);}
+
+  .layout{display:grid; grid-template-columns:1fr 260px; gap:20px;}
+  @media (max-width:820px){ .layout{grid-template-columns:1fr;} }
+
+  .qcard{background:var(--card); border:1.5px solid var(--ink); border-radius:10px; padding:24px 26px;
+    box-shadow:3px 4px 0 var(--shadow); min-height:340px; display:flex; flex-direction:column;}
+  .qhead{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; flex-wrap:wrap; gap:6px;}
+  .qsection{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); font-weight:600;}
+  .qnum{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
+  .qtext{font-size:17px; line-height:1.5; margin:0 0 16px; font-weight:500; white-space:pre-line;}
+  .options{display:flex; flex-direction:column; gap:9px; margin-bottom:auto;}
+  .opt{text-align:left; padding:11px 13px; border-radius:7px; border:1.4px solid #D9CFC1; background:#fff;
+    cursor:pointer; font-size:14.5px; display:flex; gap:10px; align-items:center;}
+  .opt .tag{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--ink-soft); border:1.3px solid var(--ink-soft);
+    border-radius:50%; width:21px; height:21px; display:flex; align-items:center; justify-content:center; font-size:11.5px; flex-shrink:0;}
+  .opt:hover{border-color:var(--ink);}
+  .opt.selected{border-color:var(--coral); background:#FBECE8;}
+  .opt.selected .tag{background:var(--coral); border-color:var(--coral); color:#fff;}
+  .opt.correct{border-color:var(--forest); background:#EAF1EB;}
+  .opt.correct .tag{background:var(--forest); border-color:var(--forest); color:#fff;}
+  .opt.incorrect{border-color:var(--coral); background:#FBECE8;}
+  .opt.incorrect .tag{background:var(--coral); border-color:var(--coral); color:#fff;}
+  .opt.disabled{cursor:default;}
+  .diagram-wrap{display:flex; justify-content:center; margin:6px 0 14px; padding:8px;
+    background:repeating-linear-gradient(#E4DCCC 0 1px, transparent 1px 20px),
+               repeating-linear-gradient(90deg,#E4DCCC 0 1px, transparent 1px 20px);
+    border:1px dashed #CFC4B0; border-radius:8px;}
+  .diagram-wrap table{border-collapse:collapse; font-family:'IBM Plex Mono',monospace; font-size:13px; background:#fff;}
+  .diagram-wrap th, .diagram-wrap td{border:1px solid var(--ink-soft); padding:6px 12px;}
+  .diagram-wrap th{background:#EFE7D6;}
+  .qfooter{display:flex; justify-content:space-between; margin-top:18px;}
+  .navArrow{padding:9px 16px; border-radius:6px; border:1.4px solid var(--ink); background:transparent; color:var(--ink);
+    font-family:'IBM Plex Mono',monospace; font-size:13px; cursor:pointer;}
+  .navArrow:hover{background:var(--ink); color:var(--paper);}
+  .navArrow:disabled{opacity:.35; cursor:not-allowed;}
+  .navArrow:disabled:hover{background:transparent; color:var(--ink);}
+
+  .side{display:flex; flex-direction:column; gap:14px;}
+  .panel{background:var(--card); border:1.5px solid var(--ink); border-radius:10px; padding:14px; box-shadow:2px 3px 0 var(--shadow);}
+  .panel h3{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft); margin:0 0 8px;}
+  .subjectTabs{display:flex; flex-wrap:wrap; gap:6px;}
+  .subjectTab{font-family:'IBM Plex Mono',monospace; font-size:10.5px; padding:6px 8px; border-radius:5px; border:1.3px solid var(--ink-soft);
+    background:transparent; color:var(--ink-soft); cursor:pointer;}
+  .subjectTab.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  #navGrid{display:grid; grid-template-columns:repeat(8,1fr); gap:4px; max-height:260px; overflow-y:auto; padding-right:2px;}
+  .navBtn{aspect-ratio:1; border-radius:4px; border:1.2px solid var(--ink-soft); background:transparent; color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace; font-size:10px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .navBtn.answered{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .navBtn.current{outline:2px solid var(--coral); outline-offset:1px;}
+  #progressText{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); text-align:center; margin:6px 0;}
+  #submitBtn{width:100%; margin-top:4px; padding:11px; border:none; border-radius:6px; background:var(--coral); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; letter-spacing:.03em; font-size:13px; cursor:pointer;}
+  #submitBtn:hover{background:#7f2f24;}
+
+  #resultsScreen{display:none;}
+  .score-hero{background:var(--card); border:1.5px solid var(--ink); border-radius:10px; padding:26px; display:flex; gap:26px;
+    align-items:center; flex-wrap:wrap; box-shadow:3px 4px 0 var(--shadow); margin-bottom:20px;}
+  .score-num{font-family:'Newsreader',serif; font-style:italic; font-weight:600; font-size:56px; line-height:1;}
+  .score-sub{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
+  .breakdown{flex:1; min-width:260px;}
+  .bd-row{display:flex; align-items:center; gap:10px; margin-bottom:7px; font-family:'IBM Plex Mono',monospace; font-size:12px;}
+  .bd-label{width:150px; color:var(--ink-soft);}
+  .bd-bar-bg{flex:1; height:8px; background:var(--paper-line); border-radius:4px; overflow:hidden;}
+  .bd-bar{height:100%; background:var(--coral);}
+  .bd-frac{width:50px; text-align:right;}
+  #reviewToggle{display:block; margin:0 auto 20px; padding:10px 22px; border-radius:6px; border:1.4px solid var(--ink);
+    background:var(--ink); color:var(--paper); font-family:'IBM Plex Mono',monospace; font-size:13px; cursor:pointer;}
+  .review-item{background:var(--card); border:1.4px solid #D9CFC1; border-radius:8px; padding:14px 18px; margin-bottom:10px;}
+  .review-item .qtext{font-size:14.5px; margin-bottom:8px;}
+  .review-item .opt{padding:7px 11px; font-size:13px;}
+  footer.credit{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); margin-top:26px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Exam Prep Point · MDCAT 2026</div>
+      <h1>Full-Length Mock Test — Paper 1</h1>
+      <div class="meta">180 Questions · 180 Marks · Biology · Chemistry · Physics · English · Logical Reasoning</div>
+    </div>
+    <div class="timer-block">
+      <div class="timer-label">Time remaining</div>
+      <div id="timer">180:00</div>
+    </div>
+  </header>
+
+  <div id="quizScreen" class="layout">
+    <div class="qcard">
+      <div class="qhead">
+        <span class="qsection" id="qSection"></span>
+        <span class="qnum" id="qNum"></span>
+      </div>
+      <p class="qtext" id="qText"></p>
+      <div class="diagram-wrap" id="diagramWrap" style="display:none;"></div>
+      <div class="options" id="optionsList"></div>
+      <div class="qfooter">
+        <button class="navArrow" id="prevBtn">&larr; Previous</button>
+        <button class="navArrow" id="nextBtn">Next &rarr;</button>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="panel">
+        <h3>Jump to Subject</h3>
+        <div class="subjectTabs" id="subjectTabs"></div>
+      </div>
+      <div class="panel">
+        <h3>Progress</h3>
+        <div id="progressText">0 / 180 answered</div>
+        <div id="navGrid"></div>
+        <button id="submitBtn">Submit Test</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultsScreen">
+    <div class="score-hero">
+      <div>
+        <div class="score-num" id="scoreNum">0/180</div>
+        <div class="score-sub" id="scoreSub">0% · time used 00:00</div>
+      </div>
+      <div class="breakdown" id="breakdown"></div>
+    </div>
+    <button id="reviewToggle">Show Answer Review</button>
+    <div id="reviewList" style="display:none;"></div>
+  </div>
+
+  <footer class="credit">Exam Prep Point — MDCAT 2026 Full-Length Mock Test</footer>
+</div>
+
+<script>
+/* ================= Question bank (180) ================= */
+const questions = [
+/* ---------------- BIOLOGY (81) ---------------- */
+{s:"Biology", q:"It is the smallest unit that can carry out all activities of life:", o:["DNA","Organ","Cell","Organism"], a:2},
+{s:"Biology", q:"Prokaryotic cells have:", o:["Non-membranous organelles","Single membranous organelles","All membranous organelles","Double membranous organelles"], a:0},
+{s:"Biology", q:"The cells discovered in thin sections of cork by Robert Hooke were actually:", o:["Cellulose","Nuclei","Cell coat","Cell wall"], a:3},
+{s:"Biology", q:"The movement of molecules against the concentration gradient is:", o:["Passive transport","Active transport","Facilitated diffusion","Filtration"], a:1},
+{s:"Biology", q:"Eukaryotic ribosomes differ from prokaryotic ribosomes in size. Which represents the total size of eukaryotic-type ribosomes?", o:["40S","70S","60S","80S"], a:3},
+{s:"Biology", q:"Which of the following cells does not possess a Golgi apparatus?", o:["Bacterial cell","Animal cell","Plant cell","Fungal cell"], a:0},
+{s:"Biology", q:"Which type of WBC depends upon lysosomes for killing foreign agents?", o:["Neutrophils","Eosinophils","B-lymphocytes","T-lymphocytes"], a:0},
+{s:"Biology", q:"Lysosomes perform all of the following functions except:", o:["Breaking down cellular waste","Digesting macromolecules","Recycling damaged organelles","Synthesizing lipids"], a:3},
+{s:"Biology", q:"A stage of aerobic respiration that is associated with cristae:", o:["Glycolysis","Krebs cycle","Oxidative phosphorylation","Pyruvic acid oxidation"], a:2},
+{s:"Biology", q:"Cisternae stacks of the Golgi complex are continuously formed by fusion of vesicles which are probably derived by budding of:", o:["Nuclear membrane","Smooth endoplasmic reticulum","Rough endoplasmic reticulum","Lysosomes"], a:1},
+{s:"Biology", q:"Underground water maintains a relatively constant temperature primarily because of its:", o:["High heat capacity","Polarity of water","Heat of vaporization","Specific heat of vaporization"], a:0},
+{s:"Biology", q:"How many molecules of water are needed to completely hydrolyze a polymer that is 11 monomers long?", o:["9","10","11","12"], a:1},
+{s:"Biology", q:"It is an example of a keto sugar:", o:["Ribose","Fructose","Glucose","Galactose"], a:1},
+{s:"Biology", q:"Sucrose is a disaccharide formed by joining glucose and fructose. Which type of glycosidic linkage connects them?", o:["1,2","1,4","1,3","1,6"], a:0},
+{s:"Biology", q:"Acylglycerols, e.g. fats and oils, are chemically classified as:", o:["Polymers","Mixtures","Esters","Oligomers"], a:2},
+{s:"Biology", q:"In phosphatidic acid, phosphoric acid is attached with:", o:["Carbon 1 of glycerol","Carbon 3 of glycerol","Carbon 2 of glycerol","Carbon 4 of glycerol"], a:1},
+{s:"Biology", q:"Which parts of an amino acid are directly involved in forming peptide bonds and are considered its reactive groups?", o:["Alpha carbon and chiral carbon","Hydrogen and R-group","Amino group and carboxyl group","Alpha carbon and R-group"], a:2},
+{s:"Biology", q:"The β-pleated sheet in proteins is formed by folding of the polypeptide chain through hydrogen bonding. This represents the:", o:["Primary structure","Tertiary structure","Secondary structure","Quaternary structure"], a:2},
+{s:"Biology", q:"The sugar molecule present in DNA is:", o:["C5H10O5","C6H12O6","C5H10O4","C6H12O5"], a:2},
+{s:"Biology", q:"According to Watson & Crick's model of DNA, which of the following statements is incorrect?", o:["DNA is double-stranded and forms a double helix","Adenine pairs with thymine via 2 covalent bonds","DNA strands are complementary and anti-parallel","One complete turn of the helix spans 34 Å"], a:1},
+{s:"Biology", q:"Enzyme reacts with substrate to form:", o:["Product","Active site","Cofactor","Inhibitor"], a:0},
+{s:"Biology", q:"Certain enzymes cannot function without small organic molecules derived from vitamins that participate directly in the chemical reaction. These molecules are:", o:["Enzyme","Coenzyme","Activator","Prosthetic group"], a:1},
+{s:"Biology", q:"The active site of an enzyme is crucial because it:", o:["Binds specifically to the substrate","Maintains the pH of the reaction","Provides energy for the reaction","Changes the shape of the enzyme"], a:0},
+{s:"Biology", q:"Increase in heat energy above the optimum value decreases enzyme activity due to increased:", o:["Collisions","Activation","Vibrations","Solubility"], a:2},
+{s:"Biology", q:"A non-competitive inhibitor of the mitochondrial cytochrome oxidase is:", o:["Heparin","Thiourea","Malonic acid","Cyanide"], a:3},
+{s:"Biology", q:"Cellular respiration is a process that breaks down molecules to release energy. It is:", o:["Anabolic and exergonic","Catabolic and endergonic","Catabolic and exergonic","Anabolic and endergonic"], a:2},
+{s:"Biology", q:"Yeast cells respire through:", o:["Aerobically only","Both aerobically and anaerobically","Anaerobically only","Cannot respire"], a:1},
+{s:"Biology", q:"Conversion of glucose to glucose-6-phosphate, the first reaction of glycolysis, is catalyzed by:", o:["Aldolase","Hexokinase","Enolase","Phosphofructokinase"], a:1},
+{s:"Biology", q:"In glycolysis, electrons released during the oxidation of glucose intermediates are accepted by:", o:["ATP","FAD","Molecular oxygen","NAD+"], a:3},
+{s:"Biology", q:"It links glycolysis with the Krebs cycle:", o:["Respiratory chain","Lactic acid fermentation","Pyruvic acid oxidation","Alcoholic fermentation"], a:2},
+{s:"Biology", q:"It is a 4-carbon acid related with the citric acid cycle:", o:["Citrate","Oxaloacetate","Acetate","α-ketoglutarate"], a:1},
+{s:"Biology", q:"In aerobic respiration, which molecule accepts electrons at the end of the electron transport chain, ensuring continuous ATP production?", o:["NADH","Oxygen","Cytochromes","Water"], a:1},
+{s:"Biology", q:"Capsid, the protective coat of a virus, is made up of protein subunits known as:", o:["Lipid","RNA","Protein","DNA"], a:2},
+{s:"Biology", q:"Classification of viruses is done on the bases of all except:", o:["Shape of capsid","Genome","Host","Number of nucleotides in their genome"], a:3},
+{s:"Biology", q:"During HIV infection, which part of the virus initially binds to the CD4 receptor on T-helper cells?", o:["gp41","p27","gp120","p18"], a:2},
+{s:"Biology", q:"Which process or step in the HIV life cycle does not occur in the cytoplasm of the host cell?", o:["Uncoiling","Transcription","Reverse transcription","Assembly"], a:1},
+{s:"Biology", q:"The main purpose of a vaccine is to:", o:["Cure disease directly","Stimulate the immune system","Provide temporary pain relief","Kill the host cells"], a:1},
+{s:"Biology", q:"Monoclonal antibodies are produced by combining:", o:["Liver and kidney cells","T-cells and viruses","Myeloma cells and spleen cells","Antigens and macrophages"], a:2},
+{s:"Biology", q:"Retroviruses, adenoviruses, and herpes viruses are examples of:", o:["Antibodies","Enzymes","Gene therapy vectors","DNA probes"], a:2},
+{s:"Biology", q:"All of the following are accessory glands of the human digestive system except:", o:["Salivary glands","Liver","Gastric glands","Pancreas"], a:2},
+{s:"Biology", q:"Bolus is pushed to the back of the mouth by the action of:", o:["Tongue","Epiglottis","Soft palate","Larynx"], a:0},
+{s:"Biology", q:"The outer part of the middle layer (muscularis) in the stomach contains:", o:["Endocrine glands","Longitudinal smooth muscles","Exocrine glands","Circular smooth muscles"], a:1},
+{s:"Biology", q:"Microvilli are closely packed cylindrical:", o:["Cells","Blood vessels","Processes","Lymph vessels"], a:2},
+{s:"Biology", q:"At the end of the ileum, there is a __________ which opens and closes from time to time to allow a small amount of residue from the ileum to enter the large intestine.", o:["Pyloric sphincter","Cardiac sphincter","Ileocolic sphincter","Rectal sphincter"], a:2},
+{s:"Biology", q:"Which of the following structures in our respiratory tract do not have cartilage?", o:["Larynx","Bronchi","Trachea","Bronchioles"], a:3},
+{s:"Biology", q:"Ribs are elevated when __________ muscles contract.", o:["Internal intercostals","Smooth muscles of diaphragm","External intercostals","Skeletal muscles of diaphragm"], a:2},
+{s:"Biology", q:"Oxygen saturation of hemoglobin decreases very sharply when oxygen pressure falls below:", o:["115 mmHg","80 mmHg","100 mmHg","60 mmHg"], a:3},
+{s:"Biology", q:"Valve present in the human heart controls:", o:["Blood pressure","Direction of blood flow","Velocity of blood flow","Volume of blood flow"], a:1},
+{s:"Biology", q:"How many double circulations are normally completed by the human heart in one minute?", o:["8","18","36","72"], a:3},
+{s:"Biology", q:"Which of the following is not a characteristic of arteries?", o:["Exchange of gases and nutrients","Transporting blood under high pressure","Detectable pulse","Elasticity to accommodate blood flow"], a:0},
+{s:"Biology", q:"This system is responsible for the transport and returning of materials from the tissues of the body to the blood:", o:["Arterial system","Lymphatic system","Venous system","Urinary system"], a:1},
+{s:"Biology", q:"How many efferent lymph vessels come from one lymph node?", o:["One","Two","Three","Four"], a:0},
+{s:"Biology", q:"Antibodies are proteins that recognize and neutralize foreign particles. In which group of animals are they produced?", o:["All animals","All mammals","All vertebrates","Only in humans"], a:2},
+{s:"Biology", q:"Active immunity is produced by introduction of:", o:["Lymphocytes only","Antibodies only","Antigen only","Both antigens and antibodies"], a:2},
+{s:"Biology", q:"Which of the following can be effective in preventing viral infection in humans?", o:["Taking antihistamines","Taking antibiotics","Applying antiseptics","Getting vaccinated"], a:3},
+{s:"Biology", q:"Which of the following blood vessels have the lowest diameter?", o:["Afferent arterioles","Efferent arterioles","Glomerulus","Renal artery"], a:2},
+{s:"Biology", q:"Process specifically involved in maintaining the pH value of filtrate passing through the urinary tubules is:", o:["Pressure filtration","Tubular secretion","Selective reabsorption","Counter current mechanism"], a:1},
+{s:"Biology", q:"Previously employed procedure to remove kidney stones is:", o:["Lithotripsy","ESWL","Surgery","Dialysis"], a:2},
+{s:"Biology", q:"Which of the following parts has rare chances of being infected by bacterial infection?", o:["Urinary bladder","Kidneys","Urethra","Ureters"], a:3},
+{s:"Biology", q:"When the body temperature rises above the normal set point, all of the following physiological responses occur except:", o:["Activation of sweat glands","Evaporative cooling","Vasodilation of skin blood vessels","Non-shivering thermogenesis"], a:3},
+{s:"Biology", q:"Nerve impulse leaves the neuron through the:", o:["Axon","Cell body","Dendrite","Dendron"], a:0},
+{s:"Biology", q:"How many Na+ are pumped out in response to two K+ actively transported into the cell?", o:["1","2","3","4"], a:2},
+{s:"Biology", q:"A neurotransmitter is not required to transmit a nerve impulse from:", o:["Soma to axon","Sensory neuron to motor neuron","Axon to dendrite","Motor neuron to sarcolemma"], a:0},
+{s:"Biology", q:"The feelings and emotions of love and hate are controlled by the:", o:["Hippocampus","Amygdala","Thalamus","Hypothalamus"], a:1},
+{s:"Biology", q:"Sertoli cells provide protection and a liquid medium to the sperms while they are in the:", o:["Seminiferous tubules","Vas deferens","Epididymis","Seminal vesicles"], a:0},
+{s:"Biology", q:"Progesterone secretion diminishes and its supporting effect on the spongy endometrium is reduced. This is related with:", o:["Formation of graafian follicle","Degeneration of corpus luteum","Rise in level of LH","Implantation of zygote"], a:1},
+{s:"Biology", q:"Main requirement for the second meiotic division to proceed further in the oocyte is:", o:["Ovulation","Placentation","Fertilization","Implantation"], a:2},
+{s:"Biology", q:"It is an STD that is caused by a spirochete:", o:["Gonorrhea","Genital herpes","AIDS","Syphilis"], a:3},
+{s:"Biology", q:"The horseshoe-shaped cartilaginous rings of the trachea are composed of which type of cartilage?", o:["Elastic cartilage","Hyaline cartilage","Fibrocartilage","Articular cartilage"], a:1},
+{s:"Biology", q:"The joints where bones are held together by fibrous cartilage are called:", o:["Fibrous joints","Synovial joints","Cartilaginous joints","Pivot joints"], a:2},
+{s:"Biology", q:"The earliest form of muscle to have evolved shows which of the following characteristics?", o:["Regular striation","Irregular striation","Regular branches","No striation"], a:3},
+{s:"Biology", q:"Which structures are responsible for the overall striated (striped) appearance of a skeletal muscle cell?", o:["Actin and myosin filaments","Muscle fiber and myofibrils","A-bands and I-bands","Troponin and tropomyosin"], a:0},
+{s:"Biology", q:"Binding sites for cross bridges are located on:", o:["Actin","Tropomyosin","Myosin","Myoglobin"], a:0},
+{s:"Biology", q:"If heterozygous round (Rr) monohybrids are self-fertilized, what is the probability of obtaining homozygous round (RR) offspring?", o:["25%","75%","50%","100%"], a:0},
+{s:"Biology", q:"In humans, the sex of the offspring is determined by:", o:["Type of egg","Autosomes","Type of sperm","X:A ratio"], a:2},
+{s:"Biology", q:"All of the following are non-allelic X-linked traits except:", o:["Hemophilia 'A'","Hemophilia 'C'","Hemophilia 'B'","tfm syndrome"], a:3},
+{s:"Biology", q:"In humans, beard growth is an example of:", o:["Y-linked trait","Sex-linked trait","Sex-limited trait","Sex-influenced trait"], a:3},
+{s:"Biology", q:"Prokaryotic characteristics like 70S ribosomes and circular DNA in mitochondria can be explained by which of the following hypotheses?", o:["Membrane invagination","Endosymbiont hypothesis","Modern evolutionary synthesis","Catastrophism"], a:1},
+{s:"Biology", q:"Which condition can be explained by Lamarckism?", o:["How giraffes got their long neck","How eukaryotic organelles evolved","How humans became bipedal","How species evolved through natural selection"], a:0},
+{s:"Biology", q:"Which of the following reactions is not occurring in any organelle?", o:["Krebs cycle","Calvin cycle","Glycolysis","Pyruvic acid oxidation"], a:2},
+{s:"Biology", q:"Which of the following type(s) of RNA is/are synthesized by transcription?", o:["mRNA","tRNA","rRNA","All of mRNA, tRNA and rRNA"], a:3},
+
+/* ---------------- CHEMISTRY (45) ---------------- */
+{s:"Chemistry", q:"In which of the following compounds does electrophilic addition take place according to Markownikov's rule?", o:["1,2-Dichloroethene","2-Methyl-2-butene","2-Butene","2,3-Dimethyl-2-butene"], a:1},
+{s:"Chemistry", q:"Ethanal (CH₃CHO) can be reduced using an aqueous or methanolic solution of NaBH₄ as the reducing agent. This is a nucleophilic addition reaction. What is the first step of this mechanism?", o:["Attack of an H⁻ ion at the carbon atom of the carbonyl group","Attack of an H⁺ ion at the carbon atom of the carbonyl group","Attack of an H⁺ ion at the oxygen atom of the carbonyl group","Attack of an H⁻ ion at the oxygen atom of the carbonyl group"], a:0},
+{s:"Chemistry", q:"Which compound reacts with its own complete oxidation product (an oxidation which involves no loss of carbon) to give a sweet-smelling liquid?", o:["Propanal","Propanone","Propanoic acid","Propan-1-ol"], a:3},
+{s:"Chemistry", q:"Consider the reaction: C₂H₅OH --(conc. H₂SO₄, 140°C)--> ? What product(s) may be formed?", o:["CH₃COOC₂H₅","CH₃OCH₃","C₂H₅OC₂H₅","CH₃OC₂H₅"], a:2},
+{s:"Chemistry", q:"Which of the following gives an aldehyde on dry distillation?", o:["Calcium acetate + calcium benzoate","Calcium formate + calcium acetate","Calcium benzoate","Calcium acetate"], a:1},
+{s:"Chemistry", q:"Heat of neutralization of an acid and a base is highest when:", o:["Both the acid and base are weak","The acid is strong and base is weak","The acid is weak and base is strong","Both the acid and base are strong"], a:3},
+{s:"Chemistry", q:"An isomer of ethanol is:", o:["Methanol","Methoxymethane","Diethyl ether","Acetone"], a:1},
+{s:"Chemistry", q:"Gaseous sulphur dioxide (SO₂) can be removed from smokestacks by treatment with limestone and oxygen: 2SO₂ + 2CaCO₃ + O₂ → 2CaSO₄ + 2CO₂. How many grams of CaCO₃ are required to remove 96 g of SO₂?", o:["150 g","468 g","300 g","234 g"], a:0},
+{s:"Chemistry", q:"When two lone pairs and two bond pairs are around the central atom, the bond angle may decrease up to:", o:["109.5°","104.5°","102°","107.5°"], a:1},
+{s:"Chemistry", q:"The oxidation number of N in HNO₂ (nitrous acid) is:", o:["+3","+5","+1","−3"], a:0},
+{s:"Chemistry", q:"Which one has the highest first ionization energy?", o:["Al","Mg","P","S"], a:2},
+{s:"Chemistry", q:"If both the absolute temperature and pressure of an ideal gas are doubled, the volume of the ideal gas:", o:["Remains unchanged","Becomes 1/4th","Becomes double","Becomes four times"], a:0},
+{s:"Chemistry", q:"A yield of reaction which depends upon the conditions of reaction:", o:["Theoretical yield","Actual yield","Percentage yield","Both actual and percentage yield"], a:3},
+{s:"Chemistry", q:"Which of the following is the correct IUPAC name of the compound HOOC-CH₂-CHO?", o:["1-Oxopropanoic acid","2-Oxopropanoic acid","3-Oxopropanoic acid","3-Oxopropionic acid"], a:2},
+{s:"Chemistry", q:"Which of the following metals is easiest to ionize in the gaseous state?", o:["Li","K","Na","Rb"], a:3},
+{s:"Chemistry", q:"Which one of the following ions exhibits color in aqueous solution?", o:["Sc³⁺","Ti⁴⁺","Ni²⁺","Zn²⁺"], a:2},
+{s:"Chemistry", q:"The law which relates the temperature and pressure of a gas is:", o:["Boyle's law","Avogadro's law","Charles's law","None of these"], a:3},
+{s:"Chemistry", q:"Number of covalent bonds between carbon and carbon in 18 g of glucose:", o:["Nₐ","0.5 Nₐ","0.25 Nₐ","0.75 Nₐ"], a:1},
+{s:"Chemistry", q:"Which of the following statements apply to most of the non-metals? They have:", o:["Low ionization energy and good electrical conductivity","Low ionization energy and poor electrical conductivity","High ionization energy and poor electrical conductivity","High ionization energy and good electrical conductivity"], a:2},
+{s:"Chemistry", q:"The total number of electrons which may have clockwise spin present in all the s-orbitals, all the p-orbitals, and all the d-orbitals of (Z = 24) are respectively:", o:["4, 6, 5","2, 6, 0","3, 6, 1","2, 6, 5"], a:0},
+{s:"Chemistry", q:"What is X in the following reaction: C₂H₅Cl + X → C₂H₄ + KCl + H₂O?", o:["KHCO₃","Aqueous KOH","Alcoholic KOH","K₂CO₃"], a:2},
+{s:"Chemistry", q:"Select the correct information about canal rays:", o:["e/m ratio is smaller than cathode rays","Mass of proton is 1836 times that of electrons","e/m ratio remains different for different gases","All of these"], a:3},
+{s:"Chemistry", q:"For a reversible reaction, the value of Kc is 10. If the concentration of products is reduced to half, then the value of Kc for that reaction at constant temperature will be:", o:["4","10","5","20"], a:1},
+{s:"Chemistry", q:"A bromine-containing organic compound, T, undergoes an elimination reaction when treated with alcoholic KOH solution. What is T?", o:["CH₃CH₂CBr₃","(CH₃)₂C=CBr₂","C₂Br₄","CH₃Br"], a:0},
+{s:"Chemistry", q:"Which reaction proceeds only by an SN1 mechanism?", o:["CH₃CH₂Br + NH₃","CH₃CHBrCH₃ + NH₃","CH₃CH₂CH₂I + OH⁻","(CH₃)₃CCl + OH⁻"], a:3},
+{s:"Chemistry", q:"Which of the following does not give the iodoform test?", o:["CH₃CH₂OH","CH₃CH₂CH₂CH₂OH","(CH₃)₂CHOH","CH₃COCH₃"], a:1},
+{s:"Chemistry", q:"Primary and secondary alcohols can be distinguished by:", o:["Baeyer's test","Bromine water test","Tollen's test","Lucas test"], a:3},
+{s:"Chemistry", q:"Collagen and albumin are:", o:["Derived proteins","Polyamide","Simple proteins","Polysaccharide"], a:2},
+{s:"Chemistry", q:"A molecule that binds with an enzyme and decreases its activity is known as a(n):", o:["Activator","Inhibitor","Co-factor","Co-enzyme"], a:1},
+{s:"Chemistry", q:"What is the reason that ice at 0°C occupies more volume than liquid water?", o:["Empty spaces","Intermolecular forces","Ionic bond","Debye forces"], a:1},
+{s:"Chemistry", q:"The unit of the rate constant (k) of a reaction is mol⁻² dm⁶ sec⁻¹. What is the order of this reaction?", o:["First","Second","Third","Zero"], a:2},
+{s:"Chemistry", q:"Compounds containing a -COOH functional group can't be converted directly into a compound containing which functional group?", o:["-CONH₂","-COOOC-","-COCl","-COOR"], a:0},
+{s:"Chemistry", q:"In the presence of excess oxygen, sodium reacts to produce __________ per-oxide.", o:["Greenish yellow","Pale yellow","Reddish brown","Orange yellow"], a:1},
+{s:"Chemistry", q:"Which one of the following characteristics of transition metals is associated with their catalytic activity?", o:["Variable oxidation states","Colour of hydrated ions","Paramagnetic behaviour","High enthalpy of atomization"], a:0},
+{s:"Chemistry", q:"Ethanoic acid has a pKa value of 4.7. Which one will have a higher pKa value than ethanoic acid?", o:["ClCH₂CO₂H","FCH₂COOH","C₆H₅OH","BrCH₂COOH"], a:2},
+{s:"Chemistry", q:"Denaturation of protein is caused by:", o:["Addition of detergent","Changing the pH","Addition of urea","All of these"], a:3},
+{s:"Chemistry", q:"Carbon atoms in benzene are:", o:["sp-hybridized","sp³-hybridized","sp²-hybridized","Both sp and sp²-hybridized"], a:2},
+{s:"Chemistry", q:"The number of σ and π bonds present in 1,2-butadiene is equal to:", o:["9σ and 2π","9σ and 1π","8σ and 2π","10σ and 1π"], a:0},
+{s:"Chemistry", q:"The group which activates the benzene ring is:", o:["-CHO","-COOH","-NH₂","-COR"], a:2},
+{s:"Chemistry", q:"The increase in the rate of a reaction is 8 times if the temperature of the substance changes from:", o:["2K to 4K","2K to 22K","12K to 22K","10K to 40K"], a:3},
+{s:"Chemistry", q:"Which of the following is an example of a condensation polymer?", o:["Polythene","Polyvinyl chloride","Nylon-6,6","Polystyrene"], a:2},
+{s:"Chemistry", q:"Which of the following compounds cannot show optical isomerism?", o:["Compound with one chiral carbon","Compound with a plane of symmetry","Compound with two chiral carbons","Compound with an asymmetric carbon"], a:1},
+{s:"Chemistry", q:"Which group increases the intensity of colour in dyes?", o:["Chromophore","Alkyl group","Auxochrome","Halogen"], a:2},
+{s:"Chemistry", q:"Which of these reactions is shown by 2-butanone, CH₃COCH₂CH₃?", o:["On warming with ammoniacal AgNO₃ the solution turns green","On heating with Fehling's reagent a red precipitate is formed","With hydrogen cyanide an aldehyde is formed","With 2,4-dinitrophenylhydrazine reagent an orange precipitate is formed"], a:3},
+{s:"Chemistry", q:"Which of these reactions is shown by 2-butanone, CH₃COCH₂CH₃?", o:["On warming with ammoniacal AgNO₃ the solution turns green","On heating with Fehling's reagent a red precipitate is formed","With hydrogen cyanide an aldehyde is formed","With 2,4-dinitrophenylhydrazine reagent an orange precipitate is formed"], a:3},
+
+/* ---------------- PHYSICS (36) ---------------- */
+{s:"Physics", q:"Work done will be ½ Wₘₐₓ if the angle between force and displacement is:", o:["30°","270°","60°","360°"], a:2},
+{s:"Physics", q:"The quantity of motion present in a body can be measured by:", o:["Acceleration","Speed","Momentum","Velocity"], a:2},
+{s:"Physics", q:"If the surface charge density of an infinite sheet increases by 25%, the electric field intensity:", o:["Increases by 25%","Increases by 50%","Decreases by 25%","Remains the same"], a:0},
+{s:"Physics", q:"In a stationary wave, the point that undergoes zero acceleration is the:", o:["Node","Antinode","Midpoint between node and antinode","Every point along the wave"], a:0},
+{s:"Physics", q:"In laminar flow of a fluid, its adjacent layers:", o:["Resist each other","Mix with each other","Slide smoothly past each other","Produce turbulence"], a:2},
+{s:"Physics", q:"Speed of a sound wave in a given medium is:", o:["Directly proportional to its frequency","Inversely proportional to its frequency","Directly proportional to the square of frequency","Independent of its frequency"], a:3},
+{s:"Physics", q:"Convert 120° into radians:", o:["π","2π/3","π/6","π/3"], a:1},
+{s:"Physics", q:"The electric current in a copper sulphate solution is due to the flow of:", o:["Positive charges only","Negative charges only","Both positive and negative charges","Electrons and holes"], a:2},
+{s:"Physics", q:"A wire's cross-sectional area is halved while its length remains unchanged. What happens to its resistance?", o:["It is halved","It is doubled","It remains unchanged","It becomes four times"], a:1, diagram:"restable"},
+{s:"Physics", q:"For a straight current-carrying conductor, the magnetic field strength at a point at distance r from the wire:", o:["Is proportional to r²","Is directly proportional to r","Is inversely proportional to r²","Is inversely proportional to r"], a:3},
+{s:"Physics", q:"A patient is injected with a radioactive isotope to trace blood flow and detect circulation issues. The isotope used is more likely to be:", o:["Iodine-131","Phosphorus-32","Cobalt-60","Sodium-24"], a:3},
+{s:"Physics", q:"Calculate the specific charge of an α-particle if its charge is 3.2×10⁻¹⁹ C and its mass is 6.64×10⁻²⁷ kg:", o:["4.82×10⁷ C/kg","9.62×10⁷ C/kg","3.22×10⁷ C/kg","6.02×10⁷ C/kg"], a:0},
+{s:"Physics", q:"For a full-wave rectifier operating from a 60 Hz AC supply, what is the period of the ripple frequency?", o:["16.67 ms","8.33 ms","20 ms","33.33 ms"], a:1},
+{s:"Physics", q:"Calculate the EMF when a coil of 100 turns is subjected to a flux change rate of 0.3 Wb/sec:", o:["3","40","30","300"], a:2},
+{s:"Physics", q:"According to Faraday's law, EMF stands for:", o:["Electromagnetic field","Electromagnetic force","Electromagnetic friction","Electromotive force"], a:3},
+{s:"Physics", q:"If the work function of a photoelectric material is 3.3 eV, calculate the threshold frequency.", o:["8 × 10¹⁴ Hz","5 × 10¹⁰ Hz","8 × 10¹⁰ Hz","4 × 10¹⁴ Hz"], a:0},
+{s:"Physics", q:"A capacitor is connected to an AC source. If the frequency of the AC source is doubled, the current in a purely capacitive circuit will:", o:["Be doubled","Remain unchanged","Become half","Become zero"], a:0},
+{s:"Physics", q:"Consider the vectors A = 2î + 3ĵ and B = −6î + 4ĵ. The angle between these two vectors is:", o:["0°","90°","120°","180°"], a:1},
+{s:"Physics", q:"In a one-dimensional elastic collision of two bodies of the same mass, what will happen if the moving body collides with the body which is initially at rest?", o:["The collision would become inelastic","Their velocities will be interchanged","Their velocities will remain the same","Velocities of both bodies will be zero"], a:1},
+{s:"Physics", q:"In pair annihilation, two gamma-ray photons are created and travel in opposite directions, not in the same direction, because:", o:["This proves the law of conservation of energy","This proves the law of conservation of momentum","This proves the law of conservation of charge","This proves the law of conservation of mass-energy"], a:1},
+{s:"Physics", q:"The half-life of a radioactive sample predicts about:", o:["The whole life of the sample","Disintegration time of half the number of atoms","Decay only","Total time for stable atoms"], a:1},
+{s:"Physics", q:"The strength of a radiation source is indicated by its activity, measured in Becquerel. So, 10 Becquerel is equal to __________ decay(s) per second.", o:["10","100","1000","10000"], a:0},
+{s:"Physics", q:"If the range of a projectile is R, then its kinetic energy is minimum after covering (from the start) a horizontal distance equal to:", o:["R/4","R/3","R/2","R"], a:2},
+{s:"Physics", q:"If a body is moving counter-clockwise, then its angular displacement is:", o:["Minimum","Negative","Zero","Positive"], a:3},
+{s:"Physics", q:"Two beams, one of red light and the other of blue light, having the same intensity, are incident on a metallic surface to emit photoelectrons. Which one emits photoelectrons of greater energy?", o:["Blue light","Red light","Both","None"], a:0},
+{s:"Physics", q:"An ideal gas expands along the path AB, from (0.3 m³, 8 Pa) to (0.5 m³, 16 Pa), as shown in a p-V diagram. The work done is:", o:["4 J","12 J","2.4 J","5 J"], a:2, diagram:"pv"},
+{s:"Physics", q:"In nature, the electric charge of any system is always equal to:", o:["Half integral multiple of the least amount of charge","Zero","Square of the least amount of charge","Integral multiple of the least amount of charge"], a:3},
+{s:"Physics", q:"The work done by the gravitational force on an object as it moves from a reference level to a higher point is:", o:["Always positive","Always negative","Zero","Depends on the path taken"], a:1},
+{s:"Physics", q:"If two speakers emit sound at the same frequency and phase, maximum loudness occurs when:", o:["Path difference = λ/2","Path difference = λ","Path difference = λ/4","Path difference = 3λ/4"], a:1},
+{s:"Physics", q:"When an object attains terminal velocity, its acceleration is:", o:["9.8 m/s²","Zero","1 m/s²","10 m/s²"], a:1},
+{s:"Physics", q:"If a plastic sheet of relative permittivity 2.5 is inserted between two point charges placed in vacuum, then the electrostatic force between them:", o:["Increases by a factor of 2.5","Decreases by a factor of 2.5","Increases by a factor of 5","Decreases by a factor of 5"], a:1},
+{s:"Physics", q:"A ball is thrown into the air with a certain velocity v, making an angle θ with the horizontal. If air resistance is neglected, then at maximum height its velocity is:", o:["Equal to the initial velocity","Half of the initial velocity","Equal to zero","Minimum but not zero"], a:3},
+{s:"Physics", q:"Specific heat capacity is:", o:["Heat capacity per unit mass","Heat capacity per unit volume","Heat capacity per mole","Temperature per unit heat"], a:0},
+{s:"Physics", q:"For an isochoric process, the heat supplied is equal to:", o:["nCᵥΔT","nCₚΔT","PΔV","Zero"], a:0},
+{s:"Physics", q:"After 5 time constants, a capacitor is charged to about:", o:["50%","63.2%","86.5%","99.3%"], a:3},
+{s:"Physics", q:"What does a v-t graph with a slope of zero indicate?", o:["The object is accelerating","The object is moving at constant velocity","The object is at rest","The object is decelerating"], a:1},
+
+/* ---------------- ENGLISH (9) ---------------- */
+{s:"English", q:"Fill in the blank: The most important period of physical growth in humans __________ during their first two years.", o:["occurred","occurs","had occurred","has occurred"], a:1},
+{s:"English", q:"Fill in the blank: Bowling, one of the most popular indoor sports, __________ popular all over the United States and in other countries.", o:["are","is","has","have"], a:1},
+{s:"English", q:"Fill in the blank: One of the most important steps in __________ a motion picture is film editing.", o:["producing","to produce","produced","produce"], a:0},
+{s:"English", q:"Choose the correct option:", o:["Large commercial fishing vessels are equipped to cleaning, packaging, and freeze the fish that they catch at sea.","Large commercial fishing vessels are equipped to clean, packaging, and freezing the fish that they catch at sea.","Large commercial fishing vessels are equipped cleaning, package, and freezing the fish that they catch at sea.","Large commercial fishing vessels are equipped to clean, package, and freeze the fish that they catch at sea."], a:3},
+{s:"English", q:"Choose the correct option:", o:["A barometer is a device it is used to measure atmospheric pressure.","A barometer is a device that is used to measure atmospheric pressure.","A barometer is a device, it is used to measure atmospheric pressure.","A barometer is a device is used to measure atmospheric pressure."], a:1},
+{s:"English", q:"Choose the correct option:", o:["The number of protons in the nucleus of an atom vary from element to element.","A number of protons in the nucleus of an atom varies from element to element.","The number of protons in the nucleus of an atom do vary from element to element.","A number of protons in the nucleus of an atom vary from element to element."], a:3},
+{s:"English", q:"Choose the correct option:", o:["She evidently considered me silly ignorant inadequate.","She evidently considered me silly, ignorant, inadequate.","She evidently considered me silly, ignorant and inadequate.","She evidently, considered me silly, ignorant, inadequate."], a:2},
+{s:"English", q:"Choose the correct synonym of the underlined word: Some people tend to hoard money, while others prefer to spend freely.", o:["stock","consume","deplete","contribute"], a:0},
+{s:"English", q:"Choose the correct spelling:", o:["Panoramics","Panarimic","Panoramic","Panaramics"], a:2},
+
+/* ---------------- LOGICAL REASONING (9) ---------------- */
+{s:"Logical Reasoning", q:"Find the next number: 5, 11, 23, 47, 95, ?", o:["190","191","192","193"], a:1},
+{s:"Logical Reasoning", q:"Choose the missing term: UPI, ____, ODP, MBQ, IAW", o:["RHJ","SHJ","SIJ","THK"], a:0},
+{s:"Logical Reasoning", q:"If 5 boxes of soap weigh 75 kilos and each box, when empty, weighs 3 kilos, what is the total weight of the soaps?", o:["15","45","30","60"], a:3},
+{s:"Logical Reasoning", q:"A is two years older than B. B is twice as old as C. If the total ages of A, B, and C is 27, then how old is B?", o:["10","20","5","12"], a:0},
+{s:"Logical Reasoning", q:"Statements: All oceans are rivers. Some springs are rivers. All wells are springs.\nConclusions:\nI. Some springs are oceans.\nII. Some wells are rivers.\nIII. Some rivers are oceans.\nIV. No well is a river.", o:["Only either II or IV, and I follow","Only either II or IV, and III follow","All follow","None follows"], a:1},
+{s:"Logical Reasoning", q:"Statement: A large number of employees have gone on a mass casual leave in protest against the company's new recruitment policy.\nCourses of action:\nI. The company should immediately withdraw the new recruitment policy.\nII. All these employees should immediately be suspended from their service.", o:["If only I follows","If only II follows","If neither I nor II follows","If either I or II follows"], a:2},
+{s:"Logical Reasoning", q:"If a person earns Rs. 1000 in the first week and their income doubles each week, how much will they earn in the 4th week?", o:["Rs. 4000","Rs. 8000","Rs. 3000","Rs. 16000"], a:1},
+{s:"Logical Reasoning", q:"Statements:\nI. Ahmed is a healthy boy.\nII. His mother is very particular about the food he eats.", o:["If statement I is the cause and statement II is its effect","If statement II is the cause and statement I is its effect","If both statements I and II are independent causes","If both statements I and II are effects of independent causes"], a:1},
+{s:"Logical Reasoning", q:"A man buys a watch for Rs. 200 and sells it at a loss of 15%. What is the selling price of the watch?", o:["Rs. 150","Rs. 170","Rs. 160","Rs. 180"], a:1},
+];
+
+const TOTAL = questions.length;
+const answers = new Array(TOTAL).fill(null);
+let current = 0;
+let timeLeft = 180*60;
+let submitted = false;
+let timerId = null;
+
+/* ================= Diagrams ================= */
+function diagramHTML(kind){
+  if(kind === "restable"){
+    return `<table>
+      <tr><th></th><th>Cross-sectional area</th><th>Length</th></tr>
+      <tr><td>Given wire</td><td>Half</td><td>No change</td></tr>
+    </table>`;
+  }
+  if(kind === "pv"){
+    return `<svg width="260" height="180" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="150" x2="230" y2="150" stroke="#25201A" stroke-width="2"/>
+      <line x1="40" y1="150" x2="40" y2="20" stroke="#25201A" stroke-width="2"/>
+      <text x="235" y="155" font-family="IBM Plex Mono, monospace" font-size="12" fill="#25201A">V (m³)</text>
+      <text x="6" y="20" font-family="IBM Plex Mono, monospace" font-size="12" fill="#25201A">p (Pa)</text>
+      <line x1="90" y1="150" x2="90" y2="94" stroke="#6B6157" stroke-width="1" stroke-dasharray="2 3"/>
+      <line x1="150" y1="150" x2="150" y2="38" stroke="#6B6157" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="82" y="164" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">0.3</text>
+      <text x="142" y="164" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">0.5</text>
+      <text x="18" y="98" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">8</text>
+      <text x="14" y="42" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">16</text>
+      <line x1="90" y1="94" x2="150" y2="38" stroke="#9B3B2E" stroke-width="3"/>
+      <circle cx="90" cy="94" r="3.5" fill="#9B3B2E"/>
+      <circle cx="150" cy="38" r="3.5" fill="#9B3B2E"/>
+      <text x="94" y="88" font-family="IBM Plex Mono, monospace" font-size="12" fill="#9B3B2E">A</text>
+      <text x="154" y="34" font-family="IBM Plex Mono, monospace" font-size="12" fill="#9B3B2E">B</text>
+    </svg>`;
+  }
+  return "";
+}
+
+/* ================= DOM refs ================= */
+const qSection = document.getElementById('qSection');
+const qNum = document.getElementById('qNum');
+const qText = document.getElementById('qText');
+const optionsList = document.getElementById('optionsList');
+const diagramWrap = document.getElementById('diagramWrap');
+const navGrid = document.getElementById('navGrid');
+const progressText = document.getElementById('progressText');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const subjectTabsEl = document.getElementById('subjectTabs');
+
+/* ================= Subject index map ================= */
+const subjects = [];
+questions.forEach((q,i) => {
+  if(!subjects.find(s => s.name === q.s)) subjects.push({name:q.s, start:i});
+});
+
+function buildSubjectTabs(){
+  subjectTabsEl.innerHTML = "";
+  subjects.forEach(sub => {
+    const b = document.createElement('button');
+    b.className = 'subjectTab';
+    b.textContent = sub.name;
+    b.onclick = () => { current = sub.start; render(); };
+    subjectTabsEl.appendChild(b);
+  });
+}
+
+function updateSubjectTabs(){
+  const curSubject = questions[current].s;
+  document.querySelectorAll('.subjectTab').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === curSubject);
+  });
+}
+
+/* ================= Nav grid ================= */
+function buildNavGrid(){
+  navGrid.innerHTML = "";
+  questions.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'navBtn';
+    b.textContent = i+1;
+    b.onclick = () => { current = i; render(); };
+    navGrid.appendChild(b);
+  });
+}
+function renderNavGrid(){
+  const btns = navGrid.querySelectorAll('.navBtn');
+  btns.forEach((b,i) => {
+    b.classList.toggle('answered', answers[i] !== null);
+    b.classList.toggle('current', i === current);
+  });
+  const answeredCount = answers.filter(a => a !== null).length;
+  progressText.textContent = `${answeredCount} / ${TOTAL} answered`;
+}
+
+/* ================= Render question ================= */
+function render(){
+  const item = questions[current];
+  qSection.textContent = item.s;
+  qNum.textContent = `Question ${current+1} / ${TOTAL}`;
+  qText.textContent = item.q;
+
+  if(item.diagram){
+    diagramWrap.style.display = 'flex';
+    diagramWrap.innerHTML = diagramHTML(item.diagram);
+  } else {
+    diagramWrap.style.display = 'none';
+    diagramWrap.innerHTML = '';
+  }
+
+  optionsList.innerHTML = "";
+  item.o.forEach((optText,i) => {
+    const div = document.createElement('div');
+    div.className = 'opt' + (answers[current] === i ? ' selected' : '');
+    div.innerHTML = `<span class="tag">${String.fromCharCode(65+i)}</span><span>${optText}</span>`;
+    div.onclick = () => { answers[current] = i; render(); renderNavGrid(); };
+    optionsList.appendChild(div);
+  });
+
+  prevBtn.disabled = current === 0;
+  nextBtn.textContent = current === TOTAL-1 ? 'Finish →' : 'Next →';
+  renderNavGrid();
+  updateSubjectTabs();
+
+  const curBtn = navGrid.children[current];
+  if(curBtn) curBtn.scrollIntoView({block:'nearest'});
+}
+
+prevBtn.onclick = () => { if(current>0){ current--; render(); } };
+nextBtn.onclick = () => { if(current<TOTAL-1){ current++; render(); } else { attemptSubmit(); } };
+
+/* ================= Timer ================= */
+const timerEl = document.getElementById('timer');
+function formatTime(t){
+  const m = Math.floor(t/60).toString().padStart(2,'0');
+  const s = Math.floor(t%60).toString().padStart(2,'0');
+  return `${m}:${s}`;
+}
+function tick(){
+  if(submitted) return;
+  timeLeft--;
+  timerEl.textContent = formatTime(timeLeft);
+  if(timeLeft <= 300) timerEl.classList.add('low');
+  if(timeLeft <= 0){ clearInterval(timerId); finishTest(); }
+}
+timerId = setInterval(tick, 1000);
+timerEl.textContent = formatTime(timeLeft);
+
+/* ================= Submit & results ================= */
+document.getElementById('submitBtn').onclick = attemptSubmit;
+function attemptSubmit(){
+  const unanswered = answers.filter(a => a === null).length;
+  if(unanswered > 0){
+    const proceed = confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`);
+    if(!proceed) return;
+  }
+  finishTest();
+}
+
+function finishTest(){
+  submitted = true;
+  clearInterval(timerId);
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultsScreen').style.display = 'block';
+
+  let score = 0;
+  questions.forEach((item,i) => { if(answers[i] === item.a) score++; });
+
+  document.getElementById('scoreNum').textContent = `${score}/${TOTAL}`;
+  const pct = Math.round((score/TOTAL)*100);
+  const usedSeconds = 180*60 - timeLeft;
+  document.getElementById('scoreSub').textContent = `${pct}% correct · time used ${formatTime(usedSeconds)}`;
+
+  const sections = {};
+  questions.forEach((item,i) => {
+    if(!sections[item.s]) sections[item.s] = {correct:0,total:0};
+    sections[item.s].total++;
+    if(answers[i] === item.a) sections[item.s].correct++;
+  });
+  const bd = document.getElementById('breakdown');
+  bd.innerHTML = "";
+  Object.keys(sections).forEach(key => {
+    const {correct,total} = sections[key];
+    const row = document.createElement('div');
+    row.className = 'bd-row';
+    row.innerHTML = `<div class="bd-label">${key}</div>
+      <div class="bd-bar-bg"><div class="bd-bar" style="width:${(correct/total)*100}%"></div></div>
+      <div class="bd-frac">${correct}/${total}</div>`;
+    bd.appendChild(row);
+  });
+
+  buildReview();
+}
+
+function buildReview(){
+  const list = document.getElementById('reviewList');
+  list.innerHTML = "";
+  questions.forEach((item,i) => {
+    const div = document.createElement('div');
+    div.className = 'review-item';
+    let optsHtml = "";
+    item.o.forEach((optText,j) => {
+      let cls = '';
+      if(j === item.a) cls = 'correct';
+      else if(j === answers[i] && answers[i] !== item.a) cls = 'incorrect';
+      optsHtml += `<div class="opt ${cls} disabled"><span class="tag">${String.fromCharCode(65+j)}</span><span>${optText}</span></div>`;
+    });
+    const diagHtml = item.diagram ? `<div class="diagram-wrap" style="display:flex;">${diagramHTML(item.diagram)}</div>` : '';
+    div.innerHTML = `<div class="qsection">${item.s} · Q${i+1}</div>
+      <p class="qtext">${item.q}</p>
+      ${diagHtml}
+      <div class="options">${optsHtml}</div>`;
+    list.appendChild(div);
+  });
+}
+
+document.getElementById('reviewToggle').onclick = function(){
+  const list = document.getElementById('reviewList');
+  const showing = list.style.display === 'block';
+  list.style.display = showing ? 'none' : 'block';
+  this.textContent = showing ? 'Show Answer Review' : 'Hide Answer Review';
+};
+
+/* ================= Init ================= */
+buildSubjectTabs();
+buildNavGrid();
+render();
+</script>
+</body>
+</html>
