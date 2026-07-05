@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="png" href="favicon.png">
+<title>MDCAT 2026 Full-Length Mock Test 2 — 180 MCQs | Exam Prep Point</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free MDCAT 2026 Full-Length Mock Test 2 — 180 timed MCQs covering Biology, Chemistry, Physics, English and Logical Reasoning as per the official PMDC syllabus. Instant score breakdown and answer review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA; --paper-line:#D7CFC0; --ink:#25201A; --ink-soft:#6B6157;
+    --gold:#A9762C; --forest:#3D5A45; --coral:#9B3B2E; --card:#FFFDF9; --shadow:rgba(37,32,26,.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/26px 26px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/26px 26px,
+      var(--paper);
+    color:var(--ink); font-family:'IBM Plex Sans',sans-serif; min-height:100vh; padding:22px 14px 60px;
+  }
+  .wrap{max-width:1040px; margin:0 auto;}
+  header{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    border-bottom:2.5px solid var(--ink); padding-bottom:14px; margin-bottom:20px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--coral); font-weight:600; margin-bottom:4px;}
+  h1{font-family:'Newsreader',serif; font-weight:600; font-style:italic; font-size:clamp(24px,3.6vw,34px); margin:0; line-height:1.1;}
+  .meta{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:6px;}
+  .timer-block{text-align:right; font-family:'IBM Plex Mono',monospace;}
+  .timer-label{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+  #timer{font-size:28px; font-weight:600; border:2px solid var(--ink); border-radius:6px; padding:2px 12px; background:var(--card);}
+  #timer.low{color:var(--coral); border-color:var(--coral);}
+
+  .layout{display:grid; grid-template-columns:1fr 260px; gap:20px;}
+  @media (max-width:820px){ .layout{grid-template-columns:1fr;} }
+
+  .qcard{background:var(--card); border:1.5px solid var(--ink); border-radius:10px; padding:24px 26px;
+    box-shadow:3px 4px 0 var(--shadow); min-height:340px; display:flex; flex-direction:column;}
+  .qhead{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; flex-wrap:wrap; gap:6px;}
+  .qsection{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); font-weight:600;}
+  .qnum{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
+  .qtext{font-size:17px; line-height:1.5; margin:0 0 16px; font-weight:500; white-space:pre-line;}
+  .options{display:flex; flex-direction:column; gap:9px; margin-bottom:auto;}
+  .opt{text-align:left; padding:11px 13px; border-radius:7px; border:1.4px solid #D9CFC1; background:#fff;
+    cursor:pointer; font-size:14.5px; display:flex; gap:10px; align-items:center;}
+  .opt .tag{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--ink-soft); border:1.3px solid var(--ink-soft);
+    border-radius:50%; width:21px; height:21px; display:flex; align-items:center; justify-content:center; font-size:11.5px; flex-shrink:0;}
+  .opt:hover{border-color:var(--ink);}
+  .opt.selected{border-color:var(--coral); background:#FBECE8;}
+  .opt.selected .tag{background:var(--coral); border-color:var(--coral); color:#fff;}
+  .opt.correct{border-color:var(--forest); background:#EAF1EB;}
+  .opt.correct .tag{background:var(--forest); border-color:var(--forest); color:#fff;}
+  .opt.incorrect{border-color:var(--coral); background:#FBECE8;}
+  .opt.incorrect .tag{background:var(--coral); border-color:var(--coral); color:#fff;}
+  .opt.disabled{cursor:default;}
+  .diagram-wrap{display:flex; justify-content:center; margin:6px 0 14px; padding:8px;
+    background:repeating-linear-gradient(#E4DCCC 0 1px, transparent 1px 20px),
+               repeating-linear-gradient(90deg,#E4DCCC 0 1px, transparent 1px 20px);
+    border:1px dashed #CFC4B0; border-radius:8px;}
+  .diagram-wrap table{border-collapse:collapse; font-family:'IBM Plex Mono',monospace; font-size:13px; background:#fff;}
+  .diagram-wrap th, .diagram-wrap td{border:1px solid var(--ink-soft); padding:6px 12px;}
+  .diagram-wrap th{background:#EFE7D6;}
+  .qfooter{display:flex; justify-content:space-between; margin-top:18px;}
+  .navArrow{padding:9px 16px; border-radius:6px; border:1.4px solid var(--ink); background:transparent; color:var(--ink);
+    font-family:'IBM Plex Mono',monospace; font-size:13px; cursor:pointer;}
+  .navArrow:hover{background:var(--ink); color:var(--paper);}
+  .navArrow:disabled{opacity:.35; cursor:not-allowed;}
+  .navArrow:disabled:hover{background:transparent; color:var(--ink);}
+
+  .side{display:flex; flex-direction:column; gap:14px;}
+  .panel{background:var(--card); border:1.5px solid var(--ink); border-radius:10px; padding:14px; box-shadow:2px 3px 0 var(--shadow);}
+  .panel h3{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft); margin:0 0 8px;}
+  .subjectTabs{display:flex; flex-wrap:wrap; gap:6px;}
+  .subjectTab{font-family:'IBM Plex Mono',monospace; font-size:10.5px; padding:6px 8px; border-radius:5px; border:1.3px solid var(--ink-soft);
+    background:transparent; color:var(--ink-soft); cursor:pointer;}
+  .subjectTab.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  #navGrid{display:grid; grid-template-columns:repeat(8,1fr); gap:4px; max-height:260px; overflow-y:auto; padding-right:2px;}
+  .navBtn{aspect-ratio:1; border-radius:4px; border:1.2px solid var(--ink-soft); background:transparent; color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace; font-size:10px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .navBtn.answered{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .navBtn.current{outline:2px solid var(--coral); outline-offset:1px;}
+  #progressText{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); text-align:center; margin:6px 0;}
+  #submitBtn{width:100%; margin-top:4px; padding:11px; border:none; border-radius:6px; background:var(--coral); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; letter-spacing:.03em; font-size:13px; cursor:pointer;}
+  #submitBtn:hover{background:#7f2f24;}
+
+  #resultsScreen{display:none;}
+  .score-hero{background:var(--card); border:1.5px solid var(--ink); border-radius:10px; padding:26px; display:flex; gap:26px;
+    align-items:center; flex-wrap:wrap; box-shadow:3px 4px 0 var(--shadow); margin-bottom:20px;}
+  .score-num{font-family:'Newsreader',serif; font-style:italic; font-weight:600; font-size:56px; line-height:1;}
+  .score-sub{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
+  .breakdown{flex:1; min-width:260px;}
+  .bd-row{display:flex; align-items:center; gap:10px; margin-bottom:7px; font-family:'IBM Plex Mono',monospace; font-size:12px;}
+  .bd-label{width:150px; color:var(--ink-soft);}
+  .bd-bar-bg{flex:1; height:8px; background:var(--paper-line); border-radius:4px; overflow:hidden;}
+  .bd-bar{height:100%; background:var(--coral);}
+  .bd-frac{width:50px; text-align:right;}
+  #reviewToggle{display:block; margin:0 auto 20px; padding:10px 22px; border-radius:6px; border:1.4px solid var(--ink);
+    background:var(--ink); color:var(--paper); font-family:'IBM Plex Mono',monospace; font-size:13px; cursor:pointer;}
+  .review-item{background:var(--card); border:1.4px solid #D9CFC1; border-radius:8px; padding:14px 18px; margin-bottom:10px;}
+  .review-item .qtext{font-size:14.5px; margin-bottom:8px;}
+  .review-item .opt{padding:7px 11px; font-size:13px;}
+  footer.credit{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); margin-top:26px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Exam Prep Point · MDCAT 2026</div>
+      <h1>Full-Length Mock Test — Paper 2</h1>
+      <div class="meta">180 Questions · 180 Marks · Biology · Chemistry · Physics · English · Logical Reasoning</div>
+    </div>
+    <div class="timer-block">
+      <div class="timer-label">Time remaining</div>
+      <div id="timer">150:00</div>
+    </div>
+  </header>
+
+  <div id="quizScreen" class="layout">
+    <div class="qcard">
+      <div class="qhead">
+        <span class="qsection" id="qSection"></span>
+        <span class="qnum" id="qNum"></span>
+      </div>
+      <p class="qtext" id="qText"></p>
+      <div class="diagram-wrap" id="diagramWrap" style="display:none;"></div>
+      <div class="options" id="optionsList"></div>
+      <div class="qfooter">
+        <button class="navArrow" id="prevBtn">&larr; Previous</button>
+        <button class="navArrow" id="nextBtn">Next &rarr;</button>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="panel">
+        <h3>Jump to Subject</h3>
+        <div class="subjectTabs" id="subjectTabs"></div>
+      </div>
+      <div class="panel">
+        <h3>Progress</h3>
+        <div id="progressText">0 / 180 answered</div>
+        <div id="navGrid"></div>
+        <button id="submitBtn">Submit Test</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultsScreen">
+    <div class="score-hero">
+      <div>
+        <div class="score-num" id="scoreNum">0/180</div>
+        <div class="score-sub" id="scoreSub">0% · time used 00:00</div>
+      </div>
+      <div class="breakdown" id="breakdown"></div>
+    </div>
+    <button id="reviewToggle">Show Answer Review</button>
+    <div id="reviewList" style="display:none;"></div>
+  </div>
+
+  <footer class="credit">Exam Prep Point — MDCAT 2026 Full-Length Mock Test 2</footer>
+</div>
+
+<script>
+/* ================= Question bank (180) — PAPER 2 ================= */
+const questions = [
+/* ---------------- BIOLOGY (81) ---------------- */
+{s:"Biology", q:"The resolving power of an electron microscope is high mainly because of the:", o:["Short wavelength of electron beams","High magnification lenses","Use of glass lenses","Staining of the specimen"], a:0},
+{s:"Biology", q:"Which organelle is bound by a single membrane and contains hydrolytic enzymes active at acidic pH?", o:["Peroxisome","Lysosome","Mitochondrion","Golgi apparatus"], a:1},
+{s:"Biology", q:"Cell wall of plant cells is mainly composed of:", o:["Chitin","Peptidoglycan","Cellulose","Cutin"], a:2},
+{s:"Biology", q:"Which of the following best describes facilitated diffusion?", o:["Requires ATP and moves against gradient","Uses carrier proteins and moves along concentration gradient","Occurs only through the lipid bilayer","Requires a concentration gradient and ATP"], a:1},
+{s:"Biology", q:"Centrioles are absent in the cells of:", o:["Insects","Flowering plants","Fungi","Algae"], a:1},
+{s:"Biology", q:"The fluid mosaic model of the plasma membrane was proposed by:", o:["Robertson","Singer and Nicolson","Schleiden and Schwann","Watson and Crick"], a:1},
+{s:"Biology", q:"Rough endoplasmic reticulum is studded with:", o:["Lysosomes","Ribosomes","Peroxisomes","Centrioles"], a:1},
+{s:"Biology", q:"The site of synthesis of ATP in mitochondria is the:", o:["Outer membrane","Intermembrane space","Matrix","Cristae"], a:3},
+{s:"Biology", q:"Which of the following elements makes up the greatest percentage of dry weight in living organisms?", o:["Hydrogen","Oxygen","Nitrogen","Carbon"], a:3},
+{s:"Biology", q:"Glycogen, a storage polysaccharide in animals, is a polymer of:", o:["Fructose","Galactose","Glucose","Ribose"], a:2},
+{s:"Biology", q:"Which bond links fatty acids to glycerol in a triglyceride?", o:["Peptide bond","Glycosidic bond","Ester bond","Hydrogen bond"], a:2},
+{s:"Biology", q:"Denaturation of a protein primarily affects its:", o:["Primary structure only","Secondary and tertiary structure","Amino acid sequence","Peptide bonds only"], a:1},
+{s:"Biology", q:"In DNA, the base pairing between guanine and cytosine involves:", o:["Two hydrogen bonds","Three hydrogen bonds","One covalent bond","Four hydrogen bonds"], a:1},
+{s:"Biology", q:"Which type of RNA carries the genetic code from DNA to ribosomes?", o:["tRNA","rRNA","mRNA","snRNA"], a:2},
+{s:"Biology", q:"An enzyme that lowers activation energy does so by:", o:["Increasing substrate concentration","Providing an alternative reaction pathway","Raising the temperature of the reaction","Shifting the reaction equilibrium"], a:1},
+{s:"Biology", q:"A competitive inhibitor of an enzyme:", o:["Binds to the active site and resembles the substrate","Binds away from the active site","Permanently destroys the enzyme","Increases the rate of reaction"], a:0},
+{s:"Biology", q:"The optimum pH for pepsin, a stomach enzyme, is approximately:", o:["7.4","2.0","9.0","5.5"], a:1},
+{s:"Biology", q:"Glycolysis takes place in the:", o:["Mitochondrial matrix","Cytoplasm","Nucleus","Cristae"], a:1},
+{s:"Biology", q:"The net gain of ATP molecules from glycolysis (substrate-level phosphorylation) is:", o:["4","2","6","8"], a:1},
+{s:"Biology", q:"In the Krebs cycle, one molecule of acetyl-CoA generates how many molecules of CO2?", o:["1","2","3","4"], a:1},
+{s:"Biology", q:"Chemiosmosis refers to the movement of:", o:["Electrons across membranes","Protons across a membrane down their gradient to generate ATP","Glucose into the cell","Oxygen into mitochondria"], a:1},
+{s:"Biology", q:"Fermentation in muscle cells under anaerobic conditions produces:", o:["Ethanol and CO2","Lactic acid","Acetyl-CoA","Pyruvic acid oxidation products"], a:1},
+{s:"Biology", q:"Viruses are considered non-living outside a host because they:", o:["Lack a cell wall","Cannot reproduce independently without host machinery","Lack DNA","Are too small to be seen"], a:1},
+{s:"Biology", q:"The genetic material of bacteriophages such as T4 is typically:", o:["Single-stranded RNA","Double-stranded DNA","Single-stranded DNA","Double-stranded RNA"], a:1},
+{s:"Biology", q:"Bacteria that can survive extreme salt concentrations are known as:", o:["Thermophiles","Halophiles","Acidophiles","Psychrophiles"], a:1},
+{s:"Biology", q:"Peptidoglycan is a structural component of:", o:["Fungal cell walls","Bacterial cell walls","Plant cell walls","Viral capsids"], a:1},
+{s:"Biology", q:"Gram-negative bacteria retain which colour after Gram staining?", o:["Purple","Pink/Red","Green","Colourless"], a:1},
+{s:"Biology", q:"Which enzyme in saliva begins the digestion of starch?", o:["Pepsin","Salivary amylase","Trypsin","Lipase"], a:1},
+{s:"Biology", q:"Bile, which emulsifies fats, is produced by the:", o:["Pancreas","Liver","Gall bladder","Stomach"], a:1},
+{s:"Biology", q:"The wave-like muscular contractions that move food through the digestive tract are called:", o:["Segmentation","Peristalsis","Mastication","Emulsification"], a:1},
+{s:"Biology", q:"Villi and microvilli in the small intestine primarily function to:", o:["Secrete digestive enzymes only","Increase surface area for absorption","Store undigested food","Produce bile"], a:1},
+{s:"Biology", q:"Which structure prevents food from entering the trachea during swallowing?", o:["Uvula","Epiglottis","Larynx","Pharynx"], a:1},
+{s:"Biology", q:"Gaseous exchange in the alveoli occurs by the process of:", o:["Active transport","Simple diffusion","Osmosis","Facilitated diffusion"], a:1},
+{s:"Biology", q:"The pigment responsible for oxygen transport in human blood is:", o:["Myoglobin","Hemoglobin","Melanin","Chlorophyll"], a:1},
+{s:"Biology", q:"Which blood vessel carries deoxygenated blood away from the heart?", o:["Aorta","Pulmonary artery","Pulmonary vein","Vena cava"], a:1},
+{s:"Biology", q:"The pacemaker of the human heart is the:", o:["Atrioventricular node","Sinoatrial node","Purkinje fibers","Bundle of His"], a:1},
+{s:"Biology", q:"Platelets are primarily responsible for:", o:["Oxygen transport","Blood clotting","Fighting infection","Producing antibodies"], a:1},
+{s:"Biology", q:"Lymph nodes function mainly to:", o:["Produce red blood cells","Filter lymph and trap pathogens","Store bile","Regulate blood pressure"], a:1},
+{s:"Biology", q:"Which type of immunity is provided by antibodies passed from mother to infant through breast milk?", o:["Active natural immunity","Passive natural immunity","Active artificial immunity","Passive artificial immunity"], a:1},
+{s:"Biology", q:"B-lymphocytes mature in the:", o:["Thymus","Bone marrow","Spleen","Liver"], a:1},
+{s:"Biology", q:"The functional unit of the kidney is the:", o:["Ureter","Nephron","Bowman's capsule","Renal pelvis"], a:1},
+{s:"Biology", q:"Filtration of blood in the kidney occurs at the:", o:["Loop of Henle","Glomerulus","Collecting duct","Distal convoluted tubule"], a:1},
+{s:"Biology", q:"ADH (antidiuretic hormone) acts primarily on the:", o:["Proximal convoluted tubule","Collecting duct","Bowman's capsule","Loop of Henle only"], a:1},
+{s:"Biology", q:"The hypothalamus regulates body temperature by acting as the body's:", o:["Thermostat","Osmoreceptor only","Pacemaker","Hormone reservoir"], a:0},
+{s:"Biology", q:"A resting neuron's membrane potential is approximately:", o:["+70 mV","-70 mV","0 mV","-30 mV"], a:1},
+{s:"Biology", q:"The myelin sheath around axons is produced by:", o:["Astrocytes only","Schwann cells (in the PNS)","Microglia","Neurons themselves"], a:1},
+{s:"Biology", q:"Neurotransmitters are released from the:", o:["Dendrites","Axon terminal (synaptic knob)","Cell body","Nucleus"], a:1},
+{s:"Biology", q:"The part of the brain responsible for maintaining balance and coordination is the:", o:["Cerebrum","Cerebellum","Medulla oblongata","Hypothalamus"], a:1},
+{s:"Biology", q:"Insulin is secreted by which cells of the pancreas?", o:["Alpha cells","Beta cells","Delta cells","Acinar cells"], a:1},
+{s:"Biology", q:"Which hormone is responsible for the 'fight or flight' response?", o:["Insulin","Adrenaline (epinephrine)","Thyroxine","Progesterone"], a:1},
+{s:"Biology", q:"Spermatogenesis occurs within the:", o:["Epididymis","Seminiferous tubules","Vas deferens","Prostate gland"], a:1},
+{s:"Biology", q:"Fertilization in humans normally occurs in the:", o:["Uterus","Fallopian tube (oviduct)","Ovary","Vagina"], a:1},
+{s:"Biology", q:"The hormone responsible for triggering ovulation is:", o:["FSH","LH surge","Progesterone","Estrogen only"], a:1},
+{s:"Biology", q:"The placenta functions mainly to:", o:["Produce eggs","Exchange nutrients and gases between mother and fetus","Store sperm","Produce milk"], a:1},
+{s:"Biology", q:"Which of the following joints allows the greatest range of movement?", o:["Fibrous joint","Ball-and-socket joint","Suture","Hinge joint restricted to one plane"], a:1},
+{s:"Biology", q:"Cardiac muscle differs from skeletal muscle in that it is:", o:["Voluntary and unstriated","Involuntary and striated","Voluntary and striated","Involuntary and unstriated"], a:1},
+{s:"Biology", q:"During muscle contraction, calcium ions bind to:", o:["Myosin heads","Troponin","Actin filaments directly","Tropomyosin directly"], a:1},
+{s:"Biology", q:"In a dihybrid cross between two heterozygous individuals (AaBb x AaBb), the phenotypic ratio expected is:", o:["3:1","1:2:1","9:3:3:1","1:1:1:1"], a:2},
+{s:"Biology", q:"A cross between a heterozygous individual and a homozygous recessive individual is called a:", o:["Dihybrid cross","Test cross","Reciprocal cross","Back cross only"], a:1},
+{s:"Biology", q:"Color blindness in humans is an example of a:", o:["Autosomal dominant trait","X-linked recessive trait","Y-linked trait","Autosomal recessive trait"], a:1},
+{s:"Biology", q:"Down syndrome is caused by the presence of an extra copy of chromosome number:", o:["18","21","13","23"], a:1},
+{s:"Biology", q:"Natural selection acts directly on an organism's:", o:["Genotype only","Phenotype","Genetic code before expression","Gametes only"], a:1},
+{s:"Biology", q:"According to Darwin's theory, individuals with favorable variations are more likely to:", o:["Mutate frequently","Survive and reproduce","Remain unchanged","Become extinct"], a:1},
+{s:"Biology", q:"Homologous structures, such as the forelimbs of humans and whales, provide evidence for:", o:["Convergent evolution","Common ancestry","Analogous adaptation only","Vestigial development"], a:1},
+{s:"Biology", q:"Restriction enzymes used in genetic engineering function by:", o:["Joining DNA fragments together","Cutting DNA at specific recognition sequences","Synthesizing new DNA strands","Unwinding the DNA double helix"], a:1},
+{s:"Biology", q:"A plasmid used as a vector in recombinant DNA technology is typically obtained from:", o:["Viruses","Bacteria","Fungi","Plants"], a:1},
+{s:"Biology", q:"PCR (Polymerase Chain Reaction) is a technique used to:", o:["Sequence proteins","Amplify specific DNA sequences","Separate DNA by size","Insert genes into a host"], a:1},
+{s:"Biology", q:"Which kingdom includes organisms that are eukaryotic, multicellular, and obtain nutrition by absorption after external digestion?", o:["Animalia","Fungi","Plantae","Protista"], a:1},
+{s:"Biology", q:"Mycorrhizae represent a symbiotic association between fungi and:", o:["Animal roots","Plant roots","Bacteria","Algae only"], a:1},
+{s:"Biology", q:"Xylem tissue in plants is primarily responsible for the transport of:", o:["Sugars","Water and minerals","Hormones only","Oxygen"], a:1},
+{s:"Biology", q:"Stomata on leaves primarily regulate:", o:["Photosynthesis rate directly","Gas exchange and transpiration","Root growth","Seed dispersal"], a:1},
+{s:"Biology", q:"The light-dependent reactions of photosynthesis occur in the:", o:["Stroma","Thylakoid membrane","Cytoplasm","Mitochondrial matrix"], a:1},
+{s:"Biology", q:"During the Calvin cycle, CO2 is fixed by combining with:", o:["Pyruvate","RuBP (ribulose bisphosphate)","Glucose","Oxaloacetate only"], a:1},
+{s:"Biology", q:"The green pigment chlorophyll absorbs light most strongly in which regions of the visible spectrum?", o:["Green and yellow","Red and blue","Orange only","Violet only"], a:1},
+{s:"Biology", q:"An ecosystem's primary producers are typically:", o:["Decomposers","Photosynthetic organisms","Herbivores","Carnivores"], a:1},
+{s:"Biology", q:"The flow of energy through a food chain is:", o:["Cyclical","Unidirectional","Bidirectional","Random"], a:1},
+{s:"Biology", q:"Organisms that obtain energy by breaking down dead organic matter are called:", o:["Producers","Decomposers","Primary consumers","Autotrophs"], a:1},
+{s:"Biology", q:"Which of the following best defines a species in biological terms?", o:["Organisms that look identical","A group capable of interbreeding to produce fertile offspring","Organisms living in the same habitat","Organisms with the same diet"], a:1},
+{s:"Biology", q:"Meiosis differs from mitosis in that meiosis:", o:["Produces two genetically identical diploid cells","Produces four genetically varied haploid cells","Occurs only in somatic cells","Does not involve DNA replication"], a:1},
+{s:"Biology", q:"The process by which mRNA is synthesized from a DNA template is called:", o:["Translation","Transcription","Replication","Reverse transcription"], a:1},
+{s:"Biology", q:"Translation of mRNA into a polypeptide chain occurs on the:", o:["Nucleus","Ribosome","Golgi apparatus","Mitochondria"], a:1},
+
+/* ---------------- CHEMISTRY (45) ---------------- */
+{s:"Chemistry", q:"According to Avogadro's law, equal volumes of gases at the same temperature and pressure contain equal numbers of:", o:["Molecules","Atoms only","Electrons","Grams"], a:0},
+{s:"Chemistry", q:"The number of moles in 44 g of CO2 (molar mass 44 g/mol) is:", o:["0.5","1","2","4"], a:1},
+{s:"Chemistry", q:"Which quantum number describes the shape of an orbital?", o:["Principal quantum number","Azimuthal (angular momentum) quantum number","Magnetic quantum number","Spin quantum number"], a:1},
+{s:"Chemistry", q:"According to Hund's rule, electrons occupying degenerate orbitals will:", o:["Pair up first before spreading out","Occupy separate orbitals singly before pairing","Always have opposite spins immediately","Fill the lowest energy orbital only"], a:1},
+{s:"Chemistry", q:"The electronic configuration of an element with atomic number 17 (chlorine) is:", o:["1s²2s²2p⁶3s²3p⁴","1s²2s²2p⁶3s²3p⁵","1s²2s²2p⁶3s²3p⁶","1s²2s²2p⁵3s²3p⁶"], a:1},
+{s:"Chemistry", q:"Ionic bonds are typically formed between:", o:["Two non-metals","A metal and a non-metal","Two metals","Two identical atoms"], a:1},
+{s:"Chemistry", q:"The shape of a molecule with sp³ hybridization and no lone pairs on the central atom is:", o:["Trigonal planar","Tetrahedral","Linear","Bent"], a:1},
+{s:"Chemistry", q:"Hydrogen bonding is strongest in which of the following compounds?", o:["HCl","H2O","H2S","CH4"], a:1},
+{s:"Chemistry", q:"According to Boyle's law, at constant temperature, the pressure of a fixed amount of gas is:", o:["Directly proportional to volume","Inversely proportional to volume","Independent of volume","Proportional to the square of volume"], a:1},
+{s:"Chemistry", q:"The value of the universal gas constant R in SI units is approximately:", o:["0.0821 atm·L/mol·K","8.314 J/mol·K","1.987 cal/mol·K","62.4 L·mmHg/mol·K"], a:1},
+{s:"Chemistry", q:"A real gas behaves most ideally under conditions of:", o:["High pressure and low temperature","Low pressure and high temperature","High pressure and high temperature","Low pressure and low temperature"], a:1},
+{s:"Chemistry", q:"The enthalpy change when one mole of a substance is completely burned in oxygen is called:", o:["Enthalpy of formation","Enthalpy of combustion","Enthalpy of neutralization","Enthalpy of solution"], a:1},
+{s:"Chemistry", q:"For an exothermic reaction, the enthalpy change (ΔH) is:", o:["Positive","Negative","Zero","Undefined"], a:1},
+{s:"Chemistry", q:"According to Le Chatelier's principle, increasing pressure on a gaseous equilibrium favors the side with:", o:["More moles of gas","Fewer moles of gas","Equal moles of gas","No effect regardless of moles"], a:1},
+{s:"Chemistry", q:"A catalyst increases the rate of a reaction by:", o:["Increasing the concentration of reactants","Lowering the activation energy","Increasing the temperature","Shifting the equilibrium position"], a:1},
+{s:"Chemistry", q:"The rate of a zero-order reaction is:", o:["Dependent on reactant concentration","Independent of reactant concentration","Inversely proportional to concentration","Proportional to the square of concentration"], a:1},
+{s:"Chemistry", q:"A strong acid is one that:", o:["Partially ionizes in water","Completely ionizes in water","Never ionizes in water","Has a pH greater than 7"], a:1},
+{s:"Chemistry", q:"The pH of a neutral aqueous solution at 25°C is:", o:["0","7","14","1"], a:1},
+{s:"Chemistry", q:"A buffer solution resists changes in pH because it contains:", o:["Only a strong acid","A weak acid and its conjugate base (or weak base and conjugate acid)","Only water","Only a strong base"], a:1},
+{s:"Chemistry", q:"In a redox reaction, the substance that loses electrons is said to be:", o:["Reduced","Oxidized","Neutralized","Hydrolyzed"], a:1},
+{s:"Chemistry", q:"The oxidation state of oxygen in hydrogen peroxide (H2O2) is:", o:["-2","-1","0","+1"], a:1},
+{s:"Chemistry", q:"Across a period from left to right, atomic radius generally:", o:["Increases","Decreases","Remains constant","Increases then decreases sharply"], a:1},
+{s:"Chemistry", q:"Down a group in the periodic table, ionization energy generally:", o:["Increases","Decreases","Remains the same","Fluctuates randomly"], a:1},
+{s:"Chemistry", q:"Which of the following elements has the highest electronegativity?", o:["Chlorine","Fluorine","Oxygen","Nitrogen"], a:1},
+{s:"Chemistry", q:"Transition metals commonly show variable oxidation states because of:", o:["Their large atomic size","The involvement of both (n-1)d and ns electrons","Their low melting points","Their high reactivity with water"], a:1},
+{s:"Chemistry", q:"The functional group -COOH is characteristic of:", o:["Alcohols","Carboxylic acids","Ketones","Amines"], a:1},
+{s:"Chemistry", q:"An alkane with the molecular formula C5H12 is named:", o:["Butane","Pentane","Hexane","Propane"], a:1},
+{s:"Chemistry", q:"Alkenes undergo which type of characteristic reaction due to their double bond?", o:["Substitution","Addition","Elimination only","Condensation only"], a:1},
+{s:"Chemistry", q:"Markovnikov's rule predicts that in the addition of HX to an unsymmetrical alkene, hydrogen adds to the carbon with:", o:["Fewer hydrogen atoms already attached","More hydrogen atoms already attached","No hydrogen atoms","Equal hydrogens on both carbons"], a:1},
+{s:"Chemistry", q:"Aromatic compounds like benzene are characterized by:", o:["High reactivity due to double bonds","Delocalized pi electrons and unusual stability","Easy addition reactions","sp³ hybridized ring carbons"], a:1},
+{s:"Chemistry", q:"Alcohols can be oxidized to aldehydes and further to carboxylic acids using:", o:["Reducing agents like LiAlH4","Oxidizing agents like acidified KMnO4 or K2Cr2O7","Water only","Hydrogen gas with a catalyst"], a:1},
+{s:"Chemistry", q:"The reaction of a carboxylic acid with an alcohol in the presence of an acid catalyst produces:", o:["An amine and water","An ester and water","An aldehyde and water","A ketone and water"], a:1},
+{s:"Chemistry", q:"Which functional group is present in an amine?", o:["-OH","-NH2","-COOH","-CHO"], a:1},
+{s:"Chemistry", q:"The monomer units of proteins are:", o:["Monosaccharides","Amino acids","Nucleotides","Fatty acids"], a:1},
+{s:"Chemistry", q:"Nylon-6,6 is an example of a:", o:["Natural polymer","Condensation (synthetic) polymer","Addition polymer only","Monosaccharide"], a:1},
+{s:"Chemistry", q:"The SI unit of electric current is the:", o:["Volt","Ampere","Ohm","Coulomb"], a:1},
+{s:"Chemistry", q:"Which of the following is an example of a coordination compound?", o:["NaCl","[Cu(NH3)4]SO4","CH4","H2O"], a:1},
+{s:"Chemistry", q:"The number of significant figures in the measurement 0.00420 is:", o:["2","3","5","6"], a:1},
+{s:"Chemistry", q:"An empirical formula represents:", o:["The exact number of atoms in a molecule","The simplest whole-number ratio of atoms in a compound","Only the molecular mass","The structural arrangement of atoms"], a:1},
+{s:"Chemistry", q:"The molar mass of water (H2O) is approximately:", o:["16 g/mol","18 g/mol","20 g/mol","34 g/mol"], a:1},
+{s:"Chemistry", q:"In an electrochemical cell, oxidation occurs at the:", o:["Cathode","Anode","Salt bridge","External circuit only"], a:1},
+{s:"Chemistry", q:"Which of the following best describes an isotope?", o:["Atoms with the same mass number but different atomic number","Atoms of the same element with different numbers of neutrons","Atoms with different numbers of protons","Molecules with the same formula but different structure"], a:1},
+{s:"Chemistry", q:"The process of converting a gas directly into a solid is called:", o:["Sublimation","Deposition","Condensation","Fusion"], a:1},
+{s:"Chemistry", q:"According to VSEPR theory, a molecule with two bond pairs and two lone pairs on the central atom has a shape that is:", o:["Linear","Bent (V-shaped)","Tetrahedral","Trigonal pyramidal"], a:1},
+{s:"Chemistry", q:"Which type of isomerism is shown by compounds having the same molecular formula but different structural arrangements of atoms?", o:["Geometric isomerism","Structural isomerism","Optical isomerism only","Conformational isomerism only"], a:1},
+
+/* ---------------- PHYSICS (36) ---------------- */
+{s:"Physics", q:"The SI unit of force is the:", o:["Joule","Newton","Watt","Pascal"], a:1},
+{s:"Physics", q:"According to Newton's second law, force is equal to the rate of change of:", o:["Velocity","Momentum","Displacement","Position"], a:1},
+{s:"Physics", q:"The work done by a force is maximum when the angle between force and displacement is:", o:["90°","0°","180°","45°"], a:1},
+{s:"Physics", q:"Kinetic energy of an object is directly proportional to the:", o:["Square root of its velocity","Square of its velocity","Cube of its velocity","Inverse of its velocity"], a:1},
+{s:"Physics", q:"The law of conservation of momentum applies to a system that is:", o:["Open to external forces","Isolated, with no net external force","Accelerating due to gravity only","Undergoing inelastic collision only"], a:1},
+{s:"Physics", q:"A projectile launched at 45° to the horizontal (neglecting air resistance) achieves:", o:["Maximum height","Maximum range","Minimum time of flight","Zero range"], a:1},
+{s:"Physics", q:"Angular velocity is related to linear velocity by the equation:", o:["v = ωr","v = ω/r","v = ω + r","v = ω²r"], a:0},
+{s:"Physics", q:"Centripetal acceleration in circular motion is directed:", o:["Tangent to the circle","Toward the center of the circle","Away from the center","Along the axis of rotation"], a:1},
+{s:"Physics", q:"The SI unit of pressure is the:", o:["Newton","Pascal","Joule","Watt"], a:1},
+{s:"Physics", q:"According to Pascal's principle, pressure applied to a confined fluid is:", o:["Absorbed by the container walls","Transmitted equally in all directions","Lost as heat","Concentrated at one point"], a:1},
+{s:"Physics", q:"Bernoulli's principle states that as the speed of a fluid increases, its pressure:", o:["Increases","Decreases","Remains constant","Becomes zero"], a:1},
+{s:"Physics", q:"The specific heat capacity of water is approximately:", o:["1 cal/g°C","4186 J/g°C","0.5 cal/g°C","2 cal/g°C"], a:0},
+{s:"Physics", q:"For an isothermal process, the temperature of the system:", o:["Increases continuously","Remains constant","Decreases continuously","Fluctuates randomly"], a:1},
+{s:"Physics", q:"The first law of thermodynamics is essentially a statement of the conservation of:", o:["Momentum","Energy","Charge","Mass only"], a:1},
+{s:"Physics", q:"The efficiency of a Carnot engine depends only on the:", o:["Type of working substance","Temperatures of the hot and cold reservoirs","Pressure of the system","Volume of the cylinder"], a:1},
+{s:"Physics", q:"In simple harmonic motion, the restoring force is directly proportional to the:", o:["Velocity of the particle","Displacement from equilibrium","Square of displacement","Time period"], a:1},
+{s:"Physics", q:"The frequency of a simple pendulum depends on its:", o:["Mass and length","Length and acceleration due to gravity","Mass only","Amplitude only"], a:1},
+{s:"Physics", q:"Sound waves are classified as:", o:["Transverse waves","Longitudinal waves","Electromagnetic waves","Standing waves only"], a:1},
+{s:"Physics", q:"The Doppler effect describes the change in observed frequency due to:", o:["Change in medium temperature only","Relative motion between source and observer","Change in wavelength of light only","Interference of two waves"], a:1},
+{s:"Physics", q:"Coulomb's law describes the force between:", o:["Two magnetic poles","Two point charges","Two masses","Two currents"], a:1},
+{s:"Physics", q:"Electric field lines around a positive point charge point:", o:["Toward the charge","Away from the charge","Parallel to the charge","In circles around the charge"], a:1},
+{s:"Physics", q:"Ohm's law states that current through a conductor is directly proportional to:", o:["Resistance","Voltage across it (at constant temperature)","Power dissipated","Time"], a:1},
+{s:"Physics", q:"When resistors are connected in series, the total resistance is:", o:["Less than the smallest resistor","Equal to the sum of individual resistances","Equal to the reciprocal sum","Always zero"], a:1},
+{s:"Physics", q:"The force experienced by a current-carrying conductor in a magnetic field is given by:", o:["F = qE","F = BIL sinθ","F = mv²/r","F = ½mv²"], a:1},
+{s:"Physics", q:"According to Lenz's law, the direction of an induced current opposes the:", o:["Applied voltage","Change in magnetic flux that produced it","Resistance of the circuit","Direction of the magnetic field always"], a:1},
+{s:"Physics", q:"A transformer works on the principle of:", o:["Electrostatic induction","Mutual electromagnetic induction","Thermionic emission","Photoelectric effect"], a:1},
+{s:"Physics", q:"In an AC circuit, the power factor is the cosine of the:", o:["Frequency","Phase angle between voltage and current","Amplitude ratio","Resistance value"], a:1},
+{s:"Physics", q:"According to Einstein's photoelectric equation, the maximum kinetic energy of emitted electrons increases with:", o:["Intensity of incident light only","Frequency of incident light","Wavelength of incident light","Time of exposure"], a:1},
+{s:"Physics", q:"The de Broglie wavelength of a particle is inversely proportional to its:", o:["Charge","Momentum","Energy squared","Temperature"], a:1},
+{s:"Physics", q:"In Bohr's model of the hydrogen atom, electrons occupy orbits of:", o:["Continuously varying energy","Fixed, quantized energy levels","Random energy at all times","Zero energy"], a:1},
+{s:"Physics", q:"Alpha particles are essentially:", o:["High-energy electrons","Helium nuclei (2 protons + 2 neutrons)","Photons of high energy","Neutrons only"], a:1},
+{s:"Physics", q:"The half-life of a radioactive substance is the time required for:", o:["All the atoms to decay completely","Half of the radioactive atoms to decay","The activity to double","The substance to become stable permanently"], a:1},
+{s:"Physics", q:"Nuclear fission involves:", o:["Combining light nuclei into a heavier one","Splitting a heavy nucleus into lighter nuclei","Emission of alpha particles only","Absorption of electrons by a nucleus"], a:1},
+{s:"Physics", q:"A semiconductor diode allows current to flow easily in:", o:["Both directions equally","One direction (forward bias) only","Neither direction","Reverse bias only"], a:1},
+{s:"Physics", q:"In an NPN transistor, the majority charge carriers in the base region are:", o:["Electrons","Holes","Photons","Neutrons"], a:1},
+{s:"Physics", q:"The unit of magnetic flux is the:", o:["Tesla","Weber","Henry","Ampere-turn"], a:1},
+
+/* ---------------- ENGLISH (9) ---------------- */
+{s:"English", q:"Fill in the blank: Neither the manager nor the employees __________ satisfied with the new policy.", o:["is","are","was","has been"], a:1},
+{s:"English", q:"Choose the correctly punctuated sentence:", o:["Although it was raining, we decided to go for a walk.","Although it was raining we decided, to go for a walk.","Although, it was raining we decided to go for a walk.","Although it was raining we decided to go, for a walk."], a:0},
+{s:"English", q:"Choose the word closest in meaning to 'meticulous':", o:["Careless","Extremely careful and precise","Fast-paced","Indifferent"], a:1},
+{s:"English", q:"Choose the correct antonym of 'benevolent':", o:["Kind","Generous","Malevolent","Charitable"], a:2},
+{s:"English", q:"Identify the correctly formed passive voice: 'The committee will announce the results tomorrow.'", o:["The results will be announced by the committee tomorrow.","The results were announced by the committee tomorrow.","The results will announce by the committee tomorrow.","Tomorrow the committee announced the results."], a:0},
+{s:"English", q:"Choose the correct spelling:", o:["Occassion","Ocasion","Occasion","Occaision"], a:2},
+{s:"English", q:"Fill in the blank with the correct preposition: She has been living in Lahore __________ 2015.", o:["for","since","from","at"], a:1},
+{s:"English", q:"Choose the correct option: 'Each of the students __________ given a certificate.'", o:["were","have been","was","are"], a:2},
+{s:"English", q:"Identify the sentence with correct subject-verb agreement:", o:["The team of players are practicing hard.","The team of players is practicing hard.","The team of players were practicing hard.","The team of players have been practicing hard."], a:1},
+
+/* ---------------- LOGICAL REASONING (9) ---------------- */
+{s:"Logical Reasoning", q:"Find the next number in the series: 2, 6, 12, 20, 30, ?", o:["40","42","44","36"], a:1},
+{s:"Logical Reasoning", q:"If CAT is coded as 3120, how is DOG coded using the same letter-to-number scheme (A=1, B=2, ...)?", o:["4157","4715","4157 or D=4,O=15,G=7 written together","471507"], a:2},
+{s:"Logical Reasoning", q:"A train 120 m long is running at 60 km/h. How long will it take to cross a pole?", o:["7.2 seconds","6 seconds","8 seconds","5 seconds"], a:0},
+{s:"Logical Reasoning", q:"Pointing to a photograph, a man said, 'She is the daughter of my grandfather's only son.' How is the woman related to the man?", o:["Mother","Sister","Aunt","Cousin"], a:1},
+{s:"Logical Reasoning", q:"Statements: All pens are pencils. Some pencils are erasers.\nConclusions:\nI. Some pens are erasers.\nII. Some erasers are pens.", o:["Only conclusion I follows","Only conclusion II follows","Neither I nor II follows","Both I and II follow"], a:2},
+{s:"Logical Reasoning", q:"If the day before yesterday was Thursday, what day will it be tomorrow?", o:["Saturday","Sunday","Monday","Friday"], a:1},
+{s:"Logical Reasoning", q:"A sum of money doubles itself in 8 years at simple interest. In how many years will it triple?", o:["12 years","16 years","20 years","24 years"], a:1},
+{s:"Logical Reasoning", q:"Statement: The government has announced a subsidy on fertilizers for farmers.\nCourses of action:\nI. Farmers should increase crop production using the subsidy.\nII. The subsidy should be withdrawn immediately as it burdens the treasury.", o:["Only I follows","Only II follows","Neither I nor II follows","Both I and II follow"], a:0},
+{s:"Logical Reasoning", q:"Find the odd one out: Triangle, Square, Circle, Volume", o:["Triangle","Square","Circle","Volume"], a:3},
+];
+
+const TOTAL = questions.length;
+const answers = new Array(TOTAL).fill(null);
+let current = 0;
+let timeLeft = 150*60;
+let submitted = false;
+let timerId = null;
+
+/* ================= Diagrams ================= */
+function diagramHTML(kind){
+  if(kind === "restable"){
+    return `<table>
+      <tr><th></th><th>Cross-sectional area</th><th>Length</th></tr>
+      <tr><td>Given wire</td><td>Half</td><td>No change</td></tr>
+    </table>`;
+  }
+  if(kind === "pv"){
+    return `<svg width="260" height="180" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="150" x2="230" y2="150" stroke="#25201A" stroke-width="2"/>
+      <line x1="40" y1="150" x2="40" y2="20" stroke="#25201A" stroke-width="2"/>
+      <text x="235" y="155" font-family="IBM Plex Mono, monospace" font-size="12" fill="#25201A">V (m³)</text>
+      <text x="6" y="20" font-family="IBM Plex Mono, monospace" font-size="12" fill="#25201A">p (Pa)</text>
+      <line x1="90" y1="150" x2="90" y2="94" stroke="#6B6157" stroke-width="1" stroke-dasharray="2 3"/>
+      <line x1="150" y1="150" x2="150" y2="38" stroke="#6B6157" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="82" y="164" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">0.3</text>
+      <text x="142" y="164" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">0.5</text>
+      <text x="18" y="98" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">8</text>
+      <text x="14" y="42" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6B6157">16</text>
+      <line x1="90" y1="94" x2="150" y2="38" stroke="#9B3B2E" stroke-width="3"/>
+      <circle cx="90" cy="94" r="3.5" fill="#9B3B2E"/>
+      <circle cx="150" cy="38" r="3.5" fill="#9B3B2E"/>
+      <text x="94" y="88" font-family="IBM Plex Mono, monospace" font-size="12" fill="#9B3B2E">A</text>
+      <text x="154" y="34" font-family="IBM Plex Mono, monospace" font-size="12" fill="#9B3B2E">B</text>
+    </svg>`;
+  }
+  return "";
+}
+
+/* ================= DOM refs ================= */
+const qSection = document.getElementById('qSection');
+const qNum = document.getElementById('qNum');
+const qText = document.getElementById('qText');
+const optionsList = document.getElementById('optionsList');
+const diagramWrap = document.getElementById('diagramWrap');
+const navGrid = document.getElementById('navGrid');
+const progressText = document.getElementById('progressText');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const subjectTabsEl = document.getElementById('subjectTabs');
+
+/* ================= Subject index map ================= */
+const subjects = [];
+questions.forEach((q,i) => {
+  if(!subjects.find(s => s.name === q.s)) subjects.push({name:q.s, start:i});
+});
+
+function buildSubjectTabs(){
+  subjectTabsEl.innerHTML = "";
+  subjects.forEach(sub => {
+    const b = document.createElement('button');
+    b.className = 'subjectTab';
+    b.textContent = sub.name;
+    b.onclick = () => { current = sub.start; render(); };
+    subjectTabsEl.appendChild(b);
+  });
+}
+
+function updateSubjectTabs(){
+  const curSubject = questions[current].s;
+  document.querySelectorAll('.subjectTab').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === curSubject);
+  });
+}
+
+/* ================= Nav grid ================= */
+function buildNavGrid(){
+  navGrid.innerHTML = "";
+  questions.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'navBtn';
+    b.textContent = i+1;
+    b.onclick = () => { current = i; render(); };
+    navGrid.appendChild(b);
+  });
+}
+function renderNavGrid(){
+  const btns = navGrid.querySelectorAll('.navBtn');
+  btns.forEach((b,i) => {
+    b.classList.toggle('answered', answers[i] !== null);
+    b.classList.toggle('current', i === current);
+  });
+  const answeredCount = answers.filter(a => a !== null).length;
+  progressText.textContent = `${answeredCount} / ${TOTAL} answered`;
+}
+
+/* ================= Render question ================= */
+function render(){
+  const item = questions[current];
+  qSection.textContent = item.s;
+  qNum.textContent = `Question ${current+1} / ${TOTAL}`;
+  qText.textContent = item.q;
+
+  if(item.diagram){
+    diagramWrap.style.display = 'flex';
+    diagramWrap.innerHTML = diagramHTML(item.diagram);
+  } else {
+    diagramWrap.style.display = 'none';
+    diagramWrap.innerHTML = '';
+  }
+
+  optionsList.innerHTML = "";
+  item.o.forEach((optText,i) => {
+    const div = document.createElement('div');
+    div.className = 'opt' + (answers[current] === i ? ' selected' : '');
+    div.innerHTML = `<span class="tag">${String.fromCharCode(65+i)}</span><span>${optText}</span>`;
+    div.onclick = () => { answers[current] = i; render(); renderNavGrid(); };
+    optionsList.appendChild(div);
+  });
+
+  prevBtn.disabled = current === 0;
+  nextBtn.textContent = current === TOTAL-1 ? 'Finish →' : 'Next →';
+  renderNavGrid();
+  updateSubjectTabs();
+
+  const curBtn = navGrid.children[current];
+  if(curBtn) curBtn.scrollIntoView({block:'nearest'});
+}
+
+prevBtn.onclick = () => { if(current>0){ current--; render(); } };
+nextBtn.onclick = () => { if(current<TOTAL-1){ current++; render(); } else { attemptSubmit(); } };
+
+/* ================= Timer ================= */
+const timerEl = document.getElementById('timer');
+function formatTime(t){
+  const m = Math.floor(t/60).toString().padStart(2,'0');
+  const s = Math.floor(t%60).toString().padStart(2,'0');
+  return `${m}:${s}`;
+}
+function tick(){
+  if(submitted) return;
+  timeLeft--;
+  timerEl.textContent = formatTime(timeLeft);
+  if(timeLeft <= 300) timerEl.classList.add('low');
+  if(timeLeft <= 0){ clearInterval(timerId); finishTest(); }
+}
+timerId = setInterval(tick, 1000);
+timerEl.textContent = formatTime(timeLeft);
+
+/* ================= Submit & results ================= */
+document.getElementById('submitBtn').onclick = attemptSubmit;
+function attemptSubmit(){
+  const unanswered = answers.filter(a => a === null).length;
+  if(unanswered > 0){
+    const proceed = confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`);
+    if(!proceed) return;
+  }
+  finishTest();
+}
+
+function finishTest(){
+  submitted = true;
+  clearInterval(timerId);
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultsScreen').style.display = 'block';
+
+  let score = 0;
+  questions.forEach((item,i) => { if(answers[i] === item.a) score++; });
+
+  document.getElementById('scoreNum').textContent = `${score}/${TOTAL}`;
+  const pct = Math.round((score/TOTAL)*100);
+  const usedSeconds = 150*60 - timeLeft;
+  document.getElementById('scoreSub').textContent = `${pct}% correct · time used ${formatTime(usedSeconds)}`;
+
+  const sections = {};
+  questions.forEach((item,i) => {
+    if(!sections[item.s]) sections[item.s] = {correct:0,total:0};
+    sections[item.s].total++;
+    if(answers[i] === item.a) sections[item.s].correct++;
+  });
+  const bd = document.getElementById('breakdown');
+  bd.innerHTML = "";
+  Object.keys(sections).forEach(key => {
+    const {correct,total} = sections[key];
+    const row = document.createElement('div');
+    row.className = 'bd-row';
+    row.innerHTML = `<div class="bd-label">${key}</div>
+      <div class="bd-bar-bg"><div class="bd-bar" style="width:${(correct/total)*100}%"></div></div>
+      <div class="bd-frac">${correct}/${total}</div>`;
+    bd.appendChild(row);
+  });
+
+  buildReview();
+}
+
+function buildReview(){
+  const list = document.getElementById('reviewList');
+  list.innerHTML = "";
+  questions.forEach((item,i) => {
+    const div = document.createElement('div');
+    div.className = 'review-item';
+    let optsHtml = "";
+    item.o.forEach((optText,j) => {
+      let cls = '';
+      if(j === item.a) cls = 'correct';
+      else if(j === answers[i] && answers[i] !== item.a) cls = 'incorrect';
+      optsHtml += `<div class="opt ${cls} disabled"><span class="tag">${String.fromCharCode(65+j)}</span><span>${optText}</span></div>`;
+    });
+    const diagHtml = item.diagram ? `<div class="diagram-wrap" style="display:flex;">${diagramHTML(item.diagram)}</div>` : '';
+    div.innerHTML = `<div class="qsection">${item.s} · Q${i+1}</div>
+      <p class="qtext">${item.q}</p>
+      ${diagHtml}
+      <div class="options">${optsHtml}</div>`;
+    list.appendChild(div);
+  });
+}
+
+document.getElementById('reviewToggle').onclick = function(){
+  const list = document.getElementById('reviewList');
+  const showing = list.style.display === 'block';
+  list.style.display = showing ? 'none' : 'block';
+  this.textContent = showing ? 'Show Answer Review' : 'Hide Answer Review';
+};
+
+/* ================= Init ================= */
+buildSubjectTabs();
+buildNavGrid();
+render();
+</script>
+</body>
+</html>

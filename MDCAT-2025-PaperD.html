@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="png" href="favicon.png">
+<title>UHS MDCAT 2025 — Live Mock Test (Paper ID-D)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --bg:#0f1724; --card:#ffffff; --accent:#0b6e4f; --accent2:#0a5a40;
+    --muted:#6b7280; --danger:#c0392b; --good:#1b8a5a; --bad:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(135deg,#0f1724,#16243a); color:#1f2937; min-height:100vh;
+  }
+  header{
+    background:#0b1c2c; color:#fff; padding:16px 20px; display:flex; justify-content:space-between;
+    align-items:center; flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:50; box-shadow:0 2px 10px rgba(0,0,0,.3);
+  }
+  header h1{font-size:18px; margin:0; font-weight:600;}
+  header .sub{font-size:12px; color:#9fb3c8;}
+  #timer{
+    background:#142b40; padding:8px 14px; border-radius:8px; font-weight:700; font-size:16px; letter-spacing:1px;
+  }
+  #timer.warn{background:#5a1f1f; color:#ffb4b4;}
+  .container{max-width:1100px; margin:20px auto; padding:0 16px 60px;}
+  .layout{display:flex; gap:20px; align-items:flex-start;}
+  .main-panel{flex:1; min-width:0;}
+  .sidebar{
+    width:230px; background:#fff; border-radius:12px; padding:14px; box-shadow:0 4px 18px rgba(0,0,0,.15);
+    position:sticky; top:90px;
+  }
+  .sidebar h3{margin:0 0 10px; font-size:14px; color:#374151;}
+  .qgrid{display:grid; grid-template-columns:repeat(6,1fr); gap:6px; max-height:420px; overflow-y:auto; padding-right:2px;}
+  .qbtn{
+    width:100%; aspect-ratio:1; border:1px solid #d1d5db; border-radius:6px; background:#f9fafb; cursor:pointer;
+    font-size:11px; display:flex; align-items:center; justify-content:center; font-weight:600; color:#374151;
+  }
+  .qbtn.answered{background:#dbeafe; border-color:#60a5fa; color:#1e40af;}
+  .qbtn.current{outline:2px solid var(--accent); outline-offset:1px;}
+  .qbtn.marked{background:#fef3c7; border-color:#f59e0b;}
+  .legend{display:flex; flex-direction:column; gap:4px; margin-top:12px; font-size:11px; color:#6b7280;}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .dot{width:10px; height:10px; border-radius:3px; display:inline-block;}
+  .card{
+    background:#fff; border-radius:14px; padding:24px; box-shadow:0 4px 18px rgba(0,0,0,.15); margin-bottom:18px;
+  }
+  .qnum{font-size:13px; color:var(--accent); font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:.5px;}
+  .qtext{font-size:17px; font-weight:600; line-height:1.5; margin-bottom:18px; color:#111827;}
+  .options{display:flex; flex-direction:column; gap:10px;}
+  .opt{
+    display:flex; align-items:flex-start; gap:12px; padding:12px 14px; border:1.5px solid #e5e7eb; border-radius:10px;
+    cursor:pointer; transition:.15s; font-size:15px; line-height:1.4;
+  }
+  .opt:hover{border-color:#93c5fd; background:#f0f7ff;}
+  .opt.selected{border-color:var(--accent); background:#e7f6ef; font-weight:600;}
+  .opt input{margin-top:3px; accent-color:var(--accent);}
+  .opt .letter{
+    flex:none; width:24px; height:24px; border-radius:50%; background:#f3f4f6; display:flex; align-items:center;
+    justify-content:center; font-size:12px; font-weight:700; color:#4b5563;
+  }
+  .opt.selected .letter{background:var(--accent); color:#fff;}
+  .navrow{display:flex; justify-content:space-between; align-items:center; margin-top:6px; gap:10px; flex-wrap:wrap;}
+  .navrow .left, .navrow .right{display:flex; gap:8px; flex-wrap:wrap;}
+  button{
+    border:none; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:.15s;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent2);}
+  .btn-secondary{background:#e5e7eb; color:#374151;}
+  .btn-secondary:hover{background:#d1d5db;}
+  .btn-mark{background:#fef3c7; color:#92400e;}
+  .btn-danger{background:var(--danger); color:#fff;}
+  .btn-danger:hover{background:#962d22;}
+  button:disabled{opacity:.4; cursor:not-allowed;}
+  #startScreen{
+    max-width:680px; margin:60px auto; background:#fff; border-radius:16px; padding:36px; text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
+  }
+  #startScreen h2{margin-top:0; color:#0b1c2c;}
+  #startScreen p{color:#4b5563; line-height:1.6;}
+  .stats-grid{display:flex; gap:12px; justify-content:center; margin:24px 0; flex-wrap:wrap;}
+  .stat{background:#f3f4f6; border-radius:10px; padding:14px 20px; min-width:110px;}
+  .stat .num{font-size:24px; font-weight:800; color:var(--accent);}
+  .stat .lbl{font-size:12px; color:#6b7280; margin-top:2px;}
+  #resultScreen{display:none;}
+  .score-banner{
+    text-align:center; padding:30px; border-radius:14px; margin-bottom:20px; color:#fff;
+    background:linear-gradient(135deg,#0b6e4f,#0a5a40);
+  }
+  .score-banner .big{font-size:48px; font-weight:800;}
+  .score-banner .pct{font-size:18px; opacity:.9;}
+  .review-item{border-bottom:1px solid #e5e7eb; padding:16px 0;}
+  .review-item:last-child{border-bottom:none;}
+  .review-q{font-weight:600; margin-bottom:8px;}
+  .review-opt{padding:8px 12px; border-radius:8px; margin-bottom:6px; font-size:14px; border:1px solid #e5e7eb;}
+  .review-opt.correct{background:#dcfce7; border-color:#16a34a; font-weight:600;}
+  .review-opt.wrong{background:#fee2e2; border-color:#dc2626; font-weight:600;}
+  .review-opt.unanswered-correct{background:#dcfce7; border-color:#16a34a;}
+  .tag{display:inline-block; font-size:11px; padding:3px 8px; border-radius:6px; font-weight:700; margin-left:8px;}
+  .tag.correct{background:#16a34a; color:#fff;}
+  .tag.wrong{background:#dc2626; color:#fff;}
+  .tag.skipped{background:#9ca3af; color:#fff;}
+  .filterbar{display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;}
+  .filterbar button{padding:6px 14px; font-size:13px;}
+  .filterbar button.active{background:var(--accent); color:#fff;}
+  #app{display:none;}
+  @media(max-width:760px){
+    .layout{flex-direction:column;}
+    .sidebar{width:100%; position:static; order:2;}
+    .qgrid{grid-template-columns:repeat(8,1fr); max-height:none;}
+  }
+  footer{text-align:center; color:#9fb3c8; font-size:12px; padding:18px;}
+  #modalOverlay{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:1000;
+    align-items:center; justify-content:center;
+  }
+  #modalOverlay.show{display:flex;}
+  #modalBox{
+    background:#fff; border-radius:14px; padding:28px; max-width:380px; text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
+  }
+  #modalBox p{font-size:15px; color:#374151; margin-bottom:20px; line-height:1.5;}
+  #modalBox .row{display:flex; gap:10px; justify-content:center;}
+</style>
+</head>
+<body>
+
+<div id="startScreen">
+  <h2>UHS MDCAT — 2025 </h2>
+  <p>Full live mock test from the UHS MDCAT 2025 paper (held 26‑10‑2025), with the answer key. 180 MCQs covering Biology, Chemistry, Physics, English &amp; Logical Reasoning.</p>
+  <div class="stats-grid">
+    <div class="stat"><div class="num">180</div><div class="lbl">Questions</div></div>
+    <div class="stat"><div class="num">150</div><div class="lbl">Minutes</div></div>
+    <div class="stat"><div class="num">1</div><div class="lbl">Mark each</div></div>
+  </div>
+  <p style="font-size:13px;color:#9ca3af;">Timer starts as soon as you click Start. You can navigate freely, mark questions for review, and submit anytime. Auto‑submits when time runs out.</p>
+  <button class="btn-primary" style="font-size:16px;padding:14px 32px;" onclick="startTest()">Start Test</button>
+</div>
+
+<div id="app">
+  <header>
+    <div>
+      <h1>UHS MDCAT — 2025 </h1>
+      <div class="sub">Live Mock Test &nbsp;|&nbsp; Question <span id="curNoHeader">1</span> / 180</div>
+    </div>
+    <div id="timer">02:30:00</div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <div class="main-panel">
+        <div class="card">
+          <div class="qnum">Question <span id="qIndexLabel"></span></div>
+          <div class="qtext" id="qText"></div>
+          <div class="options" id="optionsBox"></div>
+        </div>
+        <div class="navrow">
+          <div class="left">
+            <button class="btn-secondary" id="prevBtn" onclick="goPrev()">← Previous</button>
+            <button class="btn-mark" id="markBtn" onclick="toggleMark()">Mark for Review</button>
+          </div>
+          <div class="right">
+            <button class="btn-secondary" id="clearBtn" onclick="clearAnswer()">Clear Response</button>
+            <button class="btn-primary" id="nextBtn" onclick="goNext()">Next →</button>
+            <button class="btn-danger" onclick="confirmSubmit()">Submit Test</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <h3>Question Palette</h3>
+        <div class="qgrid" id="qgrid"></div>
+        <div class="legend">
+          <span><span class="dot" style="background:#dbeafe;border:1px solid #60a5fa;"></span> Answered</span>
+          <span><span class="dot" style="background:#fef3c7;border:1px solid #f59e0b;"></span> Marked</span>
+          <span><span class="dot" style="background:#f9fafb;border:1px solid #d1d5db;"></span> Not visited</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="resultScreen">
+  <div class="container">
+    <div class="score-banner">
+      <div class="big" id="scoreNum">0 / 180</div>
+      <div class="pct" id="scorePct"></div>
+      <div id="timeTaken" style="margin-top:10px;font-size:13px;opacity:.85;"></div>
+    </div>
+    <div class="card">
+      <div class="filterbar">
+        <button class="active" data-f="all" onclick="setFilter('all')">All (180)</button>
+        <button data-f="correct" onclick="setFilter('correct')">Correct</button>
+        <button data-f="wrong" onclick="setFilter('wrong')">Wrong</button>
+        <button data-f="skipped" onclick="setFilter('skipped')">Skipped</button>
+      </div>
+      <div id="reviewList"></div>
+    </div>
+    <div style="text-align:center;margin:20px 0;">
+      <button class="btn-secondary" onclick="restartTest()">Retake Test</button>
+    </div>
+  </div>
+</div>
+
+<footer> UHS MDCAT 2025 Paper &amp;  Answer Key — for practice purposes only.</footer>
+
+<div id="modalOverlay">
+  <div id="modalBox">
+    <p id="modalMsg">Submit the test now?</p>
+    <div class="row">
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn-danger" id="modalConfirmBtn" onclick="modalConfirmYes()">Submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+["Kidneys perform their osmoregulatory role under the effect of Antidiuretic Hormone, which type of urine is produced in this situation?",["Hypotonic urine with decreased volume","Hypotonic urine with increased volume","Hypertonic urine with decreased volume","Hypertonic urine with increased volume"],2],
+["Which part of brain controls transition between sleeping and wakefulness?",["Medulla oblongata","Cerebellum","Cerebrum","Pons"],3],
+["Which part of the brain contains central chemoreceptors that monitor CO2 levels in blood?",["Pons","Midbrain","Hypothalamus","Medulla oblongata"],3],
+["Which component of a reflex arc connects the sensory neuron to the motor neuron within the spinal cord?",["Receptor","Effector","Muscle fiber","Associative neuron"],3],
+["The 9:3:3:1 ratio of law of independent assortment can be affected by",["Genetic drift","Small population","Gene linkage","Gene duplication"],2],
+["Best description of the process of crossing over during meiosis:",["Duplication of chromosome","Exchange of genes between non-sister chromatids","Movement of chromosome to opposite poles","Separation of sister chromatids"],1],
+["Total number of linkage groups in a normal human is:",["02","23","46","92"],1],
+["Nissl granule is a specialized structure in neuron formed by modification of:",["Golgi bodies & Smooth ER","Peroxisome & Mitochondria","Lysosome & Vacuole","Ribosome & Rough ER"],3],
+["What is the function of a centromere?",["To protect the ends of chromosomes","To hold sister chromatids together","To carry genetic information","To initiate DNA replication"],1],
+["All are the functions of lysosome EXCEPT:",["Intra cellular digestion","Removal of waste","Autophagy","Lipid synthesis"],3],
+["The first consequence of lymphatic blockage in tissues is:",["Deficiency of oxygen","Loss of nerve signals","Drop in blood pressure","Excess fluid accumulation in tissue"],3],
+["Which of the following is the auditory relay Centre and Centre that controls reflex movement of eyes?",["Forebrain","Cerebellum","Midbrain","Cerebellum"],2],
+["Which of the following is the correct pathway of nerve impulse?",["Receptors→ CNS→ Effectors","Effectors→ Receptors → CNS","CNS→ Effectors→ Receptors","Effectors → CNS → Receptors"],0],
+["The neurotransmitters are secreted by the neuron from:",["Axon ends","Dendrite end","Nissl's granules","Cell body"],0],
+["Hippocampus plays an important role in the:",["Formation of short-term memory","Formation of image on retina","Formation of long-term memory","Formation of emotions"],2],
+["Enzymes activity decreases at very low or high pH because:",["Substrate concentration increases","Enzymes become denatured","Product formation increases","Temperature becomes constant"],1],
+["The complementary base pairing in DNA is important because it:",["Maintains the tertiary structure of enzymes","Provides energy for all cell metabolism","Enables protein to fold properly","Allows DNA act as genetic blueprint during replication"],3],
+["A mature duplicated chromosome consists of:",["Two identical double helical DNA molecules","Two different double helical DNA molecules","A double helical DNA molecule distributed in both chromatids","Histone chains wrapped around DNA core"],0],
+["The most primitive respiratory process occurring in a living cell is;",["Lactic acid fermentation","Alcoholic fermentation","Glycolysis","Krebs's cycle"],2],
+["Receive, retain and nourish a fertilized ovum is the main function of:",["Cervix","Uterus","Ovary","Oviduct"],1],
+["The primary function of larynx is:",["Humidifying air","Filtering dust","Gaseous exchange","Voice production"],3],
+["During menstrual cycle, luteinizing hormone (LH) is secreted due to;",["Decrease in Estrogen","Decrease in FSH","Increase in FSH","Environmental effect"],2],
+["Left and right cerebral hemispheres are connected with each other by:",["Corpus luteum","Corpus callosum","A band of dendrites","Dorsal and ventral nerve roots"],1],
+["Which is the common feature between cardiac and smooth muscles?",["Voluntary","Involuntary","Branched","Unbranched"],1],
+["The joints which cause rotational movements are",["Hinge","Ball and Socket","Cartilage","Sutures"],1],
+["Self-fertilization in plants through successive generations can lead to the development of:",["Hybrid breeds of plants","Variations in coming generation","True breeding plants","Adaptation with their environment"],2],
+["Which part of the neuron typically receives incoming signals from other neurons?",["Axon","Dendrites","Myelin sheath","Synaptic knob"],1],
+["Why thick filaments are unable to bind with thin filament in a relaxed muscle fiber?",["Actin blocks the myosin binding site","Tropomyosin blocks the myosin binding site","Troponin blocks the myosin binding site","Tropomyosin blocks the troponin binding site"],1],
+["Which of the following best highlights the importance of proteins in immunity?",["They act as receptors of pathogens","They are long term energy reserves","They act as antibodies","They act as mechanical barrier for pathogens"],2],
+["The secondary structure of proteins is stabilized by:",["Ionic bonds","Hydrogen bonds","Disulfide bridges","Hydrophobic exclusion"],1],
+["The following is an example of a globular protein.",["Keratin","Collagen","Hemoglobin","Histone"],2],
+["The process of osmoregulation refers to:",["The filtration of blood to remove metabolic waste","The regulation of solute and water movement between an organism and its environment","The creation of an osmotic gradient in the kidney medulla","The secretion of hormones that control blood plasma"],1],
+["A baby girl is born with hemophilia, which is an X-linked recessive disorder. What are the most likely genotypes of her parents?",["The mother is a carrier and the father is normal.","The mother is hemophiliac and the father is normal.","The mother is carrier and the father is hemophiliac","Both are normal."],2],
+["Identify the most appropriate function of chromosomes",["Energy production and storage","Protein synthesis and regulation","Storage of genetic information","Lipid metabolism and transport"],2],
+["Enzymes belong to which class of biomolecules?",["Carbohydrates","Lipids","Proteins","Nucleic acids"],2],
+["___ arranges the DNA into the chromosomes in a eukaryotic cell.",["Hormones","Elastin","Histone","Nucleosome"],2],
+["The function of nucleolus is to make:",["rDNA","Lysosomes","Ribosomes","Chromosomes"],2],
+["Which of the following blood vessels have lowest blood velocity with correct reason for low blood velocity?",["Arteries: Due to thick walls","Capillaries: due to highest overall cross-sectional area","Veins: due to blood flow against the gravity","Capillaries: Due to two-way blood flow in capillaries"],1],
+["An active athlete has more stamina of running compared to an officer of same age with physically inactive lifestyle. Which of the following organelles has greatly increased in the muscle cells of athlete?",["Nucleus","Mitochondria","Golgi bodies","Smooth endoplasmic reticulum (SER)"],1],
+["Once an action potential reaches the membrane of a skeletal muscle fiber, what is the first event that occurs in the contraction process?",["Actin and myosin form a cross-bridge","Calcium is pumped back into the sarcoplasmic reticulum","Calcium is released from the sarcoplasmic reticulum","ATP is hydrolyzed by troponin"],2],
+["The pubic symphysis is a slightly moveable joint joined by which of the following tissue?",["Elastic cartilage","Fibrocartilage","Costal cartilage","Articular cartilage"],1],
+["In a pea plant seed color is determined by two alleles: Y (Yellow, dominant) and y (green recessive). Which parental cross would most likely result in offspring showing a 1:1 ratio of yellow to green seeds?",["Yy x YY","Yy x yy","Yy x Yy","YY x yy"],1],
+["Mendel crossed a plant with round yellow seeds (RRYY) and a plant with wrinkled green seeds (rryy), what was the phenotype of all F1 offspring?",["All round green","All round yellow","All wrinkled yellow","All wrinkled green"],1],
+["In a normal 28 days menstrual cycle when would you expect the LH surge to occur?",["Days 7-10","Days 11-14","Days 15-18","Days 19-22"],1],
+["Which property of water helps in moderating Earth's climate and maintaining stable temperature in aquatic environment?",["Low viscosity","High specific heat capacity","High surface tension","High polarity"],1],
+["Effect of increased substrate concentration on enzyme activity:",["Decrease the rate of reaction","Increase the reaction rate until all active sites are saturated","Have no effect on the reaction rate","Increase the rate of reaction in a straight diagonal line"],1],
+["An oligosaccharide is made up of at least:",["two saccharide units","ten saccharide units","three to ten saccharide units","more than ten saccharide units"],2],
+["Which statement best explains the difference between humoral and cell mediated immune response?",["Humoral immunity involves B-Lymphocytes and cell mediated immunity involves T-Lymphocytes","Humoral immunity destroys viruses and cell mediated immunity destroys bacteria","Humoral immunity is specific and cell mediated immunity is nonspecific","Humoral immunity uses antibodies and cell mediated immunity does not involve immune cells"],0],
+["Which of the following is the correct higher (left) to lower (right) sequence of molecules with respect to their amount in the cell?",["DNA → rRNA → tRNA → mRNA","rRNA → tRNA → mRNA → DNA","mRNA → tRNA → rRNA → DNA","DNA → mRNA → tRNA → rRNA"],0],
+["A person in hot weather is unable to maintain body temperature. Which physiological process has failed?",["Vasodilation & sweating","Vasoconstriction","Shivering","Renin secretion"],0],
+["The main idea in Darwin's Theory of \"Origin of species by natural selection\" is:",["Inheritance of acquired traits","Use and disuse of organs","Species never change","Evolution occurs through gradual accumulation of adaptation through successive generations"],3],
+["Which of the following is a key feature of RNA?",["Deoxyribose and thymine","Double stranded and thymine","Ribose and uracil","Ribose and thymine"],2],
+["Which of the following types of RNA makeup the largest proportion of total cellular RNA?",["Messenger RNA","Ribosomal RNA","Transfer RNA","Catalytic RNA (ribozyme)"],1],
+["The bacterium Treponema Pallidum is responsible for which sexually transmitted disease?",["Syphilis","Chlamydia","Gonorrhea","Genital herpes"],0],
+["Tissue fluid in a lymphatic system is called as:",["Plasma","Matrix","Lymph","Blood"],2],
+["Which one of the following biomolecules is a polymer/polysaccharide?",["Sucrose","Pentose","Lactose","Glycogen"],3],
+["Olfactory receptors are the type of:",["photoreceptors","mechanoreceptors","thermoreceptors","chemoreceptors"],3],
+["Which of the following organisms eliminate nitrogenous waste mainly in the form of uric acid?",["Freshwater Fish","Amphibians","Birds","Mammals"],2],
+["Which of the following cells possess Nissl's granules?",["Nerve cells","WBC","RBC","Platelets"],0],
+["Which part of human brain is involved in maintaining the posture and balance of the body?",["Cerebrum","Cerebellum","Hypothalamus","Medulla oblongata"],1],
+["Arthritis is:",["Inflammation of joints","Herniation of intervertebral disc","Fusion of vertebral joint","tingling along the length of legs"],0],
+["Which type of joint is present in pubis?",["Fibrous joints","Immoveable joints","Cartilaginous joints","Freely moveable joints"],2],
+["Which type of neurons stimulate muscles to contract in a reflex arc?",["Motor neurons","Sensory neurons","Interneurons","Afferent neurons"],0],
+["Which of the following statements best compares cell division in prokaryotic and Eukaryotic cells?",["Eukaryotes divide by budding; prokaryotes by mitosis","Eukaryotes use binary fission; prokaryotes by meiosis","Eukaryotes divide by mitosis; prokaryotes by binary fission","Both use mitosis by cell division"],2],
+["Which of the following best describes \"acquired characteristics\" according to Lamarckism?",["Traits caused by mutation","Traits inherited from parents","Traits developed by use or disuse","Traits selected by nature"],2],
+["According to Lock and Key model, the active site is regarded as:",["Rigid and specific","Flexible and specific","Rigid and non specific","Flexible and non specific"],0],
+["Peptide bonds are important in protein because they:",["Affect solubility","Hold R-groups","Link amino acid","help in releasing oxygen"],2],
+["Why are retroviruses placed in a separate class of RNA viruses?",["They always infect animal cells only","Their RNA acts directly as mRNA","They lack protein coats","They use reverse transcriptase to make DNA from RNA"],3],
+["Reversible inhibitors differ from irreversible inhibitors because they:",["Binds permanently and cannot be removed","Bind temporarily and can be removed","Permanently inactivate the enzyme","Change enzyme structure permanently"],1],
+["Which is an enzyme activator secreted by the intestinal glands:",["Amylase","Pepsinogens","Enterokinase","Lipase"],2],
+["In which of the following combination, both components have Hyaline cartilage?",["Epiglottis & intervertebral disc","Trachea & intervertebral disc","Nose & pinna","Nose & trachea"],3],
+["According to Lamarck, the evolution of long necks in giraffes is explained by:",["Natural selection","Genetic mutation","Survival of the fittest","Stretching of necks over generations"],3],
+["The process of spermatogenesis occurs in which part of the male reproductive system?",["Seminiferous tubules","Vas deferens","Scrotum","Epididymis"],0],
+["Which layer of uterus nourishes the embryo after implantation?",["Cervical epithelium","Myometrium","Endometrium","Perimetrium"],2],
+["The main role of mRNA during protein synthesis is to:",["Carry genetic information for protein synthesis","stabilize ribosome","deliver amino acids","provide platform for proteins synthesis"],0],
+["Glycoproteins are formed as a result of the combination of:",["Lipids and proteins","Carbohydrates and proteins","Nucleic acid and proteins","Fatty acids and carbohydrates"],1],
+["A student observed a boundary in both plant and animal cells that controls entry and exit of substances. Which of the following structures is likely being observed?",["Mitochondria","Golgi apparatus","Plasma membrane","Cell wall"],2],
+["If a normal person marries with colour blind female what will be the possibility of normal male child:",["0%","25%","50%","75%"],0],
+["Which of the following characters is shared by both skeletal and cardiac muscles?",["Presence of Striation","Involuntary control","Multinucleated fibers","Intercalated discs"],0],
+["Which of the following muscle types are involuntary in action?",["Skeletal and smooth","Skeletal and cardiac","Cardiac and smooth","Smooth muscle only"],2],
+["In which of the following combinations, both components have non-striated muscle fibers?",["Intestine & biceps","Intestine & blood vessels","Heart & lungs","Stomach & heart"],1],
+["Value of R gas constant in J mol⁻¹ K⁻¹ is",["8.314","62.4","0.821","62400"],0],
+["Which of the following best explains why phenol reacts with aqueous NaOH, but alcohols do not?",["Phenol has a lower boiling point than alcohol.","Alcohols contain a strong O-H bond that cannot be broken by weak bases.","Phenol form hydrogen bonding that facilitates ionization.","Phenol is weakly acidic due to resonance stabilization of phenoxide ion."],3],
+["In propene pi-bond is formed by sideway overlap of:",["s-orbitals","p-orbitals","sp3 hybrid orbitals","sp2 hybrid orbitals"],1],
+["An enzyme used to decompose the lipids into fatty acids in our alimentary canal is",["Amylase","Protease","Lipase","Urease"],2],
+["Molecules having one lone pair and three bond pairs have geometrical shape",["Bent or angular","Trigonal","Trigonal pyramidal","Trigonal planner"],2],
+["Conversion of dihaloalkane into alkyne does not involve",["Addition","Elimination","Base","Heat"],0],
+["Majority of reactions taking place at ordinary temperatures with -ΔH are",["Endothermic","Exothermic","Thermally unstable","Reversible"],1],
+["Which one of the following is a coinage metal",["Pd","Cu","Cd","Hg"],1],
+["Consider the given balanced chemical equation: 2H2 + O2 → 2H2O. If 4 g of H2 reacts with 32 g of O2 to produce 28 g of H2O, what is the percentage yield of the reaction? (Molar mass of H2 = 2 g/mol, O2 = 32 g/mol and H2O = 18 g/mol)",["63.6%","77.8%","87.5%","92.5%"],2],
+["Amount of energy needed to weaken the existing bonds to an extent that can be broken through collision is called:",["Bond energy","Activation energy","Average energy","Enthalpy"],1],
+["Oxidation numbers of X,Y,Z are +6, -2, & -1 respectively, possible molecular formula when atoms combine:",["X2YZ","XY2Z2","XYZ2","XY2Z"],1],
+["Which set of quantum numbers is not allowed for an electron.",["n=2, l=1, m=0, s=+1/2","n=3, l=0, m=0, s=-1/2","n=2, l=2, m=1, s=+1/2","n=1, l=0, m=0, s=+1/2"],2],
+["2A + B → 3C + D which of the following does not express the reaction rate?",["-d[B]/dt","d[D]/dt","-1/2 d[A]/dt","-1/3 d[C]/dt"],3],
+["The order of ease of reduction of H⁺¹, Cu⁺² and Ag⁺¹:",["H⁺¹ > Cu⁺² > Ag⁺","H⁺¹ > Ag⁺ > Cu⁺²","Ag⁺ > Cu⁺² > H⁺¹","H⁺¹ > Cu⁺² ≈ Ag⁺"],2],
+["Acetaldehyde undergoes oxidation to produce acetic acid, in this reaction oxidizing agent used is:",["HI","LiAlH4","K2Cr2O7","NaBH4"],2],
+["Which one of the following has higher vapour pressure?",["acetone","acetaldehyde","Isopentane","Benzene"],2],
+["Terminal alkynes show acidic character due to:",["Terminal carbon atoms are sp hybridized.","Terminal carbon atoms are sp2 hybridized.","Terminal carbon atoms are sp3 hybridized.","Terminal carbon atoms show hydrogen bonding."],0],
+["Fischer ESTERIFICATION is which type of reaction:",["Condensation","Substitution","Elimination","Dehydrogenation"],0],
+["Shape of orbital is determined by quantum number:",["n","l","m","s"],1],
+["The theories which explain the formation of sigma and pi bond are EXCEPT:",["MOT","VBT","VSEPR","CFT"],3],
+["The value of Planck's constant is:",["6.6262x10⁻³⁰ J.sec","6.6262x10⁻³² J.sec","6.6262x10⁺³⁴ J.sec","6.6262x10⁻³⁴ J.sec"],3],
+["Final equation for the representation of rate of reaction in term of concentration is called",["Rate law","Rate constant","Reaction rate","Reaction order"],0],
+["Poly vinyl chloride (PVC) is the type of?",["Homopolymer","Thermosetting polymer","Thermoplastic polymer","Copolymer"],2],
+["Which of the following is true about pressure for an ideal gas at -273°C?",["P=1atm","P=2atm","P=3atm","P=0 atm"],3],
+["Which of the following is basic buffer?",["NH4OH/NH4Cl","NaOH/NaCl","NaOH/HCl","H2CO3/NaHCO3"],0],
+["What happens when H⁺ is added to ammonium hydroxide and ammonium chloride buffer?",["more ammonium hydroxide is formed","reaction will move reverse","reaction will move forward","no effect on equilibrium"],2],
+["What is general requirement for free radical substitution reaction of ethane and halogen?",["low pressure","low temperature","high pressure","heat and UV light"],3],
+["Which one of the following is not a characteristic of benzene?",["Aromaticity","Stability","to follow Huckle rule","High reactivity"],3],
+["Correct arrangement of orbital according to size of hybridized orbitals?",["sp>sp2>sp3","sp3> sp>sp2","sp2>sp>sp3","sp3>sp2>sp"],3],
+["Consider the equation H2 + O2 → H2O, what volume of hydrogen gas is required to produce 1 mol of water at standard temperature & pressure?",["11.2 dm³","22.4 dm³","10 dm³","58 dm³"],1],
+["A chemical reaction has a theoretical yield of 25 g, but only 20 g of product was obtained. What is the percentage yield of the reaction?",["20%","25%","45%","80%"],3],
+["Which of the following situations most clearly demonstrates a key characteristic of a Redox reaction?",["Water boiling to steam","Hydrogen gas reacting with chlorine to form hydrogen chloride gas","Sodium chloride dissolving in water","Ethanol evaporating at room temperature"],1],
+["If 100 KJ of heat is absorbed by the system and 40 KJ of work is done on the system what is the change of internal energy?",["-60 KJ","+60 KJ","-140 KJ","+ 140 KJ"],3],
+["Number of unpaired electrons present in the ground state of Fe³⁺ are (Atomic number of Fe=26).",["Three","Four","Five","Six"],2],
+["If % yield and actual yield is 80 and 20g respectively, what will be theoretical yield?",["20g","25g","30g","40g"],1],
+["Which of the following best identifies the redox reaction:",["transfer of proton","transfer of electron","absorption of light","exchange of ions"],1],
+["Methanol is produced by reduction of",["Formaldehyde","Acetaldehyde","Propanal","Propanone"],0],
+["IUPAC name of (CH3)3 CCH2 Br is",["1-bromopentane","1-bromo-2,2,2-trimethylethane","1-bromo-2,2-dimethylpropane","2-bromopentane"],2],
+["Which one shows anisotropic behavior?",["Wood","Gemstone","Coke","Graphite"],3],
+["In a unit cell of a crystal lattice the angle β is between faces:",["a and b","b and c","c and a","not specified"],2],
+["Pick the crystalline solid:",["Cement","Ceramics","Concrete","Copper"],3],
+["Number of unpaired electrons in Boron in ground state is/are:",["1","2","3","4"],0],
+["Chlorination of benzene in the presence of Iron (III) chloride involves mechanism of:",["Electrophilic addition","Electrophilic Substitution","Free radical Substitution","Free radical halogenation"],1],
+["The element with smallest value of ionization energy is",["Li","Al","Ca","Ba"],3],
+["Carboxylic acid reacts with ammonia to form ammonium salts which on heating produces",["Carbonates","Alkane","Ester","Amide"],3],
+["If P is the momentum of an object and m is its mass, then its kinetic energy is:",["P/2m","P²/2m","1/2 Pm²","1/2 P²m"],1],
+["The electric field at a point due to two equal and opposite charges is 100 N/C. If the magnitude of each charge is doubled then the electric field at that point becomes:",["50 N/C","100 N/C","200 N/C","400 N/C"],2],
+["If a plastic sheet of relative permittivity 2.5 is inserted between two-point charges placed in vacuum, then the electrostatic force between them",["Increases by a factor of 2.5","Decreases by a factor of 2.5","Increases by a factor of 5","Decreases by a factor of 5"],1],
+["After 3 half-lives, the remaining fraction of a radioactive sample is:",["1/2","1/4","1/8","1/16"],2],
+["If the horizontal range of a projectile becomes half of its maximum possible horizontal range, the probable angle of projection is;",["15°","30°","45°","60°"],0],
+["In an ideal transformer, if the primary voltage is doubled and the turns ratio remains the same, what happens to the secondary current?",["Doubles","Halves","Remains the same","Becomes four times"],0],
+["An angular displacement of 90° is equal to:",["One-fourth revolution","One- third revolution","One half revolution","One complete revolution"],0],
+["The time in which half of the given number of radioactive nuclei decay is known as",["1/2 life of radioactive element.","2/3 life of radioactive element.","1/4 life of radioactive element.","2/5 life of radioactive element."],0],
+["Earth receives large amount of energy directly from:",["Wind","Water","Sun","Moon"],2],
+["A phase difference of 90° is equal to:",["π radians","π /2 radians","2π radians","π /4 radians"],1],
+["The reciprocal of the resistivity of a material is called its:",["impedance","conductivity","admittance","reactance"],1],
+["The Balmer series of hydrogen spectrum appears in the",["Infrared region","Ultraviolet region","X-ray region","Visible region"],3],
+["A ball is thrown into the air with certain velocity v making an angle θ with horizontal. If air resistance is neglected, then at maximum height its velocity is:",["Equal to initial velocity","Half of initial velocity","Equal to zero","Minimum but not zero"],3],
+["A canon is placed on a smooth surface. When it fires a shell, the canon moves backward, this recoil occurs due to:",["Law of conservation of energy","Backward thrust of the gases","Newton's third law of motion","Newton's first law of motion"],2],
+["If the surface charge density of an infinite sheet increases by 25%, the electric field intensity:",["Increases by 25%","Increases by 50%","Decreases by 25%","Remains the same"],0],
+["An incompressible fluid flows through a pipe that becomes narrower in one section. The fluid speed increases in that region to maintain:",["Constant pressure","constant energy","constant mass flow rate","constant volume"],2],
+["In a pipe of varying cross-section, as fluid enters the narrower region, it exhibits:",["high velocity, high pressure","high velocity, low pressure","low velocity, high pressure","low velocity, low pressure"],1],
+["The curved shape of an airplane wing causes air to move faster over the top surface. This leads to:",["greater pressure on the top","lower pressure on the top","equal pressure on both sides","zero pressure above the wing"],1],
+["The protons in the nucleus of an atom DO NOT exit due to",["Electromagnetic force","Gravitational Force","Weak Nuclear Force","Strong Nuclear Force"],3],
+["Mechanical waves cannot travel through outer space because they:",["have low speed in vacuum","disperse in space due to long wavelength","lose frequency in the absence of air","lose transmission without interacting particles"],3],
+["Terminal voltage of a cell equals its EMF only when:",["No current flows","Current is maximum","Internal resistance is infinite","Load resistance is zero"],0],
+["A loop moves toward a stationary magnet. The induced current will:",["enhance the motion","try to stop the approach","become zero","become alternating"],1],
+["The energy of a Simple Harmonic oscillation depends upon the",["frequency","time period","wavelength","amplitude"],3],
+["The wave that has the highest frequency & penetrating power is",["X-rays","Ultraviolet rays","Gamma rays","Microwaves"],2],
+["According to First law of thermodynamics when heat flows into a system and no work is done the internal energy of the system must",["Increase","Decrease","Remains constant","Becomes zero"],0],
+["If the length of the conductor is made 4 times its original length, its resistance becomes",["quarter","half","zero","4 times"],3],
+["The unit of temperature coefficient of resistivity is",["1/C","1/K","1/A","1/Ω"],1],
+["The work done by the gravitational force on an object as it moves from a reference level to a higher point is:",["Always positive","Always negative","Zero","Depends on the path taken"],1],
+["If two speakers emit sound at same frequency and phase, maximum loudness occurs when:",["Path difference = λ/2","Path difference = λ","Path difference = λ/4","Path difference = 3λ/4"],1],
+["When an object attains terminal velocity, its acceleration is:",["9.8m/s²","Zero","1 m/s²","9.8m/s²"],1],
+["A 0.5 kg ball moving at 6 m/s has kinetic energy",["9 J","18 J","6 J","3 J"],0],
+["A fluid is flowing through a tube, to undergo transition from laminar to turbulent flow it's velocity must be:",["Slightly less than critical velocity","equal to critical velocity","greater than critical velocity","increasing gradually but less than critical velocity"],2],
+["For two equal positive charges, the electric field weakest?",["Midway between them","Along the perpendicular bisector","Close to either charge","At infinity"],0],
+["A projectile is launched in air with certain angle; its velocity is maximum at:",["Point of projection","Highest point","Between launching and highest point","At all points"],0],
+["If the distance between two charges is halved and magnitude of charges are also doubled, then the force between these charges becomes:",["two times","four times","eight times","sixteen times"],0],
+["If a body having mass m1 (2 kg), moving with 5 m/s approaches another mass, m2 (3 kg) with speed of 1 m/s in same direction, relative speed of approach is 4 m/s. Relative speed of separation after collision will be:",["4 m/s","2 m/s","6 m/s","depends on masses"],0],
+["Which of the following sentences has correct subject verb agreement?",["The teacher give the students homework.","The teacher gives the students homework.","The teachers gives the student homework.","The teachers given the student homework."],1],
+["The keys were found ___ the drawer where you left them last week.",["under","in","on","beside"],1],
+["Identify the sentence among of the following, which is punctuated correctly?",["The teaching staff asked the principal what time the meeting would start.","The teaching staff asked the principal: \"What time would the meeting start\"?","The teaching staff asked the principal, \"What time would the meeting start?\"","The teaching staff asked the principal; \"What time would the meeting start?\""],2],
+["\"She was elated when she got first position in exams.\" What is the meaning of \"elated\" in this sentence?",["Disappointed","Worried","Excited","Mad"],2],
+["The board of directors expressed ___ disappointment with the financial results.",["their","its","his or her","one's"],1],
+["It rained all night; ___, the roads were flooded in the morning.",["similarly","instead","as a result","in contrast"],2],
+["The manager accepted the cashier's ___ for coming late.",["expalanation","explaination","explnasion","explanation"],3],
+["The writer has unearthed serious irregularities in the entire project. The word 'unearthed' in this sentence means",["written","mentioned","exposed","stated"],2],
+["Identify the sentence with no spelling error:",["Imtiaz invited me on a dinner party at restaurant.","Imtiaz invited me on a diner party at restaurant.","Imtiaz invited me on a dinner party at resturant.","Imtiaz invited me on a dinnar party at restaurent."],0],
+["What will come next? 1, 4, 2, 5, 3, 6, 4, 7, ?",["5","6","7","8"],0],
+["All daffodils are plants. All plants are living things. Some living things are real. Conclusions: I. All daffodils are living things. II. Some living things are flowers. III. All daffodils are real. Which conclusions follow?",["Only I","Only I and II","Only II and III","All follow"],2],
+["One apple pie has 10 slices, and each apple pie feeds five people. Henry is having a party with 200 people. How many slices of pie does he need?",["200","50","400","100"],2],
+["How many trees are in the orchard? Which of the statements below are needed to sufficiently answer this question? i. Ibrahim is a farmer and looks after half of the trees in the orchard ii. 300 trees in the orchard are under Ibrahim's care",["i is enough","ii is enough","both i and ii are needed","neither i or ii are sufficient"],2],
+["P and Q are M's parents. M and N are siblings. Q is N's mother. What is P to M?",["Mother","Father","Sister","Brother"],1],
+["Asad bought 50 packets of biscuits for the price of Rs. 500; whereas Anum bought 25 packets of chips for the price of Rs.1000. While comparing the prices of packets of biscuits and packet of chips, which of the following statements is correct?",["Price of 4 packets of biscuits is equal to the price of 1 packet of chips","Price of 1 packet of biscuits is equal to the price of 4 packets of chips","Price of 2 packets of biscuits is equal to the price of 1 packet of chips","Price of 1 packet of biscuits is equal to the price of 2 packets of chips"],0],
+["The virus spreads rapidly in the town. It infected the people - First day: 8, Second day: 16, Third day: 32. What will be the number of people infected on the next day?",["44 people","56 people","64 people","74 people"],2],
+["Which of the following is a result of poor design that could cause an accident in the workplace?",["Equipment failure","Slippery surfaces","Insufficient lighting","Unplanned workspace layout"],3],
+["Which of the following is the main cause of accidents involving equipment?",["Overconfidence","Insufficient maintenance","Fatigue","Poor training"],1]
+];
+
+const TOTAL_TIME = 150*60; // 150 minutes in seconds
+let timeLeft = TOTAL_TIME;
+let timerInterval = null;
+let current = 0;
+let answers = new Array(QUESTIONS.length).fill(null); // selected option index or null
+let marked = new Array(QUESTIONS.length).fill(false);
+let visited = new Array(QUESTIONS.length).fill(false);
+let submitted = false;
+let startTimestamp = null;
+let currentFilter = 'all';
+
+function startTest(){
+  document.getElementById('startScreen').style.display='none';
+  document.getElementById('app').style.display='block';
+  startTimestamp = Date.now();
+  buildGrid();
+  renderQuestion();
+  timerInterval = setInterval(tick, 1000);
+}
+
+function tick(){
+  timeLeft--;
+  if(timeLeft<=0){
+    timeLeft=0;
+    updateTimerDisplay();
+    doSubmit();
+    return;
+  }
+  updateTimerDisplay();
+}
+
+function updateTimerDisplay(){
+  const h = Math.floor(timeLeft/3600);
+  const m = Math.floor((timeLeft%3600)/60);
+  const s = timeLeft%60;
+  const el = document.getElementById('timer');
+  el.textContent = [h,m,s].map(v=>String(v).padStart(2,'0')).join(':');
+  if(timeLeft<300) el.classList.add('warn'); else el.classList.remove('warn');
+}
+
+function buildGrid(){
+  const grid = document.getElementById('qgrid');
+  grid.innerHTML='';
+  for(let i=0;i<QUESTIONS.length;i++){
+    const b = document.createElement('div');
+    b.className='qbtn';
+    b.id='qb-'+i;
+    b.textContent = i+1;
+    b.onclick = ()=>{ current=i; renderQuestion(); };
+    grid.appendChild(b);
+  }
+}
+
+function updateGrid(){
+  for(let i=0;i<QUESTIONS.length;i++){
+    const b = document.getElementById('qb-'+i);
+    b.className='qbtn';
+    if(answers[i]!==null) b.classList.add('answered');
+    if(marked[i]) b.classList.add('marked');
+    if(i===current) b.classList.add('current');
+  }
+}
+
+function renderQuestion(){
+  visited[current]=true;
+  const q = QUESTIONS[current];
+  document.getElementById('qIndexLabel').textContent = (current+1)+' of '+QUESTIONS.length;
+  document.getElementById('curNoHeader').textContent = current+1;
+  document.getElementById('qText').textContent = q[0];
+  const box = document.getElementById('optionsBox');
+  box.innerHTML='';
+  const letters=['A','B','C','D'];
+  q[1].forEach((optText,idx)=>{
+    const div = document.createElement('label');
+    div.className='opt'+(answers[current]===idx?' selected':'');
+    div.innerHTML = '<span class="letter">'+letters[idx]+'</span><span>'+optText+'</span>'+
+      '<input type="radio" name="opt" style="display:none;" '+(answers[current]===idx?'checked':'')+'>';
+    div.onclick = ()=>{ selectAnswer(idx); };
+    box.appendChild(div);
+  });
+  document.getElementById('markBtn').textContent = marked[current] ? 'Unmark Review' : 'Mark for Review';
+  document.getElementById('prevBtn').disabled = current===0;
+  document.getElementById('nextBtn').textContent = current===QUESTIONS.length-1 ? 'Finish' : 'Next →';
+  updateGrid();
+}
+
+function selectAnswer(idx){
+  answers[current]=idx;
+  renderQuestion();
+}
+
+function clearAnswer(){
+  answers[current]=null;
+  renderQuestion();
+}
+
+function toggleMark(){
+  marked[current]=!marked[current];
+  renderQuestion();
+}
+
+function goNext(){
+  if(current<QUESTIONS.length-1){ current++; renderQuestion(); }
+  else { confirmSubmit(); }
+}
+function goPrev(){
+  if(current>0){ current--; renderQuestion(); }
+}
+
+function confirmSubmit(){
+  const unanswered = answers.filter(a=>a===null).length;
+  const msg = unanswered>0
+    ? `You have ${unanswered} unanswered question(s). Submit anyway?`
+    : 'Submit the test now?';
+  document.getElementById('modalMsg').textContent = msg;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+function modalConfirmYes(){
+  closeModal();
+  doSubmit();
+}
+
+function doSubmit(){
+  if(submitted) return;
+  submitted=true;
+  clearInterval(timerInterval);
+  const elapsed = TOTAL_TIME - timeLeft;
+  let correct=0, wrong=0, skipped=0;
+  QUESTIONS.forEach((q,i)=>{
+    if(answers[i]===null) skipped++;
+    else if(answers[i]===q[2]) correct++;
+    else wrong++;
+  });
+  document.getElementById('app').style.display='none';
+  document.getElementById('resultScreen').style.display='block';
+  document.getElementById('scoreNum').textContent = correct+' / '+QUESTIONS.length;
+  const pct = ((correct/QUESTIONS.length)*100).toFixed(1);
+  document.getElementById('scorePct').textContent = pct+'% — Correct: '+correct+' | Wrong: '+wrong+' | Skipped: '+skipped;
+  const eh=Math.floor(elapsed/3600), em=Math.floor((elapsed%3600)/60), es=elapsed%60;
+  document.getElementById('timeTaken').textContent = 'Time taken: '+eh+'h '+em+'m '+es+'s';
+  renderReview();
+}
+
+function renderReview(){
+  const list = document.getElementById('reviewList');
+  list.innerHTML='';
+  const letters=['A','B','C','D'];
+  QUESTIONS.forEach((q,i)=>{
+    const userAns = answers[i];
+    const isCorrect = userAns===q[2];
+    const isSkipped = userAns===null;
+    let status = isSkipped ? 'skipped' : (isCorrect ? 'correct' : 'wrong');
+    if(currentFilter!=='all' && currentFilter!==status) return;
+
+    const div = document.createElement('div');
+    div.className='review-item';
+    let html = '<div class="review-q">Q'+(i+1)+'. '+q[0]+
+      '<span class="tag '+status+'">'+status.toUpperCase()+'</span></div>';
+    q[1].forEach((optText,idx)=>{
+      let cls='review-opt';
+      if(idx===q[2]) cls+=' correct';
+      else if(idx===userAns && idx!==q[2]) cls+=' wrong';
+      html += '<div class="'+cls+'">'+letters[idx]+'. '+optText+
+        (idx===q[2] ? '  ✓ Correct Answer' : (idx===userAns ? '  ✗ Your Answer' : ''))+'</div>';
+    });
+    div.innerHTML = html;
+    list.appendChild(div);
+  });
+  if(list.innerHTML===''){
+    list.innerHTML = '<p style="color:#9ca3af;text-align:center;">No questions in this category.</p>';
+  }
+}
+
+function setFilter(f){
+  currentFilter=f;
+  document.querySelectorAll('.filterbar button').forEach(b=>b.classList.toggle('active', b.dataset.f===f));
+  renderReview();
+}
+
+function restartTest(){
+  answers = new Array(QUESTIONS.length).fill(null);
+  marked = new Array(QUESTIONS.length).fill(false);
+  visited = new Array(QUESTIONS.length).fill(false);
+  current=0; submitted=false; timeLeft=TOTAL_TIME;
+  document.getElementById('resultScreen').style.display='none';
+  document.getElementById('startScreen').style.display='block';
+}
+
+updateTimerDisplay();
+</script>
+</body>
+</html>
