@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="png" href="favicon.png">
+<title>MDCAT Biology Live Test — Unit 1: Cell Structure &amp; Function</title>
+<style>
+  :root{
+    --ink:#0f2a22;
+    --paper:#eef4f0;
+    --paper-2:#ffffff;
+    --line:#c9d8cf;
+    --forest:#0b3d2e;
+    --forest-2:#155843;
+    --amber:#c47a2f;
+    --coral:#b5442e;
+    --slide:#dff0e6;
+    --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 100% -10%, #dbe9e0 0%, transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    min-height:100vh;
+  }
+  .utility{ font-family: var(--mono); letter-spacing:.03em; }
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--forest);
+    color:#eef4ee;
+    padding:22px 28px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    border-bottom:5px solid var(--amber);
+  }
+  .brand-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#a9c9b8;
+    margin-bottom:6px;
+  }
+  h1{
+    margin:0;
+    font-size:26px;
+    font-weight:400;
+    letter-spacing:.01em;
+  }
+  h1 em{ font-style:italic; color:#f3d9ad; }
+  .meta-line{
+    font-family:var(--mono);
+    font-size:12px;
+    color:#c7dccf;
+    margin-top:6px;
+  }
+  .timer-box{
+    font-family:var(--mono);
+    text-align:right;
+    min-width:150px;
+  }
+  .timer-box .tlabel{ font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#a9c9b8;}
+  .timer-box .tval{ font-size:30px; color:#f3d9ad; line-height:1.1; }
+  .timer-box .tval.low{ color:#f3a37e; }
+
+  /* ---------- Layout ---------- */
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:26px 20px 70px;
+  }
+  .progress-outer{
+    height:6px; background:var(--line); border-radius:4px; overflow:hidden; margin-bottom:22px;
+  }
+  .progress-inner{
+    height:100%; background:linear-gradient(90deg, var(--forest-2), var(--amber));
+    width:0%; transition:width .25s ease;
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns: 1fr 210px;
+    gap:24px;
+  }
+  @media (max-width: 760px){
+    .layout{ grid-template-columns: 1fr; }
+    .navigator{ order:2; }
+  }
+
+  /* ---------- Question card ---------- */
+  .card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:26px 28px;
+    position:relative;
+  }
+  .card::before{
+    content:"";
+    position:absolute; left:0; top:22px; bottom:22px; width:4px;
+    background:var(--forest);
+  }
+  .q-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--forest-2);
+    margin-bottom:10px;
+  }
+  .q-text{
+    font-size:19px;
+    line-height:1.5;
+    margin:0 0 20px;
+    color:var(--ink);
+  }
+  .options{ display:flex; flex-direction:column; gap:10px; }
+  .option{
+    display:flex; align-items:flex-start; gap:12px;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    cursor:pointer;
+    background:var(--paper);
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .option:hover{ border-color:var(--forest-2); }
+  .option.selected{
+    border-color:var(--forest); background:var(--slide);
+  }
+  .option .letter{
+    font-family:var(--mono);
+    font-weight:bold;
+    width:20px; flex:0 0 20px;
+    color:var(--forest-2);
+  }
+  .option input{ display:none; }
+  .option .opt-text{ font-size:16px; line-height:1.4; }
+
+  /* result state colors on review */
+  .option.correct{ border-color:#2f7a4f; background:#e3f3e8; }
+  .option.correct .letter{ color:#2f7a4f; }
+  .option.incorrect{ border-color:var(--coral); background:#fbe9e5; }
+  .option.incorrect .letter{ color:var(--coral); }
+
+  .card-footer{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:24px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+  }
+  button{
+    font-family: var(--mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:11px 18px;
+    border-radius:2px;
+    border:1px solid var(--forest);
+    background:var(--paper-2);
+    color:var(--forest);
+    cursor:pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  button:hover{ background:var(--forest); color:#fff; }
+  button:disabled{ opacity:.35; cursor:not-allowed; }
+  button.primary{ background:var(--forest); color:#fff; }
+  button.primary:hover{ background:var(--forest-2); }
+  button.submit-btn{ border-color:var(--amber); color:var(--amber); }
+  button.submit-btn:hover{ background:var(--amber); color:#fff; }
+
+  /* ---------- Navigator ---------- */
+  .navigator{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:16px;
+    align-self:start;
+    position:sticky;
+    top:16px;
+  }
+  .nav-title{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--forest-2);
+    margin-bottom:10px;
+  }
+  .nav-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:6px;
+  }
+  .nav-cell{
+    aspect-ratio:1;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:11px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    cursor:pointer;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .nav-cell.answered{ background:var(--slide); border-color:var(--forest-2); color:var(--forest-2); }
+  .nav-cell.current{ outline:2px solid var(--amber); outline-offset:1px; }
+  .nav-legend{ margin-top:12px; font-size:11px; font-family:var(--mono); color:#5c6f65; line-height:1.7;}
+  .nav-legend span{ display:inline-block; width:10px; height:10px; margin-right:6px; vertical-align:middle; border:1px solid var(--line);}
+  .swatch-a{ background:var(--slide); border-color:var(--forest-2) !important; }
+  .swatch-u{ background:var(--paper); }
+
+  .section-divider{
+    font-family:var(--mono);
+    font-size:10px;
+    color:#5c6f65;
+    text-align:center;
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+  }
+
+  /* ---------- Start Screen ---------- */
+  .start-card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:36px 32px;
+    max-width:480px;
+    margin:40px auto;
+  }
+  .start-card h2{
+    font-size:22px;
+    margin:0 0 8px;
+    color:var(--forest);
+  }
+  .start-card p{
+    font-size:14px;
+    color:#5c6f65;
+    margin:0 0 22px;
+    line-height:1.5;
+  }
+  .start-field{ margin-bottom:16px; }
+  .start-field label{
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--forest-2);
+    margin-bottom:6px;
+  }
+  .start-field input{
+    width:100%;
+    padding:11px 13px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    font-family:Georgia, serif;
+    font-size:15px;
+    background:var(--paper);
+    color:var(--ink);
+    outline:none;
+  }
+  .start-field input:focus{ border-color:var(--forest-2); }
+  .start-err{ font-size:12px; color:var(--coral); margin-top:4px; min-height:14px; font-family:var(--mono); }
+  .start-btn{
+    width:100%;
+    padding:13px;
+    margin-top:6px;
+  }
+
+  /* ---------- Results ---------- */
+  .hidden{ display:none !important; }
+  .results-summary{
+    background:var(--forest);
+    color:#eef4ee;
+    border-radius:3px;
+    padding:30px 28px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+    margin-bottom:26px;
+  }
+  .score-big{ font-size:52px; font-family:var(--mono); color:#f3d9ad; line-height:1; }
+  .score-sub{ font-size:13px; color:#c7dccf; margin-top:4px; font-family:var(--mono); letter-spacing:.05em;}
+  .stat-block{ text-align:right; }
+  .stat-row{ font-family:var(--mono); font-size:13px; margin:2px 0; }
+  .stat-row b{ color:#f3d9ad; }
+
+  .review-item{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-left:4px solid var(--line);
+    border-radius:3px;
+    padding:18px 20px;
+    margin-bottom:12px;
+  }
+  .review-item.ok{ border-left-color:#2f7a4f; }
+  .review-item.bad{ border-left-color:var(--coral); }
+  .review-item.skip{ border-left-color:#9a9a8f; }
+  .review-q{ font-size:15.5px; margin-bottom:10px; }
+  .review-tag{ font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px; }
+  .review-tag.ok{ color:#2f7a4f; }
+  .review-tag.bad{ color:var(--coral); }
+  .review-tag.skip{ color:#8a8a7f; }
+  .review-line{ font-size:13.5px; margin:3px 0; font-family:var(--mono); }
+  .review-line b{ font-family:Georgia, serif; }
+
+  .actions-row{ display:flex; gap:12px; justify-content:center; margin:26px 0 6px; }
+
+  footer{
+    text-align:center;
+    font-family:var(--mono);
+    font-size:11px;
+    color:#7b8d81;
+    padding:24px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>MDCAT Biology — <em>Unit 1</em> Live Test</h1>
+    <div class="meta-line">60 MCQs · 60 Marks · Cell Structure &amp; Function &nbsp;|&nbsp; Section A:  (Q1–30) · Section B:(Q31–60)</div>
+  </div>
+  <div class="timer-box">
+    <div class="tlabel">Time Remaining</div>
+    <div class="tval utility" id="timerDisplay">60:00</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="progress-outer"><div class="progress-inner" id="progressBar"></div></div>
+
+  <!-- START VIEW -->
+  <div id="startView">
+    <div class="start-card">
+      <h2>Before You Begin</h2>
+      <p>Enter your details so we can save your score. This test has 60 questions and a 60-minute timer that starts as soon as you click "Start Test."</p>
+      <div class="start-field">
+        <label for="studentName">Full Name</label>
+        <input type="text" id="studentName" placeholder="e.g. Ahmed Raza">
+        <div class="start-err" id="startErrName"></div>
+      </div>
+      <div class="start-field">
+        <label for="studentEmail">Email Address</label>
+        <input type="email" id="studentEmail" placeholder="you@example.com">
+        <div class="start-err" id="startErrEmail"></div>
+      </div>
+      <button class="primary start-btn" id="startBtn">Start Test →</button>
+    </div>
+  </div>
+
+  <!-- TEST VIEW -->
+  <div id="testView" class="layout hidden">
+    <div class="card">
+      <div class="q-tag" id="qTag">SECTION A · QUESTION 1 OF 60</div>
+      <p class="q-text" id="qText"></p>
+      <div class="options" id="optionsBox"></div>
+      <div class="card-footer">
+        <button id="prevBtn">← Previous</button>
+        <button id="nextBtn" class="primary">Next →</button>
+      </div>
+    </div>
+
+    <div class="navigator">
+      <div class="nav-title">Question Map</div>
+      <div class="nav-grid" id="navGrid"></div>
+      <div class="nav-legend">
+        <div><span class="swatch-a"></span>Answered</div>
+        <div><span class="swatch-u"></span>Unanswered</div>
+      </div>
+      <div class="section-divider">1–30 SECTION A · 31–60 SECTION B</div>
+      <button class="submit-btn" id="submitBtn" style="width:100%; margin-top:16px;">Submit Test</button>
+    </div>
+  </div>
+
+  <!-- RESULTS VIEW -->
+  <div id="resultsView" class="hidden">
+    <div class="results-summary">
+      <div>
+        <div class="score-big" id="finalScore">0/60</div>
+        <div class="score-sub" id="finalPercent">0% SCORE</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-row">Correct: <b id="statCorrect">0</b></div>
+        <div class="stat-row">Incorrect: <b id="statIncorrect">0</b></div>
+        <div class="stat-row">Unattempted: <b id="statSkipped">0</b></div>
+        <div class="stat-row">Time Used: <b id="statTime">00:00</b></div>
+      </div>
+    </div>
+    <div id="reviewList"></div>
+    <div class="actions-row">
+      <button class="primary" id="retakeBtn">Retake Test</button>
+    </div>
+  </div>
+
+</div>
+
+<footer> Unit 4 · Cell Structure &amp; Functions</footer>
+
+<script>
+/* ============================================================
+   QUESTION BANK — 60 items
+   Format: [ "Section", "question text", ["optA","optB","optC","optD"], correctIndex(0-3) ]
+   ============================================================ */
+const QUESTIONS = [
+["A","According to Robert Hooke, a cell ____.",
+ ["Consists of nucleus, cytoplasm and cell membrane","Is empty space with no proper boundary","Is empty space bounded by thick walls","Is like a honeycomb containing a central nucleus"],3],
+["A","Mature plant cells have:",
+ ["Single small vacuole","Many small vacuoles","Single large vacuole","Many large vacuoles"],2],
+["A","Cell without a cell wall would burst in:",
+ ["Hypotonic solution","Isotonic solution","Hypertonic solution","Solution having more electrolytes"],0],
+["A","Which of the following best describes the chemical composition of middle lamella?",
+ ["Phosphoglycerides","Calcium pectate","Polysaccharides","Cellulose"],1],
+["A","Which of the following correctly describes the position of middle lamella in plant cells?",
+ ["In between the primary and secondary wall","In between the primary walls of the neighboring cells","In between the cell membrane and primary wall","Lies inner to the cell membrane"],1],
+["A","Sacculus is another name used for the entire bacterial:",
+ ["Cell wall","Mesosomes","Cell membrane","Nucleoid"],0],
+["A","Why is it said that the plasma membrane is asymmetrical?",
+ ["Proteins are not fixed at their position","Hydrophobic tail faces inward and hydrophilic head faces outward","The two surfaces and halves are not identical","Cholesterol molecules are only present inside"],2],
+["A","Adenylate cyclase, in the cell membrane, acts as:",
+ ["Channel protein","Enzyme","Carrier protein","Receptor"],1],
+["A","Most abundant components of the plasma membrane are:",
+ ["Lipids","Proteins","Carbohydrates","Nucleic acids"],0],
+["A","The invagination of the plasma membrane leads to the formation of:",
+ ["Mitochondria","Golgi body","Phagosome","Ribosomes"],2],
+["A","The soluble part of cytoplasm that remains when all organelles are removed is known as:",
+ ["Solution","Gelatin material","Cytoskeleton","Cytosol"],3],
+["A","The cytoplasm contain/s:",
+ ["Cell organelles only","Storage products only","Insoluble waste only","All of A, B, C"],3],
+["A","Ribosomes exist in two forms, either attached with RER or freely dispersed in the:",
+ ["Tonoplast","Golgi bodies","Cytoplasm","SER"],2],
+["A","It is synthesized by free-floating ribosomes of cytoplasm in humans:",
+ ["Pancreatic lipase","Salivary amylase","Insulin","DNA helicase"],2],
+["A","Detoxification of drugs is the main role of:",
+ ["Golgi bodies","Rough endoplasmic reticulum","Mitochondria","Smooth endoplasmic reticulum"],3],
+["A","Which of the following pathways is correct for the secretion of an extracellular enzyme of the pancreas?",
+ ["Ribosome → SER → RER → Golgi apparatus","Ribosome → Golgi apparatus → RER → SER","SER → RER → Ribosome → Golgi apparatus","Ribosome → RER → SER → Golgi apparatus"],3],
+["A","Which organelle would be more abundant in a secretory cell than a non-secretory cell?",
+ ["Lysosomes","Vacuoles","Golgi complex","Centrioles"],2],
+["A","Golgi apparatus is virtually found in all of the following eukaryotic cells except:",
+ ["Hepatocytes","Erythrocytes","Pneumocytes","Osteocytes"],1],
+["A","Phragmoplast is the precursor of:",
+ ["Cell plate","Chloroplasts","Leucoplasts","Chromoplasts"],0],
+["A","_____ are spherical sacs surrounded by a single membrane and contain hydrolytic enzymes.",
+ ["Mitochondria","Lysosomes","Golgi bodies","Chloroplast"],1],
+["A","Tay-Sachs disease is due to a deficiency of:",
+ ["Hormone","Lipids","Enzyme","Glycogen"],2],
+["A","Tonoplast is the membrane separating:",
+ ["Vacuole and nucleoplasm","Vacuole and stroma","Cytoplasm and nucleoplasm","Vacuole and cytoplasm"],3],
+["A","The enzyme ATP synthase is located on the membrane of which organelle?",
+ ["Nucleus","Lysosomes","Mitochondria","Vacuole"],2],
+["A","The inner membrane of mitochondria is folded to form finger-like:",
+ ["Cisternae","Chromatin","Cristae","Chloroplast"],2],
+["A","Mitochondria are semi-autonomous due to the presence of:",
+ ["Proteins only","DNA and RNA","RNA and proteins","DNA, RNA and proteins"],3],
+["A","The mitochondrial DNA is:",
+ ["Single stranded and circular","Single stranded and linear","Double stranded and linear","Double stranded and circular"],3],
+["A","Which of the following types of plastids is involved in the dispersal of seeds and pollination?",
+ ["Chloroplast","Leucoplast","Chromoplast","Amyloplast"],2],
+["A","Function of the nucleus is to form:",
+ ["Nuclear envelope","rRNA","Chromosomes","Cytoplasm"],2],
+["A","Which of the following is bi-nucleated?",
+ ["Erythrocytes","Ciliated protist","Skeletal myocytes","Hepatocytes"],1],
+["A","Prokaryotic cells differ from eukaryotic cells in lacking:",
+ ["DNA","Ribosomes","Histone","Cell membrane"],2],
+
+["B","These are said to be the basic structural and functional unit of life:",
+ ["Cells","Tissues","Genes","Nucleic acids"],0],
+["B","Which of the following statements is true?",
+ ["Prokaryotic cells are bigger than eukaryotic cells","Prokaryotic cells came before eukaryotic cells","Eukaryotic cells do not have a nucleus, prokaryotic cells do","Eukaryotic cells are simple, prokaryotic cells are complex"],1],
+["B","The fungal cell wall is composed of ________ while bacterial cell wall contains _________, respectively.",
+ ["Cellulose, hemi-cellulose","Chitin, cellulose","Chitin, peptidoglycan","Peptidoglycan, pectin and silica"],2],
+["B","The site of respiration or oxidation of metabolites in bacteria is:",
+ ["Flagella","Ribosome","Mesosome","Microsome"],2],
+["B","A protein that is present in prokaryotic cells while absent in eukaryotic cells is:",
+ ["Tubulin","Pilin","Histone","Troponin"],1],
+["B","Presence of a large central vacuole is a feature of:",
+ ["Bacterial cells","Algal cells","Plant cells","Animal cells"],2],
+["B","A structure that is present in animal cells but absent in plant cells:",
+ ["Cell wall","Chromosome","Chloroplast","Centrosome"],3],
+["B","In plants, the mitotic apparatus is comprised of:",
+ ["Spindles only","Centrioles and spindles","Asters only","Spindles and asters"],0],
+["B","A student observed a boundary in both plant and animal cells that controls entry and exit of substances. Which structure is being observed?",
+ ["Mitochondria","Golgi apparatus","Plasma membrane","Cell wall"],2],
+["B","The plasma membrane is:",
+ ["Freely permeable","Selectively permeable","Impermeable","Non-permeable"],1],
+["B","According to the fluid mosaic model of the cell membrane, which zone is embedded inside?",
+ ["Hydrophobic","Hydrophilic","Globular","Filamentous"],0],
+["B","Which part of the plasma membrane controls the fluidity of the membrane?",
+ ["Glycoproteins","Carrier proteins","Lipids","Carbohydrates"],2],
+["B","Cell membrane also contains _________ through which movement of material takes place by active and passive transport.",
+ ["Lipids","Corner proteins","Cholesterol","Charged pores"],3],
+["B","It is a type of transport mechanism that uses ATP as a source of energy:",
+ ["Facilitated diffusion","Active transport","Diffusion","Osmosis"],1],
+["B","Under a microscope, plant cells appeared rigid in shape, unlike flexible animal cells. Which structure explains this difference?",
+ ["Cell wall","Vacuole","Cytoskeleton","Plasma membrane"],0],
+["B","In secondary cell wall, _________ cements and anchors cellulose microfibrils together and is responsible for rigidity.",
+ ["Lignin","Pectin","Inorganic salts","Suberin"],0],
+["B","Middle lamella is:",
+ ["A plasma membrane covering two cells together","A layer between two adjacent plant cells","A pore in the plasma membrane of the cell","Composed of cellulose and hemicellulose"],1],
+["B","All of the following are functions of the cell wall except:",
+ ["Imbibition","Regulation of transport of materials","Maintain the shape of plant cells","Provide protection against osmotic stress"],1],
+["B","The active mass movement of mitochondria in the cytoplasm is due to:",
+ ["Cyclosis","Endoplasmic reticulum movements","Golgi apparatus","Transfer RNA"],0],
+["B","All of the following metabolic pathways are associated with the cytoplasm except:",
+ ["Glycolysis","Protein biosynthesis","Glyoxylate cycle","Fermentation"],2],
+["B","Which of the following are single membranous organelles?",
+ ["Mitochondria and ribosomes","Cytosol, mitochondria and ribosomes","Golgi bodies, lysosome and endoplasmic reticulum","Golgi bodies, lysosome and mitochondria"],2],
+["B","Glycogen and lipid droplets form the most important _________ of the cell.",
+ ["Cell organelles","Cytoplasmic matrix","Non-membranous organelles","Cell inclusions"],3],
+["B","Prokaryotic and eukaryotic cells generally have which of the following features in common?",
+ ["A membrane bounded nucleus","A cell wall made up of cellulose","Ribosomes","Linear chromosome made of DNA and protein"],2],
+["B","The larger subunit of a eukaryotic ribosome sediments at:",
+ ["40S","60S","70S","80S"],1],
+["B","In any cell, ribosomes can exist in all of the following forms except:",
+ ["Dispersed in cytoplasm","Attached with nuclear membrane","Attached with RER","Attached with Golgi bodies"],3],
+["B","A group of ribosomes attached to mRNA is known as a polysome, and the attachment is controlled by:",
+ ["Na+","Mg+2","Ca+2","K+"],1],
+["B","In a prokaryotic cell, new ribosomes are assembled in:",
+ ["Cytoplasm","Golgi complex","Nucleolus","Rough endoplasmic reticulum"],0],
+["B","Endoplasmic reticulum contains a system of flattened membrane-bounded sacs which are named as:",
+ ["Cristae","Cisternae","Oxysomes","Tonoplast"],1],
+["B","Select the one which is NOT a function of the smooth endoplasmic reticulum:",
+ ["Metabolism of lipids","Transmission of impulses","Storage of Ca2+","Processing of glycoproteins"],3],
+["B","Which of the following cell types would you expect to be abundant with endoplasmic reticulum and Golgi bodies? I. Plasma B cells (produce antibodies) II. Adipose cells (store fats) III. Islet of Langerhans cells (secrete insulin) IV. Red blood cells (transport oxygen)",
+ ["I and II only","I and III only","III and IV only","II and III only"],1],
+];
+
+/* Guard: confirm 60 questions */
+console.assert(QUESTIONS.length === 60, "Expected 60 questions, got " + QUESTIONS.length);
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let current = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+let secondsLeft = 60 * 60; // 60 minutes
+let timerHandle = null;
+let submitted = false;
+let studentName = '';
+let studentEmail = '';
+
+/* ============================================================
+   RECORD-KEEPING CONFIG
+   Replace with your own Google Apps Script Web App URL (see setup guide).
+   ============================================================ */
+const RESULTS_ENDPOINT = "https://script.google.com/macros/s/AKfycbw6HboXMzNpi34yxtbf_j9a9vAqxhWkiSyErwh0UvJphq-19yYLspcbA5KeVHSVMparVQ/exec";
+const TEST_NAME = "Biology Unit 1 — Cell Structure & Function";
+
+/* ============================================================
+   ELEMENTS
+   ============================================================ */
+const qTag = document.getElementById('qTag');
+const qText = document.getElementById('qText');
+const optionsBox = document.getElementById('optionsBox');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const submitBtn = document.getElementById('submitBtn');
+const navGrid = document.getElementById('navGrid');
+const progressBar = document.getElementById('progressBar');
+const timerDisplay = document.getElementById('timerDisplay');
+const testView = document.getElementById('testView');
+const resultsView = document.getElementById('resultsView');
+const startView = document.getElementById('startView');
+const startBtn = document.getElementById('startBtn');
+const studentNameInput = document.getElementById('studentName');
+const studentEmailInput = document.getElementById('studentEmail');
+
+/* ============================================================
+   BUILD NAV GRID
+   ============================================================ */
+function buildNav(){
+  navGrid.innerHTML = '';
+  QUESTIONS.forEach((q, i) => {
+    const cell = document.createElement('div');
+    cell.className = 'nav-cell';
+    cell.textContent = i + 1;
+    cell.id = 'nav-' + i;
+    cell.addEventListener('click', () => { current = i; render(); });
+    navGrid.appendChild(cell);
+  });
+}
+
+function updateNav(){
+  QUESTIONS.forEach((q, i) => {
+    const cell = document.getElementById('nav-' + i);
+    cell.classList.toggle('answered', answers[i] !== null);
+    cell.classList.toggle('current', i === current);
+  });
+}
+
+/* ============================================================
+   RENDER QUESTION
+   ============================================================ */
+function render(){
+  const [section, text, opts, correct] = QUESTIONS[current];
+  const sectionName = section === 'A' ? 'Section A' : 'Section B';
+  qTag.textContent = `${sectionName.toUpperCase()} · QUESTION ${current + 1} OF ${QUESTIONS.length}`;
+  qText.textContent = text;
+
+  optionsBox.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  opts.forEach((opt, idx) => {
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[current] === idx ? ' selected' : '');
+    div.innerHTML = `<span class="letter utility">${letters[idx]}</span><span class="opt-text">${opt}</span>`;
+    div.addEventListener('click', () => {
+      answers[current] = idx;
+      render();
+      updateNav();
+      updateProgress();
+    });
+    optionsBox.appendChild(div);
+  });
+
+  prevBtn.disabled = current === 0;
+  nextBtn.textContent = current === QUESTIONS.length - 1 ? 'Finish Review →' : 'Next →';
+  updateNav();
+}
+
+function updateProgress(){
+  const answeredCount = answers.filter(a => a !== null).length;
+  progressBar.style.width = (answeredCount / QUESTIONS.length * 100) + '%';
+}
+
+/* ============================================================
+   NAV BUTTONS
+   ============================================================ */
+prevBtn.addEventListener('click', () => { if (current > 0) { current--; render(); } });
+nextBtn.addEventListener('click', () => { if (current < QUESTIONS.length - 1) { current++; render(); } });
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+function formatTime(s){
+  const m = Math.floor(s / 60).toString().padStart(2,'0');
+  const sec = (s % 60).toString().padStart(2,'0');
+  return `${m}:${sec}`;
+}
+function tick(){
+  if (submitted) return;
+  secondsLeft--;
+  timerDisplay.textContent = formatTime(Math.max(secondsLeft,0));
+  timerDisplay.classList.toggle('low', secondsLeft <= 300);
+  if (secondsLeft <= 0){
+    clearInterval(timerHandle);
+    submitTest();
+  }
+}
+
+/* ============================================================
+   SUBMIT + RESULTS
+   ============================================================ */
+submitBtn.addEventListener('click', () => {
+  const unanswered = answers.filter(a => a === null).length;
+  if (unanswered > 0){
+    const proceed = confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`);
+    if (!proceed) return;
+  }
+  submitTest();
+});
+
+function submitTest(){
+  submitted = true;
+  clearInterval(timerHandle);
+
+  let correctCount = 0, incorrectCount = 0, skippedCount = 0;
+  const reviewList = document.getElementById('reviewList');
+  reviewList.innerHTML = '';
+
+  QUESTIONS.forEach((q, i) => {
+    const [section, text, opts, correctIdx] = q;
+    const userAns = answers[i];
+    let status;
+    if (userAns === null){ status = 'skip'; skippedCount++; }
+    else if (userAns === correctIdx){ status = 'ok'; correctCount++; }
+    else { status = 'bad'; incorrectCount++; }
+
+    const item = document.createElement('div');
+    item.className = 'review-item ' + status;
+    const letters = ['A','B','C','D'];
+    const tagText = status === 'ok' ? 'Correct' : (status === 'bad' ? 'Incorrect' : 'Not Attempted');
+    let lines = `<div class="review-tag ${status}">Q${i+1} · Section ${section} · ${tagText}</div>
+                 <div class="review-q"><b>${i+1}.</b> ${text}</div>`;
+    if (status !== 'ok'){
+      lines += `<div class="review-line">Correct answer: <b>${letters[correctIdx]}. ${opts[correctIdx]}</b></div>`;
+    }
+    if (userAns !== null){
+      lines += `<div class="review-line">Your answer: <b>${letters[userAns]}. ${opts[userAns]}</b></div>`;
+    }
+    item.innerHTML = lines;
+    reviewList.appendChild(item);
+  });
+
+  const total = QUESTIONS.length;
+  const pct = Math.round((correctCount / total) * 100);
+  document.getElementById('finalScore').textContent = `${correctCount}/${total}`;
+  document.getElementById('finalPercent').textContent = `${pct}% SCORE`;
+  document.getElementById('statCorrect').textContent = correctCount;
+  document.getElementById('statIncorrect').textContent = incorrectCount;
+  document.getElementById('statSkipped').textContent = skippedCount;
+  document.getElementById('statTime').textContent = formatTime(60*60 - Math.max(secondsLeft,0));
+
+  testView.classList.add('hidden');
+  resultsView.classList.remove('hidden');
+  window.scrollTo({top:0, behavior:'smooth'});
+
+  sendResultToSheet({
+    name: studentName,
+    email: studentEmail,
+    test: TEST_NAME,
+    correct: correctCount,
+    incorrect: incorrectCount,
+    skipped: skippedCount,
+    total: total,
+    percent: pct,
+    timeUsed: formatTime(60*60 - Math.max(secondsLeft,0)),
+    date: new Date().toISOString()
+  });
+}
+
+/* ============================================================
+   RECORD-KEEPING — log the attempt to a Google Sheet
+   ============================================================ */
+function sendResultToSheet(data){
+  if (!RESULTS_ENDPOINT || RESULTS_ENDPOINT.includes('YOUR_APPS_SCRIPT')) {
+    console.warn('RESULTS_ENDPOINT not configured — result was not saved.', data);
+    return;
+  }
+  fetch(RESULTS_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // avoids CORS preflight on Apps Script
+    body: JSON.stringify(data)
+  }).catch(err => {
+    console.error('Could not save result:', err);
+  });
+}
+
+document.getElementById('retakeBtn').addEventListener('click', () => {
+  window.location.reload();
+});
+
+/* ============================================================
+   START SCREEN → reveal quiz only after name/email are captured
+   ============================================================ */
+startBtn.addEventListener('click', () => {
+  const name = studentNameInput.value.trim();
+  const email = studentEmailInput.value.trim();
+  document.getElementById('startErrName').textContent = '';
+  document.getElementById('startErrEmail').textContent = '';
+
+  let valid = true;
+  if (!name) {
+    document.getElementById('startErrName').textContent = 'Please enter your name.';
+    valid = false;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('startErrEmail').textContent = 'Enter a valid email address.';
+    valid = false;
+  }
+  if (!valid) return;
+
+  studentName = name;
+  studentEmail = email;
+
+  startView.classList.add('hidden');
+  testView.classList.remove('hidden');
+
+  buildNav();
+  render();
+  updateProgress();
+  timerDisplay.textContent = formatTime(secondsLeft);
+  timerHandle = setInterval(tick, 1000);
+});
+</script>
+
+</body>
+</html>

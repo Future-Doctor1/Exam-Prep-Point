@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="png" href="favicon.png">
+    <title>Chemistry Unit-2 MDCAT Exam - Exam Prep Point</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .content {
+            padding: 40px 30px;
+            min-height: 400px;
+        }
+
+        .question-container {
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-number {
+            color: #667eea;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            color: #2d3748;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option input[type="radio"] {
+            margin-top: 4px;
+            margin-right: 16px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            accent-color: #667eea;
+            flex-shrink: 0;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 15px;
+            color: #2d3748;
+            line-height: 1.5;
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #eef2ff;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .option.selected input[type="radio"] {
+            accent-color: #667eea;
+        }
+
+        .results-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .results-screen.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 48px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .score-fraction {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .result-message {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 30px;
+        }
+
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .detail-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .footer {
+            background: #f7fafc;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: #cbd5e0;
+            transform: translateY(-2px);
+        }
+
+        .question-status {
+            font-size: 13px;
+            color: #718096;
+            margin-top: 10px;
+        }
+
+        .status-icon {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .status-icon.answered {
+            background: #48bb78;
+        }
+
+        .status-icon.unanswered {
+            background: #cbd5e0;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .question-text {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+
+            .button-group {
+                width: 100%;
+            }
+
+            button {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .result-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Chemistry Unit-2 MDCAT Exam</h1>
+            <p>Atomic Structure & Chemical Bonding</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-info">
+                <span id="questionProgress">Question 1 of 60</span>
+                <span id="statusText">0 Answered</span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content" id="contentArea">
+            <!-- Questions will be inserted here -->
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="button-group">
+                <button class="btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>← Previous</button>
+                <button class="btn-secondary" id="nextBtn" onclick="nextQuestion()">Next →</button>
+            </div>
+            <button class="btn-primary" id="submitBtn" onclick="submitExam()" style="display: none;">Submit Exam</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { id: 1, text: "What amount of charge contains the Avogadro's number of electrons?", options: ["96500C", "9.1 ×10⁻³¹C", "1.6×10¹⁹C", "1.6726×10⁻²⁷C"], correct: 0 },
+            { id: 2, text: "Despite having the same charge two electrons reside in an orbital, it can be explained by", options: ["Principal quantum number", "Magnetic quantum number", "Azimuthal quantum number", "Spin quantum number"], correct: 3 },
+            { id: 3, text: "For a particular value of n the maximum value of l can be", options: ["n - 1", "n + 1", "n + l", "n"], correct: 0 },
+            { id: 4, text: "The d-orbital in which electronic density lies on the axes is", options: ["dxy", "dxz", "dyz", "dx²-y²"], correct: 3 },
+            { id: 5, text: "In Scandium (Sc) the electrons are filled first in 4s rather than 3d, that is according to the", options: ["Pauli's exclusion principle", "Aufbau principle", "Hund's rule", "Moseley's law"], correct: 1 },
+            { id: 6, text: "Velocity of photon is", options: ["Depends upon its frequency", "Depends upon its source", "Depends upon its wavelength", "Independent of its wavelength"], correct: 3 },
+            { id: 7, text: "The particle having the least e/m value", options: ["Electron", "Neutron", "Proton", "α-Particle"], correct: 2 },
+            { id: 8, text: "An electron residing in a p-subshell of an atom cannot have the magnetic quantum number value", options: ["-1", "0", "-2", "+1"], correct: 2 },
+            { id: 9, text: "Which of the following electronic configurations is of oxygen atom in ground state?", options: ["1s².2s².2px¹.2py¹.2pz¹", "1s².2s¹.2px².2py¹.2pz¹", "1s².2s¹.2px¹.2py¹.2pz¹", "1s².2s¹.2px².2py¹.2pz²"], correct: 3 },
+            { id: 10, text: "Two photons having the wavelength 2000Å² and 4000Å² respectively. What will be the ratio of their wave number?", options: ["1:2", "1:1", "2:1", "4:1"], correct: 2 },
+            { id: 11, text: "The positive rays produced from ________ gas will have the maximum e/m value", options: ["H₂", "O₂", "N₂", "F₂"], correct: 0 },
+            { id: 12, text: "The specie which is iso-electronic with S²⁻ ion", options: ["Al⁻³", "Cl⁻¹", "Mg⁺²", "F⁻¹"], correct: 1 },
+            { id: 13, text: "The colour of visible rays which has maximum value of wavelength", options: ["Red", "Green", "Violet", "Blue"], correct: 0 },
+            { id: 14, text: "Two different species can only have same electronic configuration, if they have same", options: ["Atomic number", "Number of neutrons", "Number of electrons", "Mass number"], correct: 2 },
+            { id: 15, text: "The heaviest fundamental subatomic particle having some charge on it is", options: ["Electron", "Proton", "Neutron", "α-particle"], correct: 1 },
+            { id: 16, text: "Which relationship is correct about the mass number of the given species?", options: ["Cl⁻ > Cl > Cl⁺", "Cl⁺ < Cl < Cl⁻", "Cl⁻ = Cl = Cl⁺", "Cl⁻ = Cl = Cl⁺"], correct: 2 },
+            { id: 17, text: "The probability of finding electron between two orbitals is zero. This place is called", options: ["Nodal plane", "Node", "Nodal surface", "All of these"], correct: 3 },
+            { id: 18, text: "Correct order of energy in the given sub-shells is", options: ["5s > 3d > 3p > 4s", "5s > 3d > 4s > 3p", "3p > 3d > 5s > 4s", "3p > 3d > 4s > 5s"], correct: 0 },
+            { id: 19, text: "The orbital diagram which is indicating the violation of Aufbau principle", options: ["(2s with up/down arrows) (2p with three up arrows)", "(2s with up/down arrows) (2p with up/down, up/down, up/down)", "(2s with up/down arrows) (2p with up, down, up/down)", "(2s with up/down arrows) (2p with up/down, up, up)"], correct: 1 },
+            { id: 20, text: "The spectral line of which spectral series represent the most energetic electronic transitions in hydrogen atom", options: ["Lyman series", "Paschen series", "Balmer series", "Brackett series"], correct: 0 },
+            { id: 21, text: "Total amount of charge on 1g of electrons is", options: ["1.6×10¹⁹C", "1.7588×10¹¹C", "96500C", "1.7588×10⁵C"], correct: 2 },
+            { id: 22, text: "The ratio of mass of an electron to the mass of a proton is", options: ["1836", "1/1836", "1840", "1/1840"], correct: 1 },
+            { id: 23, text: "The quantum number which helps us to identify the position of elements in different blocks of the periodic table is", options: ["Principal quantum number", "Magnetic oxidation number", "Azimuthal quantum number", "Spin quantum number"], correct: 2 },
+            { id: 24, text: "Which relationship is not correct?", options: ["v = c/λ", "c = λ/ν", "E = hλ/c", "E = hν"], correct: 2 },
+            { id: 25, text: "Electrons present in 2p, 2p, and 2p atomic orbitals can have different values for", options: ["Azimuthal quantum number", "Spin quantum number", "Magnetic quantum number", "Both B and C"], correct: 3 },
+            { id: 26, text: "Which of the following is not co-planar molecule?", options: ["Benzene", "Propene", "Ethyne", "Boron trifluoride"], correct: 3 },
+            { id: 27, text: "For which element correct electronic configuration can be explained without Hund's rule?", options: ["F", "N", "C", "O"], correct: 0 },
+            { id: 28, text: "The bond in HF molecule is formed by ________ overlapping", options: ["s-s", "p-p", "s-p", "sp²-p"], correct: 2 },
+            { id: 29, text: "Hybrid orbitals do not have", options: ["Same energy", "Same orientation", "Same shape", "Both A and C"], correct: 3 },
+            { id: 30, text: "The molecule which does not possess any π-bond", options: ["CH₃CN", "SO₃", "CS₂", "PCl₃"], correct: 3 },
+            { id: 31, text: "The number of bonds in a molecule of propene which are formed by sp²-s overlapping", options: ["4", "3", "5", "2"], correct: 0 },
+            { id: 32, text: "In each period ________ has the lowest ionization energy", options: ["Alkali metal", "Halogen", "Alkaline earth metal", "Noble gas"], correct: 0 },
+            { id: 33, text: "According to VSEPR theory OF₂ molecule belongs to ________ type", options: ["AB₂", "AB₂E₂", "AB₃E₁", "AB₃"], correct: 1 },
+            { id: 34, text: "In BF₃ molecule the B-F bond is formed by", options: ["sp-sp overlap", "sp-s overlap", "sp-p overlap", "sp²-p overlap"], correct: 3 },
+            { id: 35, text: "Which molecule does not belong to AB₂E type?", options: ["SnCl₂", "SO₃", "PbCl₂", "BeCl₂"], correct: 3 },
+            { id: 36, text: "The specie having ionic bond as well as covalent bond", options: ["Na₂CO₃", "H₂O", "CaO", "NH₄⁺"], correct: 3 },
+            { id: 37, text: "The molecule which is not following the octet rule to attain the stability", options: ["H₂O", "NH₃", "BeCl₂", "CCl₄"], correct: 2 },
+            { id: 38, text: "Bond energy depends upon the", options: ["%age of s character in the overlapping orbitals", "Lone pair - lone pair repulsion between the bonded atoms", "Size of bonded atoms", "All of above"], correct: 3 },
+            { id: 39, text: "The molecule having maximum number of electron pairs", options: ["N₂", "O₂", "Cl₂", "C₂H₄"], correct: 2 },
+            { id: 40, text: "Which of the following is a polar molecule?", options: ["CH₄", "BF₃", "C", "SF₄"], correct: 3 },
+            { id: 41, text: "Which of the following graph correctly describe ionization energy along the period?", options: ["Smooth increasing curve", "Random peaks", "Stepped increasing line", "Jagged pattern with drops"], correct: 3 },
+            { id: 42, text: "The bond formed by ________ overlapping has the maximum bond length", options: ["sp³-sp³", "sp-sp", "sp²-sp²", "All will have same bond length"], correct: 0 },
+            { id: 43, text: "The angle between two sp³ hybrid orbitals may be", options: ["90°", "120°", "109.5°", "180°"], correct: 2 },
+            { id: 44, text: "The molecule in which all kinds of electronic repulsions are present", options: ["CH₄", "H₂S", "PH₃", "CCl₄"], correct: 2 },
+            { id: 45, text: "Among the following elements, the strongest covalent bond is formed between", options: ["Si, F", "Si, Br", "Si, Cl", "Si, I"], correct: 0 },
+            { id: 46, text: "According to VBT, Boron (B) should be", options: ["Trivalent element", "Tetravalent element", "Divalent element", "Monovalent element"], correct: 0 },
+            { id: 47, text: "The correct order of bond dissociation energy of halogens is", options: ["F₂ > Cl₂ > Br₂ > I₂", "Cl₂ > Br₂ > F₂ > I₂", "Cl₂ > F₂ > Br₂ > I₂", "I₂ > Br₂ > Cl₂ > F₂"], correct: 2 },
+            { id: 48, text: "Chlorination of methane forms the following products. Which one is a non-polar molecule contains polar bonds.", options: ["CH₃Cl", "CHCl₃", "CH₂Cl₂", "CCl₄"], correct: 3 },
+            { id: 49, text: "Among all the halogen acids HF has the maximum percentage of ionic character and it is due to the", options: ["Maximum ΔEN between H and F", "Smallest size of F", "Three lone pair on F atom", "Highest EN of F"], correct: 0 },
+            { id: 50, text: "1 Debye = __________", options: ["3.33×10⁻³⁰mC", "9.1×10⁻³¹mC", "1.6×10⁻¹⁹C", "96500C"], correct: 0 },
+            { id: 51, text: "A molecule having distorted triangular geometry", options: ["SnCl₂", "CH₄", "BCl₃", "BeCl₂"], correct: 0 },
+            { id: 52, text: "\"In an orbital of an atom, no two electrons can have the same set of four quantum numbers, at least one quantum number must be different.\" This statement is", options: ["Aufbau principle", "Paul's exclusion principle", "Hund's rule", "n + l rule"], correct: 1 },
+            { id: 53, text: "If ΔEN bonded atoms is greater than 0.4 then the bond between the atoms may be", options: ["Non-polar covalent bond", "Ionic bond", "Polar covalent bond", "Both B and C"], correct: 3 },
+            { id: 54, text: "Which one of the following is the correct dot and cross diagram of bonding between two chlorine atoms?", options: ["Cl with unpaired dots on left, Cl with unpaired dots on right → :Cl-Cl:", "Cl with x's on left, Cl with dots on right → :Cl + :Cl:", "Cl with dots bonded to Cl with dots → :Cl-Cl:", "Cl with x's bonded to Cl with dots → :Cl* - Cl"], correct: 0 },
+            { id: 55, text: "Minimum percentage of covalent character is present in", options: ["H₂O⁺", "PH₄⁺", "NH₄⁺", "AlCl₃⁻"], correct: 2 },
+            { id: 56, text: "In H₂ molecule the electronic density above or below the bond axis is", options: ["Minimum", "Maximum", "Zero", "Cannot be predicted"], correct: 0 },
+            { id: 57, text: "A covalent bond is a", options: ["Non-directional and rigid", "Directional and rigid", "Directional and non-rigid", "Non-directional and non-rigid"], correct: 1 },
+            { id: 58, text: "The element having least electron affinity is", options: ["O", "S", "N", "P"], correct: 2 },
+            { id: 59, text: "The ionization energy increases along a period in periodic table due to increase in", options: ["Atomic size", "Nuclear charge", "Shielding effect", "Number of shells"], correct: 1 },
+            { id: 60, text: "Which of the following sets constitutes of all the molecules have same electronic geometry?", options: ["BF₃, SO₃, NF₃", "CS₂, SO₃, BeCl₂", "H₂O, BH₃, CO₂", "H₂S, PH₃, CCl₄"], correct: 1 }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+
+        function renderQuestion() {
+            const contentArea = document.getElementById('contentArea');
+            const q = questions[currentQuestion];
+
+            let html = `
+                <div class="question-container active">
+                    <div class="question-number">Question ${q.id} of 60</div>
+                    <div class="question-text">${q.text}</div>
+                    <div class="options">
+            `;
+
+            q.options.forEach((option, index) => {
+                const isSelected = answers[currentQuestion] === index;
+                const selectedClass = isSelected ? 'selected' : '';
+                html += `
+                    <label class="option ${selectedClass}" onclick="selectAnswer(${currentQuestion}, ${index})">
+                        <input type="radio" name="question" value="${index}" ${isSelected ? 'checked' : ''}>
+                        <label>${String.fromCharCode(65 + index)}. ${option}</label>
+                    </label>
+                `;
+            });
+
+            html += `
+                    </div>
+                    <div class="question-status">
+                        <span class="status-icon ${answers[currentQuestion] !== undefined ? 'answered' : 'unanswered'}"></span>
+                        ${answers[currentQuestion] !== undefined ? 'Answered' : 'Not answered'}
+                    </div>
+                </div>
+            `;
+
+            contentArea.innerHTML = html;
+
+            // Update progress
+            updateProgress();
+
+            // Update buttons
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').style.display = currentQuestion === 59 ? 'none' : 'inline-block';
+            document.getElementById('submitBtn').style.display = currentQuestion === 59 ? 'inline-block' : 'none';
+        }
+
+        function selectAnswer(questionIndex, optionIndex) {
+            answers[questionIndex] = optionIndex;
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < 59) {
+                currentQuestion++;
+                renderQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / 60) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('questionProgress').textContent = `Question ${currentQuestion + 1} of 60`;
+            document.getElementById('statusText').textContent = `${Object.keys(answers).length} Answered`;
+        }
+
+        function submitExam() {
+            let correct = 0;
+            let answered = 0;
+
+            for (let i = 0; i < questions.length; i++) {
+                if (answers[i] !== undefined) {
+                    answered++;
+                    if (answers[i] === questions[i].correct) {
+                        correct++;
+                    }
+                }
+            }
+
+            const incorrect = answered - correct;
+            const unanswered = 60 - answered;
+            const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+            let message = 'Good Effort!';
+            if (accuracy >= 90) message = 'Outstanding Performance! 🌟';
+            else if (accuracy >= 75) message = 'Excellent Result! 🎉';
+            else if (accuracy >= 60) message = 'Good Job! 👍';
+            else if (accuracy >= 50) message = 'Keep Practicing! 💪';
+
+            const contentArea = document.getElementById('contentArea');
+            let html = `
+                <div class="results-screen active">
+                    <div class="score-circle">
+                        <div>${correct}</div>
+                        <div class="score-fraction">/ 60</div>
+                    </div>
+                    <div class="result-message">${message}</div>
+                    <div class="result-details">
+                        <div class="detail-card">
+                            <div class="detail-label">Correct Answers</div>
+                            <div class="detail-value" style="color: #48bb78;">${correct}</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">Incorrect</div>
+                            <div class="detail-value" style="color: #f56565;">${incorrect}</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">Unanswered</div>
+                            <div class="detail-value" style="color: #ed8936;">${unanswered}</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">Accuracy</div>
+                            <div class="detail-value" style="color: #667eea;">${accuracy}%</div>
+                        </div>
+                    </div>
+            `;
+
+            contentArea.innerHTML = html;
+
+            // Hide footer buttons
+            document.getElementById('prevBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+
+            // Update footer
+            const footer = document.querySelector('.footer');
+            footer.innerHTML = `
+                <button class="btn-primary" onclick="location.reload()">Retake Exam</button>
+                <button class="btn-secondary" onclick="window.print()">Print Results</button>
+            `;
+
+            // Update header
+            document.querySelector('.header').innerHTML = `
+                <h1>Exam Completed! ✓</h1>
+                <p>Chemistry Unit-2 MDCAT Exam - Exam Prep Point</p>
+            `;
+        }
+
+        // Initialize
+        renderQuestion();
+    </script>
+</body>
+</html>

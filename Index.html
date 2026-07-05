@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="png" href="favicon.png">
+  <title>Exam Prep Point</title>
+  <title>MDCAT 2026 Practice Tests | Chapter-wise, Mock Tests & Past Papers | Exam Prep Point</title>
+
+<meta name="description" content="Prepare for MDCAT 2026 with free chapter-wise tests, mock exams, full syllabus tests, quarter tests, half book tests, English, Biology, Chemistry, Physics, Logical Reasoning practice, and solved past papers based on the latest PM&DC curriculum.">
+
+<meta name="keywords" content="MDCAT 2026, MDCAT practice tests, MDCAT mock test, MDCAT chapter wise tests, MDCAT full syllabus test, MDCAT past papers, PMDC MDCAT 2026, Biology MCQs, Chemistry MCQs, Physics MCQs, English MDCAT, Logical Reasoning MDCAT, MDCAT online test, Exam Prep Point">
+
+<meta name="author" content="Exam Prep Point">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MDCAT 2026 Practice Tests | Exam Prep Point">
+<meta property="og:description" content="Practice MDCAT 2026 with chapter-wise tests, mock exams, full syllabus tests, PM&DC curriculum practice, and solved past papers—all in one place.">
+<meta property="og:site_name" content="Exam Prep Point">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MDCAT 2026 Practice Tests | Exam Prep Point">
+<meta name="twitter:description" content="Free MDCAT 2026 online practice tests, chapter-wise MCQs, mock exams, full syllabus tests, and past papers based on the latest PM&DC curriculum.">
+
+<meta name="theme-color" content="#07090f">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #07090f;
+      --surface: #0e1420;
+      --card: #131c2e;
+      --border: #1e2d45;
+      --text: #dde6f5;
+      --muted: #5a7299;
+      --radius: 14px;
+
+      --bio: #22c97a;
+      --chem: #f97316;
+      --phy: #818cf8;
+      --eng: #38bdf8;
+      --log: #e879f9;
+
+      --cat-chapter: #3b82f6;
+      --cat-mock: #f43f5e;
+      --cat-quarter: #a78bfa;
+      --cat-half: #fb923c;
+      --cat-full: #34d399;
+      --cat-past: #facc15;
+      --cat-speed: #f472b6;
+      --cat-concept: #67e8f9;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(7, 9, 15, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(100deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 6px;
+    }
+
+    .nav-pill {
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-pill:hover {
+      color: var(--text);
+      background: var(--border);
+    }
+
+    .hero {
+      position: relative;
+      padding: 80px 28px 60px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 20% 50%, rgba(59, 130, 246, 0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 40%, rgba(167, 139, 250, 0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(100deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .val {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .hero-stat .lbl {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .page-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .section-meta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+
+    .section-meta p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .btn-grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .btn-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .btn-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .btn-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .test-btn {
+      position: relative;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      cursor: pointer;
+      transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .test-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-color, #3b82f6);
+      opacity: 0;
+      transition: opacity 0.18s;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .test-btn:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-color, #3b82f6);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .test-btn:hover::before {
+      opacity: 1;
+    }
+
+    .test-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-emoji {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .btn-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .btn-meta {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .btn-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+
+    .badge-new {
+      background: rgba(34, 201, 122, 0.15);
+      color: var(--bio);
+    }
+
+    .badge-hot {
+      background: rgba(244, 63, 94, 0.15);
+      color: #f43f5e;
+    }
+
+    .badge-pro {
+      background: rgba(167, 139, 250, 0.15);
+      color: #a78bfa;
+    }
+
+    .tint-bio {
+      --accent-color: var(--bio);
+    }
+
+    .tint-chem {
+      --accent-color: var(--chem);
+    }
+
+    .tint-phy {
+      --accent-color: var(--phy);
+    }
+
+    .tint-eng {
+      --accent-color: var(--eng);
+    }
+
+    .tint-log {
+      --accent-color: var(--log);
+    }
+
+    .tint-chapter {
+      --accent-color: var(--cat-chapter);
+    }
+
+    .tint-mock {
+      --accent-color: var(--cat-mock);
+    }
+
+    .tint-quarter {
+      --accent-color: var(--cat-quarter);
+    }
+
+    .tint-half {
+      --accent-color: var(--cat-half);
+    }
+
+    .tint-full {
+      --accent-color: var(--cat-full);
+    }
+
+    .tint-past {
+      --accent-color: var(--cat-past);
+    }
+
+    .tint-speed {
+      --accent-color: var(--cat-speed);
+    }
+
+    .tint-concept {
+      --accent-color: var(--cat-concept);
+    }
+
+    .subject-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stab {
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.15s;
+    }
+
+    .stab-bio {
+      --c: var(--bio);
+    }
+
+    .stab-chem {
+      --c: var(--chem);
+    }
+
+    .stab-phy {
+      --c: var(--phy);
+    }
+
+    .stab-eng {
+      --c: var(--eng);
+    }
+
+    .stab-log {
+      --c: var(--log);
+    }
+
+    .stab.active {
+      background: var(--c);
+      border-color: var(--c);
+      color: #fff;
+    }
+
+    .stab:not(.active):hover {
+      color: var(--c);
+      border-color: var(--c);
+    }
+
+    .chapter-panel {
+      display: none;
+    }
+
+    .chapter-panel.active {
+      display: grid;
+    }
+
+    /* weightage bar */
+    .weightage-strip {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .w-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .w-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .featured-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      cursor: pointer;
+      transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+      text-decoration: none;
+      color: var(--text);
+      overflow: hidden;
+      position: relative;
+      --accent-color: var(--cat-mock);
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent-color);
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+
+    .featured-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-color);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .featured-icon {
+      font-size: 30px;
+      flex-shrink: 0;
+    }
+
+    .featured-info {
+      flex: 1;
+    }
+
+    .featured-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .featured-info p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .featured-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(244, 63, 94, 0.12);
+      color: #f43f5e;
+      white-space: nowrap;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .year-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      transition: border-color 0.15s;
+    }
+
+    .year-row:hover {
+      border-color: var(--cat-past);
+    }
+
+    .year-label {
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      min-width: 52px;
+      color: var(--cat-past);
+    }
+
+    .year-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .year-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.15s;
+    }
+
+    .year-btn:hover {
+      border-color: var(--cat-past);
+      color: var(--cat-past);
+    }
+
+    .side-rail {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 100;
+    }
+
+    .rail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      padding: 0;
+    }
+
+    .rail-dot:hover,
+    .rail-dot.active {
+      background: #60a5fa;
+      transform: scale(1.5);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .btn-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .btn-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-rail {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .btn-grid-5,
+      .btn-grid-4,
+      .btn-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .btn-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        padding: 50px 18px 40px;
+      }
+
+      .topbar {
+        padding: 0 16px;
+      }
+
+      .page-body {
+        padding: 0 14px 60px;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .topbar-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="topbar-logo">Exam Prep Point</div>
+    <nav class="topbar-nav">
+      <a class="nav-pill" href="#chapterwise">Chapter</a>
+      <a class="nav-pill" href="#mock">Mock</a>
+      <a class="nav-pill" href="#quarter">Quarter</a>
+      <a class="nav-pill" href="#half">Half Book</a>
+      <a class="nav-pill" href="#full">Full Book</a>
+      <a class="nav-pill" href="#fullsyllabus">Full Syllabus</a>
+      <a class="nav-pill" href="#past">Past Papers</a>
+      <a class="nav-pill" href="#speed">Speed & Swift</a>
+      <a class="nav-pill" href="#notes"
+        style="color:#34d399;border:1px solid rgba(52,211,153,0.3);border-radius:20px;">📚 Notes</a>
+    </nav>
+  </header>
+
+  <div class="side-rail" id="side-rail">
+    <button class="rail-dot active" title="Chapter Tests" onclick="scrollTo('#chapterwise')"></button>
+    <button class="rail-dot" title="Mock Tests" onclick="scrollTo('#mock')"></button>
+    <button class="rail-dot" title="Quarter Tests" onclick="scrollTo('#quarter')"></button>
+    <button class="rail-dot" title="Half Book Tests" onclick="scrollTo('#half')"></button>
+    <button class="rail-dot" title="Full Book Tests" onclick="scrollTo('#full')"></button>
+    <button class="rail-dot" title="Full Syllabus Tests" onclick="scrollTo('#fullsyllabus')"></button>
+    <button class="rail-dot" title="Past Papers" onclick="scrollTo('#past')"></button>
+    <button class="rail-dot" title="Speed Drills" onclick="scrollTo('#speed')"></button>
+    <button class="rail-dot" title="Concept Tests" onclick="scrollTo('#concept')"></button>
+    <button class="rail-dot" title="Notes & Resources" onclick="scrollTo('#notes')"></button>
+  </div>
+
+  <section class="hero">
+    <div class="hero-eyebrow">MDCAT 2026 —Curriculum</div>
+    <h1>Your Complete<br><em>Test Library</em></h1>
+    <p class="hero-sub">Chapter tests, mocks, past papers, and drills — aligned to the MDCAT 2026 syllabus by PM&DC.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="val" style="color:#60a5fa">180</div>
+        <div class="lbl">MCQs per Paper</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val" style="color:#a78bfa">3 hrs</div>
+        <div class="lbl">Duration</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val" style="color:#34d399">5</div>
+        <div class="lbl">Subjects</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val" style="color:#f97316">55%</div>
+        <div class="lbl">Pass Marks (MBBS)</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <!-- WEIGHTAGE STRIP -->
+    <div class="weightage-strip reveal">
+      <span style="font-size:12px;color:var(--muted);font-weight:600;">MCQ Weightage:</span>
+      <div class="w-pill"><span class="w-dot" style="background:var(--bio)"></span>Biology 45% · 81 MCQs</div>
+      <div class="w-pill"><span class="w-dot" style="background:var(--chem)"></span>Chemistry 25% · 45 MCQs</div>
+      <div class="w-pill"><span class="w-dot" style="background:var(--phy)"></span>Physics 20% · 36 MCQs</div>
+      <div class="w-pill"><span class="w-dot" style="background:var(--eng)"></span>English 5% · 9 MCQs</div>
+      <div class="w-pill"><span class="w-dot" style="background:var(--log)"></span>Logical Reasoning 5% · 9 MCQs</div>
+    </div>
+
+    <!-- ══════════ CHAPTERWISE ══════════ -->
+    <section class="section reveal" id="chapterwise">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(59,130,246,0.12)">📖</div>
+        <div class="section-meta">
+          <h2>Chapter-wise Tests</h2>
+          <p>All units from the MDCAT 2026 PM&DC curriculum — targeted practice per subject</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+
+      <div class="subject-tabs">
+        <button class="stab stab-bio active" onclick="switchTab('bio')">🧬 Biology</button>
+        <button class="stab stab-chem" onclick="switchTab('chem')">⚗️ Chemistry</button>
+        <button class="stab stab-phy" onclick="switchTab('phy')">⚛️ Physics</button>
+        <button class="stab stab-eng" onclick="switchTab('eng')">📝 English</button>
+        <button class="stab stab-log" onclick="switchTab('log')">🧠 Logical Reasoning</button>
+      </div>
+
+      <!-- ── BIOLOGY (16 units per PM&DC 2026) ── -->
+      <div class="chapter-panel btn-grid-4 active" id="panel-bio">
+        <a class="test-btn tint-bio" href="Biology_Unit1_Cell_Structure_Article.html">
+          <span class="btn-emoji">🦠</span>
+          <span class="btn-title">Unit 1 — Cell Structure & Function</span>
+          <span class="btn-meta">Animal/Plant, Prokaryote/Eukaryote, Organelles · 60 Qs · 60 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="Biology_Unit2_Article.html">
+          <span class="btn-emoji">🔬</span>
+          <span class="btn-title">Unit 2 — Biological Molecules</span>
+          <span class="btn-meta">Water, Carbs, Proteins, Lipids, DNA, RNA · 40 Qs · 45 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">⚡</span>
+          <span class="btn-title">Unit 3 — Bioenergetics</span>
+          <span class="btn-meta">Respiration (proteins, fats, glucose) · 25 Qs · 30 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🦠</span>
+          <span class="btn-title">Unit 4 — Acellular Life</span>
+          <span class="btn-meta">Viruses · AIDS & HIV · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧠</span>
+          <span class="btn-title">Unit 5 — Coordination & Control</span>
+          <span class="btn-meta">Receptors, Neurons, Reflexes, Brain · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧪</span>
+          <span class="btn-title">Unit 6 — Enzymes</span>
+          <span class="btn-meta">Action, Factors, Inhibitors · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🌍</span>
+          <span class="btn-title">Unit 7 — Evolution</span>
+          <span class="btn-meta">Origin of Life, Lamarckism, Darwinism · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧬</span>
+          <span class="btn-title">Unit 8 — Reproduction</span>
+          <span class="btn-meta">Reproductive System, Menstrual Cycle, STDs · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🦴</span>
+          <span class="btn-title">Unit 9 — Support & Movement</span>
+          <span class="btn-meta">Skeleton, Muscles, Joints, Arthritis · 30 Qs · 35 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧬</span>
+          <span class="btn-title">Unit 10 — Inheritance</span>
+          <span class="btn-meta">Mendel's Laws, Linkage, X-linked Traits, Hemophilia · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🫀</span>
+          <span class="btn-title">Unit 11 — Circulation</span>
+          <span class="btn-meta">Heart, Cardiac Cycle, Blood Vessels, Lymphatics · 30 Qs · 35 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🛡️</span>
+          <span class="btn-title">Unit 12 — Immunity</span>
+          <span class="btn-meta">Specific Defense Mechanisms · 15 Qs · 20 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🫁</span>
+          <span class="btn-title">Unit 13 — Respiration</span>
+          <span class="btn-meta">Respiratory System, Gas Exchange, Smoking · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🍽️</span>
+          <span class="btn-title">Unit 14 — Digestion</span>
+          <span class="btn-meta">Digestive System, Parts & Functions · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🫘</span>
+          <span class="btn-title">Unit 15 — Homeostasis</span>
+          <span class="btn-meta">Kidney, Filtration, Thermoregulation, Excretion · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-new">NEW</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">💉</span>
+          <span class="btn-title">Unit 16 — Biotechnology</span>
+          <span class="btn-meta">Vaccines, Diagnosis, Disease Treatment · 20 Qs · 25 min</span>
+          <span class="btn-badge badge-new">NEW</span>
+        </a>
+      </div>
+
+      <!-- ── CHEMISTRY (20 units per PM&DC 2025) ── -->
+      <div class="chapter-panel btn-grid-4" id="panel-chem">
+        <a class="test-btn tint-chem" href="Chemistry_Unit1_Fundamental_Concepts_Article.html">
+          <span class="btn-emoji">⚖️</span>
+          <span class="btn-title">Unit 1 — Fundamental Concepts</span>
+          <span class="btn-meta">Moles, Stoichiometry, Limiting Reactants, Yield · 30 Qs · 35 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-chem" href="Chemistry_Unit2_Atomic_Structure_Article.html">
+          <span class="btn-emoji">⚛️</span>
+          <span class="btn-title">Unit 2 — Atomic Structure</span>
+          <span class="btn-meta">Proton, Quantum Theory, Orbitals, Electronic Config · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">💨</span>
+          <span class="btn-title">Unit 3 — Gases</span>
+          <span class="btn-meta">KMT, Boyle's, Charles's, Ideal Gas Equation · 30 Qs · 35 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">💧</span>
+          <span class="btn-title">Unit 4 — Liquids</span>
+          <span class="btn-meta">Evaporation, Vapor Pressure, H-Bonding, Water · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🧊</span>
+          <span class="btn-title">Unit 5 — Solids</span>
+          <span class="btn-meta">Crystalline Solids, Crystal Lattice, Lattice Energy · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🔄</span>
+          <span class="btn-title">Unit 6 — Chemical Equilibrium</span>
+          <span class="btn-meta">Le Chatelier's, Ksp, Buffer, Haber's Process · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⏱️</span>
+          <span class="btn-title">Unit 7 — Reaction Kinetics</span>
+          <span class="btn-meta">Rate, Order, Activation Energy, Rate Constant · 30 Qs · 35 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🌡️</span>
+          <span class="btn-title">Unit 8 — Thermochemistry</span>
+          <span class="btn-meta">Exo/Endo, Enthalpy, Hess's Law, 1st Law · 30 Qs · 35 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⚡</span>
+          <span class="btn-title">Unit 9 — Electrochemistry</span>
+          <span class="btn-meta">Redox, Oxidation Numbers, SHE · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🔗</span>
+          <span class="btn-title">Unit 10 — Chemical Bonding</span>
+          <span class="btn-meta">VSEPR, Sigma/Pi, Hybridization, Dipole · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🌐</span>
+          <span class="btn-title">Unit 11 — s- and p-Block Elements</span>
+          <span class="btn-meta">Periodic Trends, Group I, II, IV Reactions · 30 Qs · 35 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🔩</span>
+          <span class="btn-title">Unit 12 — Transition Elements</span>
+          <span class="btn-meta">d-Block Electronic Structure · 15 Qs · 20 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🧴</span>
+          <span class="btn-title">Unit 13 — Organic Chemistry Principles</span>
+          <span class="btn-meta">Classification, Functional Groups, Isomerism · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⛽</span>
+          <span class="btn-title">Unit 14 — Hydrocarbons</span>
+          <span class="btn-meta">Alkanes, Alkenes, Alkynes, Benzene Chemistry · 45 Qs · 50 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🧪</span>
+          <span class="btn-title">Unit 15 — Alkyl Halides</span>
+          <span class="btn-meta">IUPAC, Nucleophilic Sub., Elimination · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🍷</span>
+          <span class="btn-title">Unit 16 — Alcohols & Phenols</span>
+          <span class="btn-meta">Structure, Reactivity, Ethers, Esters · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🧫</span>
+          <span class="btn-title">Unit 17 — Aldehydes & Ketones</span>
+          <span class="btn-meta">Nomenclature, Preparation, Reactions · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🍋</span>
+          <span class="btn-title">Unit 18 — Carboxylic Acids</span>
+          <span class="btn-meta">Nomenclature, Reactivity, Derivatives · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🧬</span>
+          <span class="btn-title">Unit 19 — Macro Molecules</span>
+          <span class="btn-meta">Proteins, Enzymes as Biocatalysts · 20 Qs · 25 min</span>
+          <span class="btn-badge badge-new">NEW</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🏭</span>
+          <span class="btn-title">Unit 20 — Industrial Chemistry</span>
+          <span class="btn-meta">Adhesives, Dyes, Polymers · 15 Qs · 20 min</span>
+          <span class="btn-badge badge-new">NEW</span>
+        </a>
+      </div>
+
+      <!-- ── PHYSICS (16 units per PM&DC 2025) ── -->
+      <div class="chapter-panel btn-grid-4" id="panel-phy">
+        <a class="test-btn tint-phy" href="Physics-Unit1-Force-and-Motion-Guide.html">
+          <span class="btn-emoji">🚀</span>
+          <span class="btn-title">Unit 1 — Force & Motion</span>
+          <span class="btn-meta">Kinematics, Projectile, Newton's Laws, Momentum · 40 Qs · 45 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-phy" href="Physics_Unit2_Vectors_Equilibrium_Article.html">
+          <span class="btn-emoji">📐</span>
+          <span class="btn-title">Unit 2 — Vectors & Equilibrium</span>
+          <span class="btn-meta">Rectangular Components, Scalar & Vector Products · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="Physics_Unit3_Live_Test_60MCQs.html">
+          <span class="btn-emoji">🔋</span>
+          <span class="btn-title">Unit 3 — Work & Energy</span>
+          <span class="btn-meta">KE, PE, Power, Work-Energy Theorem, Efficiency · 30 Qs · 35 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🔁</span>
+          <span class="btn-title">Unit 4 — Rotational & Circular Motion</span>
+          <span class="btn-meta">Angular Displacement, Velocity, Linear-Angular Relations · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🌊</span>
+          <span class="btn-title">Unit 5 — Fluid Dynamics</span>
+          <span class="btn-meta">Terminal Velocity, Continuity, Bernoulli's Equation · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">📡</span>
+          <span class="btn-title">Unit 6 — Waves</span>
+          <span class="btn-meta">Progressive, Stationary, Sound, SHM, Superposition · 35 Qs · 40 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🌡️</span>
+          <span class="btn-title">Unit 7 — Thermodynamics</span>
+          <span class="btn-meta">Heat, Specific Heat, 1st Law, Cp & Cv · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">⚡</span>
+          <span class="btn-title">Unit 8 — Electrostatics</span>
+          <span class="btn-meta">Coulomb's Law, Electric Field, Potential, Capacitors · 30 Qs · 35 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🔌</span>
+          <span class="btn-title">Unit 9 — Current Electricity</span>
+          <span class="btn-meta">Ohm's Law, Resistivity, Internal Resistance, Max Power · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🧲</span>
+          <span class="btn-title">Unit 10 — Electromagnetism</span>
+          <span class="btn-meta">Magnetic Flux Density, Charged Particle in B-field · 25 Qs · 30 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">💡</span>
+          <span class="btn-title">Unit 11 — Electromagnetic Induction</span>
+          <span class="btn-meta">Faraday's Law, Lenz's Law, Transformers · 25 Qs · 30 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">〰️</span>
+          <span class="btn-title">Unit 12 — Alternating Current</span>
+          <span class="btn-meta">Phase, AC through R/C/L, EM Spectrum · 20 Qs · 25 min</span>
+          <span class="btn-badge badge-new">NEW</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">📟</span>
+          <span class="btn-title">Unit 13 — Electronics</span>
+          <span class="btn-meta">Rectification, PN Junction, Forward/Reverse Bias · 20 Qs · 25 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🌟</span>
+          <span class="btn-title">Unit 14 — Dawn of Modern Physics</span>
+          <span class="btn-meta">Quantum Theory, Photon Model of Light · 15 Qs · 20 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🔭</span>
+          <span class="btn-title">Unit 15 — Atomic Spectra</span>
+          <span class="btn-meta">Line Spectrum, Atomic Spectra · 15 Qs · 20 min</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">☢️</span>
+          <span class="btn-title">Unit 16 — Nuclear Physics</span>
+          <span class="btn-meta">Nuclear Decay, Half-Life, Biological Effects of Radiation · 20 Qs · 25 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+      </div>
+
+  <!-- ── ENGLISH TESTS series ── -->
+<div class="chapter-panel btn-grid-3" id="panel-eng">
+
+  <a class="test-btn tint-eng" href="English-unit1-live-test-guide.html">
+    <span class="btn-emoji">📘</span>
+    <span class="btn-title">Test 1</span>
+    <span class="btn-meta">
+      Analysis of MDCAT Paper 2025 •  Spelling • Subject–Verb Agreement
+    </span>
+    <span class="btn-badge badge-new">NEW</span>
+  </a>
+
+  <a class="test-btn tint-eng" href="English-Unit2-Conjunctions-Sentences-Clauses-Phrases-MDCAT-Guide.html">
+    <span class="btn-emoji">📖</span>
+    <span class="btn-title">Test 2</span>
+    <span class="btn-meta">
+      Clauses,Phrases, Conjunction & Sentences • Cloze Sentences (Comprehension)
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-3.html">
+    <span class="btn-emoji">🔤</span>
+    <span class="btn-title">Test 3</span>
+    <span class="btn-meta">
+      Vocabulary (1–25 Words) •Errors & Their Aspects • Forms of Verb • Grammar of Verbs
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-4.html">
+    <span class="btn-emoji">✍️</span>
+    <span class="btn-title">Test 4</span>
+    <span class="btn-meta">
+      Conditional Mistakes • Vocabulary (26–50 Words) • Spelling
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-5.html">
+    <span class="btn-emoji">🧩</span>
+    <span class="btn-title">Test 5</span>
+    <span class="btn-meta">
+      Miscellaneous Mistakes • Modifiers (Adjective) • Modifiers (Adverb)
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-6.html">
+    <span class="btn-emoji">📚</span>
+    <span class="btn-title">Test 6</span>
+    <span class="btn-meta">
+      Vocabulary (51–75 Words) • Spelling • Functional Words (Prepositions)
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-7.html">
+    <span class="btn-emoji">🗣️</span>
+    <span class="btn-title">Test 7</span>
+    <span class="btn-meta">
+      Vocabulary (76–100 Words) • Spelling • Active & Passive Voice • Direct & Indirect Speech
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-8.html">
+    <span class="btn-emoji">✒️</span>
+    <span class="btn-title">Test 8</span>
+    <span class="btn-meta">
+      Vocabulary (101–125 Words) • Spelling • Punctuation & Capitalization • Nouns
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-9.html">
+    <span class="btn-emoji">🎯</span>
+    <span class="btn-title">Test 9</span>
+    <span class="btn-meta">
+      Vocabulary (126–150 Words) • Spelling • Determiners (Articles) • Pronouns
+    </span>
+  </a>
+
+  <a class="test-btn tint-eng" href="english-test-10.html">
+    <span class="btn-emoji">🏆</span>
+    <span class="btn-title">Test 10</span>
+    <span class="btn-meta">
+      Vocabulary (151–200 Words) • Spelling • Reading Comprehension
+    </span>
+    <span class="btn-badge badge-hot">HOT</span>
+  </a>
+
+</div>
+      <!-- ── LOGICAL REASONING (6 themes per PM&DC 2025) ── -->
+      <div class="chapter-panel btn-grid-3" id="panel-log">
+        <a class="test-btn tint-log" href="LR_Unit1_Critical_Thinking_Article.html">
+          <span class="btn-emoji">💭</span>
+          <span class="btn-title">Theme 5.1 — Critical Thinking</span>
+          <span class="btn-meta">True/False Arguments, Logical Evaluation · 15 Qs · 20 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-log" href="LR- Unit 2-Letter-and-Symbol-Series-Guide.html">
+          <span class="btn-emoji">🔢</span>
+          <span class="btn-title">Theme 5.2 — Letter & Symbol Series</span>
+          <span class="btn-meta">Number Series, Geometric Progression, Patterns · 15 Qs · 20 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-log" href="#">
+          <span class="btn-emoji">🔍</span>
+          <span class="btn-title">Theme 5.3 — Logical Deductions</span>
+          <span class="btn-meta">Statements → Conclusions, Structured Thinking · 15 Qs · 20 min</span>
+        </a>
+        <a class="test-btn tint-log" href="#">
+          <span class="btn-emoji">🧩</span>
+          <span class="btn-title">Theme 5.4 — Logical Problems</span>
+          <span class="btn-meta">Deductive Puzzles, Multi-clue Reasoning · 15 Qs · 20 min</span>
+        </a>
+        <a class="test-btn tint-log" href="#">
+          <span class="btn-emoji">🗺️</span>
+          <span class="btn-title">Theme 5.5 — Course of Action</span>
+          <span class="btn-meta">Problem → Decision → Best Action · 15 Qs · 20 min</span>
+        </a>
+        <a class="test-btn tint-log" href="#">
+          <span class="btn-emoji">🔗</span>
+          <span class="btn-title">Theme 5.6 — Cause & Effect</span>
+          <span class="btn-meta">Causal Reasoning, Valid Arguments · 15 Qs · 20 min</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ MOCK TESTS ══════════ -->
+    <section class="section reveal" id="mock">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(244,63,94,0.12)">🎯</div>
+        <div class="section-meta">
+          <h2>Mock Tests</h2>
+          <p>Full-length simulated MDCAT exams — 180 MCQs · 3 hours · PM&DC pattern</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+      <div class="featured-grid">
+        <a class="featured-card" href="Mock_Test_1_live_test.html" style="--accent-color:var(--cat-mock)">
+          <div class="featured-icon">📋</div>
+          <div class="featured-info">
+            <h3>Mock Test 1 — Foundation</h3>
+            <p>180 MCQs · Bio 81 · Chem 45 · Phy 36 · Eng 9 · LR 9 · 3 hrs · Easy-Moderate</p>
+          </div>
+          <span class="featured-tag">START</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:var(--cat-mock)">
+          <div class="featured-icon">📋</div>
+          <div class="featured-info">
+            <h3>Mock Test 2 — Intermediate</h3>
+            <p>180 MCQs · PM&DC weightage · 3 hrs · 15% Easy 70% Moderate 15% difficulty</p>
+          </div>
+          <span class="featured-tag">START</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:var(--cat-mock)">
+          <div class="featured-icon">🏆</div>
+          <div class="featured-info">
+            <h3>Mock Test 3 — Exam Simulation</h3>
+            <p>180 MCQs · 15% Easy · 70% Moderate · 15% Difficult · Full timer</p>
+          </div>
+          <span class="featured-tag" style="background:rgba(167,139,250,0.15);color:#a78bfa">START</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:var(--cat-mock)">
+          <div class="featured-icon">🔥</div>
+          <div class="featured-info">
+            <h3>Mock Test 4 — Grand Final</h3>
+            <p>180 MCQs · Closest to real MDCAT · Strict 3 hr timer · PM&DC 2026 syllabus</p>
+          </div>
+          <span class="featured-tag" style="background:rgba(167,139,250,0.15);color:#a78bfa">START</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ QUARTER TESTS ══════════ -->
+    <section class="section reveal" id="quarter">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(167,139,250,0.12)">📗</div>
+        <div class="section-meta">
+          <h2>Quarter Tests (25% Syllabus Each)</h2>
+          <p>4 combined tests covering the full MDCAT 2026 syllabus in equal quarters — all 5 subjects per test</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+      <div class="btn-grid-2">
+        <a class="test-btn tint-quarter" href="#">
+          <span class="btn-emoji">🟣</span>
+          <span class="btn-title">Quarter Test 1 — First 25%</span>
+          <span class="btn-meta">
+            Bio: Units 1–4 (Acellular Life → Cell Structure)<br>
+            Chem: Units 1–5 (Fundamentals → Solids)<br>
+            Phy: Units 1–4 (Vectors → Circular Motion)<br>
+            Eng: Competency 1 · LR: Themes 5.1–5.2
+          </span>
+          <span class="btn-badge" style="background:rgba(167,139,250,0.2);color:#a78bfa">180 Qs · 180 min</span>
+        </a>
+        <a class="test-btn tint-quarter" href="#">
+          <span class="btn-emoji">🟣</span>
+          <span class="btn-title">Quarter Test 2 — Second 25%</span>
+          <span class="btn-meta">
+            Bio: Units 5–8 (Coordination → Reproduction)<br>
+            Chem: Units 6–10 (Equilibrium → Bonding)<br>
+            Phy: Units 5–8 (Fluid Dynamics → Electrostatics)<br>
+            Eng: Competency 2 · LR: Themes 5.3–5.4
+          </span>
+          <span class="btn-badge" style="background:rgba(167,139,250,0.2);color:#a78bfa">180 Qs · 180 min</span>
+        </a>
+        <a class="test-btn tint-quarter" href="#">
+          <span class="btn-emoji">🟣</span>
+          <span class="btn-title">Quarter Test 3 — Third 25%</span>
+          <span class="btn-meta">
+            Bio: Units 9–12 (Support → Immunity)<br>
+            Chem: Units 11–15 (s/p-Block → Alkyl Halides)<br>
+            Phy: Units 9–12 (Current Electricity → AC)<br>
+            Eng: Competency 3 · LR: Theme 5.5
+          </span>
+          <span class="btn-badge" style="background:rgba(167,139,250,0.2);color:#a78bfa">180 Qs · 180 min</span>
+        </a>
+        <a class="test-btn tint-quarter" href="#">
+          <span class="btn-emoji">🟣</span>
+          <span class="btn-title">Quarter Test 4 — Final 25%</span>
+          <span class="btn-meta">
+            Bio: Units 13–16 (Respiration → Biotechnology)<br>
+            Chem: Units 16–20 (Alcohols → Industrial Chem)<br>
+            Phy: Units 13–16 (Electronics → Nuclear Physics)<br>
+            Eng: All Competencies · LR: Theme 5.6
+          </span>
+          <span class="btn-badge" style="background:rgba(167,139,250,0.2);color:#a78bfa">180 Qs · 180 min</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ HALF BOOK TESTS ══════════ -->
+    <section class="section reveal" id="half">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(251,146,60,0.12)">📙</div>
+        <div class="section-meta">
+          <h2>Half Book Tests (50% Syllabus Each)</h2>
+          <p>2 comprehensive combined tests — each covers half of the entire MDCAT 2026 syllabus across all subjects</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+      <div class="btn-grid-2">
+        <a class="test-btn tint-half" href="#">
+          <span class="btn-emoji">🟠</span>
+          <span class="btn-title">Half Book Test 1 — First 50%</span>
+          <span class="btn-meta">
+            Bio: Units 1–8 · Acellular Life → Reproduction <br>
+            Chem: Units 1–10 · Fundamentals → Chemical Bonding <br>
+            Phy: Units 1–8 · Vectors → Electrostatics <br>
+            Eng: Competency 1 &amp; 2 · LR: Themes 5.1–5.3
+          </span>
+          <span class="btn-badge" style="background:rgba(251,146,60,0.2);color:#fb923c">180 Qs · 180 min</span>
+        </a>
+        <a class="test-btn tint-half" href="#">
+          <span class="btn-emoji">🟠</span>
+          <span class="btn-title">Half Book Test 2 — Second 50%</span>
+          <span class="btn-meta">
+            Bio: Units 9–16 · Support &amp; Movement → Biotechnology <br>
+            Chem: Units 11–20 · s/p-Block → Industrial Chemistry <br>
+            Phy: Units 9–16 · Current Electricity → Nuclear Physics <br>
+            Eng: Competency 3 · LR: Themes 5.4–5.6
+          </span>
+          <span class="btn-badge" style="background:rgba(251,146,60,0.2);color:#fb923c">180 Qs · 180 min</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ FULL BOOK TESTS ══════════ -->
+    <section class="section reveal" id="full">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(52,211,153,0.12)">📘</div>
+        <div class="section-meta">
+          <h2>Full Book Tests (100% Syllabus)</h2>
+          <p>Complete subject tests — all units of the MDCAT 2026 curriculum in one sitting</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+      <div class="btn-grid-3">
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧬</span>
+          <span class="btn-title">Biology — Full Book</span>
+          <!-- <span class="btn-meta">All 16 Units · 81 Qs · 90 min</span> -->
+          <span class="btn-badge badge-pro">PRO</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⚗️</span>
+          <span class="btn-title">Chemistry — Full Book</span>
+          <!-- <span class="btn-meta">All 20 Units · 45 Qs · 55 min</span> -->
+          <span class="btn-badge badge-pro">PRO</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">⚛️</span>
+          <span class="btn-title">Physics — Full Book</span>
+          <!-- <span class="btn-meta">All 16 Units · 36 Qs · 45 min</span> -->
+          <span class="btn-badge badge-pro">PRO</span>
+        </a>
+        <a class="test-btn tint-eng" href="#">
+          <span class="btn-emoji">📝</span>
+          <span class="btn-title">English — Full Book</span>
+          <!-- <span class="btn-meta">All 3 Competencies · 9 Qs · 15 min</span> -->
+        </a>
+        <a class="test-btn tint-log" href="#">
+          <span class="btn-emoji">🧠</span>
+          <span class="btn-title">Logical Reasoning — Full Book</span>
+          <!-- <span class="btn-meta">All 6 Themes · 9 Qs · 15 min</span> -->
+        </a>
+        <a class="test-btn tint-full" href="#" style="--accent-color:var(--cat-full)">
+          <span class="btn-emoji">🏅</span>
+          <span class="btn-title">All Subjects Combined</span>
+          <span class="btn-meta">180 Qs · 3 hrs · PM&DC Pattern</span>
+          <span class="btn-badge badge-pro">PRO</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ PAST PAPERS ══════════ -->
+    <section class="section reveal" id="past">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(250,204,21,0.12)">📜</div>
+        <div class="section-meta">
+          <h2>Past Papers</h2>
+          <p>Solved and unsolved UHS/PMC/NUMS/AKU past papers — year-wise</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+
+      <div class="year-row">
+        <div class="year-label">2025</div>
+        <div class="year-btns">
+          <button class="year-btn">MDCAT 2025</button>
+          <button class="year-btn">NUMS 2025</button>
+          <button class="year-btn">AKU 2025</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2024</div>
+        <div class="year-btns">
+          <button class="year-btn">PMC 2024</button>
+          <button class="year-btn">NUMS 2024</button>
+          <button class="year-btn">AKU 2024</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2023</div>
+        <div class="year-btns">
+          <button class="year-btn">PMC Aug 2023</button>
+          <button class="year-btn">PMC Sep 2023</button>
+          <button class="year-btn">NUMS 2023</button>
+          <button class="year-btn">AKU 2023</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2022</div>
+        <div class="year-btns">
+          <button class="year-btn">PMC 2022</button>
+          <button class="year-btn">NUMS 2022</button>
+          <button class="year-btn">FJMU 2022</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2021</div>
+        <div class="year-btns">
+          <button class="year-btn">PMC 2021</button>
+          <button class="year-btn">ETEA 2021</button>
+          <button class="year-btn">NUMS 2021</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2020</div>
+        <div class="year-btns">
+          <button class="year-btn">MDCAT 2020</button>
+          <button class="year-btn">NUMS 2020</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2019</div>
+        <div class="year-btns">
+          <button class="year-btn">UHS 2019</button>
+          <button class="year-btn">NUMS 2019</button>
+          <button class="year-btn">ETEA 2019</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">2018</div>
+        <div class="year-btns">
+          <button class="year-btn">UHS 2018</button>
+          <button class="year-btn">NUMS 2018</button>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label">≤2017</div>
+        <div class="year-btns">
+          <button class="year-btn">UHS 2017</button>
+          <button class="year-btn">UHS 2016</button>
+          <button class="year-btn">UHS 2015</button>
+          <button class="year-btn">UHS 2014</button>
+          <button class="year-btn">UHS 2013</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ FULL SYLLABUS TESTS ══════════ -->
+    <section class="section reveal" id="fullsyllabus">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(250,204,21,0.12)">🏆</div>
+        <div class="section-meta">
+          <h2>Full Syllabus Tests — PM&DC Pattern</h2>
+          <p>5 complete exams · 180 MCQs each · 3 hours · Official weightage · 15% Easy · 70% Moderate · 15% Difficult
+          </p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+
+      <!-- difficulty legend -->
+      <div style="display:flex;gap:16px;margin-bottom:18px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);">
+          <span style="width:10px;height:10px;border-radius:50%;background:#22c97a;display:inline-block;"></span>15%
+          Easy (27 MCQs)
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);">
+          <span style="width:10px;height:10px;border-radius:50%;background:#f97316;display:inline-block;"></span>70%
+          Moderate (126 MCQs)
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);">
+          <span style="width:10px;height:10px;border-radius:50%;background:#f43f5e;display:inline-block;"></span>15%
+          Difficult (27 MCQs)
+        </div>
+      </div>
+
+      <div class="featured-grid" style="grid-template-columns:1fr 1fr 1fr;">
+        <a class="featured-card" href="#" style="--accent-color:#facc15">
+          <div class="featured-icon">📄</div>
+          <div class="featured-info">
+            <h3>Full Syllabus Test 1</h3>
+            <p>Bio 81 · Chem 45 · Phy 36 · Eng 9 · LR 9 · 180 MCQs · 3 hrs<br>
+              <span style="font-size:11px;color:#22c97a;">●</span> Easy &nbsp;
+              <span style="font-size:11px;color:#f97316;">●</span> Moderate &nbsp;
+              <span style="font-size:11px;color:#f43f5e;">●</span> Difficult
+            </p>
+          </div>
+          <span class="featured-tag" style="background:rgba(250,204,21,0.15);color:#facc15;">START</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:#facc15">
+          <div class="featured-icon">📄</div>
+          <div class="featured-info">
+            <h3>Full Syllabus Test 2</h3>
+            <p>Bio 81 · Chem 45 · Phy 36 · Eng 9 · LR 9 · 180 MCQs · 3 hrs<br>
+              <span style="font-size:11px;color:#22c97a;">●</span> Easy &nbsp;
+              <span style="font-size:11px;color:#f97316;">●</span> Moderate &nbsp;
+              <span style="font-size:11px;color:#f43f5e;">●</span> Difficult
+            </p>
+          </div>
+          <span class="featured-tag" style="background:rgba(250,204,21,0.15);color:#34d399;">SOON</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:#facc15">
+          <div class="featured-icon">📄</div>
+          <div class="featured-info">
+            <h3>Full Syllabus Test 3</h3>
+            <p>Bio 81 · Chem 45 · Phy 36 · Eng 9 · LR 9 · 180 MCQs · 3 hrs<br>
+              <span style="font-size:11px;color:#22c97a;">●</span> Easy &nbsp;
+              <span style="font-size:11px;color:#f97316;">●</span> Moderate &nbsp;
+              <span style="font-size:11px;color:#f43f5e;">●</span> Difficult
+            </p>
+          </div>
+          <span class="featured-tag" style="background:rgba(250,204,21,0.15);color:#34d399;">SOON</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:#facc15">
+          <div class="featured-icon">🏅</div>
+          <div class="featured-info">
+            <h3>Full Syllabus Test 4</h3>
+            <p>Bio 81 · Chem 45 · Phy 36 · Eng 9 · LR 9 · 180 MCQs · 3 hrs<br>
+              <span style="font-size:11px;color:#22c97a;">●</span> Easy &nbsp;
+              <span style="font-size:11px;color:#f97316;">●</span> Moderate &nbsp;
+              <span style="font-size:11px;color:#f43f5e;">●</span> Difficult
+            </p>
+          </div>
+          <span class="featured-tag" style="background:rgba(167,139,250,0.15);color:#34d399;">SOON</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:#facc15">
+          <div class="featured-icon">🔥</div>
+          <div class="featured-info">
+            <h3>Full Syllabus Test 5 — Grand Finale</h3>
+            <p>Bio 81 · Chem 45 · Phy 36 · Eng 9 · LR 9 · 180 MCQs · 3 hrs · Highest difficulty mix</p>
+          </div>
+          <span class="featured-tag" style="background:rgba(167,139,250,0.15);color:#34d399;">SOON</span>
+        </a>
+        <a class="featured-card" href="#" style="--accent-color:#34d399;cursor:default;opacity:0.5;">
+          <div class="featured-icon">🔒</div>
+          <div class="featured-info">
+            <h3>Full Syllabus Test 6</h3>
+            <p>Coming soon — will be unlocked after completing Tests 1–5</p>
+          </div>
+          <span class="featured-tag" style="background:rgba(52,211,153,0.1);color:#34d399;">SOON</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ NOTES & RESOURCES ══════════ -->
+    <section class="section reveal" id="notes">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(52,211,153,0.12)">📚</div>
+        <div class="section-meta">
+          <h2>Notes & Study Resources</h2>
+          <p>Past paper PDFs, subject notes, syllabus guide, and revision material — all in one place</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+
+      <!-- PAST PAPER PDFs -->
+      <p
+        style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
+        📜 Past Paper PDFs</p>
+      <div class="btn-grid-4" style="margin-bottom:24px;">
+        <a class="test-btn" href="MDCAT-2025.pdf" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">PMC MDCAT 2025</span>
+          <span class="btn-meta"> Paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="mdcat-2024-past-paper-guide.html" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">PMC MDCAT 2024</span>
+          <span class="btn-meta"> Paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="#" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">PMC MDCAT 2023</span>
+          <span class="btn-meta"> Paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="mdcat-2022-past-paper-guide.html" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">PMC MDCAT 2022</span>
+          <span class="btn-meta"> Paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="#" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">PMC MDCAT 2021</span>
+          <span class="btn-meta"> Paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="mdcat-2019-past-paper-guide.html" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">UHS MDCAT 2019</span>
+          <span class="btn-meta"> Paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="mdcat-2018-past-paper-guide.html" style="--accent-color:#facc15">
+          <span class="btn-emoji">📄</span>
+          <span class="btn-title">UHS MDCAT 2018</span>
+          <span class="btn-meta">Official paper PDF · Solved · With answer key</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">PDF</span>
+        </a>
+        <a class="test-btn" href="uhs-unit-wise-past-papers-guide.html" style="--accent-color:#facc15">
+          <span class="btn-emoji">📦</span>
+          <span class="btn-title">MDCAT Past Papers Bundle</span>
+          <span class="btn-meta">2008–2025 · All years in one ZIP</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">ZIP</span>
+        </a>
+        <a class="test-btn" href="#" style="--accent-color:#facc15">
+          <span class="btn-emoji">📦</span>
+          <span class="btn-title">NUMS Past Papers Bundle</span>
+          <span class="btn-meta">2018–2024 · All years in one ZIP</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">ZIP</span>
+        </a>
+        <a class="test-btn" href="#" style="--accent-color:#facc15">
+          <span class="btn-emoji">📦</span>
+          <span class="btn-title">AKU Past Papers Bundle</span>
+          <span class="btn-meta">2019–2024 · All years in one ZIP</span>
+          <span class="btn-badge" style="background:rgba(250,204,21,0.15);color:#facc15;">ZIP</span>
+        </a>
+      </div>
+
+      <!-- BIOLOGY NOTES -->
+      <p
+        style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
+        🧬 Biology Notes</p>
+      <div class="btn-grid-4" style="margin-bottom:24px;">
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">📝</span>
+          <span class="btn-title">Complete Biology Notes</span>
+          <span class="btn-meta">All 16 Units · PM&DC 2026 aligned · Condensed</span>
+          <span class="btn-badge badge-new">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧬</span>
+          <span class="btn-title">Biological Molecules — Detailed</span>
+          <span class="btn-meta">Unit 3 · DNA, RNA, Proteins, Lipids, Carbs</span>
+          <span class="btn-badge" style="background:rgba(34,201,122,0.15);color:#22c97a;">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧠</span>
+          <span class="btn-title">Nervous System & Brain Notes</span>
+          <span class="btn-meta">Unit 5 · Neurons, Reflexes, Brain parts</span>
+          <span class="btn-badge" style="background:rgba(34,201,122,0.15);color:#22c97a;">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🧬</span>
+          <span class="btn-title">Genetics & Inheritance Notes</span>
+          <span class="btn-meta">Unit 10 · Mendel, Linkage, Hemophilia</span>
+          <span class="btn-badge" style="background:rgba(34,201,122,0.15);color:#22c97a;">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🫘</span>
+          <span class="btn-title">Homeostasis & Kidney Notes</span>
+          <span class="btn-meta">Unit 15 · Filtration, Osmoregulation, Stones</span>
+          <span class="btn-badge" style="background:rgba(34,201,122,0.15);color:#22c97a;">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🫀</span>
+          <span class="btn-title">Circulation & Heart Notes</span>
+          <span class="btn-meta">Unit 11 · Cardiac Cycle, Blood Vessels, Lymph</span>
+          <span class="btn-badge" style="background:rgba(34,201,122,0.15);color:#22c97a;">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">🦠</span>
+          <span class="btn-title">Acellular Life & Viruses Notes</span>
+          <span class="btn-meta">Unit 1 · Virus types, AIDS, HIV Transmission</span>
+          <span class="btn-badge" style="background:rgba(34,201,122,0.15);color:#22c97a;">PDF</span>
+        </a>
+        <a class="test-btn tint-bio" href="#">
+          <span class="btn-emoji">📋</span>
+          <span class="btn-title">Biology One-Page Revision Sheets</span>
+          <span class="btn-meta">All 16 units · Quick revision · Last-day prep</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+      </div>
+
+      <!-- CHEMISTRY NOTES -->
+      <p
+        style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
+        ⚗️ Chemistry Notes</p>
+      <div class="btn-grid-4" style="margin-bottom:24px;">
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">📝</span>
+          <span class="btn-title">Complete Chemistry Notes</span>
+          <span class="btn-meta">All 20 Units · PM&DC 2026 aligned · Condensed</span>
+          <span class="btn-badge badge-new">PDF</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⚛️</span>
+          <span class="btn-title">Atomic Structure Notes</span>
+          <span class="btn-meta">Unit 2 · Quantum Numbers, Orbitals, Config</span>
+          <span class="btn-badge" style="background:rgba(249,115,22,0.15);color:#f97316;">PDF</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🔄</span>
+          <span class="btn-title">Chemical Equilibrium Notes</span>
+          <span class="btn-meta">Unit 6 · Le Chatelier's, Ksp, Buffers, Haber</span>
+          <span class="btn-badge" style="background:rgba(249,115,22,0.15);color:#f97316;">PDF</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⛽</span>
+          <span class="btn-title">Organic Chemistry Notes</span>
+          <span class="btn-meta">Units 13–18 · All organic reactions &amp; mechanisms</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🔗</span>
+          <span class="btn-title">Chemical Bonding Notes</span>
+          <span class="btn-meta">Unit 10 · VSEPR, Hybridization, Sigma/Pi, Dipole</span>
+          <span class="btn-badge" style="background:rgba(249,115,22,0.15);color:#f97316;">PDF</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">🌡️</span>
+          <span class="btn-title">Thermochemistry Notes</span>
+          <span class="btn-meta">Unit 8 · Enthalpy, Hess's Law, 1st Law</span>
+          <span class="btn-badge" style="background:rgba(249,115,22,0.15);color:#f97316;">PDF</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">⚖️</span>
+          <span class="btn-title">Stoichiometry & Moles Notes</span>
+          <span class="btn-meta">Unit 1 · Limiting Reagent, Yield Calculations</span>
+          <span class="btn-badge" style="background:rgba(249,115,22,0.15);color:#f97316;">PDF</span>
+        </a>
+        <a class="test-btn tint-chem" href="#">
+          <span class="btn-emoji">📋</span>
+          <span class="btn-title">Chemistry One-Page Revision Sheets</span>
+          <span class="btn-meta">All 20 units · Quick revision · Last-day prep</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+      </div>
+
+      <!-- PHYSICS NOTES -->
+      <p
+        style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
+        ⚛️ Physics Notes</p>
+      <div class="btn-grid-4" style="margin-bottom:24px;">
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">📝</span>
+          <span class="btn-title">Complete Physics Notes</span>
+          <span class="btn-meta">All 16 Units · PM&DC 2026 aligned · Condensed</span>
+          <span class="btn-badge badge-new">PDF</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🚀</span>
+          <span class="btn-title">Force, Motion & Projectile Notes</span>
+          <span class="btn-meta">Unit 2 · Kinematics, Newton's Laws, Projectile</span>
+          <span class="btn-badge" style="background:rgba(129,140,248,0.15);color:#818cf8;">PDF</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">📡</span>
+          <span class="btn-title">Waves & SHM Notes</span>
+          <span class="btn-meta">Unit 6 · Progressive, Stationary, Sound, SHM</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">⚡</span>
+          <span class="btn-title">Electrostatics Notes</span>
+          <span class="btn-meta">Unit 8 · Coulomb's Law, E-Field, Potential, Capacitors</span>
+          <span class="btn-badge" style="background:rgba(129,140,248,0.15);color:#818cf8;">PDF</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🌊</span>
+          <span class="btn-title">Fluid Dynamics Notes</span>
+          <span class="btn-meta">Unit 5 · Continuity, Bernoulli's, Blood Physics</span>
+          <span class="btn-badge" style="background:rgba(129,140,248,0.15);color:#818cf8;">PDF</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">☢️</span>
+          <span class="btn-title">Nuclear & Modern Physics Notes</span>
+          <span class="btn-meta">Units 14–16 · Half-life, Radiation, Atomic Spectra</span>
+          <span class="btn-badge" style="background:rgba(129,140,248,0.15);color:#818cf8;">PDF</span>
+        </a>
+        <a class="test-btn tint-phy" href="#">
+          <span class="btn-emoji">🧲</span>
+          <span class="btn-title">Electromagnetism Notes</span>
+          <span class="btn-meta">Units 10–12 · Magnetic Flux, Faraday, Transformers</span>
+          <span class="btn-badge" style="background:rgba(129,140,248,0.15);color:#818cf8;">PDF</span>
+        </a>
+        <a class="test-btn tint-phy" href="physics in single sheet.pdf">
+          <span class="btn-emoji">📋</span>
+          <span class="btn-title">Physics One-Page Revision Sheets</span>
+          <span class="btn-meta">All 16 units · Formulas, Key concepts</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+      </div>
+
+      <!-- ENGLISH & LR NOTES -->
+      <p
+        style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
+        📝 English & Logical Reasoning Notes</p>
+      <div class="btn-grid-4" style="margin-bottom:24px;">
+        <a class="test-btn tint-eng" href="#">
+          <span class="btn-emoji">📖</span>
+          <span class="btn-title">English Grammar Notes</span>
+          <span class="btn-meta">Tenses, Pronouns, Active/Passive, Direct/Indirect</span>
+          <span class="btn-badge" style="background:rgba(56,189,248,0.15);color:#38bdf8;">PDF</span>
+        </a>
+        <a class="test-btn tint-eng" href="mdcat-2026-vocabulary-guide.html">
+          <span class="btn-emoji">🔤</span>
+          <span class="btn-title">Vocabulary Word List</span>
+          <span class="btn-meta">high-frequency MDCAT synonyms &amp; antonyms</span>
+          <span class="btn-badge badge-hot">HOT</span>
+        </a>
+        <a class="test-btn tint-eng" href="mdcat-2026-reading-comprehension-guide.html">
+          <span class="btn-emoji">✍️</span>
+          <span class="btn-title">Reading Comprehension Tips</span>
+          <span class="btn-meta">Scanning, skimming, figurative language guide</span>
+          <span class="btn-badge" style="background:rgba(56,189,248,0.15);color:#38bdf8;">PRO</span>
+        </a>
+        <a class="test-btn tint-log" href="mdcat-2026-logical-reasoning-guide.html">
+          <span class="btn-emoji">🧠</span>
+          <span class="btn-title">Logical Reasoning Guide</span>
+          <span class="btn-meta">All 6 themes · Tricks, patterns &amp; solved examples</span>
+          <span class="btn-badge" style="background:rgba(232,121,249,0.15);color:#e879f9;">PRO</span>
+        </a>
+      </div>
+
+      <!-- SYLLABUS & OFFICIAL DOCS -->
+      <p
+        style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
+        📋 Official Documents</p>
+      <div class="btn-grid-4">
+        <a class="test-btn" href="mdcat-2025-curriculum-guide.html" style="--accent-color:#60a5fa">
+          <span class="btn-emoji">📑</span>
+          <span class="btn-title">PM&DC MDCAT 2026 Curriculum</span>
+          <span class="btn-meta">Official syllabus PDF — Biology, Chemistry, Physics, English, LR</span>
+          <span class="btn-badge" style="background:rgba(96,165,250,0.15);color:#60a5fa;">OFFICIAL</span>
+        </a>
+        <a class="test-btn" href="mdcat-weightage-chart.html" style="--accent-color:#60a5fa">
+          <span class="btn-emoji">📊</span>
+          <span class="btn-title">MDCAT Weightage Chart</span>
+          <span class="btn-meta">MCQ distribution by subject &amp; difficulty level</span>
+          <span class="btn-badge" style="background:rgba(96,165,250,0.15);color:#60a5fa;">PDF</span>
+        </a>
+        <a class="test-btn" href="mdcat-date-sheet.html" style="--accent-color:#60a5fa">
+          <span class="btn-emoji">🗓️</span>
+          <span class="btn-title">MDCAT 2026 Date Sheet</span>
+          <span class="btn-meta">Registration dates, exam schedule &amp; result timeline</span>
+          <span class="btn-badge" style="background:rgba(96,165,250,0.15);color:#60a5fa;">INFO</span>
+        </a>
+        <a class="test-btn" href="mdcat-40-day-study-plan.html" style="--accent-color:#60a5fa">
+          <span class="btn-emoji">📘</span>
+          <span class="btn-title">MDCAT Study Plan — 40 Days</span>
+          <span class="btn-meta">Day-by-day schedule for full syllabus coverage</span>
+          <span class="btn-badge badge-new">NEW</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <a span href="Index.html">Home</span></a> | <a span href="About.html">About</span></a> | <a span
+      href="Contact.html">Contacts</span></a>
+
+    <br>
+    Exam Prep Point · Aligned With MDCAT 2026 Curriculum · Built for Pakistani medical aspirants 🇵🇰
+  </footer>
+
+  <script>
+    function switchTab(sub) {
+      document.querySelectorAll('.chapter-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + sub).classList.add('active');
+      document.querySelector('.stab-' + sub).classList.add('active');
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const sections = ['chapterwise', 'mock', 'quarter', 'half', 'full', 'past', 'speed', 'concept'];
+    const dots = document.querySelectorAll('.rail-dot');
+    window.addEventListener('scroll', () => {
+      let active = 0;
+      sections.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < window.innerHeight * 0.5) active = i;
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }, { passive: true });
+
+    function scrollTo(hash) {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>
