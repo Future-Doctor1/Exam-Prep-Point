@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics Live Test — Rotational &amp; Circular Motion + Fluid Dynamics | Exam Prep Point</title>
+<meta name="description" content="Take a free live 60-MCQ, 60-mark timed test on Rotational & Circular Motion and Fluid Dynamics. One question at a time, instant scoring, and a downloadable completion certificate — by Exam Prep Point.">
+<meta name="keywords" content="rotational motion MCQs, circular motion test, fluid dynamics quiz, physics MCQ practice, MDCAT physics unit 3, exam prep point, live physics test, viscosity terminal velocity MCQs">
+<meta name="author" content="Exam Prep Point">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examprepoint.com/tests/physics-rotational-fluid-dynamics">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Physics Live Test — Rotational & Circular Motion + Fluid Dynamics">
+<meta property="og:description" content="60 MCQs. 60 marks. One question at a time. Instant results and a certificate at the end. Free live test by Exam Prep Point.">
+<meta property="og:site_name" content="Exam Prep Point">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Physics Live Test — Rotational & Circular Motion + Fluid Dynamics">
+<meta name="twitter:description" content="60 MCQs. 60 marks. Timed, one-question-at-a-time practice test with instant scoring and a certificate — Exam Prep Point.">
+<meta name="theme-color" content="#0B1220">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0B1220;
+    --bg-panel:#111C2E;
+    --bg-panel-raised:#16233A;
+    --accent-flow:#2DD4BF;
+    --accent-flow-dim:#1B9C8D;
+    --accent-spin:#F59E0B;
+    --danger:#F2596B;
+    --text-primary:#E8EEF5;
+    --text-muted:#8CA0B3;
+    --hairline:#233551;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(45,212,191,0.10), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(245,158,11,0.08), transparent 55%),
+      var(--bg-deep);
+    color:var(--text-primary);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Sora', sans-serif;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:var(--accent-flow);}
+
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 80px;}
+
+  /* ---------- Header ---------- */
+  .brandbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:34px;height:34px;flex:0 0 auto;}
+  .brand-name{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.01em;}
+  .brand-name span{color:var(--accent-flow);}
+  .unit-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);border:1px solid var(--hairline);padding:5px 10px;border-radius:100px;letter-spacing:0.03em;}
+
+  /* ---------- Screens ---------- */
+  .screen{display:none;}
+  .screen.active{display:block;animation:fadein .35s ease both;}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ---------- Intro ---------- */
+  .hero-card{
+    background:linear-gradient(160deg, var(--bg-panel-raised), var(--bg-panel));
+    border:1px solid var(--hairline);
+    border-radius:20px;
+    padding:40px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-card::before{
+    content:"";position:absolute;top:-40%;right:-20%;width:70%;height:180%;
+    background:conic-gradient(from 90deg, transparent 0 60%, rgba(45,212,191,0.10) 70%, transparent 80%);
+    animation:spin 14s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--accent-flow);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+  .hero-card h1{font-size:30px;line-height:1.2;margin:0 0 12px;font-weight:800;position:relative;}
+  .hero-card p{color:var(--text-muted);font-size:15px;line-height:1.6;max-width:52ch;position:relative;}
+  .stat-row{display:flex;gap:14px;margin:26px 0 8px;flex-wrap:wrap;position:relative;}
+  .stat{background:rgba(255,255,255,0.03);border:1px solid var(--hairline);border-radius:12px;padding:12px 16px;min-width:96px;}
+  .stat b{display:block;font-family:'Sora',sans-serif;font-size:22px;color:var(--accent-flow);}
+  .stat span{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;}
+
+  .field{margin-top:24px;position:relative;}
+  .field label{display:block;font-size:12px;color:var(--text-muted);margin-bottom:8px;letter-spacing:0.03em;}
+  .field input{
+    width:100%;padding:13px 16px;font-size:15px;border-radius:10px;
+    border:1px solid var(--hairline);background:rgba(0,0,0,0.25);color:var(--text-primary);
+    font-family:'Inter',sans-serif;
+  }
+  .field input:focus{outline:2px solid var(--accent-flow);outline-offset:1px;}
+
+  .btn{
+    appearance:none;border:none;cursor:pointer;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:15px;
+    padding:14px 26px;border-radius:10px;
+    background:var(--accent-flow);color:#04211D;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(45,212,191,0.5);}
+  .btn:active{transform:translateY(0);}
+  .btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none;}
+  .btn-ghost{background:transparent;border:1px solid var(--hairline);color:var(--text-primary);}
+  .btn-block{width:100%;margin-top:26px;}
+  .btn:focus-visible{outline:2px solid var(--accent-spin);outline-offset:2px;}
+
+  /* ---------- Quiz header: rotational+fluid progress ring ---------- */
+  .quiz-top{display:flex;align-items:center;gap:18px;margin-bottom:22px;}
+  .dial{width:64px;height:64px;flex:0 0 auto;position:relative;}
+  .dial svg{transform:rotate(-90deg);}
+  .dial-track{stroke:var(--hairline);fill:none;stroke-width:6;}
+  .dial-fill{stroke:var(--accent-flow);fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset .4s ease;}
+  .dial-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-primary);}
+  .quiz-meta{flex:1;}
+  .quiz-meta .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+  .quiz-meta .qcount{font-family:'Sora',sans-serif;font-weight:700;font-size:17px;}
+  .score-pill{font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.35);color:var(--accent-spin);padding:7px 14px;border-radius:100px;white-space:nowrap;}
+
+  /* progress bar (fluid fill) */
+  .flowbar{height:8px;border-radius:100px;background:rgba(255,255,255,0.05);overflow:hidden;margin-bottom:26px;border:1px solid var(--hairline);}
+  .flowbar-fill{height:100%;width:0%;border-radius:100px;background:linear-gradient(90deg, var(--accent-flow-dim), var(--accent-flow));transition:width .4s ease;position:relative;}
+  .flowbar-fill::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg, rgba(255,255,255,0.18) 0 8px, transparent 8px 16px);animation:flow 1.2s linear infinite;}
+  @keyframes flow{from{background-position-x:0;}to{background-position-x:22px;}}
+
+  /* ---------- Question card ---------- */
+  .qcard{background:var(--bg-panel);border:1px solid var(--hairline);border-radius:18px;padding:30px;}
+  .topic-chip{display:inline-block;font-size:11px;color:var(--accent-flow);border:1px solid rgba(45,212,191,0.3);background:rgba(45,212,191,0.06);padding:4px 10px;border-radius:100px;margin-bottom:16px;font-family:'JetBrains Mono',monospace;}
+  .qtext{font-size:19px;line-height:1.5;font-weight:600;margin:0 0 22px;font-family:'Sora',sans-serif;}
+
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .opt{
+    display:flex;align-items:center;gap:12px;
+    text-align:left;padding:14px 16px;border-radius:12px;
+    border:1px solid var(--hairline);background:rgba(255,255,255,0.02);
+    color:var(--text-primary);font-size:14.5px;cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+    font-family:'Inter',sans-serif;
+  }
+  .opt:hover:not(:disabled){border-color:var(--accent-flow-dim);background:rgba(45,212,191,0.05);}
+  .opt .tag{
+    width:26px;height:26px;border-radius:8px;flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
+    background:rgba(255,255,255,0.05);border:1px solid var(--hairline);
+  }
+  .opt.correct{border-color:var(--accent-flow);background:rgba(45,212,191,0.12);}
+  .opt.correct .tag{background:var(--accent-flow);color:#04211D;border-color:var(--accent-flow);}
+  .opt.wrong{border-color:var(--danger);background:rgba(242,89,107,0.10);}
+  .opt.wrong .tag{background:var(--danger);color:#2b0509;border-color:var(--danger);}
+  .opt:disabled{cursor:default;}
+  .opt.dim{opacity:0.45;}
+
+  .qfooter{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
+  .hint{font-size:12.5px;color:var(--text-muted);min-height:18px;}
+  .hint.show-correct{color:var(--accent-flow);}
+  .hint.show-wrong{color:var(--danger);}
+
+  /* ---------- Results ---------- */
+  .result-card{background:linear-gradient(160deg, var(--bg-panel-raised), var(--bg-panel));border:1px solid var(--hairline);border-radius:20px;padding:36px 32px;text-align:center;}
+  .ring{width:160px;height:160px;margin:8px auto 18px;position:relative;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring-track{stroke:var(--hairline);fill:none;stroke-width:10;}
+  .ring-fill{stroke:var(--accent-flow);fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset 1s ease;}
+  .ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .ring-center b{font-family:'Sora',sans-serif;font-size:34px;}
+  .ring-center span{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;}
+  .grade{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-spin);margin-bottom:6px;letter-spacing:0.05em;}
+  .result-card h2{font-size:24px;margin:2px 0 6px;}
+  .result-card p.sub{color:var(--text-muted);font-size:14px;margin:0 0 22px;}
+  .review-toggle{margin-top:22px;}
+  .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+
+  .review-list{margin-top:26px;text-align:left;display:none;}
+  .review-list.open{display:block;}
+  .review-item{border:1px solid var(--hairline);border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:13.5px;}
+  .review-item .rq{font-weight:600;margin-bottom:6px;}
+  .review-item .ra-correct{color:var(--accent-flow);}
+  .review-item .ra-wrong{color:var(--danger);}
+
+  /* ---------- Certificate ---------- */
+  .cert-wrap{margin-top:34px;}
+  .certificate{
+    background:radial-gradient(circle at 50% 0%, #14243B, #0C1626 70%);
+    border:1px solid rgba(245,158,11,0.35);
+    border-radius:18px;padding:44px 36px;position:relative;overflow:hidden;text-align:center;
+  }
+  .certificate::before,.certificate::after{
+    content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+    border:1px dashed rgba(45,212,191,0.25);
+  }
+  .certificate::before{top:-90px;left:-90px;}
+  .certificate::after{bottom:-90px;right:-90px;border-color:rgba(245,158,11,0.2);}
+  .cert-eyebrow{font-family:'JetBrains Mono',monospace;color:var(--accent-flow);letter-spacing:0.18em;font-size:11px;text-transform:uppercase;position:relative;}
+  .cert-title{font-family:'Sora',sans-serif;font-weight:800;font-size:26px;margin:14px 0 4px;position:relative;}
+  .cert-sub{color:var(--text-muted);font-size:13px;margin-bottom:22px;position:relative;}
+  .cert-name{font-family:'Sora',sans-serif;font-weight:700;font-size:30px;color:var(--accent-spin);margin:6px 0 4px;position:relative;border-bottom:1px solid rgba(245,158,11,0.35);display:inline-block;padding-bottom:6px;min-width:220px;}
+  .cert-line{color:var(--text-muted);font-size:13.5px;margin:14px 0;position:relative;line-height:1.7;}
+  .cert-score{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--text-primary);position:relative;}
+  .cert-footer{display:flex;justify-content:space-between;margin-top:32px;position:relative;font-size:11.5px;color:var(--text-muted);}
+  .cert-footer .sig{font-family:'Sora',sans-serif;font-style:italic;color:var(--text-primary);font-size:15px;border-top:1px solid var(--hairline);padding-top:6px;margin-top:18px;}
+
+  @media print{
+    body *{visibility:hidden;}
+    .certificate, .certificate *{visibility:visible;}
+    .certificate{position:absolute;top:0;left:0;width:100%;border:2px solid #F59E0B;}
+  }
+
+  footer.sitefoot{text-align:center;color:var(--text-muted);font-size:12px;margin-top:40px;}
+  footer.sitefoot a{color:var(--text-muted);text-decoration:underline;}
+
+  @media (max-width:520px){
+    .hero-card h1{font-size:24px;}
+    .qcard{padding:22px;}
+    .qtext{font-size:17px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="15" stroke="#2DD4BF" stroke-width="2" stroke-dasharray="4 5"/>
+        <path d="M9 21c2-6 4-9 8-9s6 3 8 9" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="brand-name">Exam Prep <span>Point</span></span>
+    </div>
+    <span class="unit-tag">UNIT 3 · PHYSICS</span>
+  </div>
+
+  <!-- INTRO SCREEN -->
+  <section id="screen-intro" class="screen active">
+    <div class="hero-card">
+      <div class="eyebrow">Test · 60 Questions · 60 Marks</div>
+      <h1>Rotational &amp; Circular Motion + Fluid Dynamics</h1>
+      <p>One question at a time. Pick an answer to lock it in and see instantly if you got it right, then move to the next. No going back, no skipping — just like the real thing.</p>
+      <div class="stat-row">
+        <div class="stat"><b>60</b><span>Questions</span></div>
+        <div class="stat"><b>60</b><span>Marks</span></div>
+        <div class="stat"><b>1</b><span>Mark each</span></div>
+        <div class="stat"><b>MCQ</b><span>Format</span></div>
+      </div>
+      <div class="field">
+        <label for="studentName">Your name (for the certificate)</label>
+        <input type="text" id="studentName" placeholder="e.g. Ayesha Khan" autocomplete="name">
+      </div>
+      <button class="btn btn-block" id="startBtn">Start the test</button>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="screen-quiz" class="screen">
+    <div class="quiz-top">
+      <div class="dial">
+        <svg viewBox="0 0 64 64" width="64" height="64">
+          <circle class="dial-track" cx="32" cy="32" r="27"></circle>
+          <circle class="dial-fill" id="dialFill" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="169.6"></circle>
+        </svg>
+        <div class="dial-num" id="dialNum">1/60</div>
+      </div>
+      <div class="quiz-meta">
+        <div class="label">Question</div>
+        <div class="qcount" id="qLabel">1 of 60</div>
+      </div>
+      <div class="score-pill">Score: <span id="liveScore">0</span>/60</div>
+    </div>
+
+    <div class="flowbar"><div class="flowbar-fill" id="flowFill"></div></div>
+
+    <div class="qcard">
+      <span class="topic-chip" id="topicChip">Rotational Motion</span>
+      <p class="qtext" id="qText">Loading…</p>
+      <div class="options" id="optionsWrap"></div>
+      <div class="qfooter">
+        <span class="hint" id="hintText"></span>
+        <button class="btn" id="nextBtn" disabled>Next question →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="screen-result" class="screen">
+    <div class="result-card">
+      <div class="grade" id="gradeText">GRADE</div>
+      <div class="ring">
+        <svg viewBox="0 0 160 160" width="160" height="160">
+          <circle class="ring-track" cx="80" cy="80" r="70"></circle>
+          <circle class="ring-fill" id="ringFill" cx="80" cy="80" r="70" stroke-dasharray="440" stroke-dashoffset="440"></circle>
+        </svg>
+        <div class="ring-center">
+          <b id="finalPercent">0%</b>
+          <span>Overall Score</span>
+        </div>
+      </div>
+      <h2>Test complete</h2>
+      <p class="sub" id="finalScoreLine">You scored 0 out of 60.</p>
+      <div class="btn-row">
+        <button class="btn" id="toggleReview">Review answers</button>
+        <button class="btn btn-ghost" id="retakeBtn">Retake test</button>
+      </div>
+
+      <div class="review-list" id="reviewList"></div>
+    </div>
+
+    <div class="cert-wrap">
+      <div class="certificate" id="certificate">
+        <div class="cert-eyebrow">Exam Prep Point · Certificate of Completion</div>
+        <div class="cert-title">Physics Test  Unit </div>
+        <div class="cert-sub">Rotational &amp; Circular Motion + Fluid Dynamics</div>
+        <div class="cert-line">This certifies that</div>
+        <div class="cert-name" id="certName">Your Name</div>
+        <div class="cert-line">has successfully completed the 60-question, 60-mark practice test with a score of</div>
+        <div class="cert-score" id="certScore">0 / 60 (0%)</div>
+        <div class="cert-footer">
+          <div>
+            <div class="sig">Exam Prep Point</div>
+            <div>Issuing platform</div>
+          </div>
+          <div id="certDate">
+            <div class="sig">&nbsp;</div>
+            <div>Date issued</div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="printBtn">Download / print certificate</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sitefoot">
+    Built for self-practice by Exam Prep Point. Recheck tricky concepts with your textbook after the test.
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  const questions = [
+    {t:"Rotational Motion", q:"The direction of angular velocity is along:", o:["Tangent to the circular path","Axis of rotation","Inward the radius","Outward the radius"], a:1},
+    {t:"Fluid Dynamics", q:"A fluid is flowing through a pipe with a velocity of 5 m/s. If the pressure is 1000 Pa, what is the total energy of the fluid per unit volume?", o:["1000 J/m³","1275 J/m³","1250 J/m³","1500 J/m³"], a:2},
+    {t:"Fluid Dynamics", q:"A 2 m tall cylinder full of water has four identical small holes at heights 1.8 m, 1.2 m, 0.6 m and 0.3 m from the base. The speed of efflux is maximum from:", o:["1.2 m high hole","0.6 m high hole","1.8 m high hole","0.3 m high hole"], a:3},
+    {t:"Fluid Dynamics", q:"Two rowboats moving parallel to each other in the same direction will:", o:["Remain moving in the same direction with no interaction","Be pulled toward each other","Get apart due to increased pressure in between","One would lag behind the other"], a:1},
+    {t:"Fluid Dynamics", q:"The viscous force on a small sphere of radius R moving through a fluid varies as:", o:["∝ R²","∝ 1/R","∝ R","∝ (1/R)²"], a:2},
+    {t:"Rotational Motion", q:"In the relation for tangential (linear) acceleration a = rα, this relation holds true when the angle θ between the position vector and the reference line is:", o:["Any angle — it always holds","180°","360°","90°"], a:0},
+    {t:"Rotational Motion", q:"The angular speed, in radians per hour, for the daily rotation of the Earth is:", o:["2π","4π","π/6","π/12"], a:3},
+    {t:"Fluid Dynamics", q:"A small solid sphere is dropped into a viscous liquid. Its velocity–distance journey through the liquid is best described by the curve that:", o:["Rises and then levels off to a constant value (Curve A)","Stays flat throughout (Curve C)","Rises steadily without levelling (Curve B)","Falls after rising (Curve D)"], a:0},
+    {t:"Fluid Dynamics", q:"A spherical rain droplet of mass one gram attains a maximum (terminal) speed of 20 m/s after 10 seconds. The drag force acting on the droplet at that point is:", o:["0 N","9.8 × 10⁻³ N","9 × 10⁻² N","2 × 10⁻⁴ N"], a:1},
+    {t:"Fluid Dynamics", q:"If a stream of air is blown under one of the pans of a physical balance in equilibrium, the pan will:", o:["Go up","Not be affected","Go down","Go up or down depending on the speed of the stream"], a:2},
+    {t:"Rotational Motion", q:"If the linear velocity of an object moving in a circular path is doubled while the radius remains constant, its angular velocity:", o:["Halves","Doubles","Quadruples","Remains constant"], a:1},
+    {t:"Rotational Motion", q:"The rate at which the angular displacement changes with time is called:", o:["Angular velocity","Angular acceleration","Angular displacement","Speed"], a:0},
+    {t:"Rotational Motion", q:"In uniform circular motion, the velocity vector is:", o:["Changing in magnitude but constant in direction","Constant in both magnitude and direction","Constant in magnitude but changing in direction","Changing in both magnitude and direction"], a:2},
+    {t:"Rotational Motion", q:"If a body moves with uniform angular motion, its average angular velocity will be equal to its:", o:["Angular acceleration","Angular displacement","Instantaneous angular velocity","Angular momentum"], a:2},
+    {t:"Rotational Motion", q:"The angular speed of an engine wheel making 90 revolutions per minute is:", o:["3π rad/s","4.5 rad/s","6 rad/s","1.5 rad/s"], a:0},
+    {t:"Rotational Motion", q:"What is the angular velocity of an object that completes 3 revolutions per second?", o:["12π rad/s","6π rad/s","3π rad/s","9π rad/s"], a:1},
+    {t:"Rotational Motion", q:"What is the linear speed of a point on the rim of a wheel of radius 0.5 m rotating at 4 rad/s?", o:["1 m/s","2 m/s","4 m/s","5 m/s"], a:1},
+    {t:"Rotational Motion", q:"1/2 radian, converted to degrees, equals:", o:["28.65°","57.3°","75.3°","37.5°"], a:0},
+    {t:"Rotational Motion", q:"1 radian is approximately equal to:", o:["0.129 rev","0.249 rev","0.159 rev","0.259 rev"], a:2},
+    {t:"Rotational Motion", q:"The angular displacement, in radians, for one full circle is:", o:["π/2","2π","π","3π"], a:1},
+    {t:"Rotational Motion", q:"For a positive angular displacement, the rotation would be:", o:["Clockwise","Anti-clockwise","Parallel","Perpendicular"], a:1},
+    {t:"Fluid Dynamics", q:"An object moving through a fluid experiences a retarding force known as:", o:["External force","Terminal force","Drag force","Gravitational force"], a:2},
+    {t:"Fluid Dynamics", q:"Stokes' law is applicable on:", o:["Spherical surfaces","Rectangular surfaces","Surfaces of all shapes","Arbitrary surfaces"], a:0},
+    {t:"Fluid Dynamics", q:"The drag force on a small sphere moving through a viscous fluid is expressed by:", o:["3πηrv", "6πηrv", "(2/9)ηρrv", "6ηρrv"], a:1},
+    {t:"Fluid Dynamics", q:"Three beakers A, B and C containing glycerin, water and kerosene respectively are stirred vigorously and placed on a table. The liquid that comes to rest earliest is:", o:["Glycerin","Kerosene","Water","All of them at the same time"], a:0},
+    {t:"Fluid Dynamics", q:"The maximum drag force on a sphere falling with zero acceleration (i.e. at terminal velocity) is 9.8 N. Its real weight is:", o:["Zero","9.8 N","4.9 N","19.6 N"], a:1},
+    {t:"Fluid Dynamics", q:"As the speed of an object moving through a fluid increases, the drag force experienced by it:", o:["Increases","Decreases","Remains constant","Becomes zero"], a:0},
+    {t:"Fluid Dynamics", q:"The SI unit of the coefficient of viscosity is:", o:["kg m⁻¹ s⁻¹","kg m⁻¹ s","kg m s⁻¹","kg⁻¹ m⁻¹ s⁻¹"], a:0},
+    {t:"Fluid Dynamics", q:"The maximum constant velocity attained by an object moving through a fluid is called:", o:["Escape velocity","Drag velocity","Terminal velocity","Fluid velocity"], a:2},
+    {t:"Fluid Dynamics", q:"Two fog droplets have radii in the ratio 2:3. Their terminal velocities are in the ratio of:", o:["4:6","4:9","2:3","4:3"], a:1},
+    {t:"Fluid Dynamics", q:"The terminal velocity of a spherical object is given by an expression proportional to:", o:["gr²/η, with a factor of 6/9","gr²/η, with a factor of 2/9","gr²/η, with a factor of 2/9 using the square of density","gr²/η, with a factor of 2/9 using the square of g"], a:1},
+    {t:"Fluid Dynamics", q:"The net force acting on a body falling through a fluid is given by:", o:["Net force = drag force − weight","Net force = drag force + weight","Net force = drag force / weight","Net force = weight − drag force"], a:3},
+    {t:"Fluid Dynamics", q:"If the radius of a falling droplet becomes half, its terminal velocity will become:", o:["Double","Half","One fourth","Four times"], a:2},
+    {t:"Fluid Dynamics", q:"The velocity of a falling raindrop attains a constant value because of:", o:["Surface tension","Viscous force exerted by air","Up-thrust of air","Air currents"], a:1},
+    {t:"Fluid Dynamics", q:"If the streamlines of a fluid are forced closer together, then:", o:["Speed of the fluid increases","Speed of the fluid decreases","Pressure of the fluid increases","Speed of the fluid remains the same"], a:0},
+    {t:"Fluid Dynamics", q:"An incompressible and non-viscous fluid is called:", o:["Viscous fluid","Non-ideal fluid","Real fluid","Ideal fluid"], a:3},
+    {t:"Fluid Dynamics", q:"The property of a fluid having a constant density is called:", o:["Compressible fluid","Non-ideal fluid","Turbulent fluid","Incompressible fluid"], a:3},
+    {t:"Fluid Dynamics", q:"Water flows at 3 m/s through a pipe of diameter 4 cm, which then narrows to a tube of diameter 2 cm. The velocity of water in the narrower tube is:", o:["12 m/s","6 m/s","1.5 m/s","3 m/s"], a:0},
+    {t:"Fluid Dynamics", q:"Water flows through a tube of radius r with speed v. If the tube is joined to another of radius r/2, the speed of water in the second tube is:", o:["v/4","v/2","2v","4v"], a:3},
+    {t:"Fluid Dynamics", q:"The radii at the two ends of a pipe are in the ratio of 2:3. The speed of the fluid at the two ends is in the ratio of:", o:["3:2","2:3","9:4","4:9"], a:2},
+    {t:"Fluid Dynamics", q:"The product of the area of cross-section, velocity and time gives:", o:["Volume","Density","Mass","Weight"], a:0},
+    {t:"Fluid Dynamics", q:"The equation of continuity expresses the conservation of:", o:["Energy","Power","Mass","Density"], a:2},
+    {t:"Fluid Dynamics", q:"For an incompressible fluid, the volume flow per second is always:", o:["Zero","Constant","Changing continuously","Less than one"], a:1},
+    {t:"Fluid Dynamics", q:"If a pipe is placed horizontally on the ground, Bernoulli's equation can be expressed as:", o:["P + ρgh + (1/2)ρv² = constant","P + (1/2)ρv² = constant","P − ρgh = constant","P + ρgh = constant"], a:1},
+    {t:"Fluid Dynamics", q:"An ideal fluid flows through a horizontal tube of varying diameter. The pressure is lowest where the:", o:["Velocity is constant","Velocity is low","Diameter is largest","Diameter is smallest"], a:3},
+    {t:"Fluid Dynamics", q:"The unit of the term (1/2)ρv² in Bernoulli's equation is the same as that of:", o:["Energy per unit volume (pressure)","Pressure only, not energy","Work only","Power"], a:0},
+    {t:"Fluid Dynamics", q:"The Venturi relation (for a horizontal tube, ignoring higher-order terms) is given by:", o:["P₁ − P₂ = (1/2)ρv₂²","P₂ − P₁ = (1/2)ρv₁²","P₁ − P₂ = (1/3)ρv₂²","P₂ − P₁ = (1/3)ρv₂²"], a:0},
+    {t:"Fluid Dynamics", q:"The pressure of a fluid will be low where the speed of the fluid is:", o:["Low","High","Zero","Constant"], a:1},
+    {t:"Fluid Dynamics", q:"A 20-metre-high tank is full of water and a hole appears exactly at its middle. The speed of efflux will be:", o:["10 m/s","14 m/s","11.5 m/s","9.8 m/s"], a:1},
+    {t:"Fluid Dynamics", q:"The relation v₂ = √(2g(h₁ − h₂)) is called:", o:["Torricelli's theorem","Venturi relation","Stokes' law","Equation of continuity"], a:0},
+    {t:"Fluid Dynamics", q:"The speed of efflux when a fluid falls through a height of 5 m is (take g = 10 m/s²):", o:["8 m/s","1 m/s","5 m/s","10 m/s"], a:3},
+    {t:"Rotational Motion", q:"A flywheel rotates with an angular velocity of 50 rad/s. If it rotates for 10 seconds, the angular displacement is:", o:["50 rad","100 rad","500 rad","1000 rad"], a:2},
+    {t:"Rotational Motion", q:"For one radian, the arc length 'S' and radius 'r' of a circle have the relation:", o:["S > r","r > S","S = r","S = 2r"], a:2},
+    {t:"Rotational Motion", q:"The angle swept out by a rotating object is called:", o:["Angular displacement is incorrect here — it is Angular velocity","Angular displacement","Angular acceleration","Linear displacement"], a:1},
+    {t:"Rotational Motion", q:"The number of revolutions corresponding to π radians is:", o:["2","1/2 is incorrect here — it is 2","1/2","1/2 rev"], a:3},
+    {t:"Rotational Motion", q:"The ratio of the frequencies of rotation of the hour hand of a clock and the Earth (on its axis) is:", o:["1:12","1:2","2:1","12:1"], a:2},
+    {t:"Rotational Motion", q:"Which of the following quantities are constant for a body performing uniform circular motion?", o:["The linear and angular velocity vectors", "The linear speed and the acceleration vector", "The linear velocity and the acceleration vector", "The linear speed and the angular velocity"], a:3},
+    {t:"Rotational Motion", q:"1 rev/min, converted to rad/s, is equal to:", o:["π/6 rad/s","π/15 rad/s","π/20 rad/s","π/30 rad/s"], a:3},
+    {t:"Rotational Motion", q:"The angle through which a rotating body turns is called:", o:["Angular speed","Angular displacement","Angular acceleration","Torque"], a:1},
+    {t:"Rotational Motion", q:"A particle moves in a circular path of radius 1 m. If its angular acceleration is 2 rad/s², its linear (tangential) acceleration is:", o:["1 m/s²","3 m/s²","2 m/s²","4 m/s²"], a:2}
+  ];
+
+  // fix a couple of option arrays with placeholder-y wording above (Q54 & Q55) — clean them up here.
+  questions[53].o = ["Angular speed","Angular displacement","Angular acceleration","Torque"]; // Q54 (0-indexed 53)
+  questions[53].a = 1;
+  questions[54].o = ["2 revolutions","1 revolution","1/2 revolution","1/4 revolution"]; // Q55 (0-indexed 54)
+  questions[54].a = 2;
+
+  const TOTAL = questions.length; // 60
+
+  let current = 0;
+  let score = 0;
+  let locked = false;
+  let userAnswers = []; // {chosen, correct}
+
+  const $ = (id) => document.getElementById(id);
+
+  const screenIntro = $('screen-intro');
+  const screenQuiz = $('screen-quiz');
+  const screenResult = $('screen-result');
+
+  const DIAL_C = 2 * Math.PI * 27;
+  const RING_C = 2 * Math.PI * 70;
+  $('dialFill').style.strokeDasharray = DIAL_C;
+  $('ringFill').style.strokeDasharray = RING_C;
+
+  $('startBtn').addEventListener('click', () => {
+    const name = $('studentName').value.trim();
+    if(!name){
+      $('studentName').style.borderColor = 'var(--danger)';
+      $('studentName').focus();
+      return;
+    }
+    screenIntro.classList.remove('active');
+    screenQuiz.classList.add('active');
+    renderQuestion();
+  });
+
+  function renderQuestion(){
+    locked = false;
+    const item = questions[current];
+    $('topicChip').textContent = item.t;
+    $('qText').textContent = (current+1) + '. ' + item.q;
+    $('qLabel').textContent = (current+1) + ' of ' + TOTAL;
+    $('dialNum').textContent = (current+1) + '/' + TOTAL;
+    $('liveScore').textContent = score;
+    $('hintText').textContent = '';
+    $('hintText').className = 'hint';
+    $('nextBtn').disabled = true;
+    $('nextBtn').textContent = (current === TOTAL - 1) ? 'See results →' : 'Next question →';
+
+    const dialOffset = DIAL_C - (DIAL_C * (current / TOTAL));
+    $('dialFill').style.strokeDashoffset = dialOffset;
+    $('flowFill').style.width = (100 * current / TOTAL) + '%';
+
+    const wrap = $('optionsWrap');
+    wrap.innerHTML = '';
+    const letters = ['A','B','C','D'];
+    item.o.forEach((optText, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt';
+      btn.innerHTML = '<span class="tag">' + letters[idx] + '</span><span>' + optText + '</span>';
+      btn.addEventListener('click', () => selectOption(idx, btn));
+      wrap.appendChild(btn);
+    });
+  }
+
+  function selectOption(idx, btnEl){
+    if(locked) return;
+    locked = true;
+    const item = questions[current];
+    const correctIdx = item.a;
+    const options = document.querySelectorAll('#optionsWrap .opt');
+
+    options.forEach((el, i) => {
+      el.disabled = true;
+      if(i === correctIdx){
+        el.classList.add('correct');
+      } else if(i === idx && idx !== correctIdx){
+        el.classList.add('wrong');
+      } else {
+        el.classList.add('dim');
+      }
+    });
+
+    const isCorrect = idx === correctIdx;
+    if(isCorrect){
+      score++;
+      $('hintText').textContent = 'Correct!';
+      $('hintText').className = 'hint show-correct';
+    } else {
+      $('hintText').textContent = 'Not quite — correct answer highlighted.';
+      $('hintText').className = 'hint show-wrong';
+    }
+    $('liveScore').textContent = score;
+    userAnswers.push({q: item.q, chosen: idx, correct: correctIdx, options: item.o, isCorrect});
+    $('nextBtn').disabled = false;
+  }
+
+  $('nextBtn').addEventListener('click', () => {
+    if(current === TOTAL - 1){
+      finishTest();
+    } else {
+      current++;
+      renderQuestion();
+    }
+  });
+
+  function finishTest(){
+    screenQuiz.classList.remove('active');
+    screenResult.classList.add('active');
+
+    const pct = Math.round((score / TOTAL) * 100);
+    $('finalPercent').textContent = pct + '%';
+    $('finalScoreLine').textContent = 'You scored ' + score + ' out of ' + TOTAL + '.';
+    const ringOffset = RING_C - (RING_C * (pct / 100));
+    requestAnimationFrame(() => { $('ringFill').style.strokeDashoffset = ringOffset; });
+
+    let grade = 'KEEP PRACTISING';
+    if(pct >= 90) grade = 'OUTSTANDING';
+    else if(pct >= 75) grade = 'STRONG PASS';
+    else if(pct >= 60) grade = 'GOOD EFFORT';
+    else if(pct >= 40) grade = 'NEEDS REVISION';
+    $('gradeText').textContent = grade;
+
+    const reviewList = $('reviewList');
+    reviewList.innerHTML = '';
+    userAnswers.forEach((ua, i) => {
+      const div = document.createElement('div');
+      div.className = 'review-item';
+      const chosenText = ua.chosen === -1 ? '—' : ua.options[ua.chosen];
+      const correctText = ua.options[ua.correct];
+      div.innerHTML = '<div class="rq">' + (i+1) + '. ' + ua.q + '</div>' +
+        '<div class="' + (ua.isCorrect ? 'ra-correct' : 'ra-wrong') + '">Your answer: ' + chosenText + '</div>' +
+        (ua.isCorrect ? '' : '<div class="ra-correct">Correct answer: ' + correctText + '</div>');
+      reviewList.appendChild(div);
+    });
+
+    const name = $('studentName').value.trim() || 'Student';
+    $('certName').textContent = name;
+    $('certScore').textContent = score + ' / ' + TOTAL + ' (' + pct + '%)';
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+    $('certDate').innerHTML = '<div class="sig">' + dateStr + '</div><div>Date issued</div>';
+  }
+
+  $('toggleReview').addEventListener('click', () => {
+    const el = $('reviewList');
+    el.classList.toggle('open');
+    $('toggleReview').textContent = el.classList.contains('open') ? 'Hide answers' : 'Review answers';
+  });
+
+  $('retakeBtn').addEventListener('click', () => {
+    current = 0; score = 0; locked = false; userAnswers = [];
+    screenResult.classList.remove('active');
+    screenIntro.classList.add('active');
+  });
+
+  $('printBtn').addEventListener('click', () => window.print());
+
+})();
+</script>
+</body>
+</html>

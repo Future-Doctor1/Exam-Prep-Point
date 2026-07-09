@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluid Dynamics MCQ Test 2026 | 30 MCQs for MDCAT | Exam Prep Point</title>
+<meta name="description" content="Take a free live Fluid Dynamics MCQ test for MDCAT 2026 by Exam Prep Point. 30 MCQs, 30 marks, 30-minute timer, instant result and downloadable certificate. Covers viscosity, Stokes' law, terminal velocity, equation of continuity, Bernoulli's equation, Torricelli's theorem, Venturi relation, and dynamic lift.">
+<meta name="keywords" content="MDCAT fluid dynamics MCQs, MDCAT 2026 physics test, first year physics fluid dynamics, Bernoulli's equation MCQs, Stokes law MCQs, terminal velocity MCQs, equation of continuity MCQs, Exam Prep Point, MDCAT live test, MDCAT physics chapter test">
+<meta name="author" content="Exam Prep Point">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fluid Dynamics Live MCQ Test 2026 | MDCAT | Exam Prep Point">
+<meta property="og:description" content="Free live test: 30 MCQs, 30 marks, timed, instant result & certificate. Fluid Dynamics chapter for MDCAT 2026 aspirants.">
+<meta property="og:site_name" content="Exam Prep Point">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fluid Dynamics Live MCQ Test 2026 | MDCAT | Exam Prep Point">
+<meta name="twitter:description" content="30 MCQs • 30 Marks • 30 Minutes • Instant Result • Certificate. Attempt now on Exam Prep Point.">
+<style>
+  :root{
+    --navy:#0b2447;
+    --blue:#1e5aa8;
+    --gold:#d4a017;
+    --green:#1b8a5a;
+    --red:#c0392b;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --text:#1c2b3a;
+    --muted:#5c6b7a;
+    --border:#dbe3ec;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  header.site{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    padding:18px 20px;
+    text-align:center;
+  }
+  header.site h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:.5px;
+  }
+  header.site p{
+    margin:6px 0 0;
+    font-size:.9rem;
+    opacity:.9;
+  }
+  .brand{
+    font-weight:700;
+    color:var(--gold);
+  }
+  .wrap{
+    max-width:760px;
+    margin:24px auto;
+    padding:0 16px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:26px;
+    box-shadow:0 4px 14px rgba(11,36,71,.06);
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin:16px 0;
+  }
+  .pill{
+    background:#eaf1fb;
+    color:var(--blue);
+    border:1px solid #cddcf0;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:.85rem;
+    font-weight:600;
+  }
+  ul.topics{
+    columns:2;
+    -webkit-columns:2;
+    padding-left:18px;
+    margin:14px 0;
+    font-size:.92rem;
+    color:var(--muted);
+  }
+  ul.topics li{margin-bottom:6px;}
+  input[type=text]{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:1rem;
+    margin-top:6px;
+  }
+  label.field-label{
+    font-weight:600;
+    font-size:.92rem;
+    color:var(--text);
+  }
+  button{
+    cursor:pointer;
+    border:none;
+    font-weight:700;
+    font-size:1rem;
+    border-radius:8px;
+    padding:13px 22px;
+    transition:transform .1s ease, opacity .2s ease;
+  }
+  button:active{transform:scale(.98);}
+  .btn-primary{
+    background:var(--blue);
+    color:#fff;
+    width:100%;
+    margin-top:18px;
+  }
+  .btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+  .btn-gold{
+    background:var(--gold);
+    color:#3a2a00;
+  }
+  .btn-outline{
+    background:#fff;
+    color:var(--blue);
+    border:2px solid var(--blue);
+  }
+  /* Quiz screen */
+  #quizScreen{display:none;}
+  .quiz-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    background:var(--navy);
+    color:#fff;
+    padding:12px 18px;
+    border-radius:10px;
+    margin-bottom:16px;
+    position:sticky;
+    top:8px;
+    z-index:5;
+  }
+  #timer{
+    font-weight:700;
+    font-size:1.1rem;
+    background:rgba(255,255,255,.12);
+    padding:6px 12px;
+    border-radius:6px;
+  }
+  #timer.low{background:var(--red);}
+  .progress-outer{
+    background:#dbe3ec;
+    border-radius:6px;
+    height:8px;
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .progress-inner{
+    background:var(--green);
+    height:100%;
+    width:0%;
+    transition:width .2s ease;
+  }
+  .qcard{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:14px;
+  }
+  .qnum{
+    display:inline-block;
+    background:var(--blue);
+    color:#fff;
+    font-size:.75rem;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:12px;
+    margin-bottom:8px;
+  }
+  .qtext{
+    font-weight:600;
+    margin:0 0 12px;
+    font-size:1.02rem;
+  }
+  .opt{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:10px 12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin-bottom:8px;
+    cursor:pointer;
+    font-size:.95rem;
+  }
+  .opt:hover{background:#f0f5fb;}
+  .opt input{margin-top:3px;}
+  .opt.selected{
+    border-color:var(--blue);
+    background:#eaf1fb;
+  }
+  /* Review states */
+  .opt.correct{border-color:var(--green);background:#e7f7ee;}
+  .opt.wrong{border-color:var(--red);background:#fdecea;}
+  .explain{
+    font-size:.85rem;
+    color:var(--muted);
+    margin-top:8px;
+    padding-top:8px;
+    border-top:1px dashed var(--border);
+    display:none;
+  }
+  /* Result screen */
+  #resultScreen{display:none;text-align:center;}
+  .score-circle{
+    width:150px;height:150px;
+    border-radius:50%;
+    border:10px solid var(--blue);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:16px auto;
+  }
+  .score-circle .num{font-size:2rem;font-weight:800;color:var(--navy);}
+  .score-circle .lbl{font-size:.75rem;color:var(--muted);}
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:20px 0;
+  }
+  .stat-box{
+    background:#f0f5fb;
+    border-radius:8px;
+    padding:12px 6px;
+  }
+  .stat-box .v{font-size:1.3rem;font-weight:800;color:var(--navy);}
+  .stat-box .l{font-size:.75rem;color:var(--muted);}
+  /* Certificate */
+  #certScreen{display:none;}
+  .certificate{
+    background:#fffdf6;
+    border:10px solid var(--gold);
+    outline:2px solid var(--navy);
+    outline-offset:-16px;
+    padding:40px 30px;
+    text-align:center;
+    position:relative;
+    border-radius:6px;
+  }
+  .certificate h2{
+    font-family:Georgia,'Times New Roman',serif;
+    color:var(--navy);
+    font-size:1.8rem;
+    margin:6px 0;
+    letter-spacing:1px;
+  }
+  .certificate .sub{
+    color:var(--muted);
+    font-size:.95rem;
+    margin-bottom:20px;
+  }
+  .cert-name{
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:2rem;
+    color:var(--blue);
+    margin:14px 0;
+    border-bottom:2px solid var(--gold);
+    display:inline-block;
+    padding:0 20px 6px;
+  }
+  .cert-body{
+    font-size:1rem;
+    color:var(--text);
+    line-height:1.7;
+    max-width:480px;
+    margin:14px auto;
+  }
+  .cert-score{
+    font-weight:800;
+    color:var(--green);
+    font-size:1.2rem;
+  }
+  .cert-footer{
+    display:flex;
+    justify-content:space-between;
+    margin-top:36px;
+    font-size:.85rem;
+    color:var(--muted);
+    padding:0 10px;
+  }
+  .cert-footer div{text-align:center;}
+  .cert-footer .line{
+    border-top:1px solid var(--muted);
+    width:150px;
+    margin-bottom:4px;
+  }
+  .seal{
+    position:absolute;
+    top:20px;
+    right:30px;
+    width:70px;height:70px;
+    border-radius:50%;
+    background:radial-gradient(circle,var(--gold),#a97e00);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-weight:800;
+    font-size:.7rem;
+    text-align:center;
+    box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--gold);
+  }
+  .actions-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+  }
+  .actions-row button{flex:1;min-width:150px;}
+  footer.site{
+    text-align:center;
+    color:var(--muted);
+    font-size:.8rem;
+    padding:24px 10px 40px;
+  }
+  @media print{
+    header.site, footer.site, .actions-row, #quizScreen, #startScreen{display:none !important;}
+    body{background:#fff;}
+    .wrap{max-width:100%;}
+  }
+  @media (max-width:480px){
+    ul.topics{columns:1;}
+    .stat-grid{grid-template-columns:repeat(3,1fr);}
+    .cert-name{font-size:1.4rem;}
+    .certificate h2{font-size:1.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <h1><span class="brand">Exam Prep Point</span> — MDCAT Test</h1>
+  <p>Fluid Dynamics | First Year Physics | MDCAT 2026 Syllabus</p>
+</header>
+
+<div class="wrap">
+
+  <!-- START SCREEN -->
+  <div class="card" id="startScreen">
+    <h2 style="margin-top:0;color:var(--navy);">Fluid Dynamics — MCQ Test</h2>
+    <p style="color:var(--muted);">A fully timed test designed strictly according to the MDCAT 2026 syllabus for the Fluid Dynamics chapter (First Year Physics). Get instant results and a downloadable certificate after submission.</p>
+
+    <div class="meta-row">
+      <span class="pill">📝 30 MCQs</span>
+      <span class="pill">🏆 30 Marks</span>
+      <span class="pill">⏱ 30 Minutes</span>
+      <span class="pill">📄 Certificate Included</span>
+    </div>
+
+    <p class="field-label">Topics covered:</p>
+    <ul class="topics">
+      <li>Viscosity & viscous drag</li>
+      <li>Stokes' law</li>
+      <li>Terminal velocity</li>
+      <li>Streamline & turbulent flow</li>
+      <li>Reynolds number & critical velocity</li>
+      <li>Equation of continuity</li>
+      <li>Energy of a flowing fluid</li>
+      <li>Bernoulli's equation</li>
+      <li>Applications of Bernoulli's equation</li>
+      <li>Venturi relation (Venturimeter)</li>
+      <li>Torricelli's theorem</li>
+      <li>Dynamic lift & applications</li>
+    </ul>
+
+    <label class="field-label" for="studentName">Enter your name (for certificate)</label>
+    <input type="text" id="studentName" placeholder="e.g. Ali Hassan" maxlength="40">
+
+    <button class="btn-primary" id="startBtn" onclick="startTest()">Start Live Test</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quizScreen">
+    <div class="quiz-top">
+      <div>👤 <span id="nameTag"></span></div>
+      <div id="timer">30:00</div>
+      <div id="qCounter">Q 1 / 30</div>
+    </div>
+    <div class="progress-outer"><div class="progress-inner" id="progressBar"></div></div>
+    <div id="questionsContainer"></div>
+    <button class="btn-primary" id="submitBtn" onclick="submitTest()">Submit Test</button>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="card" id="resultScreen">
+    <h2 style="color:var(--navy);margin-top:0;">Your Result</h2>
+    <div class="score-circle">
+      <div class="num" id="scoreNum">0/30</div>
+      <div class="lbl">Marks Obtained</div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="v" id="correctCount">0</div><div class="l">Correct</div></div>
+      <div class="stat-box"><div class="v" id="wrongCount">0</div><div class="l">Incorrect</div></div>
+      <div class="stat-box"><div class="v" id="percentScore">0%</div><div class="l">Percentage</div></div>
+    </div>
+    <p id="remark" style="font-weight:700;font-size:1.05rem;"></p>
+    <div class="actions-row">
+      <button class="btn-outline" onclick="reviewAnswers()">Review Answers</button>
+      <button class="btn-gold" onclick="showCertificate()">Get Certificate 🎓</button>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE SCREEN -->
+  <div id="certScreen">
+    <div class="certificate" id="certificateBox">
+      <div class="seal">EXAM<br>PREP<br>POINT</div>
+      <p style="letter-spacing:3px;color:var(--gold);font-weight:700;margin:0;">CERTIFICATE OF ACHIEVEMENT</p>
+      <h2>Exam Prep Point</h2>
+      <p class="sub">MDCAT 2026 Preparation Series — Fluid Dynamics Live Test</p>
+      <p style="color:var(--muted);margin-bottom:0;">This certificate is proudly presented to</p>
+      <div class="cert-name" id="certName">Student Name</div>
+      <div class="cert-body">
+        for successfully completing the <strong>Fluid Dynamics</strong> live MCQ test
+        (First Year Physics — MDCAT 2026 Syllabus) with a score of
+        <span class="cert-score" id="certScore">0 / 30</span> (<span id="certPercent">0%</span>).
+      </div>
+      <div class="cert-footer">
+        <div><div class="line"></div>Date: <span id="certDate"></span></div>
+        <div><div class="line"></div>Exam Prep Point</div>
+      </div>
+    </div>
+    <div class="actions-row">
+      <button class="btn-outline" onclick="window.print()">🖨 Print / Save as PDF</button>
+      <button class="btn-primary" onclick="location.reload()">Retake Test</button>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site">
+  © 2026 Exam Prep Point — Free MDCAT Live Tests, Chapter-wise MCQs & Study Resources.
+</footer>
+
+<script>
+const questions = [
+{q:"The property of a fluid by virtue of which it opposes relative motion between its layers is called:",o:["Surface tension","Viscosity","Density","Elasticity"],a:1,e:"Viscosity is the internal friction between adjacent layers of a moving fluid."},
+{q:"The SI unit of coefficient of viscosity is:",o:["N s m⁻²","N m⁻¹","kg m⁻³","N s⁻¹"],a:0,e:"Coefficient of viscosity (η) has SI units of N s m⁻² (Pa·s)."},
+{q:"Stokes' law gives the viscous drag force on a small sphere moving through a fluid as:",o:["F = 6πηrv","F = 4πηrv","F = 2πηrv","F = πηr²v"],a:0,e:"Stokes' law: F = 6πηrv, where r is the radius and v is the velocity of the sphere."},
+{q:"Terminal velocity of a body falling through a viscous fluid is reached when:",o:["Net force on the body becomes zero","Acceleration is maximum","Viscous force is zero","Weight exceeds buoyant force indefinitely"],a:0,e:"At terminal velocity, the net force (weight − buoyant force − viscous drag) becomes zero, so the body moves with constant velocity."},
+{q:"In streamline (laminar) flow, the velocity of fluid particles at a given point is:",o:["Constantly changing in magnitude and direction","Constant in both magnitude and direction over time","Zero at all points","Random and unpredictable"],a:1,e:"In streamline flow, every particle passing a given point follows the same path with constant velocity at that point."},
+{q:"Flow becomes turbulent when the Reynolds number exceeds approximately:",o:["100","1000","2000","5000"],a:2,e:"A Reynolds number above about 2000 generally indicates turbulent flow in a pipe."},
+{q:"The Reynolds number is a dimensionless quantity that depends on all of the following EXCEPT:",o:["Density of fluid","Velocity of flow","Viscosity of fluid","Color of the fluid"],a:3,e:"Reynolds number Re = ρvd/η depends on density, velocity, characteristic length, and viscosity — not color."},
+{q:"The equation of continuity (A₁v₁ = A₂v₂) is a direct consequence of the conservation of:",o:["Mass","Energy","Momentum","Charge"],a:0,e:"The equation of continuity follows from the conservation of mass for an incompressible fluid in steady flow."},
+{q:"According to the equation of continuity, where the cross-sectional area of a pipe decreases, the fluid velocity:",o:["Decreases","Increases","Remains constant","Becomes zero"],a:1,e:"Since A×v is constant, a smaller area results in a higher flow velocity."},
+{q:"Bernoulli's equation is based on the conservation of:",o:["Mass only","Momentum only","Energy","Charge"],a:2,e:"Bernoulli's equation expresses the conservation of energy for a flowing, incompressible, non-viscous fluid."},
+{q:"In Bernoulli's equation, the term ½ρv² represents:",o:["Pressure energy per unit volume","Kinetic energy per unit volume","Potential energy per unit volume","Total energy per unit mass"],a:1,e:"½ρv² is the kinetic energy per unit volume of the fluid."},
+{q:"In Bernoulli's equation, the term ρgh represents:",o:["Kinetic energy per unit volume","Pressure energy per unit volume","Potential energy per unit volume","Work done per unit mass"],a:2,e:"ρgh is the gravitational potential energy per unit volume of the fluid."},
+{q:"Bernoulli's equation strictly applies to fluid flow that is:",o:["Compressible, viscous, and turbulent","Incompressible, non-viscous, and streamline","Compressible and turbulent only","Viscous and rotational"],a:1,e:"Bernoulli's principle assumes ideal fluid flow: incompressible, non-viscous, and streamline (steady)."},
+{q:"According to Bernoulli's principle, in a horizontal pipe, where the fluid speed is higher, the pressure is:",o:["Higher","Lower","Unaffected","Equal to atmospheric pressure always"],a:1,e:"Bernoulli's principle: as fluid speed increases in a horizontal flow, pressure decreases."},
+{q:"A Venturimeter is a device used to measure:",o:["Viscosity of a liquid","Speed of flow of a fluid in a pipe","Surface tension of a liquid","Density of a gas only"],a:1,e:"A Venturimeter uses the pressure difference between a wide and narrow section (based on Bernoulli's equation) to measure flow speed."},
+{q:"Torricelli's theorem gives the efflux speed of liquid from an orifice near the bottom of a tank as:",o:["v = √(2gh)","v = √(gh)","v = 2gh","v = gh²"],a:0,e:"Torricelli's theorem: v = √(2gh), where h is the height of liquid above the orifice."},
+{q:"Torricelli's theorem is essentially derived by applying:",o:["Newton's second law","Bernoulli's equation","Stokes' law","Pascal's law"],a:1,e:"Torricelli's theorem is a special case of Bernoulli's equation applied to a liquid escaping through a hole in a tank."},
+{q:"Dynamic lift on an airplane wing is mainly explained using:",o:["Archimedes' principle","Bernoulli's principle","Pascal's law","Newton's law of gravitation"],a:1,e:"The curved shape of a wing causes faster airflow above and slower below, creating a pressure difference (Bernoulli's principle) that generates lift."},
+{q:"An aerofoil (airplane wing) is shaped so that air flows faster over the upper surface, resulting in:",o:["Higher pressure above the wing","Lower pressure above the wing, producing upward lift","Equal pressure on both surfaces","No effect on pressure distribution"],a:1,e:"Faster airflow above the wing lowers pressure there (Bernoulli's principle), creating a net upward force (lift)."},
+{q:"A fluid is said to be ideal if it is:",o:["Compressible and viscous","Incompressible and non-viscous","Compressible and non-viscous","Viscous only"],a:1,e:"An ideal fluid is assumed to be incompressible and non-viscous for simplifying flow equations like Bernoulli's."},
+{q:"Which of the following best describes turbulent flow?",o:["Smooth, orderly flow in parallel layers","Irregular flow with eddies and vortices","Flow with zero velocity everywhere","Flow only possible in gases"],a:1,e:"Turbulent flow is characterized by chaotic changes in pressure and velocity, forming eddies and vortices."},
+{q:"The critical velocity of a fluid in a tube is the velocity:",o:["At which streamline flow changes to turbulent flow","At which viscosity becomes zero","At which the fluid stops flowing","At which pressure becomes maximum"],a:0,e:"Critical velocity marks the transition point from laminar (streamline) to turbulent flow."},
+{q:"For a highly viscous fluid, the terminal velocity of a falling sphere is generally:",o:["Higher","Lower","Independent of viscosity","Zero always"],a:1,e:"Terminal velocity is inversely proportional to the coefficient of viscosity (v_t ∝ 1/η), so higher viscosity gives lower terminal velocity."},
+{q:"According to Stokes' law, the viscous drag force on a sphere is directly proportional to its:",o:["Radius squared","Radius","Volume","Mass only"],a:1,e:"F = 6πηrv shows the drag force is directly proportional to the radius r of the sphere."},
+{q:"In an incompressible fluid flow, if the pipe radius is doubled, the flow speed (for the same volume flow rate) becomes:",o:["Double","Half","One-fourth","Four times"],a:2,e:"Since A ∝ r², doubling the radius quadruples the area, so speed becomes one-fourth (A₁v₁ = A₂v₂)."},
+{q:"The volume of fluid flowing per second through a pipe is called the:",o:["Mass flow rate","Volume flow rate (discharge)","Terminal velocity","Reynolds number"],a:1,e:"Volume flow rate (discharge) = A × v, the volume of fluid passing a cross-section per unit time."},
+{q:"A perfume atomizer/spray works on the principle that:",o:["High pressure region has low speed air","Fast-moving air over a tube creates low pressure, drawing liquid upward","Liquids always rise due to gravity","Viscosity forces liquid upward"],a:1,e:"Blowing air rapidly across the top of a tube lowers pressure there (Bernoulli's principle), causing liquid to rise and get atomized."},
+{q:"Blood flow through narrowed arteries (as in atherosclerosis) shows increased velocity and decreased pressure at the constriction, which is an application of:",o:["Pascal's law","Bernoulli's principle","Archimedes' principle","Newton's third law"],a:1,e:"The physiological application of Bernoulli's principle explains flow speed and pressure changes in narrowed blood vessels."},
+{q:"Which of the following is an assumption made while deriving Bernoulli's equation?",o:["The fluid flow is unsteady and rotational","The fluid is compressible","There is no energy loss due to friction (non-viscous flow)","The fluid density varies with position"],a:2,e:"Bernoulli's equation assumes non-viscous (frictionless), incompressible, steady, and irrotational flow."},
+{q:"For a fluid flowing horizontally, if velocity increases and height remains constant, Bernoulli's equation predicts that pressure energy:",o:["Increases","Decreases","Remains unchanged","Becomes infinite"],a:1,e:"With height constant, an increase in kinetic energy (velocity) must be balanced by a decrease in pressure energy to conserve total energy."}
+];
+
+let userAnswers = new Array(questions.length).fill(null);
+let timeLeft = 30*60;
+let timerInterval;
+let studentName = "";
+
+function startTest(){
+  const nameInput = document.getElementById('studentName').value.trim();
+  if(!nameInput){
+    alert("Please enter your name to start the live test.");
+    return;
+  }
+  studentName = nameInput;
+  document.getElementById('nameTag').textContent = studentName;
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  renderQuestions();
+  startTimer();
+}
+
+function renderQuestions(){
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+  questions.forEach((item, idx) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'qcard';
+    qDiv.id = 'qcard-'+idx;
+    let optsHTML = '';
+    item.o.forEach((opt, oIdx) => {
+      optsHTML += `
+        <label class="opt" id="opt-${idx}-${oIdx}" onclick="selectAnswer(${idx},${oIdx})">
+          <input type="radio" name="q${idx}" value="${oIdx}">
+          <span>${opt}</span>
+        </label>`;
+    });
+    qDiv.innerHTML = `
+      <span class="qnum">Question ${idx+1} / 30 — 1 Mark</span>
+      <p class="qtext">${item.q}</p>
+      ${optsHTML}
+      <p class="explain" id="explain-${idx}"><strong>Explanation:</strong> ${item.e}</p>
+    `;
+    container.appendChild(qDiv);
+  });
+}
+
+function selectAnswer(qIdx, oIdx){
+  userAnswers[qIdx] = oIdx;
+  for(let i=0;i<4;i++){
+    const optEl = document.getElementById(`opt-${qIdx}-${i}`);
+    optEl.classList.remove('selected');
+  }
+  document.getElementById(`opt-${qIdx}-${oIdx}`).classList.add('selected');
+  document.getElementById(`opt-${qIdx}-${oIdx}`).querySelector('input').checked = true;
+  updateProgress();
+}
+
+function updateProgress(){
+  const answered = userAnswers.filter(a => a !== null).length;
+  document.getElementById('qCounter').textContent = `Answered ${answered} / 30`;
+  document.getElementById('progressBar').style.width = (answered/30*100)+'%';
+}
+
+function startTimer(){
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft <= 0){
+      clearInterval(timerInterval);
+      alert("Time's up! Submitting your test now.");
+      submitTest();
+    }
+  },1000);
+}
+
+function updateTimerDisplay(){
+  const m = Math.floor(timeLeft/60);
+  const s = timeLeft%60;
+  const el = document.getElementById('timer');
+  el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  if(timeLeft <= 60){ el.classList.add('low'); }
+}
+
+function submitTest(){
+  clearInterval(timerInterval);
+  let score = 0;
+  questions.forEach((item, idx) => {
+    if(userAnswers[idx] === item.a) score++;
+  });
+  const percent = Math.round((score/30)*100);
+
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('scoreNum').textContent = `${score}/30`;
+  document.getElementById('correctCount').textContent = score;
+  document.getElementById('wrongCount').textContent = 30-score;
+  document.getElementById('percentScore').textContent = percent+'%';
+
+  let remark = '';
+  if(percent >= 85) remark = "🌟 Excellent! You have mastered Fluid Dynamics.";
+  else if(percent >= 65) remark = "👍 Good job! Revise the weaker topics and try again.";
+  else if(percent >= 40) remark = "📘 Fair attempt. Focus more on Bernoulli's equation & its applications.";
+  else remark = "📖 Keep practicing — revise the full chapter and retake the test.";
+  document.getElementById('remark').textContent = remark;
+
+  window.finalScore = score;
+  window.finalPercent = percent;
+}
+
+function reviewAnswers(){
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  document.getElementById('submitBtn').style.display = 'none';
+  document.querySelector('.quiz-top').innerHTML = '<div style="font-weight:700;">📋 Answer Review</div>';
+  document.querySelector('.progress-outer').style.display = 'none';
+
+  questions.forEach((item, idx) => {
+    for(let i=0;i<4;i++){
+      const optEl = document.getElementById(`opt-${idx}-${i}`);
+      optEl.style.pointerEvents = 'none';
+      if(i === item.a){
+        optEl.classList.add('correct');
+      } else if(i === userAnswers[idx] && userAnswers[idx] !== item.a){
+        optEl.classList.add('wrong');
+      }
+    }
+    document.getElementById(`explain-${idx}`).style.display = 'block';
+  });
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn-primary';
+  backBtn.textContent = 'Back to Result';
+  backBtn.onclick = () => {
+    document.getElementById('quizScreen').style.display = 'none';
+    document.getElementById('resultScreen').style.display = 'block';
+  };
+  document.getElementById('questionsContainer').appendChild(backBtn);
+}
+
+function showCertificate(){
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('certScreen').style.display = 'block';
+  document.getElementById('certName').textContent = studentName;
+  document.getElementById('certScore').textContent = `${window.finalScore} / 30`;
+  document.getElementById('certPercent').textContent = window.finalPercent+'%';
+  const today = new Date();
+  document.getElementById('certDate').textContent = today.toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'});
+}
+</script>
+
+</body>
+</html>
