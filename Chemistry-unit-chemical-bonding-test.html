@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDCAT 2026 Chemistry MCQ Test: Chemical Bonding | Exam Prep Point</title>
+<meta name="description" content="Free live MCQ test on the Chemical Bonding chapter for MDCAT 2026 aspirants — 30 MCQs, 30 marks, instant scoring, detailed explanations, and a downloadable certificate. Practice First Year Chemistry with Exam Prep Point.">
+<meta name="keywords" content="MDCAT 2026, MDCAT Chemistry MCQs, Chemical Bonding MCQs, VSEPR theory MCQs, hybridization MCQs, First Year Chemistry test, MDCAT preparation, Exam Prep Point, PMDC MDCAT syllabus, ionic covalent bond MCQs, dipole moment MCQs">
+<meta name="author" content="Exam Prep Point">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="MDCAT 2026 Chemistry MCQ Test: Chemical Bonding (30 MCQs, 30 Marks)">
+<meta property="og:description" content="Free live MCQ test on the Chemical Bonding chapter for MDCAT 2026 aspirants with instant scoring and a downloadable certificate.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Exam Prep Point">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MDCAT 2026 Chemistry MCQ Test: Chemical Bonding">
+<meta name="twitter:description" content="30 MCQs, 30 marks — test your knowledge of the Chemical Bonding chapter for MDCAT 2026.">
+<style>
+  :root{
+    --ink:#1a1830;
+    --paper:#f2f0f7;
+    --panel:#ffffff;
+    --indigo:#3d2e78;
+    --indigo-deep:#241a4d;
+    --violet:#7c5cd6;
+    --magenta:#c0447a;
+    --gold:#c9962c;
+    --line:#ddd8ea;
+    --correct:#1e7e4f;
+    --wrong:#b3392c;
+    --font-display: 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
+    --font-body: 'Avenir Next', 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: 'Courier New', Courier, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(124,92,214,0.09), transparent 45%),
+      radial-gradient(circle at 88% 90%, rgba(192,68,122,0.06), transparent 40%),
+      var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.5;
+    padding-bottom:60px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+
+  /* HEADER */
+  header.site{
+    background:linear-gradient(135deg,var(--indigo-deep),var(--indigo) 65%);
+    color:#efe9fb;
+    padding:38px 0 40px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:4px solid var(--gold);
+  }
+  header.site svg.bond-bg{
+    position:absolute;
+    top:0; right:0;
+    width:280px;
+    height:100%;
+    opacity:0.18;
+  }
+  .eyebrow{
+    position:relative;
+    font-family:var(--font-mono);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold);
+    margin:0 0 10px;
+  }
+  header.site h1{
+    position:relative;
+    font-family:var(--font-display);
+    font-size:clamp(28px,4.2vw,42px);
+    margin:0 0 10px;
+    font-weight:600;
+    max-width:640px;
+  }
+  header.site p.sub{
+    position:relative;
+    max-width:600px;
+    color:#dcd3f2;
+    font-size:15.5px;
+    margin:0 0 20px;
+  }
+  .meta-row{
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill{
+    border:1px solid rgba(239,233,251,0.35);
+    color:#efe9fb;
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-family:var(--font-mono);
+    letter-spacing:.02em;
+    background:rgba(255,255,255,0.05);
+  }
+  .pill strong{color:var(--gold);}
+
+  /* MAIN PANEL */
+  main{margin-top:-18px;position:relative;}
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 18px 40px -22px rgba(36,26,77,0.35);
+  }
+
+  /* INTRO */
+  .intro{padding:26px 26px 22px;}
+  .intro h2{font-family:var(--font-display);font-size:21px;margin:0 0 10px;color:var(--indigo-deep);}
+  .intro ul{margin:10px 0 18px;padding-left:20px;font-size:14.5px;color:#453e5c;}
+  .intro li{margin-bottom:5px;}
+  #startBtn{
+    background:var(--magenta);
+    color:#fff;
+    border:none;
+    padding:13px 28px;
+    font-size:15.5px;
+    border-radius:6px;
+    font-family:var(--font-body);
+    font-weight:600;
+    cursor:pointer;
+    letter-spacing:.01em;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 8px 18px -8px rgba(192,68,122,0.6);
+  }
+  #startBtn:hover{transform:translateY(-1px);box-shadow:0 10px 22px -8px rgba(192,68,122,0.7);}
+
+  /* TIMER / PROGRESS BAR */
+  #quizHeader{
+    display:none;
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    padding:12px 26px;
+    border-radius:10px 10px 0 0;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  #progressText{font-family:var(--font-mono);font-size:13px;color:var(--indigo-deep);}
+  #timer{
+    font-family:var(--font-mono);
+    font-size:16px;
+    font-weight:700;
+    color:var(--magenta);
+    background:#faeef3;
+    padding:5px 12px;
+    border-radius:6px;
+    border:1px solid #edd0dd;
+  }
+  .progress-track{
+    width:100%;
+    height:6px;
+    background:#e7e2f1;
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:8px;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--indigo),var(--gold));
+    transition:width .25s ease;
+  }
+
+  /* QUESTIONS */
+  #quizForm{display:none;padding:8px 26px 26px;}
+  .q-block{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .q-block:last-of-type{border-bottom:none;}
+  .q-num{
+    font-family:var(--font-mono);
+    color:var(--violet);
+    font-size:12.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .q-text{
+    font-family:var(--font-display);
+    font-size:17px;
+    color:var(--ink);
+    margin:6px 0 14px;
+    line-height:1.45;
+  }
+  .options{display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:10px 14px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    cursor:pointer;
+    font-size:14.5px;
+    background:#faf9fd;
+    transition:border-color .15s, background .15s;
+  }
+  .opt:hover{border-color:var(--indigo);background:#f1eef9;}
+  .opt input{margin-top:3px;accent-color:var(--indigo);}
+  .opt.selected{border-color:var(--indigo);background:#e9e3f6;}
+
+  .opt.correct-answer{border-color:var(--correct);background:#e9f7ee;}
+  .opt.wrong-answer{border-color:var(--wrong);background:#fbebe8;}
+  .tag-correct, .tag-wrong{
+    margin-left:auto;
+    font-family:var(--font-mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    padding:2px 8px;
+    border-radius:4px;
+    white-space:nowrap;
+  }
+  .tag-correct{background:var(--correct);color:#fff;}
+  .tag-wrong{background:var(--wrong);color:#fff;}
+  .explain{
+    margin-top:10px;
+    font-size:13.5px;
+    color:#453e5c;
+    background:#f2f0f7;
+    border-left:3px solid var(--gold);
+    padding:9px 13px;
+    border-radius:0 6px 6px 0;
+    display:none;
+  }
+
+  #submitBtn{
+    background:var(--indigo-deep);
+    color:#fff;
+    border:none;
+    padding:14px 30px;
+    font-size:15.5px;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:20px;
+    width:100%;
+  }
+  #submitBtn:hover{background:var(--indigo);}
+
+  /* RESULTS */
+  #results{display:none;padding:30px 26px;}
+  .score-card{
+    text-align:center;
+    padding:26px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:linear-gradient(180deg,#faf9fd,#e9e4f4);
+    margin-bottom:26px;
+  }
+  .score-big{
+    font-family:var(--font-display);
+    font-size:56px;
+    color:var(--indigo-deep);
+    margin:6px 0;
+  }
+  .score-big span{color:var(--magenta);}
+  .score-label{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#847c99;}
+  .score-msg{font-size:15px;margin-top:10px;color:#453e5c;}
+  .stat-row{display:flex;justify-content:center;gap:24px;margin-top:18px;flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat b{display:block;font-size:20px;font-family:var(--font-display);color:var(--indigo-deep);}
+  .stat span{font-size:11.5px;color:#847c99;text-transform:uppercase;letter-spacing:.06em;}
+
+  #reviewBtn, #certBtn, #retryBtn{
+    border:none;
+    padding:12px 22px;
+    border-radius:6px;
+    font-size:14.5px;
+    font-weight:600;
+    cursor:pointer;
+    margin:6px 8px 0 0;
+  }
+  #certBtn{background:var(--gold);color:#3a2604;}
+  #reviewBtn{background:var(--indigo);color:#fff;}
+  #retryBtn{background:transparent;color:var(--indigo-deep);border:1px solid var(--indigo-deep);}
+
+  /* CERTIFICATE */
+  #certificateSection{display:none;padding:30px 26px 10px;}
+  .cert{
+    border:10px solid var(--indigo-deep);
+    outline:2px solid var(--gold);
+    outline-offset:-16px;
+    background:#fdfcfa;
+    padding:46px 40px;
+    text-align:center;
+    position:relative;
+  }
+  .cert::before, .cert::after{
+    content:"⬡";
+    color:var(--violet);
+    font-size:24px;
+    position:absolute;
+    top:14px;
+  }
+  .cert::before{left:22px;}
+  .cert::after{right:22px;}
+  .cert .brand{font-family:var(--font-mono);letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--indigo);margin-bottom:4px;}
+  .cert h2{font-family:var(--font-display);font-size:15px;letter-spacing:.15em;text-transform:uppercase;color:#847c99;margin:14px 0 4px;}
+  .cert .cert-title{font-family:var(--font-display);font-size:28px;color:var(--indigo-deep);margin:0 0 18px;}
+  .cert .cert-name{
+    font-family:var(--font-display);
+    font-size:32px;
+    color:var(--magenta);
+    border-bottom:1px solid var(--line);
+    display:inline-block;
+    padding:0 10px 8px;
+    margin:8px 0 18px;
+    min-width:300px;
+  }
+  .cert p.cert-body{font-size:14.5px;color:#453e5c;max-width:520px;margin:0 auto 18px;}
+  .cert .cert-score{font-family:var(--font-display);font-size:22px;color:var(--indigo-deep);margin-bottom:22px;}
+  .cert-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:26px;padding:0 10px;}
+  .cert-sig{text-align:center;font-size:12.5px;color:#453e5c;}
+  .cert-sig .line{border-top:1px solid var(--ink);padding-top:6px;min-width:150px;}
+  .cert-date{font-family:var(--font-mono);font-size:12px;color:#847c99;}
+  #nameInput{
+    padding:10px 14px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-size:14.5px;
+    width:260px;
+    max-width:100%;
+    margin-right:8px;
+    font-family:var(--font-body);
+  }
+  #genCertBtn{
+    background:var(--violet);color:#fff;border:none;padding:11px 20px;border-radius:6px;font-weight:600;cursor:pointer;font-size:14px;
+  }
+  #printCertBtn{
+    display:none;
+    margin-top:18px;
+    background:var(--indigo-deep);color:#fff;border:none;padding:11px 24px;border-radius:6px;font-weight:600;cursor:pointer;font-size:14px;
+  }
+  .cert-controls{text-align:center;margin-bottom:20px;}
+
+  footer.site{
+    max-width:880px;margin:36px auto 0;padding:0 20px;
+    font-size:12.5px;color:#847c99;text-align:center;
+  }
+
+  @media print{
+    header.site, .intro, #quizHeader, #quizForm, .score-card, #reviewBtn, #certBtn, #retryBtn, .cert-controls, footer.site, #submitBtn{display:none !important;}
+    body{background:#fff;padding:0;}
+    #certificateSection{display:block !important;padding:0;}
+    .panel{border:none;box-shadow:none;}
+  }
+
+  @media (max-width:600px){
+    .cert{padding:30px 18px;}
+    .cert .cert-name{min-width:0;font-size:24px;}
+    .cert-footer{flex-direction:column;gap:14px;align-items:center;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="eyebrow">Exam Prep Point &middot; MDCAT 2026</p>
+    <h1>Chemical Bonding &mdash; First Year Chemistry MCQ Test</h1>
+    <p class="sub">30 objective-type MCQs covering ionic, covalent, and coordinate bonding, VSEPR theory, hybridization, bond polarity and dipole moment, resonance, and metallic bonding — mapped to the MDCAT 2026 syllabus.</p>
+    <div class="meta-row">
+      <span class="pill">Questions: <strong>30</strong></span>
+      <span class="pill">Total Marks: <strong>30</strong></span>
+      <span class="pill">Time: <strong>30 min</strong></span>
+      <span class="pill">Chapter: <strong>Chemical Bonding</strong></span>
+    </div>
+  </div>
+  <svg class="bond-bg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="14" fill="#efe9fb"></circle>
+    <circle cx="140" cy="110" r="10" fill="#efe9fb"></circle>
+    <circle cx="90" cy="180" r="16" fill="#efe9fb"></circle>
+    <circle cx="150" cy="230" r="9" fill="#efe9fb"></circle>
+    <line x1="60" y1="60" x2="140" y2="110" stroke="#efe9fb" stroke-width="2"></line>
+    <line x1="140" y1="110" x2="90" y2="180" stroke="#efe9fb" stroke-width="2"></line>
+    <line x1="90" y1="180" x2="150" y2="230" stroke="#efe9fb" stroke-width="2"></line>
+  </svg>
+</header>
+
+<main class="wrap">
+  <div class="panel">
+
+    <div class="intro" id="introSection">
+      <h2>Before you start</h2>
+      <ul>
+        <li>This test contains <strong>30 MCQs</strong>, each carrying <strong>1 mark</strong> (Total: 30 marks).</li>
+        <li>A 30-minute timer starts as soon as you click <em>Start Test</em>.</li>
+        <li>Select one option per question. You can change your answer any time before submitting.</li>
+        <li>On submission, you'll see your score, a detailed answer review with explanations, and can generate a certificate.</li>
+        <li>This is a self-paced practice test by <strong>Exam Prep Point</strong> — designed for MDCAT 2026 aspirants.</li>
+      </ul>
+      <button id="startBtn">Start Test</button>
+    </div>
+
+    <div id="quizHeader">
+      <div>
+        <span id="progressText">0 / 30 answered</span>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <div id="timer">30:00</div>
+    </div>
+
+    <form id="quizForm"></form>
+
+    <div id="results">
+      <div class="score-card">
+        <p class="score-label">Your Score</p>
+        <p class="score-big"><span id="scoreVal">0</span>/30</p>
+        <p class="score-msg" id="scoreMsg"></p>
+        <div class="stat-row">
+          <div class="stat"><b id="statCorrect">0</b><span>Correct</span></div>
+          <div class="stat"><b id="statWrong">0</b><span>Incorrect</span></div>
+          <div class="stat"><b id="statSkipped">0</b><span>Skipped</span></div>
+          <div class="stat"><b id="statTime">0:00</b><span>Time Taken</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <button id="reviewBtn" type="button">Review Answers</button>
+        <button id="certBtn" type="button">Get Certificate</button>
+        <button id="retryBtn" type="button">Retake Test</button>
+      </div>
+    </div>
+
+    <div id="certificateSection">
+      <div class="cert-controls">
+        <input type="text" id="nameInput" placeholder="Type your full name">
+        <button id="genCertBtn" type="button">Generate Certificate</button>
+        <br>
+        <button id="printCertBtn" type="button">Print / Save as PDF</button>
+      </div>
+      <div class="cert" id="certBox" style="display:none;">
+        <p class="brand">Exam Prep Point</p>
+        <h2>Certificate of Achievement</h2>
+        <p class="cert-title">MDCAT 2026 &middot; Chemistry &mdash; Chemical Bonding</p>
+        <p style="font-size:13px;color:#847c99;margin:0;">This certifies that</p>
+        <p class="cert-name" id="certName">Student Name</p>
+        <p class="cert-body">has successfully completed the Chemical Bonding Chapter MCQ Test consisting of 30 objective questions, demonstrating diligent preparation for the MDCAT 2026 examination.</p>
+        <p class="cert-score">Score Achieved: <strong id="certScore">0/30</strong></p>
+        <div class="cert-footer">
+          <div class="cert-sig">
+            <div class="line">Exam Prep Point</div>
+            Issuing Platform
+          </div>
+          <div class="cert-date" id="certDate">Date</div>
+          <div class="cert-sig">
+            <div class="line">Verified</div>
+            Auto-Generated
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site">
+  &copy; 2026 Exam Prep Point &mdash; Free MDCAT Preparation Resources.
+  (First Year Chemistry: Chemical Bonding).
+</footer>
+
+<script>
+const questions = [
+  {q:"A chemical bond formed by the complete transfer of electrons from one atom to another is called:", options:["Covalent bond","Ionic bond","Coordinate covalent bond","Metallic bond"], answer:1, exp:"An ionic bond forms through the complete transfer of one or more electrons from a metal atom to a non-metal atom, resulting in oppositely charged ions held by electrostatic attraction."},
+  {q:"A chemical bond formed by the mutual sharing of electrons between two atoms is called:", options:["Ionic bond","Covalent bond","Metallic bond","Hydrogen bond"], answer:1, exp:"A covalent bond forms when two atoms share one or more pairs of electrons, typically between non-metal atoms."},
+  {q:"A covalent bond in which both shared electrons are contributed by the same atom is called:", options:["Polar covalent bond","Non-polar covalent bond","Coordinate (dative) covalent bond","Ionic bond"], answer:2, exp:"A coordinate (dative) covalent bond is formed when one atom donates both electrons of the shared pair, while the other atom contributes none."},
+  {q:"According to the octet rule, atoms tend to gain, lose, or share electrons to achieve:", options:["2 electrons in the valence shell","8 electrons in the valence shell","18 electrons in the valence shell","A neutral charge only"], answer:1, exp:"The octet rule states that atoms tend to combine in such a way that each atom achieves 8 electrons in its outermost (valence) shell, resembling the stable noble gas configuration."},
+  {q:"Which of the following theories explains the shapes of molecules based on the repulsion between electron pairs around a central atom?", options:["Valence Bond Theory","Molecular Orbital Theory","VSEPR theory","Octet theory"], answer:2, exp:"VSEPR (Valence Shell Electron Pair Repulsion) theory predicts molecular geometry based on minimizing repulsion between electron pairs (bonding and lone pairs) around the central atom."},
+  {q:"According to VSEPR theory, lone pair-lone pair repulsion is generally:", options:["Weaker than bond pair-bond pair repulsion","Equal to bond pair-bond pair repulsion","Stronger than bond pair-bond pair repulsion","Non-existent"], answer:2, exp:"Lone pair-lone pair repulsion is the strongest among the three types of repulsions in VSEPR theory, followed by lone pair-bond pair, and then bond pair-bond pair repulsion, which is the weakest."},
+  {q:"The molecular geometry of methane (CH4) according to VSEPR theory is:", options:["Trigonal planar","Tetrahedral","Linear","Bent"], answer:1, exp:"Methane has four bond pairs and no lone pairs around carbon, giving it a tetrahedral geometry with bond angles of 109.5°."},
+  {q:"The molecular shape of ammonia (NH3), which has one lone pair on nitrogen, is:", options:["Tetrahedral","Trigonal pyramidal","Trigonal planar","Linear"], answer:1, exp:"Ammonia has three bond pairs and one lone pair, resulting in a trigonal pyramidal shape due to the lone pair pushing the bonding pairs closer together."},
+  {q:"The molecular shape of water (H2O), which has two lone pairs on oxygen, is:", options:["Linear","Bent (angular)","Tetrahedral","Trigonal planar"], answer:1, exp:"Water has two bond pairs and two lone pairs around oxygen, resulting in a bent (angular) shape with a bond angle of about 104.5°."},
+  {q:"The process of mixing atomic orbitals to form new equivalent hybrid orbitals is called:", options:["Resonance","Hybridization","Ionization","Polarization"], answer:1, exp:"Hybridization is the mixing of atomic orbitals (s, p, d) of similar energy within an atom to form new hybrid orbitals of equal energy and shape, used for bonding."},
+  {q:"The hybridization of carbon in methane (CH4) is:", options:["sp","sp²","sp³","sp³d"], answer:2, exp:"Carbon in methane undergoes sp³ hybridization, forming four equivalent hybrid orbitals arranged tetrahedrally."},
+  {q:"The hybridization of carbon in ethene (C2H4), which contains a double bond, is:", options:["sp","sp²","sp³","sp³d²"], answer:1, exp:"Carbon atoms in ethene are sp² hybridized, forming three sigma bonds in a trigonal planar arrangement, with the remaining unhybridized p-orbital forming a pi bond."},
+  {q:"The hybridization of carbon in ethyne (C2H2), which contains a triple bond, is:", options:["sp","sp²","sp³","sp³d"], answer:0, exp:"Carbon atoms in ethyne are sp hybridized, forming a linear arrangement with two sigma bonds, while two unhybridized p-orbitals form two pi bonds."},
+  {q:"A bond between two atoms of different electronegativities, resulting in unequal sharing of electrons, is called:", options:["Non-polar covalent bond","Polar covalent bond","Ionic bond","Metallic bond"], answer:1, exp:"A polar covalent bond occurs when atoms of differing electronegativity share electrons unequally, creating partial positive and negative charges."},
+  {q:"A measure of the polarity of a bond, given by the product of charge and bond length, is called:", options:["Bond energy","Bond order","Dipole moment","Ionization energy"], answer:2, exp:"Dipole moment (μ = q × d) quantifies the polarity of a bond or molecule, measured in Debye units."},
+  {q:"Which of the following molecules is non-polar despite having polar bonds, due to its symmetrical shape?", options:["H2O","NH3","CO2","HCl"], answer:2, exp:"CO2 has polar C=O bonds, but its linear symmetrical geometry causes the individual bond dipoles to cancel out, making the overall molecule non-polar."},
+  {q:"The energy required to break one mole of a particular bond in the gaseous state is called:", options:["Ionization energy","Bond dissociation energy","Lattice energy","Electron affinity"], answer:1, exp:"Bond dissociation energy (bond energy) is the energy needed to break one mole of a specific covalent bond in gaseous molecules, indicating bond strength."},
+  {q:"As bond order increases between two atoms (e.g., single to double to triple bond), bond length generally:", options:["Increases","Decreases","Remains the same","Becomes infinite"], answer:1, exp:"Higher bond order means stronger, shorter bonds; as bond order increases from single to triple bonds, bond length decreases while bond energy increases."},
+  {q:"The representation of a molecule showing valence electrons as dots around atomic symbols is called:", options:["Molecular orbital diagram","Lewis structure","VSEPR diagram","Resonance structure"], answer:1, exp:"A Lewis structure (electron dot structure) shows the arrangement of valence electrons, including bonding and lone pairs, around atoms in a molecule."},
+  {q:"When a molecule can be represented by two or more valid Lewis structures differing only in electron placement, the phenomenon is called:", options:["Isomerism","Hybridization","Resonance","Polarization"], answer:2, exp:"Resonance occurs when a single Lewis structure cannot accurately represent a molecule, and the actual structure is a hybrid (average) of two or more contributing structures."},
+  {q:"The bonding in metals, where valence electrons are delocalized and free to move throughout the lattice, is called:", options:["Ionic bonding","Covalent bonding","Metallic bonding","Hydrogen bonding"], answer:2, exp:"Metallic bonding involves a 'sea' of delocalized valence electrons shared among a lattice of metal cations, explaining properties like electrical conductivity and malleability."},
+  {q:"Which type of intermolecular force is responsible for the unusually high boiling point of water compared to other hydrides of Group VIA elements?", options:["London dispersion forces","Dipole-dipole interaction","Hydrogen bonding","Ionic interaction"], answer:2, exp:"Water forms strong hydrogen bonds due to the highly electronegative oxygen bonded to hydrogen, resulting in an unusually high boiling point relative to similar-sized hydrides like H2S."},
+  {q:"For hydrogen bonding to occur, hydrogen must be directly bonded to which of the following highly electronegative elements?", options:["Carbon, Sulfur, Phosphorus","Fluorine, Oxygen, Nitrogen","Chlorine, Bromine, Iodine","Silicon, Boron, Aluminum"], answer:1, exp:"Hydrogen bonding typically occurs when hydrogen is bonded to small, highly electronegative atoms — fluorine, oxygen, or nitrogen (F, O, N)."},
+  {q:"According to Valence Bond Theory, a covalent bond is formed by:", options:["Complete transfer of electrons","Overlap of atomic orbitals containing unpaired electrons","Delocalization of electrons across the entire molecule","Formation of a molecular orbital only"], answer:1, exp:"Valence Bond Theory explains covalent bond formation as the overlap of atomic orbitals, each containing one unpaired electron, resulting in a shared electron pair between the bonding atoms."},
+  {q:"A sigma (σ) bond is formed by:", options:["Side-to-side overlap of p-orbitals","Head-on (axial) overlap of orbitals along the internuclear axis","Overlap of only d-orbitals","Delocalization of pi electrons"], answer:1, exp:"A sigma bond results from the head-on (axial) overlap of atomic orbitals along the line joining the two nuclei, forming the strongest type of covalent bond."},
+  {q:"A pi (π) bond is formed by:", options:["Head-on overlap of s-orbitals only","Sideways (lateral) overlap of parallel p-orbitals","Complete transfer of electrons","Overlap along the internuclear axis"], answer:1, exp:"A pi bond forms through the sideways (lateral) overlap of parallel unhybridized p-orbitals above and below the internuclear axis, and is generally weaker than a sigma bond."},
+  {q:"A double bond between two atoms consists of:", options:["Two sigma bonds","One sigma and one pi bond","Two pi bonds","Three sigma bonds"], answer:1, exp:"A double bond is composed of one sigma bond (formed first, head-on overlap) and one pi bond (lateral overlap of remaining p-orbitals)."},
+  {q:"A triple bond between two atoms, such as in N2, consists of:", options:["Three sigma bonds","One sigma and two pi bonds","Two sigma and one pi bond","Three pi bonds"], answer:1, exp:"A triple bond consists of one sigma bond and two pi bonds, as seen in molecules like nitrogen gas (N≡N) and ethyne."},
+  {q:"Which of the following bond types is generally the strongest in terms of bond energy for a given pair of atoms?", options:["Single bond","Double bond","Triple bond","Hydrogen bond"], answer:2, exp:"Among single, double, and triple bonds between the same pair of atoms, triple bonds have the highest bond energy (strongest) and shortest bond length."},
+  {q:"Which factor primarily determines whether a bond between two atoms will be ionic or covalent?", options:["Atomic mass of the atoms","Difference in electronegativity between the atoms","Number of protons only","Boiling point of the elements"], answer:1, exp:"The nature of a bond (ionic vs. covalent) is primarily determined by the electronegativity difference between the bonding atoms — large differences favor ionic character, while small differences favor covalent character."}
+];
+
+const form = document.getElementById('quizForm');
+let userAnswers = new Array(questions.length).fill(null);
+let timeLeft = 30*60;
+let timerInterval = null;
+let startTime = null;
+let submitted = false;
+
+questions.forEach((item, idx) => {
+  const block = document.createElement('div');
+  block.className = 'q-block';
+  block.id = 'qblock-'+idx;
+
+  const num = document.createElement('div');
+  num.className = 'q-num';
+  num.textContent = 'Question ' + (idx+1) + ' of 30 · 1 Mark';
+  block.appendChild(num);
+
+  const qt = document.createElement('div');
+  qt.className = 'q-text';
+  qt.textContent = item.q;
+  block.appendChild(qt);
+
+  const opts = document.createElement('div');
+  opts.className = 'options';
+
+  item.options.forEach((optText, oIdx) => {
+    const label = document.createElement('label');
+    label.className = 'opt';
+    label.id = 'opt-'+idx+'-'+oIdx;
+
+    const input = document.createElement('input');
+    input.type = 'radio';
+    input.name = 'q'+idx;
+    input.value = oIdx;
+    input.addEventListener('change', () => {
+      userAnswers[idx] = oIdx;
+      document.querySelectorAll('#qblock-'+idx+' .opt').forEach(o => o.classList.remove('selected'));
+      label.classList.add('selected');
+      updateProgress();
+    });
+
+    const span = document.createElement('span');
+    span.textContent = optText;
+
+    label.appendChild(input);
+    label.appendChild(span);
+    opts.appendChild(label);
+  });
+
+  block.appendChild(opts);
+
+  const exp = document.createElement('div');
+  exp.className = 'explain';
+  exp.id = 'exp-'+idx;
+  exp.textContent = item.exp;
+  block.appendChild(exp);
+
+  form.appendChild(block);
+});
+
+const submitBtn = document.createElement('button');
+submitBtn.type = 'button';
+submitBtn.id = 'submitBtn';
+submitBtn.textContent = 'Submit Test';
+submitBtn.addEventListener('click', submitTest);
+form.appendChild(submitBtn);
+
+function updateProgress(){
+  const answered = userAnswers.filter(a => a !== null).length;
+  document.getElementById('progressText').textContent = answered + ' / 30 answered';
+  document.getElementById('progressFill').style.width = (answered/30*100) + '%';
+}
+
+document.getElementById('startBtn').addEventListener('click', () => {
+  document.getElementById('introSection').style.display = 'none';
+  document.getElementById('quizHeader').style.display = 'flex';
+  form.style.display = 'block';
+  startTime = Date.now();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    if(timeLeft <= 0){
+      timeLeft = 0;
+      clearInterval(timerInterval);
+      submitTest();
+    }
+    const m = Math.floor(timeLeft/60);
+    const s = timeLeft%60;
+    document.getElementById('timer').textContent = m + ':' + (s<10?'0':'')+s;
+  }, 1000);
+  window.scrollTo({top: form.offsetTop - 20, behavior:'smooth'});
+});
+
+function submitTest(){
+  if(submitted) return;
+  submitted = true;
+  clearInterval(timerInterval);
+
+  let correct = 0, wrong = 0, skipped = 0;
+  const elapsed = startTime ? Math.floor((Date.now()-startTime)/1000) : (30*60 - timeLeft);
+
+  questions.forEach((item, idx) => {
+    const ua = userAnswers[idx];
+    if(ua === null){
+      skipped++;
+    } else if(ua === item.answer){
+      correct++;
+    } else {
+      wrong++;
+    }
+    document.getElementById('opt-'+idx+'-'+item.answer).classList.add('correct-answer');
+    const ctag = document.createElement('span');
+    ctag.className = 'tag-correct';
+    ctag.textContent = 'Correct';
+    document.getElementById('opt-'+idx+'-'+item.answer).appendChild(ctag);
+
+    if(ua !== null && ua !== item.answer){
+      const wrongOpt = document.getElementById('opt-'+idx+'-'+ua);
+      wrongOpt.classList.add('wrong-answer');
+      const wtag = document.createElement('span');
+      wtag.className = 'tag-wrong';
+      wtag.textContent = 'Your Answer';
+      wrongOpt.appendChild(wtag);
+    }
+    document.getElementById('exp-'+idx).style.display = 'block';
+
+    document.querySelectorAll('input[name="q'+idx+'"]').forEach(i => i.disabled = true);
+  });
+
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('quizHeader').style.display = 'none';
+
+  document.getElementById('scoreVal').textContent = correct;
+  document.getElementById('statCorrect').textContent = correct;
+  document.getElementById('statWrong').textContent = wrong;
+  document.getElementById('statSkipped').textContent = skipped;
+  const em = Math.floor(elapsed/60), es = elapsed%60;
+  document.getElementById('statTime').textContent = em + ':' + (es<10?'0':'')+es;
+
+  let msg = '';
+  const pct = (correct/30)*100;
+  if(pct >= 85) msg = "Outstanding! You've mastered the Chemical Bonding chapter.";
+  else if(pct >= 65) msg = "Good work! Review the missed concepts below to sharpen your prep.";
+  else if(pct >= 40) msg = "Fair attempt. Revise the Chemical Bonding chapter and retake the test.";
+  else msg = "Keep practicing — go through your textbook's Chemical Bonding chapter and try again.";
+  document.getElementById('scoreMsg').textContent = msg;
+
+  window.__finalScore = correct;
+
+  document.getElementById('results').style.display = 'block';
+  window.scrollTo({top: document.getElementById('results').offsetTop - 20, behavior:'smooth'});
+}
+
+document.getElementById('reviewBtn').addEventListener('click', () => {
+  form.style.display = 'block';
+  window.scrollTo({top: form.offsetTop - 20, behavior:'smooth'});
+});
+
+document.getElementById('retryBtn').addEventListener('click', () => {
+  location.reload();
+});
+
+document.getElementById('certBtn').addEventListener('click', () => {
+  document.getElementById('certificateSection').style.display = 'block';
+  document.getElementById('certScore').textContent = window.__finalScore + '/30';
+  window.scrollTo({top: document.getElementById('certificateSection').offsetTop - 20, behavior:'smooth'});
+});
+
+document.getElementById('genCertBtn').addEventListener('click', () => {
+  const name = document.getElementById('nameInput').value.trim();
+  if(!name){
+    alert('Please enter your name to generate the certificate.');
+    return;
+  }
+  document.getElementById('certName').textContent = name;
+  document.getElementById('certScore').textContent = window.__finalScore + '/30';
+  const today = new Date();
+  document.getElementById('certDate').textContent = today.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+  document.getElementById('certBox').style.display = 'block';
+  document.getElementById('printCertBtn').style.display = 'inline-block';
+  document.getElementById('certBox').scrollIntoView({behavior:'smooth'});
+});
+
+document.getElementById('printCertBtn').addEventListener('click', () => {
+  window.print();
+});
+</script>
+
+</body>
+</html>

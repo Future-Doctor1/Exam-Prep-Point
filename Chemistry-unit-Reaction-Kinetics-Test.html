@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Exam Prep Point — MDCAT Chemistry Live Test: Chemical Kinetics. 60 timed MCQs (1 minute per question, 60 marks) covering rate of reaction, rate law, order & molecularity, Arrhenius equation, activation energy and catalysis, prepared as per the MDCAT 2026 syllabus for FSc 1st Year Chemistry.">
+<meta name="keywords" content="MDCAT Chemistry, Chemical Kinetics, FSc 1st Year Chemistry, MDCAT 2026 syllabus, Exam Prep Point, rate of reaction MCQs, Arrhenius equation MCQs, activation energy, catalysis MCQs, MDCAT live test">
+<meta name="author" content="Exam Prep Point">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MDCAT Chemistry Live Test — Chemical Kinetics | Exam Prep Point">
+<meta property="og:description" content="60 timed MCQs on Chemical Kinetics for MDCAT 2026 aspirants — 1 minute per question, instant scoring, printable certificate. By Exam Prep Point.">
+<meta property="og:site_name" content="Exam Prep Point">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MDCAT Chemistry Live Test — Chemical Kinetics | Exam Prep Point">
+<meta name="twitter:description" content="60 timed MCQs on Chemical Kinetics for MDCAT 2026 aspirants — 1 minute per question, instant scoring, printable certificate.">
+<meta name="theme-color" content="#0b3d2e">
+<title>MDCAT Chemistry Test — Chemical Kinetics | Exam Prep Point</title>
+<style>
+  :root{
+    --ink:#0f2a22;
+    --paper:#eef4f0;
+    --paper-2:#ffffff;
+    --line:#c9d8cf;
+    --forest:#0b3d2e;
+    --forest-2:#155843;
+    --amber:#c47a2f;
+    --coral:#b5442e;
+    --slide:#dff0e6;
+    --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 100% -10%, #dbe9e0 0%, transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    min-height:100vh;
+  }
+  .utility{ font-family: var(--mono); letter-spacing:.03em; }
+  .hidden{ display:none !important; }
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--forest);
+    color:#eef4ee;
+    padding:22px 28px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    border-bottom:5px solid var(--amber);
+  }
+  .brand-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#a9c9b8;
+    margin-bottom:6px;
+  }
+  h1{
+    margin:0;
+    font-size:26px;
+    font-weight:400;
+    letter-spacing:.01em;
+  }
+  h1 em{ font-style:italic; color:#f3d9ad; }
+  .meta-line{
+    font-family:var(--mono);
+    font-size:12px;
+    color:#c7dccf;
+    margin-top:6px;
+  }
+  .timer-box{
+    font-family:var(--mono);
+    text-align:right;
+    min-width:150px;
+  }
+  .timer-box .tlabel{ font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#a9c9b8;}
+  .timer-box .tval{ font-size:30px; color:#f3d9ad; line-height:1.1; }
+  .timer-box .tval.low{ color:#f3a37e; }
+
+  /* ---------- Layout ---------- */
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:26px 20px 70px;
+  }
+  .progress-outer{
+    height:6px; background:var(--line); border-radius:4px; overflow:hidden; margin-bottom:22px;
+  }
+  .progress-inner{
+    height:100%; background:linear-gradient(90deg, var(--forest-2), var(--amber));
+    width:0%; transition:width .25s ease;
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns: 1fr 210px;
+    gap:24px;
+  }
+  @media (max-width: 760px){
+    .layout{ grid-template-columns: 1fr; }
+    .navigator{ order:2; }
+  }
+
+  /* ---------- Start card ---------- */
+  .start-card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:34px 32px;
+  }
+  .start-card h2{
+    margin:0 0 8px;
+    font-size:22px;
+    font-weight:400;
+  }
+  .start-card p{
+    font-size:15px;
+    line-height:1.65;
+    color:#33473d;
+    margin:0 0 20px;
+  }
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:20px 0 24px;
+  }
+  .stat-item{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    text-align:center;
+    padding:14px 6px;
+  }
+  .stat-item .snum{ font-family:var(--mono); font-size:20px; color:var(--forest-2); font-weight:bold; }
+  .stat-item .slabel{ font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:#5c6f65; margin-top:3px; }
+  .rules-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:4px solid var(--amber);
+    border-radius:3px;
+    padding:16px 18px;
+    margin-bottom:22px;
+  }
+  .rules-box h3{
+    margin:0 0 10px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+  .rules-box ul{ margin:0; padding-left:18px; font-size:13.5px; color:#33473d; line-height:1.7; }
+  label.field-label{
+    display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase;
+    letter-spacing:.1em; color:var(--forest-2); margin-bottom:8px;
+  }
+  input.name-input{
+    width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:3px;
+    background:var(--paper); color:var(--ink); font-family:Georgia,serif; font-size:15px;
+    margin-bottom:20px;
+  }
+  input.name-input:focus{ outline:none; border-color:var(--forest-2); }
+
+  /* ---------- Question card ---------- */
+  .card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:26px 28px;
+    position:relative;
+  }
+  .card::before{
+    content:"";
+    position:absolute; left:0; top:22px; bottom:22px; width:4px;
+    background:var(--forest);
+  }
+  .q-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--forest-2);
+    margin-bottom:10px;
+  }
+  .q-text{
+    font-size:19px;
+    line-height:1.5;
+    margin:0 0 20px;
+    color:var(--ink);
+  }
+  .options{ display:flex; flex-direction:column; gap:10px; }
+  .option{
+    display:flex; align-items:flex-start; gap:12px;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    cursor:pointer;
+    background:var(--paper);
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .option:hover{ border-color:var(--forest-2); }
+  .option.selected{
+    border-color:var(--forest); background:var(--slide);
+  }
+  .option.locked{ cursor:default; }
+  .option .letter{
+    font-family:var(--mono);
+    font-weight:bold;
+    width:20px; flex:0 0 20px;
+    color:var(--forest-2);
+  }
+  .option .opt-text{ font-size:16px; line-height:1.4; }
+
+  .option.correct{ border-color:#2f7a4f; background:#e3f3e8; }
+  .option.correct .letter{ color:#2f7a4f; }
+  .option.incorrect{ border-color:var(--coral); background:#fbe9e5; }
+  .option.incorrect .letter{ color:var(--coral); }
+
+  .card-footer{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:24px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+  }
+  .hint-text{ font-family:var(--mono); font-size:12px; color:#5c6f65; }
+  button{
+    font-family: var(--mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:11px 18px;
+    border-radius:2px;
+    border:1px solid var(--forest);
+    background:var(--paper-2);
+    color:var(--forest);
+    cursor:pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  button:hover{ background:var(--forest); color:#fff; }
+  button:disabled{ opacity:.35; cursor:not-allowed; }
+  button.primary{ background:var(--forest); color:#fff; }
+  button.primary:hover{ background:var(--forest-2); }
+  button.full{ width:100%; }
+
+  /* ---------- Navigator ---------- */
+  .navigator{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:16px;
+    align-self:start;
+    position:sticky;
+    top:16px;
+  }
+  .nav-title{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--forest-2);
+    margin-bottom:10px;
+  }
+  .nav-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:6px;
+  }
+  .nav-cell{
+    aspect-ratio:1;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:11px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .nav-cell.answered{ background:var(--slide); border-color:var(--forest-2); color:var(--forest-2); }
+  .nav-cell.wrong-cell{ background:#fbe9e5; border-color:var(--coral); color:var(--coral); }
+  .nav-cell.current{ outline:2px solid var(--amber); outline-offset:1px; }
+  .nav-legend{ margin-top:12px; font-size:11px; font-family:var(--mono); color:#5c6f65; line-height:1.7;}
+  .nav-legend span{ display:inline-block; width:10px; height:10px; margin-right:6px; vertical-align:middle; border:1px solid var(--line);}
+  .swatch-a{ background:var(--slide); border-color:var(--forest-2) !important; }
+  .swatch-u{ background:var(--paper); }
+  .section-divider{
+    font-family:var(--mono);
+    font-size:10px;
+    color:#5c6f65;
+    text-align:center;
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+  }
+
+  /* ---------- Results ---------- */
+  .results-summary{
+    background:var(--forest);
+    color:#eef4ee;
+    border-radius:3px;
+    padding:30px 28px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+    margin-bottom:26px;
+  }
+  .score-big{ font-size:52px; font-family:var(--mono); color:#f3d9ad; line-height:1; }
+  .score-sub{ font-size:13px; color:#c7dccf; margin-top:4px; font-family:var(--mono); letter-spacing:.05em;}
+  .stat-block{ text-align:right; }
+  .stat-row{ font-family:var(--mono); font-size:13px; margin:2px 0; }
+  .stat-row b{ color:#f3d9ad; }
+
+  .review-item{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-left:4px solid var(--line);
+    border-radius:3px;
+    padding:18px 20px;
+    margin-bottom:12px;
+  }
+  .review-item.ok{ border-left-color:#2f7a4f; }
+  .review-item.bad{ border-left-color:var(--coral); }
+  .review-item.skip{ border-left-color:#9a9a8f; }
+  .review-q{ font-size:15.5px; margin-bottom:10px; }
+  .review-tag{ font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px; }
+  .review-tag.ok{ color:#2f7a4f; }
+  .review-tag.bad{ color:var(--coral); }
+  .review-tag.skip{ color:#8a8a7f; }
+  .review-line{ font-size:13.5px; margin:3px 0; font-family:var(--mono); }
+  .review-line b{ font-family:Georgia, serif; }
+
+  details.review-toggle{ margin:22px 0 30px; }
+  details.review-toggle summary{
+    cursor:pointer; font-family:var(--mono); font-size:12px; text-transform:uppercase;
+    letter-spacing:.1em; color:var(--forest-2); padding:12px 0; border-top:1px dashed var(--line); border-bottom:1px dashed var(--line);
+  }
+
+  .actions-row{ display:flex; gap:12px; justify-content:center; margin:26px 0 6px; flex-wrap:wrap; }
+
+  /* ---------- Certificate ---------- */
+  .cert-shell{ margin:30px 0; }
+  .cert{
+    position:relative;
+    background:
+      radial-gradient(700px 300px at 15% 0%, #dff0e6 0%, transparent 55%),
+      var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:44px 36px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .cert::before{
+    content:"";
+    position:absolute; inset:9px;
+    border:1.5px solid var(--amber);
+    border-radius:2px;
+    pointer-events:none;
+  }
+  .cert-eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--forest-2); margin-bottom:14px;
+  }
+  .cert-title{ font-size:28px; font-weight:400; color:var(--forest); margin-bottom:6px; }
+  .cert-title em{ font-style:italic; color:var(--amber); }
+  .cert-sub{ font-family:var(--mono); font-size:12px; color:#5c6f65; margin-bottom:26px; letter-spacing:.04em; }
+  .cert-presented{ font-family:var(--mono); font-size:12px; color:#5c6f65; letter-spacing:.1em; text-transform:uppercase; }
+  .cert-name{
+    font-size:32px; color:var(--forest); margin:14px 0 18px; padding-bottom:12px;
+    border-bottom:1.5px solid var(--line); display:inline-block; min-width:280px;
+  }
+  .cert-body{ font-size:14.5px; color:#33473d; max-width:520px; margin:0 auto 26px; line-height:1.75; }
+  .cert-meta{ display:flex; justify-content:center; gap:40px; margin-top:20px; flex-wrap:wrap; }
+  .cert-meta-item{ text-align:center; }
+  .cert-meta-item .m-label{ font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:#5c6f65; }
+  .cert-meta-item .m-value{ font-family:var(--mono); font-size:17px; font-weight:bold; color:var(--forest-2); margin-top:4px; }
+  .cert-brand{ margin-top:30px; font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:#5c6f65; }
+  .cert-brand b{ color:var(--forest); }
+
+  footer{
+    text-align:center;
+    font-family:var(--mono);
+    font-size:11px;
+    color:#7b8d81;
+    padding:24px;
+  }
+
+  @media print{
+    body *{ visibility:hidden; }
+    .cert, .cert *{ visibility:visible; }
+    .cert{ position:absolute; top:0; left:0; width:100%; border:none; }
+    header, .progress-outer, .actions-row, footer, details.review-toggle, .results-summary{ display:none !important; }
+  }
+
+  @media (max-width:520px){
+    .stat-strip{ grid-template-columns:repeat(2,1fr); }
+    .cert-name{ min-width:0; font-size:24px; }
+    .cert-meta{ gap:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand-label">Exam Prep Point · MDCAT 2026 Syllabus · 1st Year Chemistry</div>
+    <h1>Chemical Kinetics — <em> Test</em></h1>
+    <div class="meta-line">60 MCQs · 60 Marks · 1 Minute per Question &nbsp;|&nbsp; Section A: Rate Laws &amp; Order (Q1–30) · Section B: Collision Theory, Arrhenius &amp; Catalysis (Q31–60)</div>
+  </div>
+  <div class="timer-box">
+    <div class="tlabel">Time Left · This Question</div>
+    <div class="tval utility" id="timerDisplay">01:00</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- START VIEW -->
+  <div id="startView">
+    <div class="start-card">
+      <h2>Ready to test your Chemical Kinetics concepts?</h2>
+      <p>This test covers the complete <b>Chemical Kinetics</b> chapter of 1st Year Chemistry — rate of reaction, rate law, order &amp; molecularity, integrated rate equations, collision theory, activation energy, the Arrhenius equation and catalysis — built for MDCAT 2026 aspirants.</p>
+
+      <div class="stat-strip">
+        <div class="stat-item"><div class="snum">60</div><div class="slabel">Questions</div></div>
+        <div class="stat-item"><div class="snum">60</div><div class="slabel">Marks</div></div>
+        <div class="stat-item"><div class="snum">60</div><div class="slabel">Minutes Total</div></div>
+        <div class="stat-item"><div class="snum">01:00</div><div class="slabel">Per Question</div></div>
+      </div>
+
+      <div class="rules-box">
+        <h3>Before you begin</h3>
+        <ul>
+          <li>Each question has a strict 60-second timer — it auto-locks and moves to the next question when time runs out.</li>
+          <li>Each correct answer is worth 1 mark. There is no negative marking.</li>
+          <li>Once you select an option (or the timer ends), that question is locked and cannot be changed.</li>
+          <li>Do not refresh the page mid-test, or your progress will be lost.</li>
+          <li>On finishing, you'll get your score, a full answer review, and a downloadable certificate.</li>
+        </ul>
+      </div>
+
+      <label class="field-label" for="studentName">Enter your name (for your certificate)</label>
+      <input type="text" id="studentName" class="name-input" placeholder="e.g. Muhammad Ahmad" maxlength="40">
+
+      <button class="primary full" id="startBtn">Begin Live Test →</button>
+    </div>
+  </div>
+
+  <!-- TEST VIEW -->
+  <div id="testView" class="layout hidden">
+    <div>
+      <div class="progress-outer"><div class="progress-inner" id="progressBar"></div></div>
+      <div class="card">
+        <div class="q-tag" id="qTag">SECTION A · QUESTION 1 OF 60</div>
+        <p class="q-text" id="qText"></p>
+        <div class="options" id="optionsBox"></div>
+        <div class="card-footer">
+          <span class="hint-text" id="hintText">Select an option to continue</span>
+          <button id="nextBtn" class="primary" disabled>Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigator">
+      <div class="nav-title">Question Map</div>
+      <div class="nav-grid" id="navGrid"></div>
+      <div class="nav-legend">
+        <div><span class="swatch-a"></span>Answered</div>
+        <div><span class="swatch-u"></span>Pending</div>
+      </div>
+      <div class="section-divider">1–30 SECTION A · 31–60 SECTION B</div>
+    </div>
+  </div>
+
+  <!-- RESULTS VIEW -->
+  <div id="resultsView" class="hidden">
+    <div class="results-summary">
+      <div>
+        <div class="score-big" id="finalScore">0/60</div>
+        <div class="score-sub" id="finalPercent">0% SCORE</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-row">Correct: <b id="statCorrect">0</b></div>
+        <div class="stat-row">Incorrect: <b id="statIncorrect">0</b></div>
+        <div class="stat-row">Timed Out: <b id="statSkipped">0</b></div>
+      </div>
+    </div>
+
+    <details class="review-toggle">
+      <summary>View Full Answer Review (60 Questions) ▾</summary>
+      <div id="reviewList" style="margin-top:16px;"></div>
+    </details>
+
+    <div class="cert-shell">
+      <div class="cert" id="certificateBox">
+        <div class="cert-eyebrow">Certificate of Completion</div>
+        <div class="cert-title">Chemical Kinetics <em>Live Test</em></div>
+        <div class="cert-sub">MDCAT 2026 SYLLABUS · 1ST YEAR CHEMISTRY</div>
+        <div class="cert-presented">This certifies that</div>
+        <div class="cert-name" id="certName">Student Name</div>
+        <div class="cert-body">has successfully completed the 60-question Chemical Kinetics MCQ test conducted by <b>Exam Prep Point</b> as part of MDCAT 2026 preparation, demonstrating dedicated effort towards exam readiness.</div>
+        <div class="cert-meta">
+          <div class="cert-meta-item"><div class="m-label">Score</div><div class="m-value" id="certScore">0 / 60</div></div>
+          <div class="cert-meta-item"><div class="m-label">Percentage</div><div class="m-value" id="certPercent">0%</div></div>
+          <div class="cert-meta-item"><div class="m-label">Date</div><div class="m-value" id="certDate">--</div></div>
+        </div>
+        <div class="cert-brand"><b>Exam Prep Point</b> — MDCAT 2026 Preparation Series</div>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <button id="printBtn">🖨 Download / Print Certificate</button>
+      <button class="primary" id="retakeBtn">Retake Test</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>Exam Prep Point — Chemical Kinetics Test, compiled as per the MDCAT 2026 syllabus </footer>
+
+<script>
+/* ============================================================
+   QUESTION BANK — 60 items
+   Format: [ "Section", "question text", ["optA","optB","optC","optD"], correctIndex(0-3) ]
+   ============================================================ */
+const QUESTIONS = [
+["A","Chemical kinetics is the branch of chemistry that deals with:",
+ ["Energy changes in reactions","Rate of reactions and their mechanisms","Structure of molecules","Equilibrium constants only"],1],
+["A","The rate of a chemical reaction is defined as the:",
+ ["Time taken to complete the reaction","Change in concentration of reactant or product per unit time","Total energy released during reaction","Number of molecules reacting"],1],
+["A","Which of the following does NOT generally affect the rate of a reaction?",
+ ["Concentration of reactants","Temperature","Colour of the reaction vessel","Presence of a catalyst"],2],
+["A","Increasing the concentration of reactants generally:",
+ ["Decreases the rate of reaction","Increases the rate of reaction","Has no effect on rate","Stops the reaction"],1],
+["A","Increasing the temperature of a reaction mixture generally:",
+ ["Decreases the rate of reaction","Has no effect on rate","Increases the rate of reaction","Only affects endothermic reactions"],2],
+["A","A catalyst increases the rate of a reaction mainly by:",
+ ["Increasing the temperature of reactants","Lowering the activation energy of the reaction","Increasing the concentration of reactants","Shifting the equilibrium position"],1],
+["A","According to collision theory, the rate of reaction is directly related to:",
+ ["The number of effective collisions per unit time","The colour of the reactants","The volume of the container","The molar mass of reactants"],0],
+["A","The rate of reaction at a particular instant of time is called the:",
+ ["Average rate","Instantaneous rate","Initial rate","Final rate"],1],
+["A","The average rate of reaction is calculated as:",
+ ["The rate at t = 0 only","Total change in concentration divided by the time interval","The slope of the tangent at one point","The rate at equilibrium"],1],
+["A","The rate law of a reaction expresses the rate as a function of:",
+ ["Temperature only","The concentrations of reactants raised to appropriate powers","The volume of the container","The enthalpy change of reaction"],1],
+["A","In the rate law, rate = k[A]^m[B]^n, the exponents m and n are:",
+ ["Always equal to the stoichiometric coefficients","Determined experimentally, not from the balanced equation","Always whole numbers greater than 2","Equal to the molecularity of the reaction"],1],
+["A","The overall order of a reaction is equal to:",
+ ["The number of reactants only","The sum of the exponents in the rate law","The molecularity of the slowest step","The number of products formed"],1],
+["A","Molecularity of a reaction is defined as:",
+ ["The number of reacting species taking part in an elementary step","The sum of exponents in the rate law","The rate constant of the reaction","The number of moles of product formed"],0],
+["A","Unlike order of reaction, molecularity of a reaction can never be:",
+ ["One","Two","Zero or fractional","Three"],2],
+["A","For a zero order reaction, the rate of reaction is:",
+ ["Directly proportional to concentration","Independent of the concentration of reactants","Inversely proportional to concentration","Proportional to the square of concentration"],1],
+["A","The unit of rate constant for a zero order reaction is:",
+ ["s⁻¹","mol dm⁻³ s⁻¹","dm³ mol⁻¹ s⁻¹","mol² dm⁻⁶ s⁻¹"],1],
+["A","The unit of rate constant for a first order reaction is:",
+ ["mol dm⁻³ s⁻¹","s⁻¹","dm³ mol⁻¹ s⁻¹","mol⁻¹ s"],1],
+["A","The unit of rate constant for a second order reaction is:",
+ ["s⁻¹","mol dm⁻³ s⁻¹","dm³ mol⁻¹ s⁻¹","mol dm³ s"],2],
+["A","The half-life of a first order reaction is:",
+ ["Directly proportional to initial concentration","Independent of the initial concentration","Inversely proportional to the square of initial concentration","Equal to the rate constant"],1],
+["A","The half-life of a first order reaction is given by:",
+ ["t½ = 0.693/k","t½ = k/0.693","t½ = [A]₀/2k","t½ = 1/(k[A]₀)"],0],
+["A","For a zero order reaction, the half-life is given by:",
+ ["t½ = 0.693/k","t½ = [A]₀ / 2k","t½ = 1/(k[A]₀)","t½ is independent of initial concentration"],1],
+["A","The integrated rate equation for a first order reaction is:",
+ ["[A] = [A]₀ − kt","ln[A] = ln[A]₀ − kt","1/[A] = 1/[A]₀ + kt","[A] = [A]₀ + kt"],1],
+["A","A reaction whose rate depends on the square of the concentration of a single reactant is of:",
+ ["Zero order","First order","Second order","Third order"],2],
+["A","If doubling the concentration of a reactant doubles the rate of reaction, the reaction is:",
+ ["Zero order with respect to that reactant","First order with respect to that reactant","Second order with respect to that reactant","Third order with respect to that reactant"],1],
+["A","If doubling the concentration of a reactant has no effect on the rate, the order with respect to that reactant is:",
+ ["Zero","One","Two","Negative"],0],
+["A","If doubling the concentration of a reactant quadruples the rate, the order with respect to that reactant is:",
+ ["Zero","One","Two","Three"],2],
+["A","The rate-determining step of a multistep reaction is:",
+ ["The fastest step in the mechanism","The slowest step in the mechanism","The first step always","The last step always"],1],
+["A","An elementary reaction is one that:",
+ ["Involves more than one intermediate","Occurs in a single step exactly as written by the equation","Always has zero order","Cannot be reversible"],1],
+["A","A complex (multistep) reaction proceeds through:",
+ ["A single collision only","A series of elementary steps called a mechanism","Only physical changes","Simultaneous formation of all products"],1],
+["A","The order of a reaction is generally determined:",
+ ["From the balanced chemical equation directly","Experimentally, from rate data","From the molecularity of the reaction","From the enthalpy of reaction"],1],
+["B","According to collision theory, a reaction occurs when reacting molecules:",
+ ["Simply come close to each other","Collide with sufficient energy and proper orientation","Are heated to boiling point","Are placed in the same container"],1],
+["B","The minimum energy that reacting molecules must possess to react is called:",
+ ["Bond energy","Activation energy","Internal energy","Free energy"],1],
+["B","Activation energy is the energy difference between the reactants and the:",
+ ["Products","Surroundings","Activated complex (transition state)","Catalyst"],2],
+["B","The unstable, high-energy species formed momentarily during a reaction is called the:",
+ ["Intermediate product","Activated complex or transition state","Catalyst complex","Final product"],1],
+["B","The Arrhenius equation is written as:",
+ ["k = A e^(−Ea/RT)","k = A e^(+Ea/RT)","k = Ea/AT","k = A + Ea/RT"],0],
+["B","In the Arrhenius equation, the term \"A\" represents the:",
+ ["Activation energy","Frequency (pre-exponential) factor","Rate of reaction","Gas constant"],1],
+["B","As temperature increases, the rate constant k of a reaction generally:",
+ ["Decreases","Remains constant","Increases","Becomes zero"],2],
+["B","A catalyst increases the rate of reaction by:",
+ ["Increasing the activation energy","Providing an alternate pathway with lower activation energy","Increasing the temperature of reactants","Shifting the position of equilibrium"],1],
+["B","A catalyst does NOT affect the:",
+ ["Rate of the forward reaction","Rate of the backward reaction","Position of equilibrium or overall enthalpy change","Activation energy"],2],
+["B","A catalyst that exists in the same phase as the reactants is called a:",
+ ["Heterogeneous catalyst","Homogeneous catalyst","Negative catalyst","Auto-catalyst"],1],
+["B","A catalyst that exists in a different phase from the reactants is called a:",
+ ["Homogeneous catalyst","Heterogeneous catalyst","Enzyme","Inhibitor"],1],
+["B","Enzymes, the biological catalysts, are typically made of:",
+ ["Carbohydrates","Lipids","Proteins","Nucleic acids"],2],
+["B","As a rough rule of thumb, the temperature coefficient of most reactions is approximately:",
+ ["1","2","5","10"],1],
+["B","According to the rule of thumb, a 10°C rise in temperature approximately:",
+ ["Halves the reaction rate","Doubles the reaction rate","Has no effect on rate","Triples the rate constant"],1],
+["B","Increasing the surface area of a solid reactant generally:",
+ ["Decreases the rate of reaction","Increases the rate of reaction","Has no effect on rate","Stops the reaction completely"],1],
+["B","Powdered reactants generally react faster than large lumps of the same mass because of:",
+ ["Lower activation energy","Increased surface area exposed to reaction","Lower temperature","Reduced concentration"],1],
+["B","On an energy profile diagram for an exothermic reaction, the products are shown at:",
+ ["Higher energy than the reactants","The same energy as the reactants","Lower energy than the reactants","Infinite energy"],2],
+["B","In an energy profile diagram, the activation energy is represented by the height from the:",
+ ["Products to the top of the energy hump","Reactants to the top of the energy hump (activated complex)","Reactants directly to the products","X-axis to the reactants"],1],
+["B","For an exothermic reaction, the activation energy of the forward reaction is:",
+ ["Equal to that of the backward reaction","Greater than that of the backward reaction","Less than that of the backward reaction","Always zero"],2],
+["B","For an endothermic reaction, the activation energy of the forward reaction is:",
+ ["Less than that of the backward reaction","Greater than that of the backward reaction","Equal to that of the backward reaction","Independent of the backward reaction"],1],
+["B","A negative catalyst (inhibitor) affects the rate of a reaction by:",
+ ["Increasing the rate of reaction","Decreasing the rate of reaction","Having no effect at all","Doubling the rate constant"],1],
+["B","The rate constant (k) of a reaction is primarily affected by changes in:",
+ ["Concentration of reactants","Temperature","Volume of the container","Pressure of an inert gas"],1],
+["B","According to collision theory, not all molecular collisions lead to a reaction because:",
+ ["All molecules always have identical energy","Some collisions lack sufficient energy or proper orientation","Products cannot form from collisions","Reactant molecules never collide"],1],
+["B","For reactions involving gases, increasing the pressure generally increases the rate because it:",
+ ["Decreases the temperature","Increases the concentration of gaseous reactants","Decreases activation energy directly","Removes the catalyst"],1],
+["B","Photochemical reactions are initiated mainly by:",
+ ["Heat only","Light (photons)","Pressure changes","Catalysts only"],1],
+["B","Radioactive decay is a classic example of a reaction that follows:",
+ ["Zero order kinetics","First order kinetics","Second order kinetics","Third order kinetics"],1],
+["B","A plot of ln[A] versus time for a first order reaction gives:",
+ ["A curve with increasing slope","A straight line with a negative slope","A straight line with a positive slope","A horizontal straight line"],1],
+["B","A plot of 1/[A] versus time for a second order reaction gives:",
+ ["A curved, exponential graph","A straight line","A horizontal line","No definite pattern"],1],
+["B","A plot of [A] versus time for a zero order reaction gives:",
+ ["A straight line with a negative slope","An exponential decay curve","A straight line with a positive slope","A parabola"],0],
+["B","Studying chemical kinetics is important in industry mainly because it helps to:",
+ ["Determine the colour of products","Determine optimum conditions to control and speed up reactions","Calculate the molecular weight of reactants","Predict the boiling point of products"],1]
+];
+
+console.assert(QUESTIONS.length === 60, "Expected 60 questions, got " + QUESTIONS.length);
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let current = 0;
+const answers = new Array(QUESTIONS.length).fill(null); // selected index or null
+const statusArr = new Array(QUESTIONS.length).fill(null); // 'ok' | 'bad' | 'skip'
+let studentName = "Student";
+let locked = false;
+let questionTimer = null;
+let secondsLeft = 60;
+const PER_Q_TIME = 60;
+
+/* ============================================================
+   ELEMENTS
+   ============================================================ */
+const startView = document.getElementById('startView');
+const testView = document.getElementById('testView');
+const resultsView = document.getElementById('resultsView');
+const nameInput = document.getElementById('studentName');
+const startBtn = document.getElementById('startBtn');
+
+const qTag = document.getElementById('qTag');
+const qText = document.getElementById('qText');
+const optionsBox = document.getElementById('optionsBox');
+const nextBtn = document.getElementById('nextBtn');
+const hintText = document.getElementById('hintText');
+const navGrid = document.getElementById('navGrid');
+const progressBar = document.getElementById('progressBar');
+const timerDisplay = document.getElementById('timerDisplay');
+
+/* ============================================================
+   START
+   ============================================================ */
+startBtn.addEventListener('click', () => {
+  const val = nameInput.value.trim();
+  studentName = val.length ? val : "Student";
+  startView.classList.add('hidden');
+  testView.classList.remove('hidden');
+  buildNav();
+  render();
+  startTimer();
+});
+
+/* ============================================================
+   BUILD NAV GRID (status indicator only, not clickable)
+   ============================================================ */
+function buildNav(){
+  navGrid.innerHTML = '';
+  QUESTIONS.forEach((q, i) => {
+    const cell = document.createElement('div');
+    cell.className = 'nav-cell';
+    cell.textContent = i + 1;
+    cell.id = 'nav-' + i;
+    navGrid.appendChild(cell);
+  });
+}
+function updateNav(){
+  QUESTIONS.forEach((q, i) => {
+    const cell = document.getElementById('nav-' + i);
+    cell.classList.toggle('answered', statusArr[i] === 'ok' || statusArr[i] === 'bad');
+    cell.classList.toggle('wrong-cell', statusArr[i] === 'bad');
+    cell.classList.toggle('current', i === current);
+  });
+}
+
+/* ============================================================
+   RENDER QUESTION
+   ============================================================ */
+function render(){
+  locked = false;
+  const [section, text, opts, correctIdx] = QUESTIONS[current];
+  const sectionName = section === 'A' ? 'Section A' : 'Section B';
+  qTag.textContent = `${sectionName.toUpperCase()} · QUESTION ${current + 1} OF ${QUESTIONS.length}`;
+  qText.textContent = text;
+
+  optionsBox.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  opts.forEach((opt, idx) => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    div.innerHTML = `<span class="letter utility">${letters[idx]}</span><span class="opt-text">${opt}</span>`;
+    div.addEventListener('click', () => selectOption(idx));
+    optionsBox.appendChild(div);
+  });
+
+  nextBtn.disabled = true;
+  hintText.textContent = "Select an option to continue";
+  nextBtn.textContent = current === QUESTIONS.length - 1 ? 'Finish Test →' : 'Next →';
+
+  progressBar.style.width = (current / QUESTIONS.length * 100) + '%';
+  updateNav();
+}
+
+/* ============================================================
+   TIMER (per question, 60 seconds)
+   ============================================================ */
+function formatTime(s){
+  const m = Math.floor(s / 60).toString().padStart(2,'0');
+  const sec = (s % 60).toString().padStart(2,'0');
+  return `${m}:${sec}`;
+}
+function startTimer(){
+  clearInterval(questionTimer);
+  secondsLeft = PER_Q_TIME;
+  timerDisplay.textContent = formatTime(secondsLeft);
+  timerDisplay.classList.remove('low');
+  questionTimer = setInterval(() => {
+    secondsLeft--;
+    timerDisplay.textContent = formatTime(Math.max(secondsLeft,0));
+    timerDisplay.classList.toggle('low', secondsLeft <= 15);
+    if (secondsLeft <= 0){
+      clearInterval(questionTimer);
+      if(!locked){
+        statusArr[current] = 'skip';
+        lockOptions(-1);
+        hintText.textContent = "Time's up! Moving to next question...";
+        nextBtn.disabled = false;
+        updateNav();
+        setTimeout(goNext, 900);
+      }
+    }
+  }, 1000);
+}
+
+/* ============================================================
+   SELECT OPTION
+   ============================================================ */
+function selectOption(idx){
+  if(locked) return;
+  locked = true;
+  clearInterval(questionTimer);
+  const [, , opts, correctIdx] = QUESTIONS[current];
+  answers[current] = idx;
+  statusArr[current] = (idx === correctIdx) ? 'ok' : 'bad';
+  lockOptions(idx);
+  hintText.textContent = (idx === correctIdx) ? "Correct!" : "Incorrect.";
+  nextBtn.disabled = false;
+  updateNav();
+}
+
+function lockOptions(selectedIdx){
+  const [, , opts, correctIdx] = QUESTIONS[current];
+  const els = optionsBox.querySelectorAll('.option');
+  els.forEach((el, idx) => {
+    el.classList.add('locked');
+    if(idx === correctIdx) el.classList.add('correct');
+    if(idx === selectedIdx && idx !== correctIdx) el.classList.add('incorrect');
+    if(idx === selectedIdx) el.classList.add('selected');
+  });
+}
+
+/* ============================================================
+   NEXT
+   ============================================================ */
+nextBtn.addEventListener('click', goNext);
+function goNext(){
+  clearInterval(questionTimer);
+  if(current < QUESTIONS.length - 1){
+    current++;
+    render();
+    startTimer();
+  } else {
+    finishTest();
+  }
+}
+
+/* ============================================================
+   FINISH / RESULTS / CERTIFICATE
+   ============================================================ */
+function finishTest(){
+  clearInterval(questionTimer);
+  progressBar.style.width = '100%';
+
+  let correctCount = 0, incorrectCount = 0, skippedCount = 0;
+  const reviewList = document.getElementById('reviewList');
+  reviewList.innerHTML = '';
+  const letters = ['A','B','C','D'];
+
+  QUESTIONS.forEach((q, i) => {
+    const [section, text, opts, correctIdx] = q;
+    const status = statusArr[i] || 'skip';
+    const userAns = answers[i];
+    if(status === 'ok') correctCount++;
+    else if(status === 'bad') incorrectCount++;
+    else skippedCount++;
+
+    const item = document.createElement('div');
+    item.className = 'review-item ' + status;
+    const tagText = status === 'ok' ? 'Correct' : (status === 'bad' ? 'Incorrect' : 'Timed Out');
+    let lines = `<div class="review-tag ${status}">Q${i+1} · Section ${section} · ${tagText}</div>
+                 <div class="review-q"><b>${i+1}.</b> ${text}</div>`;
+    if(status !== 'ok'){
+      lines += `<div class="review-line">Correct answer: <b>${letters[correctIdx]}. ${opts[correctIdx]}</b></div>`;
+    }
+    if(userAns !== null){
+      lines += `<div class="review-line">Your answer: <b>${letters[userAns]}. ${opts[userAns]}</b></div>`;
+    }
+    item.innerHTML = lines;
+    reviewList.appendChild(item);
+  });
+
+  const total = QUESTIONS.length;
+  const pct = Math.round((correctCount / total) * 100);
+  document.getElementById('finalScore').textContent = `${correctCount}/${total}`;
+  document.getElementById('finalPercent').textContent = `${pct}% SCORE`;
+  document.getElementById('statCorrect').textContent = correctCount;
+  document.getElementById('statIncorrect').textContent = incorrectCount;
+  document.getElementById('statSkipped').textContent = skippedCount;
+
+  document.getElementById('certName').textContent = studentName;
+  document.getElementById('certScore').textContent = `${correctCount} / ${total}`;
+  document.getElementById('certPercent').textContent = `${pct}%`;
+  const today = new Date();
+  document.getElementById('certDate').textContent = today.toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
+
+  testView.classList.add('hidden');
+  resultsView.classList.remove('hidden');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('retakeBtn').addEventListener('click', () => window.location.reload());
+</script>
+
+</body>
+</html>
