@@ -14,6 +14,10 @@
 
   <style>
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -27,29 +31,86 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 15px;
+    }
+
+    header strong {
+      font-size: 18px;
     }
 
     .container {
       padding: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .welcome {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 {
+      margin: 0 0 10px;
+    }
+
+    #adminEmail {
+      color: #9ca3af;
+      margin: 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+    }
+
+    .section-title h2 {
+      margin: 0;
     }
 
     .cards {
       display: grid;
       grid-template-columns:
-        repeat(auto-fit, minmax(150px, 1fr));
+        repeat(auto-fit, minmax(220px, 1fr));
 
       gap: 15px;
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     .card {
       background: #111827;
-      padding: 25px;
+      padding: 22px;
       border-radius: 12px;
+      border: 1px solid #1f2937;
     }
 
     .card h2 {
       margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .subject-card {
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-3px);
+      border-color: #2563eb;
+    }
+
+    .subject-order {
+      color: #60a5fa;
+      font-size: 13px;
+      margin-bottom: 8px;
     }
 
     button {
@@ -61,6 +122,39 @@
       cursor: pointer;
     }
 
+    button:hover {
+      background: #b91c1c;
+    }
+
+    #subjectsMessage {
+      color: #9ca3af;
+      padding: 20px 0;
+    }
+
+    .error {
+      color: #f87171 !important;
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 15px;
+      }
+
+      header strong {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .welcome {
+        padding: 18px;
+      }
+
+    }
+
   </style>
 
 </head>
@@ -70,7 +164,9 @@
 
   <header>
 
-    <strong>Exam Prep Point CMS</strong>
+    <strong>
+      Exam Prep Point CMS
+    </strong>
 
     <button id="logoutBtn">
       Logout
@@ -81,31 +177,106 @@
 
   <div class="container">
 
-    <h1>Admin Dashboard</h1>
+    <div class="welcome">
 
-    <p id="adminEmail"></p>
+      <h1>
+        Admin Dashboard
+      </h1>
+
+      <p id="adminEmail">
+        Checking login...
+      </p>
+
+    </div>
+
+
+    <!-- SUBJECTS -->
+
+    <div class="section-title">
+
+      <h2>
+        📚 Subjects
+      </h2>
+
+    </div>
+
+
+    <div
+      id="subjectsMessage"
+    >
+      Loading subjects...
+    </div>
+
+
+    <div
+      id="subjectsContainer"
+      class="cards"
+    >
+    </div>
+
+
+    <!-- OTHER CMS MODULES -->
+
+    <div class="section-title">
+
+      <h2>
+        CMS Modules
+      </h2>
+
+    </div>
 
 
     <div class="cards">
 
       <div class="card">
-        <h2>📚 Subjects</h2>
-        <p>Manage Biology, Chemistry, Physics etc.</p>
+
+        <h2>
+          📖 Chapters
+        </h2>
+
+        <p>
+          Manage chapters and units.
+        </p>
+
       </div>
 
-      <div class="card">
-        <h2>📖 Chapters</h2>
-        <p>Manage chapters and units.</p>
-      </div>
 
       <div class="card">
-        <h2>📝 Tests</h2>
-        <p>Manage chapter and mock tests.</p>
+
+        <h2>
+          📝 Tests
+        </h2>
+
+        <p>
+          Manage chapter and mock tests.
+        </p>
+
       </div>
 
+
       <div class="card">
-        <h2>❓ MCQs</h2>
-        <p>Manage questions and answers.</p>
+
+        <h2>
+          ❓ MCQs
+        </h2>
+
+        <p>
+          Manage questions and answers.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h2>
+          📄 Notes / PDFs
+        </h2>
+
+        <p>
+          Manage notes and study resources.
+        </p>
+
       </div>
 
     </div>
@@ -115,9 +286,19 @@
 
   <script type="module">
 
+    /* ================================
+       FIREBASE CONFIG
+    ================================= */
+
     import {
-      auth
+      auth,
+      db
     } from "./firebase-config.js";
+
+
+    /* ================================
+       FIREBASE AUTH
+    ================================= */
 
     import {
       onAuthStateChanged,
@@ -125,11 +306,40 @@
     } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
+    /* ================================
+       FIRESTORE
+    ================================= */
+
+    import {
+      collection,
+      getDocs,
+      orderBy,
+      query
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+    /* ================================
+       HTML ELEMENTS
+    ================================= */
+
     const adminEmail =
       document.getElementById("adminEmail");
 
+    const subjectsContainer =
+      document.getElementById("subjectsContainer");
 
-    onAuthStateChanged(auth, (user) => {
+    const subjectsMessage =
+      document.getElementById("subjectsMessage");
+
+    const logoutBtn =
+      document.getElementById("logoutBtn");
+
+
+    /* ================================
+       CHECK ADMIN LOGIN
+    ================================= */
+
+    onAuthStateChanged(auth, async (user) => {
 
       if (!user) {
 
@@ -139,24 +349,148 @@
 
       }
 
+
       adminEmail.textContent =
         "Logged in as: " + user.email;
+
+
+      /* Load Firestore subjects */
+
+      await loadSubjects();
 
     });
 
 
-    document
-      .getElementById("logoutBtn")
-      .addEventListener("click", async () => {
+    /* ================================
+       LOAD SUBJECTS FROM FIRESTORE
+    ================================= */
 
-        await signOut(auth);
+    async function loadSubjects() {
 
-        window.location.href = "login.html";
+      try {
 
-      });
+        subjectsMessage.textContent =
+          "Loading subjects...";
+
+
+        const subjectsRef =
+          collection(db, "subjects");
+
+
+        const subjectsQuery =
+          query(
+            subjectsRef,
+            orderBy("order", "asc")
+          );
+
+
+        const snapshot =
+          await getDocs(subjectsQuery);
+
+
+        subjectsContainer.innerHTML = "";
+
+
+        if (snapshot.empty) {
+
+          subjectsMessage.textContent =
+            "No subjects found.";
+
+          return;
+
+        }
+
+
+        snapshot.forEach((doc) => {
+
+          const subject =
+            doc.data();
+
+
+          const card =
+            document.createElement("div");
+
+
+          card.className =
+            "card subject-card";
+
+
+          card.innerHTML = `
+
+            <div class="subject-order">
+              Subject ${subject.order}
+            </div>
+
+            <h2>
+              📚 ${subject.name}
+            </h2>
+
+            <p>
+              Document ID: ${doc.id}
+            </p>
+
+          `;
+
+
+          subjectsContainer.appendChild(card);
+
+        });
+
+
+        subjectsMessage.textContent =
+          "";
+
+
+      } catch (error) {
+
+        console.error(
+          "Error loading subjects:",
+          error
+        );
+
+
+        subjectsMessage.textContent =
+          "Unable to load subjects from Firestore.";
+
+
+        subjectsMessage.classList.add(
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* ================================
+       LOGOUT
+    ================================= */
+
+    logoutBtn.addEventListener(
+      "click",
+      async () => {
+
+        try {
+
+          await signOut(auth);
+
+          window.location.href =
+            "login.html";
+
+        } catch (error) {
+
+          console.error(
+            "Logout error:",
+            error
+          );
+
+        }
+
+      }
+    );
 
   </script>
 
 </body>
 
-</html>
+  </html>
