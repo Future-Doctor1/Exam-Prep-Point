@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Admin Dashboard | Exam Prep Point</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: white;
+    }
+
+    header {
+      padding: 20px;
+      background: #111827;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .container {
+      padding: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 7px;
+      background: #dc2626;
+      color: white;
+      cursor: pointer;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <header>
+
+    <strong>Exam Prep Point CMS</strong>
+
+    <button id="logoutBtn">
+      Logout
+    </button>
+
+  </header>
+
+
+  <div class="container">
+
+    <h1>Admin Dashboard</h1>
+
+    <p id="adminEmail"></p>
+
+
+    <div class="cards">
+
+      <div class="card">
+        <h2>📚 Subjects</h2>
+        <p>Manage Biology, Chemistry, Physics etc.</p>
+      </div>
+
+      <div class="card">
+        <h2>📖 Chapters</h2>
+        <p>Manage chapters and units.</p>
+      </div>
+
+      <div class="card">
+        <h2>📝 Tests</h2>
+        <p>Manage chapter and mock tests.</p>
+      </div>
+
+      <div class="card">
+        <h2>❓ MCQs</h2>
+        <p>Manage questions and answers.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script type="module">
+
+    import {
+      auth
+    } from "../firebase-config.js";
+
+    import {
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+    const adminEmail =
+      document.getElementById("adminEmail");
+
+
+    onAuthStateChanged(auth, (user) => {
+
+      if (!user) {
+
+        window.location.href = "login.html";
+
+        return;
+
+      }
+
+      adminEmail.textContent =
+        "Logged in as: " + user.email;
+
+    });
+
+
+    document
+      .getElementById("logoutBtn")
+      .addEventListener("click", async () => {
+
+        await signOut(auth);
+
+        window.location.href = "login.html";
+
+      });
+
+  </script>
+
+</body>
+
+</html>
